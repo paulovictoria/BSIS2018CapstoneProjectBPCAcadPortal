@@ -1,0 +1,115 @@
+body, html
+{
+  /*background-color: #EDEDED !important;*/
+}
+.circle {
+border-radius:50%;
+margin-left: 2rem;
+margin-top: 15px;
+}
+.rightnav li{
+  font-weight: 400;
+  font-size:1.5rem;
+}
+.container {
+    width: 85%;
+}
+
+.brand-logo {
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+/*Carousel side*/
+.start-bpcap-header-content {
+  padding-top: 100px;
+}
+
+.start-bpcap-header-text {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+/*Section*/
+
+.text-primarycolor {
+  color: #689f38;
+}
+
+.start-paragraph-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+
+}
+
+blockquote {
+margin:20px 0;
+padding-left: 1.5rem;
+border-left: 5px solid #689f38;
+}
+/*sample*/
+/*Image*/
+img.responisve-img {
+  max:width:100%;
+  height: auto;
+}
+
+/*Box side*/
+.event {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.event-date {
+    width: 90px;
+    height: 90px;
+    background-color: #f7f7f7;
+    border: 2px solid #4caf50;
+    text-align: center;
+    padding-top: 13px;
+}
+.event-month {
+    padding-left: 3px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    font-size: 23px;
+    line-height: 23px;
+    width: 100%;
+    font-weight: 500;
+}
+.event-day {
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 40px;
+}
+.event-info {
+  margin-top: 15px;
+}
+
+/*Media Queries*/
+/*Phone*/
+@media (max-width: 480px) {
+.container {
+  width: 90%;
+} 
+
+.start-bpcap-header-content {
+  padding-top: 10px;
+}
+.start-bpcap-header-text {
+    font-size: 20px;
+    font-weight: 200;
+}
+}
+/*Tablet*/
+@media (max-width: 768px) {
+
+}
+/*Desktop*/
+@media (min-width: 1200px) {
+
+}
