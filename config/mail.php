@@ -16,10 +16,8 @@ return [
     |
     */
 
-    'driver' => 'smtp',
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
-
-    
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Address
@@ -31,7 +29,7 @@ return [
     |
     */
 
-    'host' => 'smtp.sparkpostmail.com',
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +42,7 @@ return [
     |
     */
 
-    'port' => 587,
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' =>  'hello@sample.com',
-        'name' => 'Michael',
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
     /*
@@ -73,7 +71,7 @@ return [
     |
     */
 
-    'encryption' =>'tls',
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -86,9 +84,9 @@ return [
     |
     */
 
-    'username' => 'michaelcentenovelayo@yahoo.com',
+    'username' => env('MAIL_USERNAME'),
 
-    'password' => '09069171012',
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -113,10 +111,6 @@ return [
     | of the emails. Or, you may simply stick with the Laravel defaults!
     |
     */
-
-  'sparkpost' => [
-    'secret' => '000bf43d1d708cbbde97df36b1eff848b049185e',
-    ],
 
     'markdown' => [
         'theme' => 'default',
