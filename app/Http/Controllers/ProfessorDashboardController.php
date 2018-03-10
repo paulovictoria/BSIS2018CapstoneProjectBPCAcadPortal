@@ -7,7 +7,7 @@ use Storage;
 use Illuminate\Support\Facades\File;
 use Validator;
 use Response;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\input;
 use App\http\Requests;
 use App\Professor;
 use App\Assign;
@@ -108,7 +108,7 @@ class ProfessorDashboardController extends Controller
 	   	'student_id'=>'required',
 	   	'subject_id'=>'required'
         );
-        $validator = Validator::make (Input::all(), $rules);
+        $validator = Validator::make (input::all(), $rules);
         if($validator->fails())
             return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
         
@@ -131,7 +131,7 @@ class ProfessorDashboardController extends Controller
         'grade'=>'required|integer'
         );
 
-        $validator = Validator::make (Input::all(), $rules);
+        $validator = Validator::make (input::all(), $rules);
         if($validator->fails())
             return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
                
