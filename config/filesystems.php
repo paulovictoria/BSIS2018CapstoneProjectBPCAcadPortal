@@ -50,12 +50,12 @@ return [
 
         'socials' => [
             'driver' => 'local',
-            'root' => storage_path('app')
+            'root' => storage_path('app/socials')
         ],
 
         'profiles' => [
             'driver' => 'local',
-            'root' => storage_path('app')
+            'root' => storage_path('app/profiles')
         ],
         'files'=>[
             'driver' => 'local',
