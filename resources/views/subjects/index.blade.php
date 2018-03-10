@@ -47,7 +47,7 @@
                     </div>
     </div>
     <div class="modal-footer">
-            <input type="hidden" name="subject_id" id="subject_id" value="" />
+            <input type="hidden" name="subjt_id" id="subjt_id" value="" />
             <input type="hidden" name="button_action" id="button_action" value="insert" />
              <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />            
     </div>
