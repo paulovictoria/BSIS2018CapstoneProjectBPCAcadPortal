@@ -32,6 +32,27 @@
 		</div>
 	</div>	
 </div>
+  <div id="subj_modal" class="modal bottom-sheet">
+  	  <form method="post" id="student_form">
+    <div class="modal-content">
+                 {{csrf_field()}}
+                    <span id="form_output"></span>
+                    <div class="form-group">
+                        <label>Enter First Name</label>
+                        <input type="text" name="subj_code" id="subj_code" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Last Name</label>
+                        <input type="text" name="subj_description" id="subj_description" class="form-control" />
+                    </div>
+    </div>
+    <div class="modal-footer">
+            <input type="hidden" name="subject_id" id="subject_id" value="" />
+            <input type="hidden" name="button_action" id="button_action" value="insert" />
+             <input type="submit" name="submit" id="action" value="Add" class="btn btn-info" />            
+    </div>
+	</form>
+  </div>
 @endsection
 @section('script')
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
@@ -52,6 +73,23 @@
           		{"data": "action", orderable:false,searchable:false }
           	]		 
         });
+
+      $(document).on('click', '.edit', function(){
+      	var id = $(this).attr("id");
+      	$.ajax({
+      		url:"{{route('ajaxdata.fethdata')}}",
+      		method: 'get',
+      		data:{id:id},
+      		dataType:'json',
+      		success:function(data)
+      		{
+      			$('#subj_code').val(data.subj_code);
+      			$('#subj_description').val(data.subj_description);
+      			$('#subj_id').val(id);
+      			$('#subjModal').modal('open');
+      		}
+      	})
+      });
     });
 </script>  
 @endsection
