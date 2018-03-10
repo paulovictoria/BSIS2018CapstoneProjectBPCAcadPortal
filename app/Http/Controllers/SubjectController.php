@@ -111,10 +111,7 @@ class SubjectController extends Controller
     {   
       $subjects=Subject::select('id','subj_code','subj_description','subj_units','sem','year');
       return Datatables::
-      of($subjects)->addColumn('action', function($subject){
-        return '<a href="#" class="btn " id="'.$subject->id.'">
-                <i class="icon-pencil"></i>Edit</a>'
-      })->make(true);
+      of($subjects)->make(true);
     }
 
 }
