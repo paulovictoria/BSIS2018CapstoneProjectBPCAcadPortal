@@ -77,7 +77,7 @@
       $(document).on('click', '.edit', function(){
       	var id = $(this).attr("id");
       	$.ajax({
-      		url:"{{route('ajaxdata.fethdata')}}",
+      		url:"{{route('ajaxdata.fetchdata')}}",
       		method: 'get',
       		data:{id:id},
       		dataType:'json',
