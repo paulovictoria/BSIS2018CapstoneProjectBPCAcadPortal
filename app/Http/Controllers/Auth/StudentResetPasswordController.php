@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Password;
 use Auth;
 
-class AdminResetPasswordController extends Controller
+class StudentResetPasswordController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ class AdminResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/student/dashboard';
 
     /**
      * Create a new controller instance.
@@ -37,22 +37,22 @@ class AdminResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:admin');
+        $this->middleware('guest:student');
     }
 
     protected function guard()
     {
-      return Auth::guard('admin');
+      return Auth::guard('student');
     }
 
     protected function broker()
     {
-      return Password::broker('admins');
+      return Password::broker('students');
     }
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('auth.passwords.reset-admin')->with(
+        return view('auth.passwords.reset-student')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

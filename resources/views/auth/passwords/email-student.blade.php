@@ -12,8 +12,8 @@
     <div class="col s12 m10 push-m1">
       <div class="card">
         <div class="card-content z-depth-2">
-          <span class="card-title">Admin Reset Password</span>  
-          <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.password.email') }}">
+          <span class="card-title">Student Reset Password</span>  
+          <form class="form-horizontal" role="form" method="POST" action="{{ route('student.password.email') }}">
                         {{ csrf_field() }}
             <div class="row">
                 <div class="input-field col s12">

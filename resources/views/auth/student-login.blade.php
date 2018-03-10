@@ -45,7 +45,7 @@
                         </div>     
                     </div> 
                     <div class="card-action">    
-                     <a class="link" href="{{ route('password.request') }}">Forgot Password?</a>  
+                     <a class="link" href="{{ route('student.password.request') }}">Forgot Password?</a>  
                      <a class="link" href="{{ route('student.registration') }}">No Account?</a>       
                     </div>    
                 </div>

@@ -24,10 +24,10 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/professorShow/{id}','AdminController@professorShow')->name('professorShow');
 	Route::get('/professorEdit/{id}','AdminController@professorEdit')->name('professorEdit');
 	Route::get('/approvalIndex','AdminController@approvalIndex')->name('professorsApprovalIndex');
- Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-  Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-  Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-  Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+ 	Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
     });
     //endAdmin
@@ -47,6 +47,11 @@ Route::group(['middleware'=> ['web']],function(){
     Route::get('/files','StudentDashboardController@files')->name('student.files');  
  	Route::get('editprofile','StudentDashboardController@editProfile')->name('student.editProfile');  
     Route::put('profileupdate/{id}','StudentDashboardController@profileupdate')->name('student.profileUpdate');  
+
+	Route::post('/password/email', 'Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
+    Route::get('/password/reset', 'Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
+    Route::post('/password/reset', 'Auth\StudentResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\StudentResetPasswordController@showResetForm')->name('student.password.reset');    
 
 	 });
     //endStudent
