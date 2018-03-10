@@ -150,8 +150,8 @@ $(document).on('click','#editButton', function(event){
 //Update Grade
 $('#updateGrade').click(function(event){
   $.ajax({
-    type: 'POST',
-    url: '/updateGrade',
+    type: "POST",
+    url: "{{route('addGrade.Student')}}",
     data: {
       '_token': $('input[name=_token]').val(),
       'id':$('#assignStudent').val(),
