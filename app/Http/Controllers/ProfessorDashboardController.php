@@ -108,15 +108,19 @@ class ProfessorDashboardController extends Controller
 	   	'student_id'=>'required',
 	   	'subject_id'=>'required'
         );
- 
-		   $grade=new Grade();
+        $validator = Validator::make (input::all(), $rules);
+        if($validator->fails())
+            return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
+        
+        else {
+		   $grade=new DB('assign_student');
 		   $grade->grade=$request->grade;
 		   $grade->student_id=$request->student_id;
 		   $grade->subject_id=$request->subject_id;
 		   $grade->assign_id=$request->assign_id;
 		   $grade->save();
             return response()->json($grade);
-     
+        }
     }
 
 
@@ -127,7 +131,7 @@ class ProfessorDashboardController extends Controller
         'grade'=>'required|integer'
         );
 
-        $validator = Validator::make(input::all(), $rules);
+        $validator = Validator::make (input::all(), $rules);
         if($validator->fails())
             return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
                
