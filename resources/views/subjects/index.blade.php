@@ -48,8 +48,8 @@
           		{"data":"subj_description"},
           		{"data":"subj_units"},
           		{"data":"sem"},
-          		{"data":"year"}
-          		{"data": "action", orderable:false,searchable:false}
+          		{"data":"year"},
+          		{"data": "action", orderable:false,searchable:false }
           	]		 
         });
     });
