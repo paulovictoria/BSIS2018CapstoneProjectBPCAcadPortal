@@ -171,8 +171,8 @@ $('#updateGrade').click(function(event){
       
       } else {
          $('#individualClassroom').load(location.href + ' #individualClassroom');
-           $('#modalGrade').modal('close');
-           $('#individualClassroom').load(location.href + ' #individualClassroom');
+        $('#modalGrade').modal('close');
+          $('#individualClassroom').load(location.href + ' #individualClassroom');
       }
     },
 
