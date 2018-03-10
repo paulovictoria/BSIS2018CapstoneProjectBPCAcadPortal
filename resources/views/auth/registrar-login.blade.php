@@ -38,7 +38,7 @@
                         </div>     
                     </div> 
                     <div class="card-action">    
-                     <a class="link" href="{{ route('password.request') }}">Forgot Password?</a>  
+                     <a class="link" href="{{ route('registrar.password.request') }}">Forgot Password?</a>  
                      <a class="link" href="{{ route('registrar.registration') }}">No Account?</a>       
                     </div>    
                 </div>

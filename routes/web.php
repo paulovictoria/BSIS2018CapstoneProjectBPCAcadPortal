@@ -24,6 +24,9 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/professorShow/{id}','AdminController@professorShow')->name('professorShow');
 	Route::get('/professorEdit/{id}','AdminController@professorEdit')->name('professorEdit');
 	Route::get('/approvalIndex','AdminController@approvalIndex')->name('professorsApprovalIndex');
+	Route::put('/approved/{id}','AdminController@approved')->name('professorsApproved');
+	Route::delete('/denied/{id}','AdminController@denied')->name('professorsDenied');
+	//email verification
  	Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
@@ -47,7 +50,7 @@ Route::group(['middleware'=> ['web']],function(){
     Route::get('/files','StudentDashboardController@files')->name('student.files');  
  	Route::get('editprofile','StudentDashboardController@editProfile')->name('student.editProfile');  
     Route::put('profileupdate/{id}','StudentDashboardController@profileupdate')->name('student.profileUpdate');  
-
+//email verification
 	Route::post('/password/email', 'Auth\StudentForgotPasswordController@sendResetLinkEmail')->name('student.password.email');
     Route::get('/password/reset', 'Auth\StudentForgotPasswordController@showLinkRequestForm')->name('student.password.request');
     Route::post('/password/reset', 'Auth\StudentResetPasswordController@reset');
@@ -76,7 +79,13 @@ Route::group(['middleware'=> ['web']],function(){
   	Route::delete('/deleteupload/{id}','ProfessorDashboardController@fileDelete')->name('professor.deleteupload');
   	 Route::get('/schedule','ProfessorDashboardController@schedule')->name('professor.schedule');
  	Route::get('editprofile','ProfessorDashboardController@editProfile')->name('professor.editProfile');  
-    Route::put('profileupdate/{id}','ProfessorDashboardController@profileupdate')->name('professor.profileUpdate'); 
+    Route::put('profileupdate/{id}','ProfessorDashboardController@profileupdate')->name('professor.profileUpdate');
+	//email verification
+	Route::post('/password/email', 'Auth\ProfessorForgotPasswordController@sendResetLinkEmail')->name('professor.password.email');
+    Route::get('/password/reset', 'Auth\ProfessorForgotPasswordController@showLinkRequestForm')->name('professor.password.request');
+    Route::post('/password/reset', 'Auth\ProfessorResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\ProfessorResetPasswordController@showResetForm')->name('professor.password.reset'); 
+
 
 	 });
     //endProfessor  
@@ -96,6 +105,13 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::put('/approved/{id}','RegistrarDashboardController@approved')->name('studentsApproved');
 	Route::delete('/denied/{id}','RegistrarDashboardController@denied')->name('studentsDenied');	
 	Route::get('/approvalIndex','RegistrarDashboardController@approvalIndex')->name('studentsApprovalIndex');
+
+
+	//email verification
+	Route::post('/password/email', 'Auth\RegistrarForgotPasswordController@sendResetLinkEmail')->name('registrar.password.email');
+    Route::get('/password/reset', 'Auth\RegistrarForgotPasswordController@showLinkRequestForm')->name('registrar.password.request');
+    Route::post('/password/reset', 'Auth\RegistrarResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\RegistrarResetPasswordController@showResetForm')->name('registrar.password.reset'); 
 
      });
 
