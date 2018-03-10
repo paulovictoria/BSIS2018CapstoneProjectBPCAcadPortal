@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => 'MAIL_DRIVER', 'smtp',
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => 'MAIL_HOST', 'smtp.sparkpostmail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => 'MAIL_PORT', 587,
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'MAIL_FROM_ADDRESS', 'michaelcentenovelayo@yahoo.com',
+        'name' => 'MAIL_FROM_NAME', 'Michael',
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => 'MAIL_ENCRYPTION', 'tls',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'michaelcentenovelayo@yahoo.com',
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => '09069171012',
 
     /*
     |--------------------------------------------------------------------------
@@ -112,12 +112,24 @@ return [
     |
     */
 
+  'sparkpost' => [
+    'secret' => '000bf43d1d708cbbde97df36b1eff848b049185e',
+    ],
+
     'markdown' => [
         'theme' => 'default',
 
         'paths' => [
             resource_path('views/vendor/mail'),
         ],
+    ],
+
+    'stream' => [
+       'ssl' => [
+          'allow_self_signed' => true,
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+       ],
     ],
 
 ];
