@@ -62,7 +62,7 @@
         $('#subject').DataTable({
             "processing": true,
             "serverSide": true,
-          	"ajax": "{{route('allsubjects')}}",
+          	"ajax": "{{route('ajaxdata.fetchdata')}}",
           	"columns":[
           		{"data":"id"},
           		{"data":"subj_code"},
