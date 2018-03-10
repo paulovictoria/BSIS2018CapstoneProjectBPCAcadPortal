@@ -16,8 +16,22 @@ return [
     |
     */
 
-    'driver' => 'smtp',
+'default' => 'mail_production',
 
+    
+
+
+      'mail_production' => [
+           'driver' => 'smtp',
+           'host' => 'smtp.sparkpostmail.com',
+           'port' => 587,     
+            'encryption' =>'tls',
+           
+    'username' => 'michaelcentenovelayo@yahoo.com',
+
+    'password' => '09069171012',
+     'secret' => '000bf43d1d708cbbde97df36b1eff848b049185e',
+        ],
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Address
@@ -29,7 +43,7 @@ return [
     |
     */
 
-    'host' => 'smtp.sparkpostmail.com',
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +56,7 @@ return [
     |
     */
 
-    'port' => 587,
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -55,10 +69,7 @@ return [
     |
     */
 
-    'from' => [
-        'address' =>  'hello@sample.com',
-        'name' => 'Michael',
-    ],
+  
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +82,7 @@ return [
     |
     */
 
-    'encryption' =>'tls',
+   
 
     /*
     |--------------------------------------------------------------------------
@@ -84,12 +95,6 @@ return [
     |
     */
 
-    'username' => 'michaelcentenovelayo@yahoo.com',
-
-    'password' => '09069171012',
-
-
-     'secret' => '000bf43d1d708cbbde97df36b1eff848b049185e',
 
     /*
     |--------------------------------------------------------------------------
@@ -115,8 +120,6 @@ return [
     |
     */
 
-   
- 
 
     'markdown' => [
         'theme' => 'default',
