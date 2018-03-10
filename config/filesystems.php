@@ -59,7 +59,7 @@ return [
         ],
         'files'=>[
             'driver' => 'local',
-            'root' =>storage_path('app')
+            'root' =>resource_path('app/uploads')
         ],
         //storage_path('app'),
         /*resource_path()*/
