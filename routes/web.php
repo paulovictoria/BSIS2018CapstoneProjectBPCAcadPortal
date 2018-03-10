@@ -25,8 +25,7 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/professorEdit/{id}','AdminController@professorEdit')->name('professorEdit');
 	Route::get('/approvalIndex','AdminController@approvalIndex')->name('professorsApprovalIndex');
 
-	Route::put('/approved/{id}','AdminController@approved')->name('professorsApproved');
-	Route::delete('/denied/{id}','AdminController@denied')->name('professorsDenied');
+
     });
     //endAdmin
 
