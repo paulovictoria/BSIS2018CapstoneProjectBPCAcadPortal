@@ -19,6 +19,7 @@
 									<th>Subject Units</th>
 									<th>Sem</th>
 									<th>Year</th>
+									<th>Action</th>
 								</tr>	
 							</thead>
 							<tbody></tbody>
@@ -48,6 +49,7 @@
           		{"data":"subj_units"},
           		{"data":"sem"},
           		{"data":"year"}
+          		{"data": "action", orderable:false,searchable:false}
           	]		 
         });
     });
