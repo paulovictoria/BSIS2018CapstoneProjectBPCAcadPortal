@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => 'MAIL_DRIVER', 'smtp',
+    'driver' => 'smtp',
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => 'MAIL_HOST', 'smtp.sparkpostmail.com',
+    'host' => 'smtp.sparkpostmail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => 'MAIL_PORT', 587,
+    'port' => 587,
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'MAIL_FROM_ADDRESS', 'michaelcentenovelayo@yahoo.com',
-        'name' => 'MAIL_FROM_NAME', 'Michael',
+        'address' =>  'michaelcentenovelayo@yahoo.com',
+        'name' => 'Michael',
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => 'MAIL_ENCRYPTION', 'tls',
+    'encryption' =>'tls',
 
     /*
     |--------------------------------------------------------------------------
