@@ -88,6 +88,9 @@ return [
 
     'password' => '09069171012',
 
+
+     'secret' => '000bf43d1d708cbbde97df36b1eff848b049185e',
+
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path
@@ -112,9 +115,8 @@ return [
     |
     */
 
-  'sparkpost' => [
-    'secret' => '000bf43d1d708cbbde97df36b1eff848b049185e',
-    ],
+   
+ 
 
     'markdown' => [
         'theme' => 'default',
