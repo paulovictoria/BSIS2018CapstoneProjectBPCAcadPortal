@@ -146,6 +146,8 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::post('/handleUpload','FilesController@handleUpload')->name('handleUpload');
 	/*AJAX*/
 	Route::get('allsubjects','SubjectController@allSubjects')->name('allsubjects');
+	Route::get('ajaxdata/fetchdata', 'SubjectController@fetchdata')->name('ajaxdata.fetchdata');
+
 	Route::get('allcourses','CourseController@allCourses')->name('allcourses');
 });
 

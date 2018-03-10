@@ -107,6 +107,17 @@ class SubjectController extends Controller
         //
     }
 
+    function fetchdata(Request $request)
+    {
+        $id = $request->input('id');
+        $subject = Subject::find($id);
+        $output = array(
+            'subj_code'    =>  $subject->subj_code,
+            'subj_description'     =>  $subject->subj_description
+        );
+        echo json_encode($output);
+    }
+
     public function allSubjects()
     {   
       $subjects=Subject::select('id','subj_code','subj_description','subj_units','sem','year');

@@ -32,7 +32,7 @@
 		</div>
 	</div>	
 </div>
-  <div id="subj_modal" class="modal bottom-sheet">
+  <div id="subjmodal" class="modal bottom-sheet">
   	  <form method="post" id="student_form">
     <div class="modal-content">
                  {{csrf_field()}}
