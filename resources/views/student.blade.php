@@ -1,43 +1,41 @@
 @extends('student_template')
-@section('title','Student Dashboard')
+@section('title','Dashboard')
 @section('content')
-<div class="col s12">				
-	<div class="section">
-		<div class="card z-depth-1">
-			<div class="card-content">
-				<div class="row">
+<div class="col m12">				
+	<div class="row">
 					<div class="col m9 offset-m3 ">
 					<div class="section"></div>
 						<div class="row">
 							<div class="col s6 m6">
-								<div class="card">
-									<div class="card-content orange lighten-2">
+								<div class="card z-depth-4">
+									<div class="card-content white">
 										<div class="card-title">
-										<div class="card-image"><i class="icon-book"></i></div>SUBJECT</div>
+										<i class="material-icons">subject</i>
+									   SUBJECT</div>
 									</div>	
 								</div>
 							</div>
 							<div class="col s6 m6">
-								<div class="card">
-									<div class="card-content blue lighten-2">
+								<div class="card z-depth-4">
+									<div class="card-content white">
 										<div class="card-title">
-										<div class="card-image"><i class="icon-watch"></i></div>SCHEDULE</div>
+										<i class="material-icons">schedule</i>SCHEDULE</div>
 									</div>	
 								</div>
 							</div>	
 							<div class="col s6 m6">
-								<div class="card">
-									<div class="card-content red lighten-2">
+								<div class="card z-depth-4">
+									<div class="card-content white">
 										<div class="card-title">
-										<div class="card-image"><i class="icon-folder"></i></div>FILES</div>
+										<i class="material-icons">folder_open</i>FILES</div>
 									</div>	
 								</div>
 							</div>	
 							<div class="col s6 m6">
-								<div class="card">
-									<div class="card-content green lighten-2">
+								<div class="card z-depth-4">
+									<div class="card-content white">
 										<div class="card-title">
-										<div class="card-image"><i class="icon-blackboard"></i></div>GRADES</div>
+										<i class="material-icons">grade</i>GRADES</div>
 									</div>	
 								</div>
 							</div>					
@@ -49,11 +47,14 @@
 								</div>	
 							</div>	
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card-action"></div>
-		</div>
-	</div>	
-</div> 
+					</div>		
+	</div>
+</div>
+@endsection
+@section('script')
+<script type="text/javascript">
+	 $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+</script>
 @endsection

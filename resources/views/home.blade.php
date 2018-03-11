@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="shortcut icon" href="{{asset('images/green_link.png')}}" type="image/png">
@@ -34,10 +34,10 @@
       </ul>
     </ul>
     <div class="navbar-fixed">
-      <nav class="light-green darken-2"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="icon-menu"></i></a>
+      <nav class="light-green darken-2"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
       <div class="container nav-wrapper light-green darken-2">
         <a href="#" class="brand-logo" id="logo">
-        <span class="icon-link2" width="30" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;"></span><span style="font-weight:400;font-size:1.5rem;">BPC Portal</span>
+        <span width="30" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;"></span><span style="font-weight:400;font-size:1.5rem;"><i class="material-icons" style="margin-right:1px; ">link</i>BPC Portal</span>
         </a> 
         <ul class="rightnav right hide-on-med-and-down">
           <li><a class="waves-effect" href="{{route('home')}}">HOME</a></li>
@@ -55,7 +55,7 @@
               <div class="start-bpcap-header-content" data-aos="zoom-out">
                 
               <span class="start-bpcap-header-text white-text hide-on-small-only">
-                    <i class="icon-link2"></i>The BPCians Portal
+                    <i class="material-icons">link</i>The BPCians Portal
               </span>
               <p class="flow-text white-text hide-on-small-only">“We are what we repeatedly do. Excellence is not an act, but a habit.”<span>-Arirstotle;</span></p>
               <a href="#modalChoose" class="btn white light-green-text darken-3 hide-on-small-only modal-trigger">Sign Up</a>
