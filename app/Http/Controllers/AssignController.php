@@ -119,6 +119,12 @@ class AssignController extends Controller
         foreach($subjects as $subject) {
             $subjects2[$subject->id]=$subject->subj_code.' '.$subject->subj_description;
         }
+        $days=Day::all();
+        $days2=array();
+        foreach ($days as $day) {
+            $days2[$day->id]=$day->name;
+        }
+
         $rooms=Room::all();
         $rooms2 = array();
         foreach($rooms as $room) {
@@ -129,7 +135,9 @@ class AssignController extends Controller
         ->withClassrooms($classrooms2)
         ->withProfessors($professors2)
         ->withSubjects($subjects2)
+        ->withDays($days2)
         ->withRooms($rooms2);
+
     }
 
     /**

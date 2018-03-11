@@ -65,7 +65,7 @@ class ClassroomController extends Controller
         $classroom->save();
         $classroom->students()->sync($request->students,false);
         Session::flash('success','Success Class Created Successfully');
-        return redirect()->route('classrooms.show',$classroom->id);
+        return redirect()->route('classrooms.index');
     }
 
     /**

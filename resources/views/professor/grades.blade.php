@@ -11,6 +11,7 @@
                         <table class="table table-responsive" id="gradeIndex">    
                            <thead>
                             <tr>
+
                              <th>Year</th>
                              <th>Sem</th>
                              <th>Course</th>

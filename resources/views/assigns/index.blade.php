@@ -13,6 +13,7 @@
 						<table class="table responsive-table" id="assigns">
 							<thead>
 								<tr>
+									<th>Id</th>
 									<th>Academic Year</th>
 									<th>Class Course</th>
 									<th>Year</th>
@@ -26,6 +27,7 @@
 							<tbody>
 								@foreach($assigns as $assign)
 								<tr>
+									<td>{{$assign->id}}</td>
 									<td>{{ $assign->classroom->academic_year }}</td>
 									<td>{{ $assign->classroom->course->course_name }}</td>
 									<td>{{ $assign->classroom->year }}</td>

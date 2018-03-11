@@ -11,9 +11,11 @@
                     <table class="bordered" id="individualClassroom">
                         <thead>
                           <tr class="light-green white-text">
+                 
                             <th>Last_Name</th>
                             <th>First_Name</th>
                             <th>Midle_Name</th>
+                            <th>Subject</th>
                             <th>Grade</th>
                             <th>Evaluation</th>
                             <th>Action</th>
@@ -22,9 +24,11 @@
                         <tbody>
                             @foreach($assigns as $assign)
                             <tr>
+
                               <td>{{$assign->last_name}}</td>
                               <td>{{$assign->first_name}}</td>
                               <td>{{$assign->midle_name}}</td>
+                              <td>{{$assign->subj_code}}</td>
                               <td>{{$assign->grade}}</td>
                                @if($assign->grade==1)
                                <td class="green-text">Passed</td>

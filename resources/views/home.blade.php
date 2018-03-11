@@ -55,7 +55,7 @@
               <div class="start-bpcap-header-content" data-aos="zoom-out">
                 
               <span class="start-bpcap-header-text white-text hide-on-small-only">
-                    <i class="material-icons">link</i>The BPCians Portal
+                    The BPCians Portal
               </span>
               <p class="flow-text white-text hide-on-small-only">“We are what we repeatedly do. Excellence is not an act, but a habit.”<span>-Arirstotle;</span></p>
               <a href="#modalChoose" class="btn white light-green-text darken-3 hide-on-small-only modal-trigger">Sign Up</a>

@@ -28,7 +28,7 @@
                 </div>
                 <div class="col s12 m12"> 
                   <p class="right-align">
-                  <a href="{{route('events.more')}}" class="btn light-green darken-2 white-text">Read More</a></p>       
+                  <a href="{{route('event.more')}}" class="btn light-green darken-2 white-text">Read More</a></p>       
                 </div>              
               </div>  
             </div>  

@@ -73,7 +73,6 @@ class ProfessorDashboardController extends Controller
 
 	public function indexClassroom() {
 	$assigns=Assign::where('professor_id','=',Auth::user()->id)
-    ->join('classrooms','assigns.classroom_id','=','classrooms.id')
     ->get();		
 	return view('professor.classrooms')->withAssigns($assigns);
 	}
@@ -85,16 +84,17 @@ class ProfessorDashboardController extends Controller
 
     public function gradeIndex(){
     $assigns=Assign::where('professor_id','=',Auth::user()->id)
-    ->join('classrooms','assigns.classroom_id','=','classrooms.id')
     ->get();     
     return view('professor.grades')->withAssigns($assigns);
     }
 /*This is for show grading the students*/
 	public function individualClassroom($id) {
 		$assigns=Assign::where('id','=',$id)->first()
+        ->where('assigns.id','=',$id)
         ->join('assign_student','assigns.id','=','assign_student.assign_id')
         ->where('assign_id','=',$id)
         ->join('students','assign_student.student_id','=','students.id')
+        ->join('subjects','assigns.subject_id','=','subjects.id')
         ->orderBy('last_name','asc')
         ->get();
 		return view('professor.individualClassroom')
@@ -147,7 +147,6 @@ class ProfessorDashboardController extends Controller
 
     public function fileIndex() {
     $assigns=Assign::where('professor_id','=',Auth::user()->id)
-    ->join('classrooms','assigns.classroom_id','=','classrooms.id')
     ->get();
     return view('professor.files')->withAssigns($assigns);
     }

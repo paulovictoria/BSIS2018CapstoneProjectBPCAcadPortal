@@ -12,6 +12,9 @@
 	.subject {
 		width: 70%;
 	}
+	.day {
+		width: 70%;
+	}
 	.room {
 		width: 70%;
 	}
@@ -38,15 +41,9 @@
 					{{ Form::select('subject_id',$subjects,null,['class'=>'professor']) }}						
 
 					{{ Form::label('schedule','Schedule') }}
-						<select class="form-control" name="day">
-								<option value="">Select Day</option>
-								<option value="Monday">Monday</option>
-								<option value="Tuesday">Tuesday</option>
-								<option value="Wednesday">Wednesday</option>
-								<option value="Thursday">Thursday</option>
-								<option value="Friday">Friday</option>
-								<option value="Saturday">Saturday</option>
-						</select>
+					<br>
+					{{ Form::label('day','Day') }}
+					{{ Form::select('day',$days,null,['class'=>'day']) }}
 								 @if ($errors->has('day'))
 		                                <span>
 		                                     <strong class="red-text lighten-1">Day Field is Required</strong>
@@ -96,6 +93,7 @@
 	$('.classroom').select2();
 	$('.professor').select2();
 	$('.subject').select2();
+	$('.day').select2();
 	$('.room').select2();
 </script>
 @endsection

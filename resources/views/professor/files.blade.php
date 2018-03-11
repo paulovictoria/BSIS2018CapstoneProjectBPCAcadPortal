@@ -11,6 +11,7 @@
                         <table class="table table-responsive" id="files">    
                            <thead>
                             <tr>
+                             <th>Id</th>
                              <th>Year</th>
                              <th>Sem</th>
                              <th>Course</th>
@@ -21,6 +22,7 @@
                             <tbody>
                              @foreach($assigns as $assign)
                             <tr>
+                             <td>{{$assign->id}}</td> 
                              <td>{{$assign->classroom->year}}</td>
                              <td>{{$assign->classroom->sem}}</td>
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
