@@ -9,7 +9,7 @@
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Assigns Index</h3>
 						<div class="section"></div>
-						<a href="{{ route('assigns.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="icon-area-graph"></i></a>
+						<a href="{{ route('assigns.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="material-icons">add</i></a>
 						<table class="table responsive-table" id="assigns">
 							<thead>
 								<tr>
@@ -33,8 +33,8 @@
 									<td>{{ $assign->professor->last_name}} {{ $assign->professor->first_name}}</td>
 									<td>{{ $assign->subject ->subj_description}}</td>
 									<td>{{ $assign->schedule }}</td>
-									<td><a href="{{ route('assigns.show',$assign->id) }}" class="btn btn-floating orange lighten-2"><i class="icon-head"></i></a>
-									 <a href="{{ route('assigns.edit',$assign->id) }}" class="btn btn-floating blue lighten-2"><i class="icon-pencil"></i></td>
+									<td><a href="{{ route('assigns.show',$assign->id) }}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
+									 <a href="{{ route('assigns.edit',$assign->id) }}" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></td>
 								</tr>
 								@endforeach
 							</tbody>	

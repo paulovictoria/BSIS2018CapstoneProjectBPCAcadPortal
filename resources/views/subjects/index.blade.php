@@ -9,7 +9,7 @@
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Subjects</h3>
 						<div class="section"></div>
-						<a href="{{ route('subjects.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="icon-add-to-list"></i></a>
+						<a href="{{ route('subjects.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="material-icons">add</i></a>
 						<table class="bordered" id="subject">
 							<thead>
 								<tr>

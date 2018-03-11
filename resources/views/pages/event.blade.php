@@ -18,8 +18,9 @@
                   <span>{{$event->startTime}} up To {{$event->endTime}}</span>
                   <h5 class="start text-primarycolor">Where?</h5>
                   <p class="start-paragraph-text ">at {{$event->place}}</p>
-                  <br>
-                  <span >Posted by : {{$event->campus->campus_name.' '.'Admin'}}</span>            
+                   <div class="chip">
+                  Posted by : {{$event->campus->campus_name.' '.'Admin'}}
+                   </div>          
                 </div>  
                 <div class="col s12 m6">
                   <br><br><br>
@@ -27,7 +28,7 @@
                 </div>
                 <div class="col s12 m12"> 
                   <p class="right-align">
-                  <a href="{{route('home')}}" class="btn light-green darken-2 white-text">Read More</a></p>       
+                  <a href="{{route('events.more')}}" class="btn light-green darken-2 white-text">Read More</a></p>       
                 </div>              
               </div>  
             </div>  

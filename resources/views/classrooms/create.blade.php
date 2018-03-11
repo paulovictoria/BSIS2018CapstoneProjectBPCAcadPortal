@@ -69,11 +69,11 @@
 						</option>
 					@endforeach
 				</select>	
-				<br>
+				<div class="section"></div>
 
-
+				<div class="col s12 right-align">
 			{{ Form::submit('Save',['class'=>'btn light-green darken-1']) }}			
-				{!! Form::close() !!}
+				{!! Form::close() !!}</div>
 							</div>
 						</div>
 					</div>

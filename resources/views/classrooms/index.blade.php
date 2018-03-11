@@ -8,7 +8,7 @@
 				<div class="row">
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Classes</h3>
-					<a href="{{ route('classrooms.create') }}" class="btn-large btn-floating light-green darken-1"><span class="icon-add-to-list"></span></a>
+					<a href="{{ route('classrooms.create') }}" class="btn-large btn-floating light-green darken-1"><i class="material-icons">create_new_folder</i></a>
 					<table class="table table-responsive" id="indexClassroom">
 						<thead>
 							<tr>
@@ -30,10 +30,10 @@
 								<td>{{ $classroom->year }}</td>
 								<td>{{ $classroom->section }}</td>
 								<td>{{ $classroom->students->count() }}</td>
-								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn btn-floating orange lighten-2"><i class="icon-monitor"></i></a></td>
-								<td><a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn btn-floating blue lighten-2"><i class="icon-pencil"></i></a></td>
+								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn orange lighten-2"><i class="material-icons">pageview</i></a></td>
+								<td><a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn blue lighten-2"><i class="material-icons">edit</i></a></td>
 								<td>{!! Form::open(['route' => ['classrooms.destroy', $classroom->id], 'method' => 'DELETE']) !!}
-								<button class="btn btn-floating red lighten-2"><i class="icon-trash"></i></button>
+								<button class="btn red lighten-2"><i class="material-icons">delete_forever</i></button>
 								{!! Form::close() !!}</td>
 							</tr>
 							@endforeach

@@ -38,7 +38,7 @@
                                <td class="red-text">Failed</td>
                                @endif
                               
-                              <td><a class="btn btn-floating light-green modal-trigger" href="#modalGrade" id="editButton"><span class="icon-pencil"></span>
+                              <td><a class="btn btn-floating light-green modal-trigger" href="#modalGrade" id="editButton"><i class="material-icons">edit</i>
                               <input type="hidden" id="stud_lastname" value="{{$assign->last_name}}">
                               <input type="hidden" id="stud_firstname" value="{{$assign->first_name}}">
                               <input type="hidden" id="stud_midlename" value="{{$assign->midle_name}}">

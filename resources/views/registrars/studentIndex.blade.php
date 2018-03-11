@@ -9,7 +9,7 @@
                     <div class="col s9 offset-s3">
                         <h3 class="light-green-text darken-2 card-title"></h3>
                     <!-- Dropdown Trigger -->
-                       <a class="dropdown-button btn light-green darken-2" href="#" data-activates="courseSelect">Course</a>
+                       <a class="dropdown-button btn light-green darken-2" href="#" data-activates="courseSelect">Select Course</a>
                               <!-- Dropdown Structure -->
                             
                         <ul id="courseSelect" class="dropdown-content">
@@ -39,7 +39,7 @@
             						<td>{{$student->midle_name}}</td>
             						<td>{{$student->email}}</td>
             						<td>{{$student->course->course_name}}</td>
-            						<td><a href="{{route('registrar.studentShow',$student->id)}}" class="btn orange darken-2"><i class="icon-monitor"></i> View</a></td>
+            						<td><a href="{{route('registrar.studentShow',$student->id)}}" class="btn orange darken-2"><i class="material-icons">pageview</i> View</a></td>
             					</tr>
                                 @endif
             					@endforeach

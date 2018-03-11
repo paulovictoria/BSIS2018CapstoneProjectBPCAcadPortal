@@ -9,7 +9,7 @@
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Registrars</h3>
 						<div class="section"></div>
-						<a href="{{route('registrar.registration')}}" class="btn btn-floating btn-large light-green darken-1"><i class="icon-add-user"></i></a>
+						<a href="{{route('registrar.registration')}}" class="btn btn-floating btn-large light-green darken-1"><i class="material-icons">group_add</i></a>
 						<table class="table responsive-table" id="registrarIndex" cellspacing="0">
 							<thead>
 								<tr>
@@ -33,8 +33,8 @@
 									<td><a href="#!user"><img class="circle" src="{{route('user.image',$registrar->filename)}}" width="50"></a>
 									</td>
 									<td>
-									<a href="{{route('registrarShow',$registrar->id)}}" class="btn btn-floating orange lighten-2"><i class="icon-head"></i></a>
-									<a href="#" class="btn btn-floating blue lighten-2"><i class="icon-pencil"></i></a>
+									<a href="{{route('registrarShow',$registrar->id)}}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
+									<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
 									</td>		 
 								</tr>
 								@endforeach

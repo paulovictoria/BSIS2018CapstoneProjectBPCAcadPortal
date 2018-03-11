@@ -14,7 +14,7 @@
                   <div class="frofileImages">
                     <img class="activator" src="{{route('user.image',['filename'=>Auth::user()->filename])}}" alt="user background" width="120" height="120">
                     <br>
-                    <a href="{{route('professor.editProfile') }}" class="btn-floating waves-effect waves-light light-green darken-1"><i class="icon-edit"></i></a>
+                    <a href="{{route('professor.editProfile') }}" class="btn-floating waves-effect waves-light light-green darken-1"><i class="material-icons">edit</i></a>
                   </div>
                 </div>
                 <div class="col s12">

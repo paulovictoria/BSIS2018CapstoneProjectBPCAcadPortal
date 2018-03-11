@@ -14,7 +14,9 @@
                   <h5 class="start text-primarycolor"><span class="black-text">{{$news->title}}</span></h5> 
                   <p class="start-paragraph-text ">{{$news->description}}</p>
                   <span>Author: {{$news->author}}</span><br>
-                  <span >Posted by : {{$news->campus->campus_name.' '.'Admin'}}</span>
+                   <div class="chip">
+                  Posted by : {{$news->campus->campus_name.' '.'Admin'}}
+                   </div>   
                 </div>  
                 <div class="col s12 m6">
                   <br><br><br>
@@ -22,7 +24,7 @@
                 </div>
                 <div class="col s12 m12"> 
                   <p class="right-align">
-                  <a href="{{route('home')}}" class="btn light-green darken-2 white-text">Read More</a></p>       
+                  <a href="{{route('news.more')}}" class="btn light-green darken-2 white-text">Read More</a></p>       
                 </div>              
               </div>  
             </div>  

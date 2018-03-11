@@ -8,7 +8,7 @@
 				<div class="row">
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Rooms</h3>
-				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('rooms.create')}}"><i class="icon-add-to-list"></i></a>								
+				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('rooms.create')}}"><i class="material-icons">edit</i></a>								
 								<div class="section"></div>
 								<table class="table responsive-table" id="rooms">
 									<thead>
@@ -26,8 +26,8 @@
 											<td>{{ $room->room_description }}</td>
 											<td>{{ $room->capacity }}</td>
 											<td>
-												<a href="#" class="btn btn-floating orange lighten-2"><i class="icon-monitor"></i></a>
-												<a href="#" class="btn btn-floating blue lighten-2"><i class="icon-pencil"></i></a>
+												<a href="#" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
+												<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
 											</td>
 										</tr>	
 										@endforeach

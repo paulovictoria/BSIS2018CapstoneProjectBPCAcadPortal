@@ -17,15 +17,15 @@
                         @endif                      
                         <form method="POST" action="{{ route('professor.fileupload',$assign->id) }}" enctype="multipart/form-data">{{csrf_field() }}
                            <div class="file-field input-field">
-                              <div class="btn  orange darken-2">
-                                <span><i class="icon-archive"></i></span>
+                              <div class="btn  light-green darken-2">
+                                <span><i class="material-icons">attach_file</i></span>
                                   <input type="file" id="file" name="file">
                               </div>
                               <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                               </div>
                             </div>
-                            <button type="submit" class="btn light-green darken-2 right"><i class="icon-upload"></i></button>
+                            <button type="submit" class="btn light-green darken-2 right"><i class="material-icons">cloud_upload</i></button>
                         </form>  
                         <table>
                           <thead>
@@ -37,10 +37,10 @@
                           <tbody>
                                @foreach($files as $file)
                                <tr>
-                                <td><i class="icon-file"></i> {{$file->filename}}</td>
+                                <td><i class="material-icons"></i> {{$file->filename}}</td>
                                 <td>{!! Form::open(['route'=>['professor.deleteupload',$file->id],'method'=>'DELETE']) !!}
-                                  <a href="{{route('download.file',$file->filename)}}" class="btn orange darken-2"><i class="icon-download"></i> Download</a>
-                                  <button class="btn red lighten-1"><i class="icon-trash"></i> Delete</button>
+                                  <a href="{{route('download.file',$file->filename)}}" class="btn orange darken-2"><i class="material-icons">cloud_download</i> Download</a>
+                                  <button class="btn red lighten-1"><i class="material-icons">delete_forever</i> Delete</button>
                                 </td>
                                  {!! Form::close() !!}  
                               </tr>

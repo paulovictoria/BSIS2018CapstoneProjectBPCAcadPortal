@@ -9,7 +9,7 @@
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Courses</h3>
 						<div class="section"></div>
-					<a href="{{ route('courses.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="icon-add-to-list"></i></a>
+					<a href="{{ route('courses.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="material-icons">add</i></a>
 					<table class="bordered">
 						<thead>
 							<tr>
@@ -33,8 +33,8 @@
 							 	<span>{{$subject->subj_description}}</span>
 								 @endforeach
 								</td> -->
-								<td><a href="{{ route('courses.show',$course->id)}}" class="btn btn-floating orange lighten-2"><i class="icon-blackboard"></i></a>
-								<a href="#" class="btn btn-floating blue lighten-2"><i class="icon-pencil"></i></a>	
+								<td><a href="{{ route('courses.show',$course->id)}}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
+								<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>	
 								
 								</td>
 							</tr>

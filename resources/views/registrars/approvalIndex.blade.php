@@ -1,5 +1,5 @@
 @extends('registrar_template')
-@section('title','| Class')
+@section('title','| Approval')
 @section('content')
 <div class="col s12">				
 	<div class="section">
@@ -8,7 +8,6 @@
 				<div class="row">
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Students Approval</h3>
-					<a href="{{ route('classrooms.create') }}" class="btn-large btn-floating light-green darken-1"><span class="icon-add-to-list"></span></a>
 					<table id="approvalIndex" class="table responsive-table" cellspacing="0">
 						<thead>
 							<tr>
@@ -33,11 +32,11 @@
 								<td><a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>$student->filename])}}" width="50"></a></td>
 								
 									<td>{!! Form::model($student,['route'=>['studentsApproved',$student->id],'method'=>'PUT'])!!}
-									<button class="btn blue lighten-2"><span class="icon-check"></span></button>
+									<button class="btn blue lighten-2"><i class="material-icons">check_circle</i></button>
 									{!! Form::close() !!}</td>
 
 									<td>		{!! Form::open(['route'=>['studentsDenied',$student->id],'method'=>'DELETE']) !!}
-									<button class="btn grey lighten-1"><span class="icon-cross"></span></button>
+									<button class="btn grey lighten-1"><i class="material-icons">close</i></button>
 									{!! Form::close() !!}</td>
 								
 							</tr>

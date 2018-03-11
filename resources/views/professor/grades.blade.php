@@ -25,7 +25,7 @@
                              <td>{{$assign->classroom->sem}}</td>  
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
                              <td>Total files</td>
-                            <td> <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue lighten-1"><i class="icon-pencil"></i></a>
+                            <td> <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue lighten-1"><i class="material-icons">edit</i></a>
                             </td>
                             </tr>
                              @endforeach 

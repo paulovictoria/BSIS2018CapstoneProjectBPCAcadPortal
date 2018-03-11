@@ -8,7 +8,7 @@
 				<div class="row">
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Events</h3>	
-				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('events.create')}}"><i class="icon-add-to-list"></i></a>
+				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('events.create')}}"><i class="material-icons">add_a_photo</i></a>
 				 		<table class="table responsive-table" id="events">
 						<thead>
 							<tr>
@@ -44,10 +44,10 @@
 								</td>
 								<td class="right">
 									<a id="editButtonEvent"  class="btn btn-floating blue lighten-2" href="{{route('events.edit',$event->id)}}">
-									<i class="icon-pencil"></i>
+									<i class="material-icons">edit</i>
 									</a>
 									{!! Form::open(['route'=>['events.destroy',$event->id],'method'=>'DELETE']) !!}
-									<button class="btn btn-floating red lighten-2"><span class="icon-cross"></span></button>
+									<button class="btn btn-floating red lighten-2"><i class="material-icons">delete_forever</i></button>
 									{!! Form::close() !!}
 								</td>
 							</tr>

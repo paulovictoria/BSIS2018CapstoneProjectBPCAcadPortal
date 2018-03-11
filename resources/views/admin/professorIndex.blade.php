@@ -31,8 +31,8 @@
 								<td>{{$professor->email}}</td>
 								<td>  <a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>$professor->filename])}}" width="50"></a></td>
 								<td>
-									<a href="{{route('professorShow',$professor->id)}}" class="btn btn-floating orange lighten-2"><i class="icon-head"></i></a>
-									<a href="#" class="btn btn-floating blue lighten-2"><i class="icon-pencil"></i></a>
+									<a href="{{route('professorShow',$professor->id)}}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
+									<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
 								</td>
 							</tr>
 							@endforeach

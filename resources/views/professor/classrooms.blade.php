@@ -27,9 +27,9 @@
                             <td>{{ $assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>
                             <td>{{ $assign->classroom->students->count() }}</td>
                             <td>{{ $assign->subject->subj_code }}</td>
-                            <td><a href="{{route('classroomsAssign.show',$assign->id)}}" class="btn green lighten-1"><i class="icon-eye"></i></a>
-                             <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue lighten-1"><i class="icon-pencil"></i></a>
-                              <a href="{{route('uploadIndex',$assign->id)}}" class="btn yellow darken-2"><i class="icon-folder"></i></a>
+                            <td><a href="{{route('classroomsAssign.show',$assign->id)}}" class="btn green lighten-1"><i class="material-icons">pageview</i></a>
+                             <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue lighten-1"><i class="material-icons">edit</i></a>
+                              <a href="{{route('uploadIndex',$assign->id)}}" class="btn yellow darken-2"><i class="material-icons">folder_open</i></a>
                             </td>
                             </tr>
                              @endforeach 

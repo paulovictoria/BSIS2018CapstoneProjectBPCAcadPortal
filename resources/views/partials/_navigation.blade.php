@@ -21,7 +21,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header"><i class="material-icons">person</i>User</a>
+            <a class="collapsible-header"><i class="material-icons">supervisor_account</i>User</a>
             <div class="collapsible-body">
               <ul>
                 <li><a href="{{route('registrarIndex')}}">Registrar</a></li>
