@@ -18,7 +18,7 @@ class CreateAssignsTable extends Migration
             $table->integer('classroom_id')->nullable()->unsigned();
             $table->integer('subject_id')->nullable()->unsigned();
             $table->integer('professor_id')->nullable()->unsigned();
-            $table->string('day');
+            $table->integer('day_id');
             $table->string('startTime'); 
             $table->string('endTime');
             $table->integer('room_id')->nullable()->unsigned();

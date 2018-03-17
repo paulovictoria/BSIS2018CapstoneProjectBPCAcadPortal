@@ -67,7 +67,7 @@ class AssignController extends Controller
             'subject_id'=>'required|integer',
             'classroom_id'=>'required|integer',
             'professor_id'=>'required|integer',
-            'day'=>'required',
+            'day_id'=>'required|integer',
             'startTime'=>'required',
             'endTime'=>'required',
             'room_id'=>'required|integer',
@@ -76,7 +76,7 @@ class AssignController extends Controller
         $assign->subject_id=$request->subject_id;
         $assign->classroom_id=$request->classroom_id;
         $assign->professor_id=$request->professor_id;
-        $assign->day=$request->day;
+        $assign->day_id=$request->day_id;
         $assign->startTime=$request->startTime;
         $assign->endTime=$request->endTime;
         $assign->room_id=$request->room_id;
@@ -169,7 +169,7 @@ class AssignController extends Controller
             'subject_id'=>'required|integer',
             'classroom_id'=>'required|integer',
             'professor_id'=>'required|integer',
-            'day'=>'required',
+            'day_id'=>'required|integer',
             'startTime'=>'required',
             'endTime'=>'required',
             'room_id'=>'required|integer'   
@@ -178,7 +178,7 @@ class AssignController extends Controller
         $assign->subject_id=$request->subject_id;
         $assign->classroom_id=$request->classroom_id;
         $assign->professor_id=$request->professor_id;
-        $assign->day=$request->day;
+        $assign->day_id=$request->day_id;
         $assign->startTime=$request->startTime;
         $assign->endTime=$request->endTime;
         $assign->room_id=$request->room_id;

@@ -42,8 +42,8 @@
 
 					{{ Form::label('schedule','Schedule') }}
 					<br>
-					{{ Form::label('day','Day') }}
-					{{ Form::select('day',$days,null,['class'=>'day']) }}
+					{{ Form::label('day_id','Day') }}
+					{{ Form::select('day_id',$days,null,['class'=>'day']) }}
 								 @if ($errors->has('day'))
 		                                <span>
 		                                     <strong class="red-text lighten-1">Day Field is Required</strong>

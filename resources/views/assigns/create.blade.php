@@ -92,8 +92,8 @@
                                 </span>
                           @endif 
 						<div class="section"></div>
-						{{ Form::label('day','Day') }}
-						<select class="day" name="day">
+						{{ Form::label('day_id','Day') }}
+						<select class="day" name="day_id">
 								<option>Select Day</option>
 								@foreach($days as $day)
 									<option value="{{ $day->id }}">{{ $day->name }}</option>

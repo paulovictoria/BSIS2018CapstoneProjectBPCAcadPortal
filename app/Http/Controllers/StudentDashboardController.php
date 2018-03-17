@@ -74,10 +74,10 @@ class StudentDashboardController extends Controller
 	->join('assigns','assign_student.assign_id','=','assigns.id')
 	->where('assign_student.student_id','=',Auth::user()->id)
 	->join('rooms','assigns.room_id','=','rooms.id')
-	->join('days','assigns.day','=','days.id')
+	->join('days','assigns.day_id','=','days.id')
 	->join('subjects','assigns.subject_id','=','subjects.id')
 	->join('professors','assigns.professor_id','=','professors.id')
-    ->orderBy('day','asc')
+    ->orderBy('day_id','asc')
     ->where('year',request('year'))->paginate(10)
   	->appends('year',request('year'));
 	 return view('student.schedule')->withSchedules($schedules);
