@@ -197,9 +197,8 @@ class ProfessorDashboardController extends Controller
     }
 
     public function schedule() {
-        $assigns=Assign::where('professor_id','=',Auth::user()->id)->first()
-        ->join('days','assigns.day','=','days.id')
-
+        $assigns=Assign::where('professor_id','=',Auth::user()->id)
+      
         ->get();
         return view('professor.schedule')->withAssigns($assigns);
     }
