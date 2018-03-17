@@ -120,7 +120,10 @@ class FilesController extends Controller
 
    public function downloadFile($filename)
     {
-        $file=storage_path()."/app/uploads/".$filename;
+        $file=Storage::disk('files')->get($filename);
         return response()->download($file);
+
+/*$file=storage_path()."/app/uploads/".$filename;*/
+
     }
 }
