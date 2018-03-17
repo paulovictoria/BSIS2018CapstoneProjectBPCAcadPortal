@@ -7,7 +7,6 @@
       <div class="card-content">
         <div class="row">
           <div class="col l9 offset-l3">
-            <h3 class="light-green-text darken-2 card-title">Profile</h3>
             <div class="defaultInfo center">
               <div class="row"> 
                 <div class="col s12">

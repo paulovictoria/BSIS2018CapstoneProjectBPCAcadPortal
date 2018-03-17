@@ -6,6 +6,7 @@ use App\Student;
 use App\Subject;
 use App\Course;
 use App\Classroom;
+use PDF;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 class StudentDashboardController extends Controller
@@ -108,6 +109,14 @@ class StudentDashboardController extends Controller
    	->where('year',request('year'))->paginate(10)
   	->appends('year',request('year'));	
 	return view('student.files')->withFiles($files);
+	}
+
+	public function downloadPDF(Request $request) {
+		$subjects=Subject::all();
+		$pdf = PDF::loadView('student.pdf',['subjects'=>$subjects]);
+		return $pdf->download('invoice.pdf');
+
+     
 	}
 
 }

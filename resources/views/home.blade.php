@@ -7,14 +7,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
-    <link rel="stylesheet" href="{{ asset('css/materialize.css?v=' . env('ASSET_VERSION', 1)) }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!--   <link rel="stylesheet" href="{{ asset('css/materialize.css?v=' . env('ASSET_VERSION', 1)) }}"> -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="shortcut icon" href="{{asset('images/green_link.png')}}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <title>Bpcians Portal</title>
     <style type="text/css">
+#special-dishes-section{
+    background: url('../images/special-dishes-bg.jpg') no-repeat center center;
+    min-height: 560px;
+    padding: 71px 0 65px 0;
+    position: relative;
+}
       .modal {
         width: 75%;
       }
@@ -90,8 +96,8 @@
                         <blockquote >
                         <p class="grey-text text-darken-3">   
                         <span style="font-weight:500;">{{$news->title}}</span>.
-                        {{ substr(strip_tags($news->description),0,120)}}
-                        {{strlen(strip_tags($news->description)) > 150 ? "..." : ""}}
+                        {{ substr(strip_tags($news->description),0,90)}}
+                        {{strlen(strip_tags($news->description)) > 50 ? "..." : ""}}
                         </p>
                         <p style="font-weight:300;"><a href="{{route('news.single',$news->id)}}" class="text-primarycolor">Continue Reading...</a></p>
                         <div class="divider"></div>

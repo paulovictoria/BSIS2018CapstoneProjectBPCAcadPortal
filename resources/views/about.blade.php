@@ -8,77 +8,22 @@
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+ <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="shortcut icon" href="{{asset('images/green_link.png')}}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <title>Bpcians Portal | About</title>
     <style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans);
-
-body {
-  background-color: antiquewhite;
-}
-
-.card {
-  background-color: #f4f4f4;
-  width: 300px;
-  margin: 10px auto;
-  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.7);
-}
-.card-image{
-  height: 100%;
-  width: 100%;
-}
-
-.card-content {
-  width: 85%;
-  margin: 35px auto;
-}
-
-.card-content h3 {
-  font-size: 25px;
-  margin-bottom: 0;
-  color: #303F9F;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.card-content h4 {
-  font-size: 14px;
-  margin-top: 0;
-  color: #FF5252;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.card-footer {
-  border-top: solid 1px #B6B6B6;
-  padding: 5px;
-}
-
-.card-footer ul {
-  padding: 0;
-  width: 90%;
-  margin: auto;
-  text-align: center;
-}
-
-.card-footer ul li{
-  display: inline-block;
-  list-style: none;
-  margin: 5px;
-}
-
-.card-footer ul li i {
-  font-size: 2em;
-  color: #3F51B5;
+.image{
+  height: 270px;
 }
     </style>
   </head>
   <body>
-    <ul id="slide-out" class="side-nav">
+  <ul id="slide-out" class="side-nav">
       <li><a class="waves-effect" href="{{route('home')}}">Home</a></li>
-      <li><a class="waves-effect" href="#!">About</a></li>
+      <li><a class="waves-effect" href="{{route('about')}}">About</a></li>
       <li><a class="waves-effect" href="#!">Getting Started</a></li>
       <li><a class="dropdown-button" href='#' data-activates='logAs'>Sign Up</a></li>
       <!-- Dropdown Structure -->
@@ -90,79 +35,88 @@ body {
       </ul>
     </ul>
     <div class="navbar-fixed">
-      <nav class="light-green darken-2"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
-      <div class="container nav-wrapper light-green darken-2">
+      <nav class="blue-grey darken-2"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
+      <div class="container nav-wrapper blue-grey darken-2">
         <a href="#" class="brand-logo" id="logo">
         <span width="30" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;"></span><span style="font-weight:400;font-size:1.5rem;"><i class="material-icons" style="margin-right:1px; ">link</i>BPC Portal</span>
         </a> 
         <ul class="rightnav right hide-on-med-and-down">
           <li><a class="waves-effect" href="{{route('home')}}">HOME</a></li>
-          <li><a class="waves-effect" href="#!">ABOUT</a></li>
+          <li><a class="waves-effect" href="{{route('about')}}" active>ABOUT</a></li>
           <li><a class="waves-effect" href="#!">GETTING STARTED</a></li>
        </ul>
       </div>
       </nav>
     </div>
     <main>
-      <div class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col s12 m4">      
-              <div class="card">
-                <div class="card-image">
-                  <img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/27971970_1645259625568623_1841709745374485910_n.jpg?oh=c592c651b6ba8665aeb2615b7d8c1866&oe=5B02A70F"/>
-                </div>
+ 
+<div class="section blue-grey darken-2">
+  <div class="col s12 m12">
+    <div class="card">
+      <div class="card-content">
+          <span class="card-title center-align">The Proponents</span>
+       <div class="row">
+        <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 blue-grey darken-2 white-text">
+              <div class="card-image">
+                <img class="image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/27971970_1645259625568623_1841709745374485910_n.jpg?_nc_eui2=v1%3AAeHf8nu6z5HIeSXm3WDMplC5dtRWgkRSV6C52HzTbkWRfDMFcz1cxz2B7IC1hxSbDYwKi5N3hjvHbKDnmh4Eifk-SLOZXcywk2BgBhu_b18-NQ&oh=1d2bc10ff9d7d4376e5562f2c45e6ad1&oe=5B02A70F">
+              </div>
+              <div class="card-stacked">
                 <div class="card-content">
-                  <h3>Frank the Pug</h3>
-                  <h4>The sexiest "Men (dog) in Black" </h4>
-               
+                  <h4>Paul Adrian Reyes</h4>
+                  <span class="blue-text">System Analyst</span>
                 </div>
-                <div class="card-footer">
-                  <ul>
-                    <li><i class="fab fa-facebook-square"></i></li>
-                    <li><i class="far fa-user"></i></li>
+                <div class="card-action">
+                    <i class="fab fa-linkedin" style="font-size:23px;"></i>
+                    <i class="fab fa-github-square" style="font-size:23px;"></i>
+                    <i class="fas fa-envelope" style="font-size:23px;"></i>
                 </div>
               </div>
             </div>
-            <div class="col s12 m4">      
-              <div class="card">
-                <div class="card-image">
-                  <img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/23722439_407058473061436_1493902858471524239_n.jpg?oh=2612b5f958889aaf91bd0ded99d75556&oe=5B33C8A3"/>
-                </div>
-                <div class="card-content">
-                  <h3>Frank the Pug</h3>
-                  <h4>The sexiest "Men (dog) in Black" </h4>
-               
-                </div>
-                <div class="card-footer">
-                  <ul>
-                    <li><i class="fab fa-facebook-square"></i></li>
-                    <li><i class="far fa-user"></i></li>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m4">      
-              <div class="card">
-                <div class="card-image">
-                  <img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/27971970_1645259625568623_1841709745374485910_n.jpg?oh=c592c651b6ba8665aeb2615b7d8c1866&oe=5B02A70F"/>
-                </div>
-                <div class="card-content">
-                  <h3>Frank the Pug</h3>
-                  <h4>The sexiest "Men (dog) in Black" </h4>
-               
-                </div>
-                <div class="card-footer">
-                  <ul>
-                    <li><i class="fab fa-facebook-square"></i></li>
-                    <li><i class="far fa-user"></i></li>
-                </div>
-              </div>
-            </div>                        
           </div>
-        </div>
-      </div>
-    </main>  
-    <footer class="page-footer light-green darken-2">
+
+        <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 blue-grey darken-2 white-text">
+              <div class="card-image">
+                <img class="image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/23722439_407058473061436_1493902858471524239_n.jpg?_nc_eui2=v1%3AAeH-pcJW8PiOqhxHoM7om7exaDGz0VcAsVaGfnq71pMYpfG7DqzOxca5OdbDL60UAUFEQmFq0h0qemBzwWGF1tm-wrUmlH-fXd29XN_yonWHHg&oh=efe42dd6f5f02b21657fc77664f7e352&oe=5B33C8A3">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h4>Rica Pica Blasabas</h4>
+                  <span class="blue-text">Researcher</span>
+                </div>
+                <div class="card-action">
+                    <i class="fab fa-linkedin" style="font-size:23px;"></i>
+                    <i class="fab fa-github-square" style="font-size:23px;"></i>
+                    <i class="fas fa-envelope" style="font-size:23px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 blue-grey darken-2 white-text">
+              <div class="card-image">
+                <img class="image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/17353440_1132157450245368_1603364581301346998_n.jpg?_nc_eui2=v1%3AAeE5joU4Tr4l7YEzzri0nB2ljkaEMdqpjJKVVTRqU4RJtI-BWwoD_40SBvAva_2O07Al_ugQl8cZ8ttg4SBKds3lV_XAFmFFmJXlsL9fwGZBgg&oh=900feb0c2d9d5569ef50c1f7262f2586&oe=5B3A8BB0">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h4>Michael Centeno Velayo</h4>
+                  <span class="blue-text">Programmer</span>
+                </div>
+                <div class="card-action">
+                    <i class="fab fa-linkedin" style="font-size:23px;"></i>
+                    <i class="fab fa-github-square" style="font-size:23px;"></i>
+                    <i class="fas fa-envelope" style="font-size:23px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>  
+       </div>
+    </div>    
+  </div>
+</div>
+</div></main>
+    <footer class="page-footer blue-grey darken-2">
      <div class="container">
        <div class="row">
         <div class="col s12 m6">
@@ -265,8 +219,10 @@ body {
       <div class="modal-footer">
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="{{ asset('jquery/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/materialize.js') }}"></script>
+ <!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script -->>
     <script src="{{ asset('jquery/aos.js') }}"></script>
     <script>
     $(document).ready(function(){
@@ -299,4 +255,3 @@ body {
    </script> 
   </body>
 </html>
-

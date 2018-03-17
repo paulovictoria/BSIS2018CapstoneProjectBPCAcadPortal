@@ -1,5 +1,8 @@
 @extends('student_template')
 @section('title','My Schedule')
+@section('stylesheet')
+<style type="text/css"></style>
+@endsection
 @section('content')
 <div class="col m12">       
   <div class="section">

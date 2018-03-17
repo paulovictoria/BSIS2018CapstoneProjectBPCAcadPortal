@@ -171,7 +171,9 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('upload', 'FilesController@upload');
 	Route::get('downloadfile/{filename}','FilesController@downloadFile')->name('download.file');
 	Route::post('/handleUpload','FilesController@handleUpload')->name('handleUpload');
+	Route::get('/downloadPDF/{id}','StudentDashboardController@downloadPDF')->name('downloadPdf');
 	/*AJAX*/
+
 
 });
 

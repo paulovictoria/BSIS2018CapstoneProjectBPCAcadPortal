@@ -2,7 +2,7 @@
   <li>
     <div class="user-view ">
       <div class="background">
-        <img class="right" src="{{asset('images/bgadmin.png')}}">
+        <img class="right" src="https://c.wallhere.com/photos/f7/2d/minimalism_digital_art_simple-109792.png!d">
       </div>
         <a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>Auth::user()->filename ])}}"></a>
         <a href="#!name"><span class="white-text name">{{ Auth::user()->first_name.' '.Auth::user()->last_name}}</span></a>
@@ -41,7 +41,7 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a href="{{route('student.grades')}}" class="collapsible-header"><i class="material-icons">grade</i>Grades</a>
+            <a href="{{route('student.grades')}}" class="collapsible-header"><i class="material-icons">library_books</i>Grades</a>
           </li>
         </ul>
       </li>                  

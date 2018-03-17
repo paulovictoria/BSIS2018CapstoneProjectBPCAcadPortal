@@ -48,7 +48,8 @@
 								                        <td>{{$subj->subj_description}}</td>
 								                        <td>{{$subj->subj_units}}</td>
 								                        <td>{{$subj->sem}}</td>
-								                        </tr>  
+								                        <a href="{{action('StudentDashboardController@downloadPDF', $subj->id)}}" class="btn">Download</a>
+								                        </tr> 
 								                    @endif           
 							                    @endforeach
 											</tbody>

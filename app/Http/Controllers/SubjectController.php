@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Subject;
 use App\Course;
-use Datatables;
 use Session;
 class SubjectController extends Controller
 {

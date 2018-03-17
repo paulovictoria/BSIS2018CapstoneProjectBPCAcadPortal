@@ -3,6 +3,7 @@
 	<head>
 		@include('partials._head')
 		<title>@yield('title')</title>
+		@yield('stylesheet')
 	</head>
 
 	<body>
