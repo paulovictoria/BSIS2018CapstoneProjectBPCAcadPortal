@@ -8,7 +8,7 @@ use App\Classroom;
 use App\Course;
 use App\Student;
 use Session;
-
+use Auth;
 class ClassroomController extends Controller
 {
     public function __construct() {
@@ -33,7 +33,7 @@ class ClassroomController extends Controller
     public function create()
     {
         $courses=Course::all();
-        $students=Student::all();
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
         return view('classrooms.create')
         ->withCourses($courses)
         ->withStudents($students);
@@ -126,6 +126,11 @@ class ClassroomController extends Controller
         } else {
          $classroom->students()->sync(array());   
         }
+        
+        foreach ($classroom->assigns as $assign) {
+            $assign->students()->sync($request->students);
+        }
+
         Session::flash('success','Updated Successfully');
         return redirect()->route('classrooms.show',$classroom->id);
 

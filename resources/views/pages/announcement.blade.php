@@ -12,7 +12,7 @@
                 <div class="col s12 m6">
                   <h3>ATTENTION!</h3>
                   <h5 class="start text-primarycolor"><span class="black-text">{{$announcement->title}}</span></h5> 
-                  <p class="start-paragraph-text ">{{$announcement->description}}</p>
+                  <p class="start-paragraph-text ">{!!$announcement->description!!}</p>
                   <p class="start-paragraph-text ">on {{$announcement->date}}</p><br>
                   <div class="chip">
                   Posted by : {{$announcement->campus->campus_name.' '.'Admin'}}

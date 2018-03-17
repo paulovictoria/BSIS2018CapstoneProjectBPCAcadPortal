@@ -77,7 +77,7 @@
                             </thead>
                             <tbody>
                                   @foreach($schedules as $schedule)
-                                      @if($schedule->sem=="1st Semester")
+                                      @if($schedule->sem=="2nd Semester")
                               <tr>
                                 <td>{{$schedule->name}}</td>
                                 <td>{{$schedule->startTime}}</td>

@@ -11,6 +11,18 @@ class ProfessorsTableSeeder extends Seeder
      */
     public function run()
     {
+       DB::table('professors')->insert([
+                'eid'=>'18006',
+                'last_name' => 'Tamayo',
+                'first_name' => 'Ferdinand',
+                'midle_name' => 'T',  
+                'approved'=>true,
+                'gender'=>'male',
+                'email'=>'tams@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
+        ]);            
         DB::table('professors')->insert([
         		'eid'=>'18001',
                 'last_name' => 'Victoria',
@@ -21,6 +33,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'paulo@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('professors')->insert([
         		'eid'=>'18002',
@@ -32,6 +45,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'ed@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('professors')->insert([
         		'eid'=>'18003',
@@ -43,6 +57,32 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'rose@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
         ]);                
+        DB::table('professors')->insert([
+                'eid'=>'18004',
+                'last_name' => 'Caluscusin',
+                'first_name' => 'Amado',
+                'midle_name' => 'A',  
+                'approved'=>true,
+                'gender'=>'male',
+                'email'=>'amado@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
+        ]);    
+        DB::table('professors')->insert([
+                'eid'=>'18005',
+                'last_name' => 'Arenas',
+                'first_name' => 'Sheldon',
+                'midle_name' => 'T',  
+                'approved'=>true,
+                'gender'=>'male',
+                'email'=>'sheldon@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
+        ]);    
+                 
     }
 }

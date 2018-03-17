@@ -15,8 +15,10 @@
 								<th>Academic Year</th>
 								<th>Course</th>
 								<th>Year</th>
+								<th>Sem</th>
 								<th>Section</th>
 								<th>No. of students</th>
+								<th>No. of Assigns</th>
 								<th>View</th>
 								<th>Edit</th>
 								<th>Delete</th>
@@ -28,8 +30,10 @@
 								<td>{{ $classroom->academic_year }}</td>
 								<td>{{ $classroom->course->course_name}}</td>
 								<td>{{ $classroom->year }}</td>
+								<td>{{ $classroom->sem }}</td>
 								<td>{{ $classroom->section }}</td>
 								<td>{{ $classroom->students->count() }}</td>
+								<td>{{ $classroom->assigns->count() }}</td>
 								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn orange lighten-2"><i class="material-icons">pageview</i></a></td>
 								<td><a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn blue lighten-2"><i class="material-icons">edit</i></a></td>
 								<td>{!! Form::open(['route' => ['classrooms.destroy', $classroom->id], 'method' => 'DELETE']) !!}

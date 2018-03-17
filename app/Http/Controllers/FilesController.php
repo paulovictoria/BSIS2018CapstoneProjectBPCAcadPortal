@@ -120,7 +120,7 @@ class FilesController extends Controller
 
    public function downloadFile($filename)
     {
-        $file=resource_path()."/app/uploads".$filename;
+        $file=storage_path()."/app/uploads".$filename;
         return response()->download($file);
     }
 }

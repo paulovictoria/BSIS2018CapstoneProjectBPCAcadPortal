@@ -1,5 +1,16 @@
 @extends('admin_template')
 @section('title','| Create Announcement')
+@section('stylesheets')
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+tinymce.init({
+ selector:'textarea',
+ plugins: 'link',
+ menubar: false
+
+});
+</script>
+@endsection
 @section('content')
 <div class="col s12">				
 	<div class="section">
@@ -24,7 +35,9 @@
 		                        <input class="file-path validate" type="text">
 		                      </div>
 		                    </div>
+		                    <div class="right-align">
 							{{ Form::submit('Post',['class'=>'btn light-green darken-1']) }}
+							</div>
 						{!! Form::close() !!}
 					</div>
 				</div>
@@ -33,4 +46,9 @@
 		</div>
 	</div>	
 </div>
+@endsection
+@section('script')
+<script>
+	CKEDITOR.replace( 'description' );
+</script>
 @endsection

@@ -19,7 +19,7 @@ class CreateAssignStudentTable extends Migration
             $table->foreign('assign_id')->references('id')->on('assigns');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students'); 
-            $table->integer('grade')->default(0);             
+            $table->float('grade')->default(0.00);             
             $table->timestamps();
         });
     }

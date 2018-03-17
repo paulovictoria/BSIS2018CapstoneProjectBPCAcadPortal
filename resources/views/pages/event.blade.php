@@ -9,10 +9,10 @@
           <div class="section white" id="undecided">
             <div class="container">
               <div class="row">
-                <div class="col s12 m6">
+                <div class="col s12 m12">
                   <h3>ATTENTION!</h3>
                   <h5 class="start text-primarycolor">What? <span class="black-text">{{$event->title}}</span></h5> 
-                  <p class="start-paragraph-text ">{{$event->description}}</p>
+                  <p class="start-paragraph-text ">{!! $event->description !!}</p>
                   <h5 class="start text-primarycolor">When?</h5> 
                   <p class="start-paragraph-text ">on {{$event->date}}</p>
                   <span>{{$event->startTime}} up To {{$event->endTime}}</span>
@@ -22,7 +22,7 @@
                   Posted by : {{$event->campus->campus_name.' '.'Admin'}}
                    </div>          
                 </div>  
-                <div class="col s12 m6">
+                <div class="col s12 m12">
                   <br><br><br>
                   <img src="{{route('socials.image',['filename'=>$event->filename])}}" class="responsive-img z-depth-5">
                 </div>

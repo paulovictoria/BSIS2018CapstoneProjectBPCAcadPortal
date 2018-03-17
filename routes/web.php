@@ -32,6 +32,7 @@ Route::group(['middleware'=> ['web']],function(){
     Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
+
     });
     //endAdmin
 
@@ -105,7 +106,7 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::put('/approved/{id}','RegistrarDashboardController@approved')->name('studentsApproved');
 	Route::delete('/denied/{id}','RegistrarDashboardController@denied')->name('studentsDenied');	
 	Route::get('/approvalIndex','RegistrarDashboardController@approvalIndex')->name('studentsApprovalIndex');
-
+	
 
 	//email verification
 	Route::post('/password/email', 'Auth\RegistrarForgotPasswordController@sendResetLinkEmail')->name('registrar.password.email');
@@ -118,6 +119,7 @@ Route::group(['middleware'=> ['web']],function(){
     Route::post('logout','Auth\LoginController@logout');
 	Auth::routes();
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/about','HomeController@about')->name('about');
 	//Course
 	Route::resource('courses','CourseController');	
 	//endCourse
@@ -130,6 +132,8 @@ Route::group(['middleware'=> ['web']],function(){
 	//assign this for Class
 	Route::resource('classrooms','ClassroomController');
 	Route::resource('assigns','AssignController');
+	Route::get('speacialAssign','AssignController@specialCreate')->name('speacialAssign.create');
+	Route::post('speacialAssignStore','AssignController@specialStore')->name('speacialAssign.store');
 	Route::resource('rooms','RoomController');
 	//Socials
 	Route::resource('events','EventController');
@@ -168,7 +172,6 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('downloadfile/{filename}','FilesController@downloadFile')->name('download.file');
 	Route::post('/handleUpload','FilesController@handleUpload')->name('handleUpload');
 	/*AJAX*/
-	Route::get('allsubjects','SubjectController@allSubjects')->name('allsubjects');
-	Route::get('allcourses','CourseController@allCourses')->name('allcourses');
+
 });
 

@@ -19,8 +19,8 @@
                         <blockquote >
                           <p class="grey-text text-darken-3">   
                         <span style="font-weight:500;">{{$news->title}}</span>.
-                        {{ substr($news->description,0,120)}}
-                        {{strlen($news->description) > 150 ? "..." : ""}}
+                        {{ substr(strip_tags($news->description),0,120)}}
+                        {{strlen(strip_tags($news->description)) > 150 ? "..." : ""}}
                         </p>
                         <p style="font-weight:300;"><a href="{{route('news.single',$news->id)}}" class="text-primarycolor">Continue Reading...</a></p>
                         <div class="divider"></div>

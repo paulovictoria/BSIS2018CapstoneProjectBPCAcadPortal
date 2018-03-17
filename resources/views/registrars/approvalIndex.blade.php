@@ -1,13 +1,23 @@
 @extends('registrar_template')
-@section('title','| Approval')
+@section('title','Students')
 @section('content')
-<div class="col s12">				
-	<div class="section">
-		<div class="card z-depth-1">
-			<div class="card-content">
-				<div class="row">
-					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Students Approval</h3>
+<div class="col s12">               
+    <div class="section">
+        <div class="card z-depth-1">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s9 offset-s3">
+                        <h3 class="light-green-text darken-2 card-title"></h3>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 p">
+									<div class="light-green darken-2 white-text">
+										<p class="flow-text">{{ Session::get('success')}}</p>
+									</div>
+								</div>
+							@endif							
+						</div>
+                        
 					<table id="approvalIndex" class="table responsive-table" cellspacing="0">
 						<thead>
 							<tr>
@@ -43,12 +53,12 @@
 							@endforeach
 						</tbody>
 					</table>
-					</div>
-				</div>
-			</div>
-			<div class="card-action"></div>
-		</div>
-	</div>	
+                    </div>
+                </div>
+            </div>
+            <div class="card-action"></div>
+        </div>
+    </div>  
 </div>
 @endsection
 @section('script')

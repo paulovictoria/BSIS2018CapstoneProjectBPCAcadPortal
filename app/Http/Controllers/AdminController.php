@@ -9,6 +9,7 @@ use App\Registrar;
 use App\Professor;
 use App\Course;
 use Auth;
+use Session;
 use Illuminate\Support\Carbon;
 class AdminController extends Controller
 {
@@ -82,7 +83,12 @@ class AdminController extends Controller
          $professor=Professor::find($id);
          $professor->approved = true;
          $professor->save();
-         return redirect()->route('admin.dashboard');
+         $professors=Professor::where('approved','=',0)
+         ->where('campus_id','=',Auth::user()->campus_id)
+         ->get();
+
+         Session::flash('success','Approved Successfully');
+         return redirect()->route('professorsApprovalIndex')->withProfessors($professors);
     }
 
      public function denied (Request $request, $id) {

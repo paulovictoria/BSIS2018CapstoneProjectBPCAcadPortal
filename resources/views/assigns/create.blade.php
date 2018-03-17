@@ -28,19 +28,31 @@
 				<div class="row">
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Assigning of Classrom</h3>
-						<div class="section"></div>
-						{!! Form::open(['route'=>'assigns.store']) !!}                       
-                      
+						<div class="section">
+							@if(Session::has('alert'))
+								<div class="col s12 p">
+									<div class="red lighten-1">
+										<p class="flow-text">{{ Session::get('alert')}}</p>
+									</div>
+								</div>
+							@endif
+						</div>
+						{!! Form::open(['route'=>'assigns.store']) !!}
+						                       
+						@if ($errors->has('class_subj'))
+                                <span>
+                                     <strong class="red-text lighten-1">Already Assign the Subject to the Classroom</strong>
+                                </span>
+                         @endif  
 						{{ Form::label('classroom','Classroom ')}}
 						<select class="classroom" name="classroom_id">
 								<option value="null">Select Classroom</option>
 							@foreach($classrooms as $classroom)
 								<option value="{{ $classroom->id }}" class="circle">
-								{{ $classroom->academic_year }}
-								{{ $classroom->course->course_name }}
-								{{ $classroom->sem }}
-								{{ $classroom->year }}
-								{{ $classroom->section }}
+								{{'Year:'.' '.$classroom->academic_year }}
+								{{'Course:'.' '.$classroom->course->course_name.' '.$classroom->year.' '.$classroom->section }}
+								{{'Sem:'.' '.$classroom->sem }}
+								{{'Assign Recorded:'.$classroom->assigns->count()}}
 								</option>
 							@endforeach
 						</select>	
@@ -127,8 +139,7 @@
                                 <span>
                                      <strong class="red-text lighten-1">Room Field is Required</strong>
                                 </span>
-                          @endif 	
-                          				
+                          @endif		
 						<div class="section"></div>
 						<div class="right">
 						{{ Form::submit('Save',['class'=>'btn light-green darken-2']) }}			

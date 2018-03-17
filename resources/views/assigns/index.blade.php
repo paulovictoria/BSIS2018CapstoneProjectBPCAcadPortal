@@ -8,8 +8,17 @@
 				<div class="row">
 					<div class="col s9 offset-s3">
 						<h3 class="light-green-text darken-2 card-title">Assigns Index</h3>
-						<div class="section"></div>
-						<a href="{{ route('assigns.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="material-icons">add</i></a>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 p">
+									<div class="light-green darken-1">
+										<strong>Success:</strong> {{ Session::get('success')}}
+									</div>
+								</div>
+							@endif
+						</div>
+						<a href="{{ route('assigns.create') }}" class="btn light-green darken-1"><i class="material-icons">add</i></a>
+						<a href="{{route('speacialAssign.create')}}" class="btn">Individual Assign</a>
 						<table class="table responsive-table" id="assigns">
 							<thead>
 								<tr>

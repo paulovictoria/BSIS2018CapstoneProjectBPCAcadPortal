@@ -16,6 +16,7 @@
 								<th>#</th>
 								<th>Course Name</th>
 								<th>Course Description</th>
+								<th>Type</th>
 								<th>Subjects</th>
 								<th>Action</th>
 							</tr>	
@@ -27,6 +28,11 @@
 								<td>{{ $course->id }}</td>
 								<td>{{ $course->course_name }}</td>
 								<td>{{ $course->course_description }}</td>
+								@if($course->degree==1)
+								<td>Degree</td>
+								@else
+								<td>Tech. Voc</td>
+								@endif
 								<td>{{ $course->subjects()->count() }}</td>
 								<!--<td>
 							 	@foreach($course->subjects as $subject) 
@@ -34,7 +40,7 @@
 								 @endforeach
 								</td> -->
 								<td><a href="{{ route('courses.show',$course->id)}}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
-								<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>	
+								<a href="{{route('courses.edit',$course->id)}}" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>	
 								
 								</td>
 							</tr>

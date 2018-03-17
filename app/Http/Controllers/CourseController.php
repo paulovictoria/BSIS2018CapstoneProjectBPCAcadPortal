@@ -55,9 +55,6 @@ class CourseController extends Controller
         $course->degree=$request->degree;
         $course->save();
         Session::flash('success','New Course created Successfully');
-        $thread=$course;
-        $admin=Admin::where('id','=',1)->first(); 
-        $admin->notify(new RepliedToRegister($thread));
         return redirect()->route('courses.show',$course->id);
     }
 
@@ -81,7 +78,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course=Course::find($id);
+        return view('courses.edit')->withCourse($course);
     }
 
     /**
@@ -93,7 +91,20 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'course_code'=>'required|max:255',
+            'course_name'=>'required|max:255',
+            'course_description'=>'required|max:255',
+            'degree'=>'required'
+        ]);
+        $course=Course::find($id);
+        $course->course_code=$request->course_code;
+        $course->course_name=$request->course_name;
+        $course->course_description=$request->course_description;
+        $course->degree=$request->degree;
+        $course->save();
+        Session::flash('success','New Course created Successfully');
+        return redirect()->route('courses.show',$course->id);
     }
 
     /**

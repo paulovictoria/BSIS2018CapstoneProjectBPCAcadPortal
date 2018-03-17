@@ -7,7 +7,16 @@
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Events</h3>	
+						<h3 class="light-green-text darken-2 card-title">Events</h3>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 p">
+									<div class="light-green darken-1">
+										<strong>Success:</strong> {{ Session::get('success')}}
+									</div>
+								</div>
+							@endif
+						</div>  	
 				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('events.create')}}"><i class="material-icons">add_a_photo</i></a>
 				 		<table class="table responsive-table" id="events">
 						<thead>
@@ -31,7 +40,7 @@
 							<tr>
 								<td>{{$no++}}</td>
 								<td id="itemTitleEvent">{{$event->title}}</td>
-								<td id="itemDescriptionEvent">{{ substr($event->description,0,20)}} {{ strlen($event->description) > 50 ? "..." : "" }}</td>
+								<td id="itemDescriptionEvent">{{ substr(strip_tags($event->description),0,20)}} {{ strlen(strip_tags($event->description)) > 50 ? "..." : "" }}</td>
 								<td>{{$event->date}}</td>
 								<td>{{$event->startTime}}</td>
 								<td>{{$event->endTime}}</td>

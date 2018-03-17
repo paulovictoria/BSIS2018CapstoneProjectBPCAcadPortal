@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Assign;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use Response;
 use App\Classroom;
 use App\Professor;
 use App\Subject;
@@ -67,8 +70,8 @@ class AssignController extends Controller
             'day'=>'required',
             'startTime'=>'required',
             'endTime'=>'required',
-            'room_id'=>'required|integer'
-        ]);
+            'room_id'=>'required|integer',
+        ]);      
         $assign=new Assign();
         $assign->subject_id=$request->subject_id;
         $assign->classroom_id=$request->classroom_id;
@@ -77,10 +80,23 @@ class AssignController extends Controller
         $assign->startTime=$request->startTime;
         $assign->endTime=$request->endTime;
         $assign->room_id=$request->room_id;
+        //unique assigns
+        $assign->class_subj=$request->classroom_id.'and'.$request->subject_id;
+        $refer=Assign::where('class_subj','=',$assign->class_subj)->first();
+        if(is_null($refer)){
         $assign->save();
         $assign->students()->sync($assign->classroom->students,false);
         Session::flash('success','Assigned Created Successfully');
         return redirect()->route('assigns.index');
+        }
+        else{
+            Session::flash('alert','The subject already assigned to this Classroom');
+            return redirect()->route('assigns.create');
+        }
+     
+             
+      
+    
     }
 
     /**
@@ -187,9 +203,28 @@ class AssignController extends Controller
         return redirect()->route('assigns.index');
     }
 
-    public function search(Request $request)
-    {
-  
+    public function specialCreate() {
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
+        $assigns=Assign::all();
+        return view('assigns.special')->withStudents($students)->withAssigns($assigns);
+    }
+
+    public function specialStore(Request $request) {
+        $this->validate($request,[
+            'student_id'=>'required',
+            'failed_assign'=>'required',
+            'assign_id'=>'required'
+        ]);
+        $assign=Assign::find($request->failed_assign);
+        $student=Student::find($request->student_id);
+        $assign->assign_id=$request->assign_id;
+        $assign->students()->detach($student);
+
+        $newAssign=Assign::find($request->assign_id);
+        $newAssign->students()->attach($student);
+        
+        Session::flash('success','Success');
+        return redirect()->route('speacialAssign.create');
     }
    
 }

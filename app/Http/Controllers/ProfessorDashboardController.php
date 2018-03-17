@@ -128,20 +128,20 @@ class ProfessorDashboardController extends Controller
     	$rules=array(
 	   	'student_id'=>'required',
         'assign_id'=>'required',
-        'grade'=>'required|integer'
+        'grade'=>'required|float'
         );
 
-        $validator = Validator::make (input::all(), $rules);
+    /*    $validator = Validator::make (input::all(), $rules);
         if($validator->fails())
             return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
                
-        else {
+        else {*/
            $assign=Assign::find($request->assign_id);
            $student=Student::find($request->student_id);
            $assign->students()->detach($student);
            $assign->students()->attach($student,['grade'=>$request->grade]);
            return response()->json($assign);
-        }
+       /* }*/
      
     }
 

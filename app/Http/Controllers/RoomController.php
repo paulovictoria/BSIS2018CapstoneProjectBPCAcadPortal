@@ -70,7 +70,8 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $room=Room::find($id);
+        return view('rooms.edit')->withRoom($room);
     }
 
     /**
@@ -82,7 +83,18 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'room_code'=>'required',
+            'room_description'=>'required',
+            'capacity'=>'required'
+        ]);
+        $room=Room::find($id);
+        $room->room_code=$request->room_code;
+        $room->room_description=$request->room_description;
+        $room->capacity=$request->capacity;
+        $room->campus_id=Auth::user()->campus_id;
+        $room->save();
+        return redirect()->route('rooms.index');
     }
 
     /**

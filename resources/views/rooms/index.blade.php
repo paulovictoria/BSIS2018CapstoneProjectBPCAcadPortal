@@ -27,7 +27,7 @@
 											<td>{{ $room->capacity }}</td>
 											<td>
 												<a href="#" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
-												<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
+												<a href="{{route('rooms.edit',$room->id)}}" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
 											</td>
 										</tr>	
 										@endforeach

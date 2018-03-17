@@ -1,5 +1,16 @@
 @extends('admin_template')
 @section('title','| Edit News')
+@section('stylesheets')
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+tinymce.init({
+ selector:'textarea',
+ plugins: 'link',
+ menubar: false
+
+});
+</script>
+@endsection
 @section('content')
 <div class="col s12">				
 	<div class="section">

@@ -38,8 +38,9 @@
 								<option value="{{ $course->id }}">{{ $course->course_name }}</option>
 							@endforeach
 						</select>
-
+						<div class="right-align">
 						{{ Form::submit('Create New Subject',['class'=>'btn blue darken-1']) }}
+						</div>
 						{!! Form::close() !!}
 					</div>
 				</div>

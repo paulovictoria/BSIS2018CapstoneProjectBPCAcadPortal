@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Registrar;
 use App\Student;
 use App\Course;
+use App\Assign;
 use Auth;
+use Session;
 use Illuminate\Support\Carbon;
 class RegistrarDashboardController extends Controller
 {
@@ -28,11 +30,13 @@ class RegistrarDashboardController extends Controller
 	}
 
     public function studentShow($id) {
-        $records=Student::find($id)
+        $records=Student::find($id)->first()
         ->join('assign_student','students.id','=','assign_student.student_id')
         ->where('assign_student.student_id','=',$id)
         ->join('assigns','assign_student.assign_id','=','assigns.id')
         ->join('subjects','assigns.subject_id','=','subjects.id')
+        ->orderBy('subj_code','asc')
+        ->orderBy('sem','asc')
         ->get();
         return view('registrars.studentShow')->withRecords($records);
     }
@@ -56,7 +60,11 @@ class RegistrarDashboardController extends Controller
          $student=Student::find($id);
          $student->approved = true;
          $student->save();
-         return redirect()->route('registrar.dashboard');
+         $students=Student::where('approved','=',0)
+         ->where('campus_id','=',Auth::user()->campus_id)
+         ->get();
+         Session::flash('success','Approved Successfully');
+         return redirect()->route('studentsApprovalIndex')->withStudents($students);
     }
 
      public function denied (Request $request, $id) {
@@ -64,5 +72,6 @@ class RegistrarDashboardController extends Controller
          $student->delete();
         return redirect()->route('registrar.dashboard');
     } 
+
 
 }

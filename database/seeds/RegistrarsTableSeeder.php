@@ -22,6 +22,8 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarmalolos@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'1',
+                'filename'=>'1520147851.jpg',
+
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18002',
@@ -32,6 +34,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarbocaue@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'2',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18003',
@@ -42,6 +45,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarobando@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'3',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18004',
@@ -52,6 +56,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarangat@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'4',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18005',
@@ -62,6 +67,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarpandi@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'5',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18006',
@@ -72,6 +78,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarsanrafael@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'6',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18007',
@@ -82,6 +89,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarsanjosedelmonte@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'7',
+                'filename'=>'1520147851.jpg',
         ]);
         DB::table('registrars')->insert([
         	 	'eid' => '18008',
@@ -92,6 +100,7 @@ class RegistrarsTableSeeder extends Seeder
                 'email' => 'registrarsanmiguel@sample.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'8',
+                'filename'=>'1520147851.jpg',
         ]);                                                        
     }
 }

@@ -12,7 +12,7 @@
                 <div class="col s12 m6">
                   <h3>News!</h3>
                   <h5 class="start text-primarycolor"><span class="black-text">{{$news->title}}</span></h5> 
-                  <p class="start-paragraph-text ">{{$news->description}}</p>
+                  <p class="start-paragraph-text ">{!!$news->description!!}</p>
                   <span>Author: {{$news->author}}</span><br>
                    <div class="chip">
                   Posted by : {{$news->campus->campus_name.' '.'Admin'}}

@@ -1,7 +1,6 @@
 @extends('admin_template')
 @section('title','| Announcements')
 @section('stylesheets')
-
 <link href="{{ asset('js/plugins/sweetalert/sweetalert.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
 @endsection
 @section('content')
@@ -11,8 +10,16 @@
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-
             		<h3 class="light-green-text darken-2 card-title">Announcements</h3>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 p">
+									<div class="light-green darken-1">
+										<strong>Success:</strong> {{ Session::get('success')}}
+									</div>
+								</div>
+							@endif
+						</div>            		
 				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('announcements.create')}}"><i class="material-icons">add_a_photo</i></a>
 				 		<table class="table responsive-table" id="announcements">
 						<thead>
@@ -33,7 +40,7 @@
 							<tr>
 								<td>{{$no++}}</td>
 								<td id="itemTitleEvent">{{$announcement->title}}</td>
-								<td id="itemDescriptionEvent">{{ substr($announcement->description,0,20)}} {{ strlen($announcement->description) > 50 ? "..." : "" }}</td>
+								<td id="itemDescriptionEvent">{{ substr(strip_tags($announcement->description),0,20)}} {{ strlen(strip_tags($announcement->description)) > 50 ? "..." : "" }}</td>
 								<td>{{$announcement->date}}</td>
 								<td>{{ date('M j,Y',strtotime($announcement->created_at)) }}</td>
 								<td><a href="#"><img class="circle" src="{{route('socials.image',['filename'=>$announcement->filename])}}" width="50"></a></td>

@@ -1,5 +1,5 @@
 @extends('professor_template')
-@section('title','| Grade') 
+@section('title','| Grade')
 @section('content')
 <div class="col s12">               
     <div class="section">
@@ -22,6 +22,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                          
                             @foreach($assigns as $assign)
                             <tr>
 
@@ -30,13 +31,11 @@
                               <td>{{$assign->midle_name}}</td>
                               <td>{{$assign->subj_code}}</td>
                               <td>{{$assign->grade}}</td>
-                               @if($assign->grade==1)
+                              @if($assign->grade==0)
+                               <td class="grey-text">No Grade</td>
+                               @elseif($assign->grade<=3)
                                <td class="green-text">Passed</td>
-                               @elseif($assign->grade==2)
-                               <td class="light-green-text">Passed</td>
-                               @elseif($assign->grade==3)
-                               <td class="light-green-text">Passed</td>
-                               @elseif($assign->grade==4)
+                               @elseif($assign->grade<=4)
                                <td class="orange-text">INC</td>
                                @else
                                <td class="red-text">Failed</td>
@@ -66,16 +65,70 @@
   <div class="modal-content">
     <a class="modal-close right"><span class="icon-cross grey-text"></span></a>
     <form class="form-horizontal" role="form">
-           <label>Name:</label>
+      <!--      <label>Name:</label>
            <label id="last_name"></label>
            <label id="first_name"></label>
-           <label id="midle_name"></label>
+           <label id="midle_name"></label> -->
            <input type="hidden" name="assignStudent" id="assignStudent">
            <input type="hidden" name="student_id" id="student_id">
            <input type="hidden" name="assign_id" id="assign_id">
-
-           <input type="text" name="grade" id="grade">
-            <label for="grade">Grade is:</label>
+           
+            <select class="grade" name="grade">
+              <option>Grade</option>
+                <option value="1.00" class="circle">
+                1.00
+                </option>
+                  <option value="1.25" class="circle">
+                1.25
+                </option>
+                  <option value="1.50" class="circle">
+                1.50
+                </option>                
+                  <option value="1.75" class="circle">
+                1.75
+                </option>
+                  <option value="2.00" class="circle">
+                2.00
+                </option>
+                  <option value="2.25" class="circle">
+                2.25
+                </option>
+                  <option value="2.50" class="circle">
+                2.50
+                </option>                
+                  <option value="2.75" class="circle">
+                2.75
+                </option>
+                  <option value="3.00" class="circle">
+               3.00
+                </option>  
+                  <option value="3.25" class="circle">
+               3.25
+                </option>   
+                  <option value="3.50" class="circle">
+               3.50
+                </option> 
+                  <option value="3.75" class="circle">
+               3.75
+                </option>
+                  <option value="4.00" class="circle">
+               4.00
+                </option> 
+                  <option value="4.25" class="circle">
+               4.25
+                </option> 
+                  <option value="4.50" class="circle">
+               4.50
+                </option> 
+                  <option value="4.75" class="circle">
+               4.75
+                </option> 
+                  <option value="5.00" class="circle">
+               5.00
+                </option>                                                                                       
+            </select>
+           <!-- <input type="text" name="grade" id="grade">
+            <label for="grade">Grade is:</label> -->
     </form>
   </div>
   <div class="modal-footer">
@@ -84,14 +137,21 @@
 </div>            
 @endsection
 @section('script')
+<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+<script src="{{ asset('js/select2.min.js') }}"></script>
 <style type="text/css">
   .modal{
-    width: 30%;
+    width: 20%;
   }
+  .grade{
+    width: 100%;
+  }   
 </style>
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
 <script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
 <script>
+$('.grade').select2();
+
   $(document).ready(function() {
     $('#individualClassroom').DataTable();
     
@@ -161,7 +221,7 @@ $('#updateGrade').click(function(event){
       'id':$('#assignStudent').val(),
       'student_id':$('input[name=student_id]').val(),
       'assign_id':$('input[name=assign_id]').val(),
-      'grade':$('input[name=grade]').val(),
+      'grade':$('select[name=grade]').val(),
     },
     success: function(data){
       if((data.errors)) {

@@ -8,7 +8,8 @@
                 <div class="row">
                     <div class="col m9 offset-m3">
                         <h3 class="light-green-text darken-2 card-title">Classes</h3>
-                        <table class="table table-responsive" id="gradeIndex">    
+                        <div class="col s12 m12">
+                        <table class="table responsive" id="gradeIndex">    
                            <thead>
                             <tr>
 
@@ -31,7 +32,8 @@
                             </tr>
                              @endforeach 
                             </tbody> 
-                        </table>    
+                        </table> 
+                        </div>   
                         </div> 
                 </div>
             </div>

@@ -90,7 +90,7 @@
         <a href="#" data-activates="admin-slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
         <ul class="right">
           <li><a class="admin-profileSetting" href="#" data-activates="profile-setting"><i class="material-icons">account_circle</i></a></li>
-          <li><a href="{{route('professorsApprovalIndex')}}" ><i class="material-icons">notifications</i>{{ count(Auth::user()->unreadNotifications)}}</a></li>
+          <li><a href="{{route('professorsApprovalIndex')}}" ><i class="material-icons">notifications{{ count(Auth::user()->unreadNotifications)}}</i></a></li>
         </ul>
         <ul id="profile-setting" class="dropdown-content">
           <li><a href="{{route('admin.profile')}}"><i class="icon-head"></i>My Profile</a></li>

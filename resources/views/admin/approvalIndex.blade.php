@@ -1,14 +1,22 @@
 @extends('admin_template')
-@section('title','| Approval')
+@section('title','| Request for Approval')
 @section('content')
- <main>
-  	<div class="section light-green"><h4 class="center-align white-text">Instructor Approval</h4></div>
-		<br><br>
-		<div class="divider"></div> 
-	<div class="row">
-		<div class="col l10 offset-l2 ">
-			<div class="card">
-				<div class="card-content">
+<div class="col s12">			
+	<div class="section">
+		<div class="card z-depth-1">
+			<div class="card-content">
+				<div class="row">
+					<div class="col s9 offset-s3">
+						<h3 class="light-green-text darken-2 card-title">Request for Approval</h3>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 p">
+									<div class="light-green darken-2 white-text">
+										<p class="flow-text">{{ Session::get('success')}}</p>
+									</div>
+								</div>
+							@endif							
+						</div>
 					<table id="approvalIndex" class="table responsive-table" cellspacing="0">
 						<thead>
 							<tr>
@@ -33,23 +41,25 @@
 								<td><a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>$professor->sid. '-' .$professor->id. '.jpg'])}}" width="50"></a></td>
 								
 									<td>{!! Form::model($professor,['route'=>['professorsApproved',$professor->id],'method'=>'PUT'])!!}
-									<button class="btn btn-floating green"><span class="icon-check"></span></button>
+									<button class="btn blue lighten-2"><span class="icon-check"></span></button>
 									{!! Form::close() !!}</td>
 
 									<td>		{!! Form::open(['route'=>['professorsDenied',$professor->id],'method'=>'DELETE']) !!}
-									<button class="btn btn-floating red"><span class="icon-cross"></span></button>
+									<button class="btn grey lighten-1"><span class="icon-cross"></span></button>
 									{!! Form::close() !!}</td>
 								
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
-				
-			</div>	
-		</div>	
-	</div>
-</div>   
-        </main>
+						</div>
+					</div>
+				</div>
+			 <div class="card-action">
+			</div>
+		</div>
+	</div>	
+</div>	
 @endsection
 @section('script')
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">

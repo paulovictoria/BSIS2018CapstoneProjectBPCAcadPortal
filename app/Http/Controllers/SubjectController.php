@@ -19,7 +19,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-       return view('subjects.index');
+       $subjects=Subject::all(); 
+       return view('subjects.index')->withSubjects($subjects);
     }
 
     /**
@@ -70,7 +71,7 @@ class SubjectController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -80,8 +81,9 @@ class SubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   $courses=Course::all();
+        $subject=Subject::find($id);
+        return view('subjects.edit')->withSubject($subject)->withCourses($courses);
     }
 
     /**
@@ -93,7 +95,25 @@ class SubjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'subj_code'=>'required|max:255',
+            'subj_description'=>'required|max:255',
+            'subj_units'=>'required',
+            'sem'=>'required',
+            'year'=>'required',
+            'course_id'=> 'required|integer'
+            ]);
+
+        $subject=Subject::find($id);
+        $subject->subj_code=$request->subj_code;
+        $subject->subj_description=$request->subj_description;
+        $subject->subj_units=$request->subj_units;
+        $subject->sem=$request->sem;
+        $subject->year=$request->year;
+        $subject->course_id=$request->course_id;
+        $subject->save();
+        Session::flash('success','New  Subject Created Successfully');
+        return redirect()->route('subjects.show',$subject->sid);
     }
 
     /**
@@ -107,10 +127,6 @@ class SubjectController extends Controller
         //
     }
 
-    public function allSubjects()
-    {   
-      $subjects=Subject::select('id','subj_code','subj_description','subj_units','sem','year');
-      return Datatables::of($subjects)->make(true);
-    }
+
 
 }

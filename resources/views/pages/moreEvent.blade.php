@@ -19,7 +19,7 @@
                       </span>
                       <div class="event-info">
                           <h6 class="center">
-                              <a href="{{route('event.single',$event->id)}}" class="green-text"{{route('event.single',$events->id)}}"">{{$event->title}}</a>
+                              <a href="{{route('event.single',$events->id)}}" class="green-text"{{route('event.single',$events->id)}}"">{{$events->title}}</a>
                           </h6>
                       </div>                
                   </div>  
