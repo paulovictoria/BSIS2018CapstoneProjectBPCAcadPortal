@@ -14,7 +14,7 @@
                     <td>ACADEMIC YEAR</td>
                     <td>SEM</td>
                     <td>COURSE</td>
-                   <!--  <td>DAY</td> -->
+                    <td>DAY</td>
                     <td>START</td>
                     <td>END</td>
                     <td>SUBJECT</td>
@@ -27,7 +27,7 @@
                     <td>{{$assign->classroom->academic_year}}</td>
                     <td>{{$assign->classroom->sem}}</td>  
                     <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>                      
-                  <!--   <td>{{$assign->day->name}}</td> -->
+                    <td>{{$assign->day->name}}</td>
                     <td>{{$assign->startTime}}</td>
                     <td>{{$assign->endTime}}</td>
                     <td>{{$assign->subject->subj_code}}</td>
