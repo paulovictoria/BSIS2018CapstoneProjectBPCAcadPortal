@@ -111,12 +111,12 @@ class StudentDashboardController extends Controller
 	return view('student.files')->withFiles($files);
 	}
 
-	public function downloadPDF(Request $request) {
-		$subjects=Subject::all();
+	public function downloadPDF(Request $request,$id) {
+     	$subjects=Subject::
+		where('year','=',$id)
+  		->get();
 		$pdf = PDF::loadView('student.pdf',['subjects'=>$subjects]);
-		return $pdf->download('invoice.pdf');
-
-     
+		return $pdf->download('subject.pdf');
 	}
 
 }

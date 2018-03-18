@@ -10,8 +10,10 @@
 						 <div class="row">
 						 	<div class="col s6">	
    							 <a class="dropdown-button btn light-green" href="#" data-activates="yearSelect">Academic Year</a>
+   							 <a class="dropdown-button btn light-green" href="#" data-activates="downloadSelect">Download PDF</a>
 							</div>
 						  </div>
+						  
 				 <!-- Dropdown Structure -->
 				@if(Auth::user()->course->degree==1)  
 				<ul id="yearSelect" class="dropdown-content">
@@ -26,11 +28,27 @@
 					<li><a href="{{route('student.subjects')}}/?year=Second Year">2nd Year</a></li>
 				</ul>
 				@endif
+
+				@if(Auth::user()->course->degree==1)  
+				<ul id="downloadSelect" class="dropdown-content">
+					<li><a href="{{action('StudentDashboardController@downloadPDF','First Year')}}">1st Year</a></li>
+					<li><a href="{{route('student.subjects')}}/?year=Second Year">2nd Year</a></li>
+					<li><a href="{{route('student.subjects')}}/?year=Third Year">3rd Year</a></li>	
+					<li><a href="{{route('student.subjects')}}/?year=Fourth Year">4th Year</a></li>
+				</ul>
+				 
+				@else
+				<ul id="downloadSelect" class="dropdown-content">
+					<li><a href="{{route('student.subjects')}}/?year=First Year">1st Year</a></li>
+					<li><a href="{{route('student.subjects')}}/?year=Second Year">2nd Year</a></li>
+				</ul>
+				@endif
                         <div class="row">
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
                                     	<span class="card-title center">First Semester</span>
+
 										<table class="table bordered" id="subject">
 										    <thead>
 										        <tr>
@@ -47,10 +65,9 @@
 								                        <td>{{$subj->subj_code}}</td>
 								                        <td>{{$subj->subj_description}}</td>
 								                        <td>{{$subj->subj_units}}</td>
-								                        <td>{{$subj->sem}}</td>
-								                        <a href="{{action('StudentDashboardController@downloadPDF', $subj->id)}}" class="btn">Download</a>
-								                        </tr> 
-								                    @endif           
+								                        <td>{{$subj->sem}}</td>			
+								                        </tr>                            
+								                    @endif          
 							                    @endforeach
 											</tbody>
 										</table>
