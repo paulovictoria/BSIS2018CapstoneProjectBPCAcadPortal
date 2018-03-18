@@ -34,7 +34,14 @@
       <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
           <li>
-            <a href="{{route('studentsApprovalIndex')}}"  class="collapsible-header"><i class="material-icons">notifications{{ count(Auth::user()->unreadNotifications)}}</i>Approval</a>
+            <a href="{{route('studentsApprovalIndex')}}"  class="collapsible-header">
+              @if(!empty(count(Auth::user()->unreadNotifications)))
+                <i class="material-icons yellow-text">notifications</i>Approval <span class="blue-text">{{ count(Auth::user()->unreadNotifications)}}</span>
+                @else
+                <i class="material-icons">notifications</i>Approval
+              @endif
+              
+            </a>
           </li>
           </ul>
       </li>     

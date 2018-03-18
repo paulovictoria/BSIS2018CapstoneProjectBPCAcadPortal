@@ -1,37 +1,38 @@
 @extends('professor_template')
-@section('title','Professor')
+@section('title','My Classes')
 @section('content')
 <div class="col m12">               
     <div class="section">
-        <div class="card z-depth-1">
+        <div class="card z-depth-4 light-green lighten-5">
             <div class="card-content">
                 <div class="row">
                     <div class="col m9 offset-m3">
-                        <h3 class="light-green-text darken-2 card-title">Classes</h3>
-                        <table class="table table-responsive" id="classroom">    
+                        <table class="table table-striped table-bordered" id="classroom" width="100%">    
                            <thead>
-                            <tr>
-                                <th>Id</th>
-                             <th>Year</th>
-                             <th>Sem</th>
-                             <th>Course</th>
-                             <th># Studs</th>
-                             <th>Subj Code</th>
-                             <th>Action</th>
+                            <tr class="green darken-3 white-text">
+                             <td>YEAR</td>
+                             <td>SEM</td>
+                             <td>COURSE</td>
+                             <td># Students</td>
+                             <td>SUBJECT CODE</td>
+                             <td>ACTION</td>
                             </tr>
                            </thead> 
                             <tbody>
                             @foreach($assigns as $assign)
-                            <tr>  
-                                <td>{{$assign->id}}</td>
+                            <tr class=" light-green lighten-5">  
                             <td>{{ $assign->classroom->academic_year}}</td>
-                            <td>{{$assign->classroom->sem}}</td>  
+                            @if($assign->classroom->sem==1)
+                            <td>First Sem</td>
+                            @else
+                            <td>Second Sem</td>
+                            @endif  
                             <td>{{ $assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>
                             <td>{{ $assign->classroom->students->count() }}</td>
                             <td>{{ $assign->subject->subj_code }}</td>
-                            <td><a href="{{route('classroomsAssign.show',$assign->id)}}" class="btn green lighten-1"><i class="material-icons">pageview</i></a>
-                             <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue lighten-1"><i class="material-icons">edit</i></a>
-                              <a href="{{route('uploadIndex',$assign->id)}}" class="btn yellow darken-2"><i class="material-icons">folder_open</i></a>
+                            <td><a href="{{route('classroomsAssign.show',$assign->id)}}" class="btn btn-large green-text darken-2 white"><i class="material-icons">pageview</i></a>
+                             <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue-text btn-large lighten-1 white"><i class="material-icons">edit</i></a>
+                              <a href="{{route('uploadIndex',$assign->id)}}" class="btn btn-large yellow-text darken-2 white"><i class="material-icons">folder_open</i></a>
                             </td>
                             </tr>
                              @endforeach 

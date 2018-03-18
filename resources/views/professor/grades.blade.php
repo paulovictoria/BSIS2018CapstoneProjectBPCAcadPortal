@@ -1,5 +1,5 @@
 @extends('professor_template')
-@section('title','Professor')
+@section('title','Grades')
 @section('content')
 <div class="col m12">               
     <div class="section">
@@ -7,27 +7,26 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col m9 offset-m3">
-                        <h3 class="light-green-text darken-2 card-title">Classes</h3>
                         <div class="col s12 m12">
                         <table class="table responsive" id="gradeIndex">    
                            <thead>
-                            <tr>
+                            <tr class="green darken-3 white-text">
 
-                             <th>Year</th>
-                             <th>Sem</th>
-                             <th>Course</th>
-                             <th># Students</th>
-                             <th>Action</th>
+                             <th>YEAR</th>
+                             <th>SEM</th>
+                             <th>COURSE</th>
+                             <th># STUDENTS</th>
+                             <th>ACTION</th>
                             </tr>
                            </thead> 
                             <tbody>
                              @foreach($assigns as $assign)
-                            <tr>
+                            <tr class="light-green lighten-5">
                              <td>{{$assign->classroom->academic_year}}</td>
                              <td>{{$assign->classroom->sem}}</td>  
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
                              <td>Total files</td>
-                            <td> <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue lighten-1"><i class="material-icons">edit</i></a>
+                            <td> <a href="{{route('individual.classroom',$assign->id)}}" class="btn white blue-text lighten-1"><i class="material-icons">edit</i></a>
                             </td>
                             </tr>
                              @endforeach 

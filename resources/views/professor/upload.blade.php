@@ -7,7 +7,6 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col s9 offset-s3">
-                        <h3 class="light-green-text darken-2 card-title">Files</h3>
                         @if(count($errors))
                         <ul>
                           @foreach($errors->all() as $error)
@@ -30,17 +29,19 @@
                         <table>
                           <thead>
                               <tr>
-                                <th>File Name</th>
-                                <th>Action</th>
+                                <th>FILENAME</th>
+                                <th>DATE UPLOADED</th>
+                                <th>ACTION</th>
                               </tr>
                           </thead>
                           <tbody>
                                @foreach($files as $file)
                                <tr>
                                 <td><i class="material-icons"></i> {{$file->filename}}</td>
+                                <td>{{$file->created_at}}</td>
                                 <td>{!! Form::open(['route'=>['professor.deleteupload',$file->id],'method'=>'DELETE']) !!}
-                                  <a href="{{route('download.file',$file->filename)}}" class="btn orange darken-2"><i class="material-icons">cloud_download</i> Download</a>
-                                  <button class="btn red lighten-1"><i class="material-icons">delete_forever</i> Delete</button>
+                                  <a href="{{route('download.file',$file->filename)}}" class="btn btn-floating orange darken-2"><i class="material-icons">cloud_download</i></a>
+                                  <button class="btn btn-floating red lighten-1"><i class="material-icons">delete_forever</i></button>
                                 </td>
                                  {!! Form::close() !!}  
                               </tr>

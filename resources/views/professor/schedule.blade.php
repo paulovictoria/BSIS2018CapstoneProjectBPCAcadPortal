@@ -3,14 +3,13 @@
 @section('content')
 <div class="col m12">       
   <div class="section">
-    <div class="card z-depth-1">
+    <div class="card z-depth-4 light-green lighten-5">
       <div class="card-content">
         <div class="row">
           <div class="col m9 offset-m3">
-            <h3 class="light-green-text darken-2 card-title">My Schedule</h3>
-               <table class="table table-responsive" id="professorSchedule">
+               <table class="table table-responsive" id="professorSchedule" width="100%">
                  <thead>
-                  <tr class="light-green white-text">
+                  <tr class="green darken-3 white-text">
                     <td>ACADEMIC YEAR</td>
                     <td>SEM</td>
                     <td>COURSE</td>
@@ -23,7 +22,7 @@
                  </thead>
                  <tbody>
                  @foreach($assigns as $assign)
-                  <tr>  
+                  <tr class=" light-green lighten-5">  
                     <td>{{$assign->classroom->academic_year}}</td>
                     <td>{{$assign->classroom->sem}}</td>  
                     <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>                      

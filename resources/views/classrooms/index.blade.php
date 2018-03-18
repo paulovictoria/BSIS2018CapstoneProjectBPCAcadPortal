@@ -7,38 +7,40 @@
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Classes</h3>
-					<a href="{{ route('classrooms.create') }}" class="btn-large btn-floating light-green darken-1"><i class="material-icons">create_new_folder</i></a>
-					<table class="table table-responsive" id="indexClassroom">
+					<a href="{{ route('classrooms.create') }}" class="btn green darken-4"><i class="material-icons">create_new_folder</i> Create</a>
+					<table class="table table-responsive" id="indexClassroom" width="100%">
 						<thead>
-							<tr>
-								<th>Academic Year</th>
-								<th>Course</th>
-								<th>Year</th>
+							<tr class="green darken-3 white-text">
+								<th>ACADEMIC YEAR</th>
 								<th>Sem</th>
-								<th>Section</th>
-								<th>No. of students</th>
-								<th>No. of Assigns</th>
-								<th>View</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<th>COURSE</th>						
+								<th># STUDENTS</th>
+								<th># ASSIGNS</th>
+								<th>VIEW</th>
+								<th>EDIT</th>
+								<th>DELETE</th>
+								<th>DOWNLOAD</th>
 							</tr>	
 						</thead>
 						<tbody>
 							@foreach($classrooms as $classroom)
-							<tr>
+							<tr class="light-green lighten-5">
 								<td>{{ $classroom->academic_year }}</td>
-								<td>{{ $classroom->course->course_name}}</td>
-								<td>{{ $classroom->year }}</td>
-								<td>{{ $classroom->sem }}</td>
-								<td>{{ $classroom->section }}</td>
+								@if($classroom->sem==1)
+								<td>FIRST SEM</td>
+								@else
+								<td>SECOND SEM</td>
+								@endif
+								<td>{{ $classroom->course->course_name}}{{ $classroom->year }}{{ $classroom->section }}
+								</td>
 								<td>{{ $classroom->students->count() }}</td>
 								<td>{{ $classroom->assigns->count() }}</td>
-								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn orange lighten-2"><i class="material-icons">pageview</i></a></td>
-								<td><a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn blue lighten-2"><i class="material-icons">edit</i></a></td>
+								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a></td>
+								<td><a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a></td>
 								<td>{!! Form::open(['route' => ['classrooms.destroy', $classroom->id], 'method' => 'DELETE']) !!}
-								<button class="btn red lighten-2"><i class="material-icons">delete_forever</i></button>
+								<button class="btn white red-text lighten-2"><i class="material-icons">delete_forever</i></button>
 								{!! Form::close() !!}</td>
+								<td><a href="#" class="btn white yellow-text darken-2"><i class="material-icons">file_download</i></a></td>
 							</tr>
 							@endforeach
 						</tbody>

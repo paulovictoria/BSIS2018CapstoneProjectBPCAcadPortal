@@ -2,7 +2,6 @@
   <li>
     <div class="user-view ">
       <div class="background green darken-4">
-
         <img class="right" src="http://www.vactualpapers.com/web/wallpapers/modern-material-design-full-hd-wallpaper-no-205/thumbnail/lg.png">
       </div>
         <a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>Auth::user()->filename ])}}"></a>

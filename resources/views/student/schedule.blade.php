@@ -12,8 +12,8 @@
           <div class="col l9 offset-l3">
              <div class="row">
                 <div class="col s6">  
-                   <a class="dropdown-button btn light-green" href="#" data-activates="yearSelect">Academic Year</a>
-                   <a class="dropdown-button btn light-green" href="#" data-activates="downloadSelect">Download PDF</a>
+                   <a class="dropdown-button btn green darken-3" href="#" data-activates="yearSelect">Academic Year</a>
+                   <a class="dropdown-button btn green darken-3" href="#" data-activates="downloadSelect">Download PDF</a>
                 </div>
               </div>
            <!-- Dropdown Structure -->

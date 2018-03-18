@@ -24,8 +24,6 @@ tinymce.init({
 							{{ Form::text('title',null,['class'=>'form-control']) }}
 							{{ Form::label('description','Description')}}
 							{{ Form::textarea('description',null,['class'=>'form-control']) }}				
-							{{ Form::label('author','Name of Author')}}
-							{{ Form::text('author',null,['class'=>'form-control']) }}
 		                    <div class="file-field input-field">
 		                       <div class="btn">
 		                           <span>Banner</span>

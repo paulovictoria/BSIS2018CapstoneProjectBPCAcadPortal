@@ -1,5 +1,17 @@
 @extends('professor_template')
 @section('title','| Grade')
+@section('stylesheets')
+<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+
+<style type="text/css">
+  .name {
+    font-size:1rem;
+  }
+  .grade {
+    width: 500px;
+  }   
+</style>
+@endsection
 @section('content')
 <div class="col s12">               
     <div class="section">
@@ -10,12 +22,9 @@
                       <h3 class="light-green-text darken-2 card-title"></h3>  
                     <table class="bordered" id="individualClassroom">
                         <thead>
-                          <tr class="light-green white-text">
+                          <tr class="green darken-3 white-text">
                  
-                            <th>Last_Name</th>
-                            <th>First_Name</th>
-                            <th>Midle_Name</th>
-                            <th>Subject</th>
+                            <th>Name</th>
                             <th>Grade</th>
                             <th>Evaluation</th>
                             <th>Action</th>
@@ -26,22 +35,21 @@
                             @foreach($assigns as $assign)
                             <tr>
 
-                              <td>{{$assign->last_name}}</td>
-                              <td>{{$assign->first_name}}</td>
-                              <td>{{$assign->midle_name}}</td>
-                              <td>{{$assign->subj_code}}</td>
+                              <td>{{$assign->last_name}}
+                              {{$assign->first_name}}
+                              {{$assign->midle_name}}
                               <td>{{$assign->grade}}</td>
                               @if($assign->grade==0)
-                               <td class="grey-text">No Grade</td>
+                               <td class="grey-text">NO GRADE</td>
                                @elseif($assign->grade<=3)
-                               <td class="green-text">Passed</td>
+                               <td class="green-text">PASSED</td>
                                @elseif($assign->grade<=4)
                                <td class="orange-text">INC</td>
                                @else
-                               <td class="red-text">Failed</td>
+                               <td class="red-text">FAILED</td>
                                @endif
                               
-                              <td><a class="btn btn-floating light-green modal-trigger" href="#modalGrade" id="editButton"><i class="material-icons">edit</i>
+                              <td><a class="btn white green-text modal-trigger" href="#modalGrade" id="editButton"><i class="material-icons">edit</i>
                               <input type="hidden" id="stud_lastname" value="{{$assign->last_name}}">
                               <input type="hidden" id="stud_firstname" value="{{$assign->first_name}}">
                               <input type="hidden" id="stud_midlename" value="{{$assign->midle_name}}">
@@ -63,12 +71,13 @@
 </div>
 <div id="modalGrade" class="modal">
   <div class="modal-content">
-    <a class="modal-close right"><span class="icon-cross grey-text"></span></a>
     <form class="form-horizontal" role="form">
-      <!--      <label>Name:</label>
-           <label id="last_name"></label>
-           <label id="first_name"></label>
-           <label id="midle_name"></label> -->
+           <label class="name">Name:</label>
+           <label class="name" id="last_name"></label>
+           <label class="name" id="first_name"></label>
+           <label class="name" id="midle_name"></label>
+           <div class="section"></div>
+           <div class="divider"></div>
            <input type="hidden" name="assignStudent" id="assignStudent">
            <input type="hidden" name="student_id" id="student_id">
            <input type="hidden" name="assign_id" id="assign_id">
@@ -132,63 +141,23 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button class="btn blue" type="submit" id="updateGrade">Update</button>
+    <button class="btn green darken-3 " type="submit" id="updateGrade"><i class="material-icons white-text">check_circle</i></button>
+     <a class="modal-close btn red darken-3"><i class="material-icons white-text">close</i></a>
   </div>
 </div>            
 @endsection
 @section('script')
-<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
-<script src="{{ asset('js/select2.min.js') }}"></script>
+
 <style type="text/css">
   .modal{
-    width: 20%;
-  }
-  .grade{
-    width: 100%;
-  }   
+    width: 40%;
+  }  
 </style>
-<link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
-<script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
+
+<script src="{{ asset('js/select2.min.js') }}"></script>
 <script>
 $('.grade').select2();
 
-  $(document).ready(function() {
-    $('#individualClassroom').DataTable();
-    
-    var table = $('#data-table-row-grouping').DataTable({
-        "columnDefs": [
-            { "visible": false, "targets": 2 }
-        ],
-        "order": [[ 2, 'asc' ]],
-        "displayLength": 25,
-        "drawCallback": function ( settings ) {
-            var api = this.api();
-            var rows = api.rows( {page:'current'} ).nodes();
-            var last=null;
- 
-            api.column(2, {page:'current'} ).data().each( function ( group, i ) {
-                if ( last !== group ) {
-                    $(rows).eq( i ).before(
-                        '<tr class="group"><td colspan="5">'+group+'</td></tr>'
-                    );
- 
-                    last = group;
-                }
-            } );
-        }
-    });
- 
-    // Order by the grouping
-    $('#data-table-row-grouping tbody').on( 'click', 'tr.group', function () {
-        var currentOrder = table.order()[0];
-        if ( currentOrder[0] === 2 && currentOrder[1] === 'asc' ) {
-            table.order( [ 2, 'desc' ] ).draw();
-        }
-        else {
-            table.order( [ 2, 'asc' ] ).draw();
-        }
-    } );
-} );
 
 $(document).ready(function(){
  $('#modalGrade').modal();

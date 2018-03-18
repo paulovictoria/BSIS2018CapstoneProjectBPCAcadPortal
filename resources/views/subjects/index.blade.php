@@ -3,35 +3,33 @@
 @section('content')
 <div class="col s12">			
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Subjects</h3>
-						<div class="section"></div>
-						<a href="{{ route('subjects.create') }}" class="btn btn-floating light-green btn-large darken-1"><i class="material-icons">add</i></a>
+						<a href="{{ route('subjects.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add</i></a>
 						<table class="bordered" id="subject">
 							<thead>
-								<tr>
-									<th>Subject Code</th>
-									<th>Subject Description</th>
-									<th>Subject Units</th>
-									<th>Sem</th>
-									<th>Year</th>
-									<th>Course</th>
-									<th>Action</th>
+								<tr class="green darken-3 white-text">
+									<td>CODE</td>
+									<td>DESCRIPTION</td>
+									<td>UNITS</td>
+									<td>SEM</td>
+									<td>YEAR</td>
+									<td>COURSE</td>
+									<td>ACTION</td>
 								</tr>	
 							</thead>
 							<tbody>
 								@foreach($subjects as $subject)
-								<tr>
+								<tr class="light-green lighten-5">
 									<td>{{$subject->subj_code}}</td>
 									<td>{{$subject->subj_description}}</td>
 									<td>{{$subject->subj_units}}</td>
 									<td>{{$subject->sem}}</td>
 								    <td>{{$subject->year}}</td>
 								    <td>{{$subject->course->course_name}}</td>
-								    <td><a href="{{route('subjects.edit',$subject->id)}}" class="btn">Edit</a></td>
+								    <td><a href="{{route('subjects.edit',$subject->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a></td>
 								</tr>
 								@endforeach
 							</tbody>

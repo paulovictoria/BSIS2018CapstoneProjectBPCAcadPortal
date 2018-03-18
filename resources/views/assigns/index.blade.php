@@ -3,11 +3,10 @@
 @section('content')
 <div class="col s12">			
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Assigns Index</h3>
 						<div class="section">
 							@if(Session::has('success'))
 								<div class="col s12 p">
@@ -17,35 +16,32 @@
 								</div>
 							@endif
 						</div>
-						<a href="{{ route('assigns.create') }}" class="btn light-green darken-1"><i class="material-icons">add</i></a>
-						<a href="{{route('speacialAssign.create')}}" class="btn">Individual Assign</a>
+						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons">add</i></a>
+						<a href="{{route('speacialAssign.create')}}" class="btn green darken-3"><i class="material-icons">account_box</i></a>
 						<table class="table responsive-table" id="assigns">
 							<thead>
-								<tr>
-									<th>Id</th>
-									<th>Academic Year</th>
-									<th>Class Course</th>
-									<th>Year</th>
-									<th>Section</th>
-									<th>Instructor</th>
-									<th>Subject</th>
-									<th>Schedule</th>
-									<th>Action</th>
+								<tr class="green darken-3 white-text">
+									<td>ACADEMIC YEAR</td>
+									<td>COURSE</td>
+									<td>INSTRUCTOR</td>
+									<td>SUBJECT</td>
+									<td>SCHEDULE</td>
+									<td>ACTION</td>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach($assigns as $assign)
-								<tr>
-									<td>{{$assign->id}}</td>
+								<tr class="light-green lighten-5">
 									<td>{{ $assign->classroom->academic_year }}</td>
-									<td>{{ $assign->classroom->course->course_name }}</td>
-									<td>{{ $assign->classroom->year }}</td>
-									<td>{{ $assign->classroom->section }}</td>
+									<td>{{ $assign->classroom->course->course_name }}
+									{{ $assign->classroom->year }}
+									{{ $assign->classroom->section }}</td>
 									<td>{{ $assign->professor->last_name}} {{ $assign->professor->first_name}}</td>
 									<td>{{ $assign->subject ->subj_description}}</td>
-									<td>{{ $assign->schedule }}</td>
-									<td><a href="{{ route('assigns.show',$assign->id) }}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
-									 <a href="{{ route('assigns.edit',$assign->id) }}" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></td>
+									<td>{{ $assign->day->name.' '.$assign->startTime.' to '.$assign->endTime}}
+									</td>
+									<td><a href="{{ route('assigns.show',$assign->id) }}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
+									 <a href="{{ route('assigns.edit',$assign->id) }}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></td>
 								</tr>
 								@endforeach
 							</tbody>	

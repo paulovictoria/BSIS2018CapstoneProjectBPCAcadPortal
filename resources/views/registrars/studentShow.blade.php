@@ -11,15 +11,15 @@
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title center">First Year</span>
+                                        <span class="card-title center">FIRST YEAR</span>
                                          <table class="bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Subject Code</th>
-                                                    <th>Subject Description</th>
-                                                    <th>Grade</th>
-                                                    <th>Evaluation</th>
-                                                    <th>Semester</th>
+                                                    <td>SUBJECT CODE</td>
+                                                    <td>SUBJECT DESCRIPTION</td>
+                                                    <td>GRADE</td>
+                                                    <td>EVALUATION</td>
+                                                    <td>SEMESTER</td>
                                                   
                                                 </tr>
                                             </thead>    
@@ -57,15 +57,15 @@
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title center">Second Year</span>
+                                        <span class="card-title center">SECOND YEAR</span>
                                          <table class="bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Subject Code</th>
-                                                    <th>Subject Description</th>
-                                                    <th>Grade</th>
-                                                    <th>Evaluation</th>
-                                                    <th>Semester</th>
+                                                    <td>SUBJECT CODE</td>
+                                                    <td>SUBJECT DESCRIPTION</td>
+                                                    <td>GRADE</td>
+                                                    <td>EVALUATION</td>
+                                                    <td>SEMESTER</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>
@@ -100,15 +100,15 @@
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title center">Third Year</span>
+                                        <span class="card-title center">THIRD YEAR</span>
                                          <table class="bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Subject Code</th>
-                                                    <th>Subject Description</th>
-                                                    <th>Grade</th>
-                                                    <th>Evaluation</th>
-                                                    <th>Semester</th>
+                                                    <td>SUBJECT CODE</td>
+                                                    <td>SUBJECT DESCRIPTION</td>
+                                                    <td>GRADE</td>
+                                                    <td>EVALUATION</td>
+                                                    <td>SEMESTER</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>
@@ -143,15 +143,15 @@
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
-                                        <span class="card-title center">Fourth Year</span>
+                                        <span class="card-title center">FOURTH YEAR</span>
                                          <table class="bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Subject Code</th>
-                                                    <th>Subject Description</th>
-                                                    <th>Grade</th>
-                                                    <th>Evaluation</th>
-                                                    <th>Semester</th>
+                                                    <td>SUBJECT CODE</td>
+                                                    <td>SUBJECT DESCRIPTION</td>
+                                                    <td>GRADE</td>
+                                                    <td>EVALUATION</td>
+                                                    <td>SEMESTER</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>

@@ -1,33 +1,30 @@
 @extends('professor_template')
-@section('title','Professor')
+@section('title','Files')
 @section('content')
 <div class="col m12">               
     <div class="section">
-        <div class="card z-depth-1">
+        <div class="card z-depth-4 light-green lighten-5">
             <div class="card-content">
                 <div class="row">
                     <div class="col m9 offset-m3">
-                        <h3 class="light-green-text darken-2 card-title">Classes</h3>
-                        <table class="table table-responsive" id="files">    
+                        <table class="table table-responsive" id="files" width="100%">    
                            <thead>
-                            <tr>
-                             <th>Id</th>
-                             <th>Year</th>
-                             <th>Sem</th>
-                             <th>Course</th>
-                             <th># Files</th>
-                             <th>Action</th>
+                            <tr class="green darken-3 white-text">
+                             <th>YEAR</th>
+                             <th>SEM</th>
+                             <th>COURSE</th>
+                             <th># FILES</th>
+                             <th>ACTION</th>
                             </tr>
                            </thead> 
                             <tbody>
                              @foreach($assigns as $assign)
-                            <tr>
-                             <td>{{$assign->id}}</td> 
+                            <tr class="light-green lighten-5"> 
                              <td>{{$assign->classroom->year}}</td>
                              <td>{{$assign->classroom->sem}}</td>
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
                              <td>Total files</td>
-                            <td><a href="{{route('uploadIndex',$assign->id)}}" class="btn orange darken-2"><i class="material-icons">pageview</i></a>
+                            <td><a href="{{route('uploadIndex',$assign->id)}}" class="btn white yellow-text darken-2"><i class="material-icons">pageview</i></a>
                             </td>
                             </tr>
                              @endforeach 

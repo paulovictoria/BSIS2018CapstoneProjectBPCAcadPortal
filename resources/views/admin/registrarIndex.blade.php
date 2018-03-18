@@ -3,20 +3,17 @@
 @section('content')
 <div class="col s12">			
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Registrars</h3>
 						<div class="section"></div>
-						<a href="{{route('registrar.registration')}}" class="btn btn-floating btn-large light-green darken-1"><i class="material-icons">group_add</i></a>
+						<a href="{{route('registrar.registration')}}" class="btn green darken-4"><i class="material-icons">group_add</i> New User</a>
 						<table class="table responsive-table" id="registrarIndex" cellspacing="0">
 							<thead>
-								<tr>
+								<tr class="green darken-3 white-text">
 									<th>EID</th>
-									<th>Last Name</th>
-									<th>First Name</th>
-									<th>Midle Name</th>
+									<th>Name</th>
 									<th>Email</th>
 									<th>Image</th>
 									<th>Action</th>
@@ -24,17 +21,17 @@
 							</thead>
 							<tbody>
 								@foreach($registrars as $registrar)
-								<tr>
+								<tr class="light-green lighten-5">
 									<td>{{$registrar->eid}}</td>
-									<td>{{$registrar->last_name}}</td>
-									<td>{{$registrar->first_name}}</td>
-									<td>{{$registrar->midle_name}}</td>
+									<td>{{$registrar->last_name}}
+									{{$registrar->first_name}}
+									{{$registrar->midle_name}}</td>
 									<td>{{ substr($registrar->email,0,20)}} {{ strlen($registrar->email) > 30 ? "..." : ""}}</td>
 									<td><a href="#!user"><img class="circle" src="{{route('user.image',$registrar->filename)}}" width="50"></a>
 									</td>
 									<td>
-									<a href="{{route('registrarShow',$registrar->id)}}" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
-									<a href="#" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
+									<a href="{{route('registrarShow',$registrar->id)}}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
+									<a href="#" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
 									</td>		 
 								</tr>
 								@endforeach

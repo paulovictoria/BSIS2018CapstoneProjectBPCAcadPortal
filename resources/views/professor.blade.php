@@ -12,12 +12,12 @@
     	 <div class="col s12 m6">
             <div class="card horizontal z-depth-5 green darken-4">
               <div class="card-image">
-                <i class="material-icons light-green-text darken-2" style="font-size: 150px;">collections_bookmark</i>
+                <i class="material-icons white-text" style="font-size: 150px;">collections_bookmark</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class="light-green-text darken-1">My</h4>
-                  <h4><a href="{{ route('professor.indexClassroomsAssign')}}" class="light-green-text darken-1">Classes</a></h4>
+                  <h4 class="white-text">My</h4>
+                  <h4><a href="{{ route('professor.indexClassroomsAssign')}}" class="white-text">Classes</a></h4>
                 </div>
                 <div class="card-action">
         		</div>
@@ -27,12 +27,12 @@
     	 <div class="col s12 m6">
             <div class="card horizontal z-depth-5 green darken-4">
               <div class="card-image">
-                <i class="material-icons light-green-text darken-2" style="font-size: 150px;">schedule</i>
+                <i class="material-icons white-text" style="font-size: 150px;">schedule</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class="light-green-text darken-1">My</h4>
-                  <h4><a href="{{route('professor.schedule')}}" class="light-green-text darken-1">SCHEDULE</a></h4>
+                  <h4 class="white-text">My</h4>
+                  <h4><a href="{{route('professor.schedule')}}" class="white-text">SCHEDULE</a></h4>
                 </div>
                 <div class="card-action">
         		</div>
@@ -42,12 +42,12 @@
     	 <div class="col s12 m6">
             <div class="card horizontal z-depth-5 green darken-4">
               <div class="card-image">
-                <i class="material-icons light-green-text darken-2" style="font-size: 150px;">folder_open</i>
+                <i class="material-icons white-text" style="font-size: 150px;">folder_open</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class="light-green-text darken-1">My</h4>
-                  <h4><a href="{{route('professor.fileIndex')}}" class="light-green-text darken-1">FILES</h4>
+                  <h4 class="white-text">My</h4>
+                  <h4><a href="{{route('professor.fileIndex')}}" class="white-text">FILES</h4>
                 </div>
                 <div class="card-action">
         		</div>
@@ -57,12 +57,12 @@
     	 <div class="col s12 m6">
             <div class="card horizontal z-depth-5 green darken-4">
               <div class="card-image">
-                <i class="material-icons light-green-text darken-2" style="font-size: 150px;">library_books</i>
+                <i class="material-icons white-text" style="font-size: 150px;">library_books</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class="light-green-text darken-1">My</h4>
-                  <h4><a href="{{route('professor.gradeIndex')}}" class="light-green-text darken-1">Grade Book</a></h4>
+                  <h4 class="white-text">My</h4>
+                  <h4><a href="{{route('professor.gradeIndex')}}" class="white-text">Grade Book</a></h4>
                 </div>
                 <div class="card-action">
         		</div>

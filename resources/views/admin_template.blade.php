@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
 		@include('partials._head')
-		@yield('stylesheets')
 		<title>BPC Portal | @yield('title')</title>
+		@yield('stylesheets')
 	</head>
 
 	<body>

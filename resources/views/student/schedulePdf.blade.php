@@ -7,7 +7,7 @@
 </style>
   </head>
   <body>
-  	<div class="section light-green darken-2 white-text center-align">
+  	<div class="section green darken-3 white-text center-align">
 	  	<h5>Bulacan Polytechnic College</h5>
 	  	<h6>First Semester Schedule</h6>
 	</div>
@@ -42,7 +42,7 @@
 		    </table>
 		</div>
 	</div>
-  	<div class="section light-green darken-2 white-text center-align">
+  	<div class="section green darken-3 white-text center-align">
 	  	<h5>Bulacan Polytechnic College</h5>
 	  	<h6>First Semester Schedule</h6>
 	</div>

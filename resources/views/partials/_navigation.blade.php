@@ -89,16 +89,24 @@
       <div class="nav-wrapper green darken-4">
         <a href="#" data-activates="admin-slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
         <ul class="right">
-          <li><a class="admin-profileSetting" href="#" data-activates="profile-setting"><i class="material-icons">account_circle</i></a></li>
-          <li><a href="{{route('professorsApprovalIndex')}}" ><i class="material-icons">notifications{{ count(Auth::user()->unreadNotifications)}}</i></a></li>
+          <li><a class="admin-profileSetting" data-activates="profile-setting"><i class="material-icons">account_circle</i></a></li>
+         <!--  <li class="blue-text text-darken-2"><a href="{{route('professorsApprovalIndex')}}" ><span>{{ count(Auth::user()->unreadNotifications)}}<i class="material-icons red-text">notifications</i></span></a></li> -->
+     
+              @if(!empty(count(Auth::user()->unreadNotifications)))
+                  <li><a href="{{route('professorsApprovalIndex')}}" ><i class="material-icons yellow-text">notifications</i></a></li>
+                  <li class="white-text">{{ count(Auth::user()->unreadNotifications)}}</li>
+                @else
+               <li> <a href="{{route('professorsApprovalIndex')}}" ><i class="material-icons">notifications</i></a></li>
+              @endif
+
         </ul>
-        <ul id="profile-setting" class="dropdown-content">
+      </div>
+      </nav>
+    </div>
+            <ul id="profile-setting" class="dropdown-content">
           <li><a href="{{route('admin.profile')}}"><i class="icon-head"></i>My Profile</a></li>
           <li><a href="#"><i class="icon-signal"></i>Settings</a></li>
           <li><a class="collapsible-header" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-log-out"></i>Logout</a>
           </li>                          
         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
         </ul>
-      </div>
-      </nav>
-    </div>

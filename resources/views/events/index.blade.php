@@ -3,11 +3,10 @@
 @section('content')
 <div class="col s12">				
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Events</h3>
 						<div class="section">
 							@if(Session::has('success'))
 								<div class="col s12 p">
@@ -17,33 +16,28 @@
 								</div>
 							@endif
 						</div>  	
-				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('events.create')}}"><i class="material-icons">add_a_photo</i></a>
+				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-3" href="{{route('events.create')}}"><i class="material-icons">add_a_photo</i></a>
 				 		<table class="table responsive-table" id="events">
 						<thead>
-							<tr>
-								<th>No.</th>
-								<th>Title</th>
-								<th>Description</th>
-								<th>Date</th>
-								<th>Start Time</th>
-								<th>End Time</th>
-								<th>Place</th>
-								<th>Created At</th>
-								<th>Image</th>
-								<th>Action</th>
+							<tr class="green darken-3 white-text">
+								<th>TITLE</th>
+								<th>DESCRIPTION</th>
+								<th>DATE</th>
+								<th>TIME</th>
+								<th>PLACE</th>
+								<th>CREATED AT</th>
+								<th>IMAGE</th>
+								<th>ACTION</th>
 							</tr>
 						</thead>	
 						<tbody>
 							{{csrf_field()}}
-							<?php $no=1; ?>
 							@foreach($events as $event)
-							<tr>
-								<td>{{$no++}}</td>
+							<tr class="light-green lighten-5">
 								<td id="itemTitleEvent">{{$event->title}}</td>
 								<td id="itemDescriptionEvent">{{ substr(strip_tags($event->description),0,20)}} {{ strlen(strip_tags($event->description)) > 50 ? "..." : "" }}</td>
 								<td>{{$event->date}}</td>
-								<td>{{$event->startTime}}</td>
-								<td>{{$event->endTime}}</td>
+								<td>{{$event->startTime.' To '.$event->endTime}}</td>
 								<td>{{$event->place}}</td>
 								<td>{{ date('M j,Y',strtotime($event->created_at)) }}</td>
 								<td>
@@ -52,11 +46,11 @@
 							
 								</td>
 								<td class="right">
-									<a id="editButtonEvent"  class="btn btn-floating blue lighten-2" href="{{route('events.edit',$event->id)}}">
+									<a id="editButtonEvent" class="btn white blue-text lighten-2" href="{{route('events.edit',$event->id)}}">
 									<i class="material-icons">edit</i>
 									</a>
 									{!! Form::open(['route'=>['events.destroy',$event->id],'method'=>'DELETE']) !!}
-									<button class="btn btn-floating red lighten-2"><i class="material-icons">delete_forever</i></button>
+									<button class="btn white red-text lighten-2"><i class="material-icons">delete_forever</i></button>
 									{!! Form::close() !!}
 								</td>
 							</tr>

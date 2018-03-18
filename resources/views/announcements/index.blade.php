@@ -1,16 +1,13 @@
 @extends('admin_template')
 @section('title','| Announcements')
-@section('stylesheets')
-<link href="{{ asset('js/plugins/sweetalert/sweetalert.css') }}" type="text/css" rel="stylesheet" media="screen,projection">
-@endsection
+
 @section('content')
 <div class="col s12">				
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5"">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-            		<h3 class="light-green-text darken-2 card-title">Announcements</h3>
 						<div class="section">
 							@if(Session::has('success'))
 								<div class="col s12 p">
@@ -20,24 +17,24 @@
 								</div>
 							@endif
 						</div>            		
-				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('announcements.create')}}"><i class="material-icons">add_a_photo</i></a>
+				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4" href="{{route('announcements.create')}}"><i class="material-icons">add_a_photo</i></a>
 				 		<table class="table responsive-table" id="announcements">
 						<thead>
-							<tr>
-								<th>No.</th>
-								<th>Title</th>
-								<th>Description</th>
-								<th>Date</th>
-								<th>Created At</th>
-								<th>Image</th>
-								<th>Action</th>
+							<tr class="green darken-3 white-text">
+								<td>NO.</td>
+								<td>TITLE</td>
+								<td>DESCRIPTION</td>
+								<td>DATE</td>
+								<td>CREATED AT</td>
+								<td>IMAGE</td>
+								<td>ACTION</td>
 							</tr>
 						</thead>	
 						<tbody>
 							{{csrf_field()}}
 							<?php $no=1; ?>
 							@foreach($announcements as $announcement)
-							<tr>
+							<tr class="light-green lighten-5">
 								<td>{{$no++}}</td>
 								<td id="itemTitleEvent">{{$announcement->title}}</td>
 								<td id="itemDescriptionEvent">{{ substr(strip_tags($announcement->description),0,20)}} {{ strlen(strip_tags($announcement->description)) > 50 ? "..." : "" }}</td>
@@ -45,11 +42,11 @@
 								<td>{{ date('M j,Y',strtotime($announcement->created_at)) }}</td>
 								<td><a href="#"><img class="circle" src="{{route('socials.image',['filename'=>$announcement->filename])}}" width="50"></a></td>
 								<td class="right">
-									<a id="editButtonEvent"  class="btn btn-floating blue lighten-2" href="{{route('announcements.edit',$announcement->id)}}">
+									<a id="editButtonEvent"  class="btn white blue-text lighten-2" href="{{route('announcements.edit',$announcement->id)}}">
 									<i class="material-icons">edit</i>
 									</a>
 									{!! Form::open(['route'=>['announcements.destroy',$announcement->id],'method'=>'DELETE']) !!}
-									<button class="btn btn-floating red lighten-2 waves-effect waves-light"><i class="material-icons">delete_forever</i></button>
+									<button class="btn white red-text lighten-2 waves-effect waves-light"><i class="material-icons">delete_forever</i></button>
 									{!! Form::close() !!}
 									
 							
@@ -68,8 +65,6 @@
 </div>
 @endsection
 @section('script')
-
-<script type="text/javascript" src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script>  
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
 <script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
 <script>
@@ -98,5 +93,17 @@
             } );
         }
     });
-</script>  
+ 
+    // Order by the grouping
+    $('#data-table-row-grouping tbody').on( 'click', 'tr.group', function () {
+        var currentOrder = table.order()[0];
+        if ( currentOrder[0] === 2 && currentOrder[1] === 'asc' ) {
+            table.order( [ 2, 'desc' ] ).draw();
+        }
+        else {
+            table.order( [ 2, 'asc' ] ).draw();
+        }
+    } );
+} );
+</script>
 @endsection

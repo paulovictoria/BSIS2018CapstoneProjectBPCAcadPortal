@@ -47,8 +47,7 @@ class NewsController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'description'=>'required|max:255',
-            'author'=>'required'
+            'description'=>'required|max:255'
         ]); 
         $file=$request->file('banner');
         $fileName=time().'.'.$file->getClientOriginalExtension();
@@ -57,7 +56,6 @@ class NewsController extends Controller
         $news=new News();
         $news->title=$request->title;
         $news->description=$request->description;
-        $news->author=$request->author;
         $news->filename=$fileName;
         $news->campus_id=Auth::user()->campus_id;
         $news->save();
@@ -103,7 +101,6 @@ class NewsController extends Controller
         $this->validate($request,[
             'title'=>'required',
             'description'=>'required|max:255',
-            'author'=>'required'
         ]); 
         $news=News::find($id);
         if($request->hasFile('banner')) {
@@ -113,14 +110,12 @@ class NewsController extends Controller
         $delete=Storage::disk('socials')->delete($news->filename);
         $news->title=$request->title;
         $news->description=$request->description;
-        $news->author=$request->author;
         $news->filename=$fileName;
         $news->campus_id=Auth::user()->campus_id;
         }
         else {
         $news->title=$request->title;
         $news->description=$request->description;
-        $news->author=$request->author;
         $news->campus_id=Auth::user()->campus_id;
         }
         $news->save();
