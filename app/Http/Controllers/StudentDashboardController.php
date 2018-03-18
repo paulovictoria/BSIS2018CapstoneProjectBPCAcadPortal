@@ -119,4 +119,35 @@ class StudentDashboardController extends Controller
 		return $pdf->download('subject.pdf');
 	}
 
+
+
+	public function scheduledownloadPDF(Request $request,$id) {
+	 $schedules=Student::where('id','=',Auth::user()->id)->first()
+		->join('assign_student','students.id','=','assign_student.student_id')
+		->join('assigns','assign_student.assign_id','=','assigns.id')
+		->where('assign_student.student_id','=',Auth::user()->id)
+		->join('rooms','assigns.room_id','=','rooms.id')
+		->join('days','assigns.day_id','=','days.id')
+		->join('subjects','assigns.subject_id','=','subjects.id')
+		->join('professors','assigns.professor_id','=','professors.id')
+	    ->orderBy('day_id','asc')
+	    ->where('year','=',$id)
+	  	->get();
+		$pdf = PDF::loadView('student.schedulePdf',['schedules'=>$schedules]);
+		return $pdf->download('schedule.pdf');
+	}
+
+	public function gradedownloadPDF(Request $request, $id) {
+		$grades=Student::where('id','=',Auth::user()->id)->first()
+		->join('assign_student','students.id','=','assign_student.student_id')
+		->join('assigns','assign_student.assign_id','=','assigns.id')
+		->where('assign_student.student_id','=',Auth::user()->id)
+		->join('subjects','assigns.subject_id','=','subjects.id')
+		->where('subjects.course_id','=',Auth::user()->course_id)
+	    ->where('year','=',$id)
+	  	->get();	
+		$pdf = PDF::loadView('student.gradePdf',['grades'=>$grades]);
+		return $pdf->download('grades.pdf');
+	}
+
 }

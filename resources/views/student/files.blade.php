@@ -30,14 +30,14 @@
                   <div class="col s12 m12">
                      <div class="card">
                         <div class="card-content">
-                          <span class="card-title center">First Semester</span>
+                          <span class="card-title center">FIRST SEMESTER</span>
                          <table class="bordered">
                                   <thead>
                                       <tr>
-                                          <td>File Name</td>
-                                          <td>Subject</td>
-                                          <td>Uploaded by</td>
-                                          <td>Action</td>
+                                          <td>FILE NAME</td>
+                                          <td>SUBJECT CODE</td>
+                                          <td>UPLOADED BY</td>
+                                          <td>ACTION</td>
                                       </tr>
                                   </thead>         
                                   <tbody>
@@ -59,14 +59,14 @@
                           <div class="col s12 m12">
                             <div class="card">
                                 <div class="card-content">
-                                  <span class="card-title center">Second Semester</span>
+                                  <span class="card-title center">SECOND SEMESTER</span>
                                  <table class="bordered">
                                     <thead>
                                         <tr>
-                                            <td>File Name</td>
-                                            <td>Subject</td>
-                                            <td>Uploaded by</td>
-                                            <td>Action</td>
+                                          <td>FILE NAME</td>
+                                          <td>SUBJECT CODE</td>
+                                          <td>UPLOADED BY</td>
+                                          <td>ACTION</td>
                                         </tr>
                                     </thead>         
                                     <tbody>

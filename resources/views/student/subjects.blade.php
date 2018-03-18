@@ -32,30 +32,30 @@
 				@if(Auth::user()->course->degree==1)  
 				<ul id="downloadSelect" class="dropdown-content">
 					<li><a href="{{action('StudentDashboardController@downloadPDF','First Year')}}">1st Year</a></li>
-					<li><a href="{{route('student.subjects')}}/?year=Second Year">2nd Year</a></li>
-					<li><a href="{{route('student.subjects')}}/?year=Third Year">3rd Year</a></li>	
-					<li><a href="{{route('student.subjects')}}/?year=Fourth Year">4th Year</a></li>
+					<li><a href="{{action('StudentDashboardController@downloadPDF','Second Year')}}">2nd Year</a></li>
+					<li><a href="{{action('StudentDashboardController@downloadPDF','Third Year')}}">3rd Year</a></li>	
+					<li><a href="{{action('StudentDashboardController@downloadPDF','Fourth Year')}}">4th Year</a></li>
 				</ul>
 				 
 				@else
 				<ul id="downloadSelect" class="dropdown-content">
-					<li><a href="{{route('student.subjects')}}/?year=First Year">1st Year</a></li>
-					<li><a href="{{route('student.subjects')}}/?year=Second Year">2nd Year</a></li>
+					<li><a href="{{action('StudentDashboardController@downloadPDF','First Year')}}">1st Year</a></li>
+					<li><a href="{{action('StudentDashboardController@downloadPDF','Second Year')}}">2nd Year</a></li>
 				</ul>
 				@endif
                         <div class="row">
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
-                                    	<span class="card-title center">First Semester</span>
+                                    	<span class="card-title center">FIRST SEMESTER</span>
 
 										<table class="table bordered" id="subject">
 										    <thead>
 										        <tr>
-										            <th>Subject Code</th>
-										            <th>Subject Description</th>
-										            <th>Units</th>
-										            <th>Sem</th>
+										            <td>SUBJECT CODE</td>
+										            <td>SUBJECT DESCRIPTION</td>
+										            <td>UNITS</td>
+										            <td>SEM</td>
 										        </tr>
 										    </thead>
 											<tbody>
@@ -77,14 +77,14 @@
                             <div class="col s12 m12">
                                 <div class="card">
                                     <div class="card-content">
-                                    	<span class="card-title center">Second Semester</span>
+                                    	<span class="card-title center">SECOND SEMESTER</span>
 										<table class="table bordered" id="subject">
 										    <thead>
 										        <tr>
-										            <th>Subject Code</th>
-										            <th>Subject Description</th>
-										            <th>Units</th>
-										            <th>Sem</th>
+										            <td>SUBJECT CODE</td>
+										            <td>SUBJECT DESCRIPTION</td>
+										            <td>UNITS</td>
+										            <td>SEM</td>
 										        </tr>
 										    </thead>
 											<tbody>
