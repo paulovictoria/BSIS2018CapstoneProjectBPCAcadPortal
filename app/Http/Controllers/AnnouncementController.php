@@ -104,7 +104,7 @@ class AnnouncementController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'description'=>'required|max:255',
+            'description'=>'required',
             'date'=>'required',
         ]);
         $announcement=Announcement::find($id);

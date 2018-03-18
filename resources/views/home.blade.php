@@ -91,8 +91,8 @@
                         <blockquote >
                         <p class="grey-text text-darken-3">   
                         <span style="font-weight:500;">{{$news->title}}</span>.
-                        {{ substr(strip_tags($news->description),0,90)}}
-                        {{strlen(strip_tags($news->description)) > 50 ? "..." : ""}}
+                        {{ substr(strip_tags($news->description),0,50)}}
+                        {{strlen(strip_tags($news->description)) > 30 ? "..." : ""}}
                         </p>
                         <p style="font-weight:300;"><a href="{{route('news.single',$news->id)}}" class="text-primarycolor">Continue Reading...</a></p>
                         <div class="divider"></div>
@@ -119,8 +119,8 @@
                         <blockquote >
                         <p class="grey-text text-darken-3">   
                         <span style="font-weight:500;">{{$announcement->title}}</span>.
-                        {{ substr(strip_tags($announcement->description),0,20) }}
-                        {{ strlen(strip_tags($announcement->description)) > 21 ? "..." : ""}}
+                        {{ substr(strip_tags($announcement->description),0,30) }}
+                        {{ strlen(strip_tags($announcement->description)) > 20 ? "..." : ""}}
                         </p>
                         <p style="font-weight:300;"><a href="{{route('announcement.single',$announcement->id)}}" class="text-primarycolor">Continue Reading...</a></p>
                         <div class="divider"></div>

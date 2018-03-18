@@ -36,8 +36,9 @@ class PagesController extends Controller
 		return view('pages.event')->withEvent($event);
 	}
 	public function newsSingle($id) {
+		$morenewses=News::orderBy('id','desc')->limit(4)->get();
 		$news=News::where('id','=',$id)->first();
-		return view('pages.news')->withNews($news);
+		return view('pages.news')->withNews($news)->withMorenewses($morenewses);
 	}
 	public function announcementSingle($id) {
 		$announcement=Announcement::where('id','=',$id)->first();

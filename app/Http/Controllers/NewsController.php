@@ -47,7 +47,7 @@ class NewsController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'description'=>'required|max:255'
+            'description'=>'required'
         ]); 
         $file=$request->file('banner');
         $fileName=time().'.'.$file->getClientOriginalExtension();
@@ -100,7 +100,7 @@ class NewsController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'description'=>'required|max:255',
+            'description'=>'required',
         ]); 
         $news=News::find($id);
         if($request->hasFile('banner')) {

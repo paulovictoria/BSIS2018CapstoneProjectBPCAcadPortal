@@ -47,7 +47,7 @@ class EventController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'description'=>'required|max:255',
+            'description'=>'required',
             'date'=>'required',
             'startTime'=>'required',
             'endTime'=>'required',
@@ -107,7 +107,7 @@ class EventController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'description'=>'required|max:255',
+            'description'=>'required',
             'date'=>'required',
             'startTime'=>'required',
             'endTime'=>'required',
