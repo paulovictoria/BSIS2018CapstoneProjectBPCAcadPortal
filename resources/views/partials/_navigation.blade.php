@@ -1,8 +1,8 @@
 <ul id="admin-slide-out" class="side-nav fixed ">
   <li>
     <div class="user-view">
-      <div class="background">
-        <img class="right" src="{{asset('images/bgadmin.png')}}">
+      <div class="background green darken-4">
+        <img class="right" src="http://www.vactualpapers.com/web/wallpapers/modern-material-design-full-hd-wallpaper-no-205/thumbnail/lg.png">
       </div>
         <a href="#!user"><img class="circle" src="{{asset('images/bpclogo.png')}}"></a>
         <a href="#!name"><span class="white-text name">{{ Auth::user()->email}}</span></a>
@@ -86,7 +86,7 @@
     </ul>
     <div class="navbar-fixed white">
       <nav>
-      <div class="nav-wrapper light-green">
+      <div class="nav-wrapper green darken-4">
         <a href="#" data-activates="admin-slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
         <ul class="right">
           <li><a class="admin-profileSetting" href="#" data-activates="profile-setting"><i class="material-icons">account_circle</i></a></li>

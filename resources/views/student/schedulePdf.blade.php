@@ -17,12 +17,12 @@
 		    <table class="table bordered striped center-align">
                           <thead>
                             <tr>
-                              <th>Day</th>
-                              <th>Start</th>
-                              <th>End</th>
-                              <th>Room</th>
-                              <th>Subject</th>
-                              <th>Instructor</th>
+                              <th>DAY</th>
+                              <th>START</th>
+                              <th>END</th>
+                              <th>ROOM</th>
+                              <th>SUBJECT</th>
+                              <th>INSTRUCTOR</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -52,12 +52,12 @@
 		    <table class="table bordered striped center-align">
                           <thead>
                             <tr>
-                              <th>Day</th>
-                              <th>Start</th>
-                              <th>End</th>
-                              <th>Room</th>
-                              <th>Subject</th>
-                              <th>Instructor</th>
+                              <th>DAY</th>
+                              <th>START</th>
+                              <th>END</th>
+                              <th>ROOM</th>
+                              <th>SUBJECT</th>
+                              <th>INSTRUCTOR</th>
                             </tr>
                           </thead>
                           <tbody>

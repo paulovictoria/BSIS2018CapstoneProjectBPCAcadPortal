@@ -15,12 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <title>Bpcians Portal</title>
     <style type="text/css">
-#special-dishes-section{
-    background: url('../images/special-dishes-bg.jpg') no-repeat center center;
-    min-height: 560px;
-    padding: 71px 0 65px 0;
-    position: relative;
-}
+
       .modal {
         width: 75%;
       }
@@ -41,8 +36,8 @@
       </ul>
     </ul>
     <div class="navbar-fixed">
-      <nav class="light-green darken-2"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
-      <div class="container nav-wrapper light-green darken-2">
+      <nav class="green darken-4"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
+      <div class="container nav-wrapper green darken-4">
         <a href="#" class="brand-logo" id="logo">
         <span width="30" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;"></span><span style="font-weight:400;font-size:1.5rem;"><i class="material-icons" style="margin-right:1px; ">link</i>BPC Portal</span>
         </a> 
@@ -55,7 +50,7 @@
       </nav>
     </div>
     <main>
-      <div class="section light-green darken-1">
+      <div class="section green darken-3">
         <div class="container">
           <div class="row">
             <div class="col s12 m6">
@@ -65,14 +60,14 @@
                     The BPCians Portal
               </span>
               <p class="flow-text white-text hide-on-small-only">“We are what we repeatedly do. Excellence is not an act, but a habit.”<span>-Arirstotle;</span></p>
-              <a href="#modalChoose" class="btn white light-green-text darken-3 hide-on-small-only modal-trigger">Sign Up</a>
+              <a href="#modalChoose" class="btn white green-text darken-4 hide-on-small-only modal-trigger">Sign Up</a>
               </div>
             </div>
             <div class="col s12 m6">
               <div class="carousel" data-indicators="true"  data-aos="zoom-in">
-                <a class="carousel-item" href="#one!"><img src="{{asset('images/kiosk1.png')}}"></a>
-                <a class="carousel-item" href="#two!"><img src="{{asset('images/kiosk1.png')}}"></a>
-                <a class="carousel-item" href="#two!"><img src="{{asset('images/kiosk1.png')}}"></a>
+                <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
+                <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/179744/pexels-photo-179744.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
+                <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
               </div>
             </div>
           </div>  
@@ -171,7 +166,7 @@
                   <div class="col s12 m12 center">
                     <br>
                     <p>
-                    <a href="{{route('event.more')}}" class="btn white-text light-green darken-2" data-aos="zoom-out">View Calendar</a></p>
+                    <a href="{{route('event.more')}}" class="btn white-text green darken-4" data-aos="zoom-out">View Calendar</a></p>
                   </div>
                   </div>
                   </div>                                                      
@@ -181,7 +176,7 @@
         </div>  
       </div>     
     </main>  
-    <footer class="page-footer light-green darken-2">
+    <footer class="page-footer green darken-3">
      <div class="container">
        <div class="row">
         <div class="col s12 m6">
@@ -245,7 +240,7 @@
           <div class="row">
             <div class="col s6 m3">
               <div class="card z-depth-4">
-                <div class="card-content light-green darken-2">
+                <div class="card-content green darken-4">
                   <span class="card-title center">
                   <img width="75" height="75" src="{{asset('images/student.png')}}"></span>
                   <a href="{{route('student.login')}}" class="center-align"><h5 class="white-text">STUDENT</h5></a>
@@ -254,7 +249,7 @@
             </div> 
            <div class="col s6 m3">
               <div class="card z-depth-4">
-                <div class="card-content light-green darken-2">
+                <div class="card-content green darken-4">
                   <span class="card-title center">
                   <img width="75" height="75" src="{{asset('images/teacher.png')}}"></span>
                   <a href="{{route('professor.login')}}" class="center-align"><h5 class="white-text">INSTRUCTOR</h5></a>                  
@@ -263,7 +258,7 @@
             </div>
            <div class="col s6 m3">
               <div class="card z-depth-4">
-                <div class="card-content light-green darken-2">
+                <div class="card-content green darken-4">
                   <span class="card-title center">
                   <img width="75" height="75" src="{{asset('images/clerk.png')}}"></span>
                   <a href="{{route('registrar.login')}}" class="center-align"><h5 class="white-text">REGISTRAR</h5></a>                  
@@ -272,7 +267,7 @@
             </div>
            <div class="col s6 m3">
               <div class="card z-depth-4">
-                <div class="card-content light-green darken-2">
+                <div class="card-content green darken-4">
                   <span class="card-title center">
                   <img width="75" height="75" src="{{asset('images/manager.png')}}">
                  </span>
