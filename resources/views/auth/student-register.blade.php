@@ -4,13 +4,13 @@
   <div class="section"></div>
   <div class="row">
     <div class="col s12 m10 push-m1">
-      <div class="card">
-        <div class="card-content z-depth-2">
+      <div class="card z-depth-5">
+        <div class="card-content">
           <form class="form-horizontal" method="POST" action="{{ route('student.register.submit') }}" enctype="multipart/form-data">{{ csrf_field() }}
-            <span class="card-title light-green-text darken-1"><i class="icon-graduation-cap"></i> Register as Bpcians Student</span>
+            <span class="card-title green-text darken-4">STUDENT REGISTRATION</span>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="sid" type="text" class="form-control" name="sid">
+                  <input id="sid" type="text" class="form-control" name="sid" data-mask="00-0000" placeholder="00-0000" />
                   <label for="sid">Student ID</label>
                     @if ($errors->has('sid'))
                       <span class="help-block">
@@ -102,7 +102,7 @@
                   </div> 
                 </div> 
                 <div class="right">
-                 <button type="submit" class="btn light-green darken-2">Register</button>
+                 <button type="submit" class="btn green darken-3">Register</button>
                 </div>
               </div>
           </form>
@@ -113,9 +113,13 @@
 </div>
 @endsection
 @section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
     $('select').material_select();
+    });
+    $(document).ready(function(){ 
+       $('#sid').mask('00-0000');
     });
 </script>
 @endsection

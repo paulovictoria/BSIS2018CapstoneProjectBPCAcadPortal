@@ -7,7 +7,15 @@
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<div class="section"></div>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
+									</div>
+								</div>
+							@endif
+						</div>
 					<a href="{{ route('courses.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add</i></a>
 					<table class="bordered">
 						<thead>

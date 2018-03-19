@@ -25,7 +25,8 @@ class RegistrarDashboardController extends Controller
 	
 	public function studentIndex(Request $request) {
         $courses=Course::all();
-		$students=Student::where('course_id',request('course_id'))->paginate(20);
+		$students=Student::where('course_id',request('course_id'))
+        ->where('campus_id',Auth::user()->campus_id)->get();
 		return view('registrars.studentIndex')->withStudents($students)->withCourses($courses);
 	}
 

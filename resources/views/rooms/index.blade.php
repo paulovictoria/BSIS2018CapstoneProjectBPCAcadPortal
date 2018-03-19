@@ -3,31 +3,39 @@
 @section('content')
 <div class="col s12">				
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Rooms</h3>
-				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger light-green darken-1" href="{{route('rooms.create')}}"><i class="material-icons">edit</i></a>								
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 center">
+									<div class="green darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
+									</div>
+								</div>
+							@endif
+						</div>
+				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4" href="{{route('rooms.create')}}"><i class="material-icons">edit</i></a>								
 								<div class="section"></div>
 								<table class="table responsive-table" id="rooms">
 									<thead>
-										<tr>
-											<th>Room Code</th>
-											<th>Room Description</th>
-											<th>Room Capacity</th>
-											<th>Action</th>
+										<tr class="green darken-3 white-text">
+											<th>ROOM CODE</th>
+											<th>ROOM DESCRIPTION</th>
+											<th>ROOM CAPACITY</th>
+											<th>ACTION</th>
 										</tr>
 									</thead>
 									<tbody>
 										@foreach($rooms as $room)
-										<tr>
+										<tr class="light-green lighten-5">
 											<td>{{ $room->room_code }}</td>
 											<td>{{ $room->room_description }}</td>
 											<td>{{ $room->capacity }}</td>
 											<td>
-												<a href="#" class="btn btn-floating orange lighten-2"><i class="material-icons">pageview</i></a>
-												<a href="{{route('rooms.edit',$room->id)}}" class="btn btn-floating blue lighten-2"><i class="material-icons">edit</i></a>
+												<a href="#" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
+												<a href="{{route('rooms.edit',$room->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
 											</td>
 										</tr>	
 										@endforeach

@@ -15,7 +15,7 @@
             <form method="POST" action="{{ route('professor.login.submit') }}">{{ csrf_field() }}
                 <div class="card">
                     <div class="card-content z-depth-2">
-                        <span class="card-title center light-green-text darken-1">INSTRUCTOR</span>
+                        <span class="card-title center green-text darken-4">INSTRUCTOR</span>
                         <div class="row">
                             <div class="input-field col s12{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" >
@@ -36,7 +36,7 @@
                                     @endif                        
                             </div> 
                             <div class="input-field col s12">
-                                    <button type="submit" class="btn light-green darken-2 right">
+                                    <button type="submit" class="btn green darken-4 right">
                                         Login
                                     </button>
                             </div>   
@@ -46,8 +46,8 @@
                         </div>     
                     </div> 
                     <div class="card-action">    
-                     <a class="link" href="{{ route('professor.password.request') }}">Forgot Password?</a>  
-                     <a class="link" href="{{ route('professor.registration') }}">No Account?</a>       
+                     <a class="link light-green-text" href="{{ route('professor.password.request') }}">Forgot Password?</a>  
+                     <a class="link light-green-text" href="{{ route('professor.registration') }}">No Account?</a>       
                     </div>    
                 </div>
             </form>  

@@ -7,7 +7,6 @@
   </head>
 
   <body>
-    @include('partials._messages')
     @include('partials.registrar_navigation')
     @yield('content')
     @include('partials._javascript')

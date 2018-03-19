@@ -132,7 +132,7 @@ class ClassroomController extends Controller
         }
 
         Session::flash('success','Updated Successfully');
-        return redirect()->route('classrooms.show',$classroom->id);
+        return redirect()->route('classrooms.index');
 
     }
 

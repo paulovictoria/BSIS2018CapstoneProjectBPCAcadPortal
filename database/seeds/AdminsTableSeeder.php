@@ -44,7 +44,41 @@ class AdminsTableSeeder extends Seeder
                 'email' => 'adminobando@yahoo.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'3',
-        ]);                 
+        ]);  
 
+       DB::table('admins')->insert([
+                'name' => 'Admin Angat',
+                'email' => 'adminangat@yahoo.com',
+                'password' => bcrypt('sample'),  
+                'campus_id'=>'4',
+        ]);  
+
+       DB::table('admins')->insert([
+                'name' => 'Admin Pandi',
+                'email' => 'adminpandi@yahoo.com',
+                'password' => bcrypt('sample'),  
+                'campus_id'=>'5',
+        ]);  
+
+       DB::table('admins')->insert([
+                'name' => 'Admin San Rafael',
+                'email' => 'adminosanrafael@yahoo.com',
+                'password' => bcrypt('sample'),  
+                'campus_id'=>'6',
+        ]);         
+
+       DB::table('admins')->insert([
+                'name' => 'Admin San Jose Delmonte',
+                'email' => 'adminsjdm@yahoo.com',
+                'password' => bcrypt('sample'),  
+                'campus_id'=>'7',
+        ]);         
+                                       
+       DB::table('admins')->insert([
+                'name' => 'Admin San Miguel',
+                'email' => 'adminsanmiguel@yahoo.com',
+                'password' => bcrypt('sample'),  
+                'campus_id'=>'8',
+        ]);  
     }
 }

@@ -7,6 +7,15 @@
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
+									</div>
+								</div>
+							@endif
+						</div>  
 					<a href="{{ route('classrooms.create') }}" class="btn green darken-4"><i class="material-icons">create_new_folder</i> Create</a>
 					<table class="table table-responsive" id="indexClassroom" width="100%">
 						<thead>

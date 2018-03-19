@@ -65,6 +65,7 @@ class AnnouncementController extends Controller
         $announcement->campus_id=Auth::user()->campus_id;
         $announcement->save();
         }
+     
         Session::flash('success','announcement Successfully Posted');
         return redirect()->route('announcements.index');
     }
@@ -127,7 +128,7 @@ class AnnouncementController extends Controller
         }
         $announcement->save();
         Session::flash('success','announcement Successfully Updated');
-        return redirect()->route('announcements.show',$announcement->id);
+        return redirect()->route('announcements.index');
     }
 
     /**

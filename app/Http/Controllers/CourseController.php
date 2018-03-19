@@ -55,7 +55,7 @@ class CourseController extends Controller
         $course->degree=$request->degree;
         $course->save();
         Session::flash('success','New Course created Successfully');
-        return redirect()->route('courses.show',$course->id);
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -104,7 +104,7 @@ class CourseController extends Controller
         $course->degree=$request->degree;
         $course->save();
         Session::flash('success','New Course created Successfully');
-        return redirect()->route('courses.show',$course->id);
+        return redirect()->route('courses.index');
     }
 
     /**

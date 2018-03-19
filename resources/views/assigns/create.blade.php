@@ -142,7 +142,7 @@
                           @endif		
 						<div class="section"></div>
 						<div class="right">
-						{{ Form::submit('Save',['class'=>'btn light-green darken-2']) }}			
+						{{ Form::submit('Save',['class'=>'btn green darken-3']) }}			
 						</div>
 						{!! Form::close() !!}
 					</div>

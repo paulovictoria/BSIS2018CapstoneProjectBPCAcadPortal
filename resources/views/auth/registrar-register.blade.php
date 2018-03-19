@@ -16,7 +16,7 @@
                             <label for="eid" class="col-md-4 control-label">EID</label>
 
                             <div class="col-md-6">
-                                <input id="eid" type="text" class="form-control" name="eid" value="{{ old('eid') }}" required autofocus>
+                                <input id="eid" type="text" class="form-control" name="eid" data-mask="00-0000" placeholder="00-0000" >
 
                                 @if ($errors->has('eid'))
                                     <span class="help-block">
@@ -136,4 +136,15 @@
         </div>
     </div>  
 </div>
+@endsection
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('select').material_select();
+    });
+    $(document).ready(function(){ 
+       $('#eid').mask('00-0000');
+    });
+</script>
 @endsection

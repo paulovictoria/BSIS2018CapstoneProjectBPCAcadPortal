@@ -21,7 +21,7 @@ class ProfessorRegisterController extends Controller
 
     public function register(Request $request) {
     	$this->validate($request,[
-    		'eid' => 'required|integer',
+    		'eid' => 'required|unique:professors',
     		'last_name' => 'required|string|max:255',
     		'first_name' => 'required|string|max:255',
     		'midle_name' => 'required|string|max:255',

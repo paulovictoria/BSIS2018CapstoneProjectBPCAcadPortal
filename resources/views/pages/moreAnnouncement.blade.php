@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <title>Bpcians Portal</title>
     <style type="text/css">
+
       .modal {
         width: 75%;
       }
     </style>
   </head>
   <body>
-
     <ul id="slide-out" class="side-nav">
       <li><a class="waves-effect" href="{{route('home')}}">Home</a></li>
       <li><a class="waves-effect" href="{{route('about')}}">About</a></li>
@@ -36,8 +36,8 @@
       </ul>
     </ul>
     <div class="navbar-fixed">
-      <nav class="light-green darken-2"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
-      <div class="container nav-wrapper light-green darken-2">
+      <nav class="green darken-4"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
+      <div class="container nav-wrapper green darken-4">
         <a href="#" class="brand-logo" id="logo">
         <span width="30" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;"></span><span style="font-weight:400;font-size:1.5rem;"><i class="material-icons" style="margin-right:1px; ">link</i>BPC Portal</span>
         </a> 
@@ -48,7 +48,8 @@
        </ul>
       </div>
       </nav>
-    </div>    
+    </div>
+    <main>   
 <div class="container">
   <div class="section"></div>
   <div class="row">

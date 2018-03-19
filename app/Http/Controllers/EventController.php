@@ -140,7 +140,7 @@ class EventController extends Controller
         $event->save();
 
         Session::flash('success','Event Successfully Updated');
-        return redirect()->route('events.show',$event->id);
+        return redirect()->route('events.index');
     }
 
     /**

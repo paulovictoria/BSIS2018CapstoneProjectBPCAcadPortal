@@ -10,9 +10,9 @@
 					<div class="col s9 offset-s3">
 						<div class="section">
 							@if(Session::has('success'))
-								<div class="col s12 p">
-									<div class="light-green darken-1">
-										<strong>Success:</strong> {{ Session::get('success')}}
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
 									</div>
 								</div>
 							@endif
@@ -63,11 +63,25 @@
 		</div>
 	</div>	
 </div>
+  <div id="modal1" class="modal1 bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 @endsection
 @section('script')
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
 <script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
 <script>
+	  $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal1').modal('open');
+  });
+       
   $(document).ready(function() {
     $('#announcements').DataTable();
     
@@ -105,5 +119,7 @@
         }
     } );
 } );
+
+
 </script>
 @endsection

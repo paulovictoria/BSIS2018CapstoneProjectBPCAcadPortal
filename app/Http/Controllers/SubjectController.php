@@ -59,7 +59,7 @@ class SubjectController extends Controller
         $subject->course_id=$request->course_id;
         $subject->save();
         Session::flash('success','New  Subject Created Successfully');
-        return redirect()->route('subjects.show',$subject->sid);
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -112,7 +112,7 @@ class SubjectController extends Controller
         $subject->course_id=$request->course_id;
         $subject->save();
         Session::flash('success','New  Subject Created Successfully');
-        return redirect()->route('subjects.show',$subject->sid);
+        return redirect()->route('subjects.index');
     }
 
     /**

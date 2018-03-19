@@ -9,9 +9,9 @@
 					<div class="col s9 offset-s3">
 						<div class="section">
 							@if(Session::has('success'))
-								<div class="col s12 p">
-									<div class="light-green darken-1">
-										<strong>Success:</strong> {{ Session::get('success')}}
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
 									</div>
 								</div>
 							@endif

@@ -7,7 +7,7 @@
             <form method="POST" action="{{ route('registrar.login.submit') }}">{{ csrf_field() }}
                 <div class="card">
                     <div class="card-content z-depth-2">
-                        <span class="card-title center light-green-text darken-1">REGISTRAR</span>
+                        <span class="card-title center green-text darken-4">REGISTRAR</span>
                         <div class="row">
                             <div class="input-field col s12{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" >
@@ -38,8 +38,8 @@
                         </div>     
                     </div> 
                     <div class="card-action">    
-                     <a class="link" href="{{ route('registrar.password.request') }}">Forgot Password?</a>  
-                     <a class="link" href="{{ route('registrar.registration') }}">No Account?</a>       
+                     <a class="link light-green-text" href="{{ route('registrar.password.request') }}">Forgot Password?</a>  
+                     <a class="link light-green-text" href="{{ route('registrar.registration') }}">No Account?</a>       
                     </div>    
                 </div>
             </form>  

@@ -7,17 +7,15 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col s9 offset-s3">
-                        <h3 class="light-green-text darken-2 card-title"></h3>
-						<div class="section">
-							@if(Session::has('success'))
-								<div class="col s12 p">
-									<div class="light-green darken-2 white-text">
-										<p class="flow-text">{{ Session::get('success')}}</p>
-									</div>
-								</div>
-							@endif							
-						</div>
-                        
+                        <div class="section">
+                            @if(Session::has('success'))
+                                <div class="col s12 center">
+                                    <div class="yellow darken-3">
+                                        <p class="flow-text white-text">{{ Session::get('success')}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>  
 					<table id="approvalIndex" class="table responsive-table" cellspacing="0">
 						<thead>
 							<tr class="green darken-3 white-text">

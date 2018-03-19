@@ -18,6 +18,17 @@ tinymce.init({
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
+						<div class="section">
+							@if(count($errors)>0)
+								<div class="col s12 center">
+									<div class="red darken-3">
+										@foreach($errors->all() as $error)
+										<p class="flow-text white-text">{{ $error }}</p>
+										@endforeach
+									</div>
+								</div>
+							@endif
+						</div> 
 						<h3 class="light-green-text darken-2 card-title">Edit News</h3>			 		
 							{!! Form::model($news,['route'=>['news.update',$news->id],'method'=>'PUT','files'=>'true']) !!}
 							{{ Form::label('title','Title')}}
@@ -33,7 +44,9 @@ tinymce.init({
 		                        <input class="file-path validate" type="text">
 		                      </div>
 		                    </div>
-							{{ Form::submit('Update',['class'=>'btn light-green darken-1']) }}
+		                    <div class="right-align">
+							{{ Form::submit('Update',['class'=>'btn green darken-3']) }}
+						</div>
 						{!! Form::close() !!}
 					</div>
 				</div>

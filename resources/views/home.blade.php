@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="shortcut icon" href="{{asset('images/green_link.png')}}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
+
     <title>Bpcians Portal</title>
     <style type="text/css">
 
@@ -222,12 +223,21 @@
      </div>
       <div class="footer-copyright">
           <div class="container">
-            © 2018 BPC Portal Copyright
-            <div class="right">
-                <a href="https://www.facebook.com/bulpolycol" class="btn btn-floating blue darken-1"><i class="icon-facebook"></i></a>
-                <a href="#" class="btn btn-floating light-blue"><i class="icon-twitter"></i></a>
-                <a href="#" class="btn btn-floating brown darken-1"><i class="icon-instagram"></i></a>
-                <a href="https://www.bulpolycol@gmail.com" class="btn btn-floating red darken-1"><i class="icon-mail2"></i></a> 
+            © 2018 BPC Portal Copyright<br>
+            Developed by: BSIS<strong> Pioneer</strong>
+            <div class="right"> 
+                  <a class="white-tex" data-position="bottom" href="#" target="_blank">
+                  <img src="{{asset('images/facebook.png')}}">
+                 </a>
+                  <a class="white-tex" data-position="bottom" href="#" target="_blank">
+                  <img src="{{asset('images/twitter.png')}}">
+                 </a>
+                  <a class="white-tex" data-position="bottom" href="#" target="_blank">
+                  <img src="{{asset('images/instagram.png')}}">
+                 </a>
+                  <a class="white-tex" data-position="bottom" href="#" target="_blank">
+                  <img src="{{asset('images/google-plus.png')}}">
+                 </a>                                                 
             </div>
           </div>
       </div>

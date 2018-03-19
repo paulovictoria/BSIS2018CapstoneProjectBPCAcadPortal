@@ -52,9 +52,12 @@
     <main>
       <div class="section white">
         <div class="container">
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-content">
           <div class="row">
             <div class="col s12 m6">
-  <img class="responsive-img" src="https://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/remote_illustration.png">
+              <div class="section"></div>
               <h5 class="start text-primarycolor">{!! $news->title !!}</h5>
               <p>{!!$news->description!!}</p>
               <div class="chip">
@@ -62,34 +65,22 @@
               </div>  
             </div>
             <div class="col s6 offset-s3 m6 center">
-              <div class="card">
+              <div class="card z-depth-3">
               <div class="card-content">
                 <div class="row">
                     <div class="col s12 m12">
-                      @foreach($morenewses as $morenews)
-                      <div class="col s12 m12 l12" data-aos="flip-up">
-                        <blockquote >
-                        <p class="grey-text text-darken-3">   
-                        <span style="font-weight:500;">{{$morenews->title}}</span>.
-                        {{ substr(strip_tags($morenews->description),0,30) }}
-                        {{ strlen(strip_tags($morenews->description)) > 20 ? "..." : ""}}
-                        </p>
-                        <p style="font-weight:300;"><a href="{{route('news.single',$morenews->id)}}" class="text-primarycolor">Continue Reading...</a></p>
-                        <div class="divider"></div>
-                        </blockquote>
-                      </div>
-                      @endforeach 
-                      <div class="right-align col s12 m12 l12">
-                        <a href="{{route('news.more')}}" class="start text-primarycolor">VIEW MORE</a>
-                      </div>                                                                 
-                    </div>
+                     <img class="responsive-img" src="{{route('socials.image',$news->filename)}}">         
                  </div> 
               </div>
              </div>
             </div>            
+            </div>
           </div>
         </div>
       </div>
+   </div>
+  </div>
+</div>
 
 
     </main>

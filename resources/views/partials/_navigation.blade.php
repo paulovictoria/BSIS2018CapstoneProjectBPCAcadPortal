@@ -4,7 +4,7 @@
       <div class="background green darken-4">
         <img class="right" src="http://www.vactualpapers.com/web/wallpapers/modern-material-design-full-hd-wallpaper-no-205/thumbnail/lg.png">
       </div>
-        <a href="#!user"><img class="circle" src="{{asset('images/bpclogo.png')}}"></a>
+        <a href="#!user"><img class="circle" src="{{asset('images/manager.png')}}"></a>
         <a href="#!name"><span class="white-text name">{{ Auth::user()->email}}</span></a>
         <a href="#!email"><span class="white-text email">{{ Auth::user()->campus->campus_name}}</span></a>
 <!--         <div class="section"></div> -->
@@ -61,13 +61,6 @@
           </li>
         </ul>
       </li>      
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a href="{{route('classrooms.index')}}" class="collapsible-header"><i class="material-icons">class</i>Classes</a>
-          </li>
-        </ul>
-      </li>
        <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>

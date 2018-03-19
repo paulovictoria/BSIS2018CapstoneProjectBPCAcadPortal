@@ -18,18 +18,22 @@
 </style>
 @endsection
 @section('content')
-		<div class="col s12">
-			<div class="section center">
-			</div>
-			<div class="section center">
-			</div>	
-			<div class="section center">
-			</div>					
+		<div class="col s12">				
 			<div class="section">
 				<div class="card z-depth-1">
 					<div class="card-content">
 						<div class="row">
 							<div class="col s9 offset-s3">
+						<div class="section">
+							@if(count($errors)>0)
+								<div class="col s12 center">
+									<div class="red darken-3">
+										@foreach($errors->all() as $error)
+										<p class="flow-text white-text">{{ $error }}</p>
+										@endforeach
+									</div>
+								</div>
+							@endif
 								<h3 class="light-green-text darken-2 card-title">Manage Classroom</h3>
 								<div class="section"></div>				{!! Form::open(['route'=>'classrooms.store']) !!}
 								<p class="center">

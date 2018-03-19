@@ -9,13 +9,13 @@
 					<div class="col s9 offset-s3">
 						<div class="section">
 							@if(Session::has('success'))
-								<div class="col s12 p">
-									<div class="light-green darken-1">
-										<strong>Success:</strong> {{ Session::get('success')}}
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
 									</div>
 								</div>
 							@endif
-						</div>  	
+						</div> 	
 				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-3" href="{{route('events.create')}}"><i class="material-icons">add_a_photo</i></a>
 				 		<table class="table responsive-table" id="events">
 						<thead>

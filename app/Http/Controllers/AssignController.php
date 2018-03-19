@@ -41,9 +41,9 @@ class AssignController extends Controller
     {
 
         $classrooms=Classroom::all();
-        $professors=Professor::all();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         $subjects=Subject::all();
-        $students=Student::all();
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
         $days=Day::all();
         $rooms=Room::where('campus_id','=',Auth::user()->campus_id)->get();
         return view('assigns.create')
@@ -86,7 +86,7 @@ class AssignController extends Controller
         if(is_null($refer)){
         $assign->save();
         $assign->students()->sync($assign->classroom->students,false);
-        Session::flash('success','Assigned Created Successfully');
+        Session::flash('success','Classroom Assign Successfully');
         return redirect()->route('assigns.index');
         }
         else{
@@ -125,7 +125,7 @@ class AssignController extends Controller
         foreach($classrooms as $classroom) {
             $classrooms2[$classroom->id]=$classroom->academic_year.' '.$classroom->course->course_name.' '.$classroom->year.' '.$classroom->section;
         }
-        $professors=Professor::all();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         $professors2 = array();
         foreach($professors as $professor) {
             $professors2[$professor->id]=$professor->last_name.' '.$professor->first_name. ' '.$professor->midle_name;
