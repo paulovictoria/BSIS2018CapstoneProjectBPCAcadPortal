@@ -40,7 +40,7 @@ class ProfessorDashboardController extends Controller
     public function profileUpdate(Request $request,$id) {
 
         $this->validate($request,[
-            'eid'=>'required|integer',
+            'eid'=>'required',
             'last_name'=>'required',
             'first_name'=>'required',
             'midle_name'=>'required',
@@ -49,6 +49,7 @@ class ProfessorDashboardController extends Controller
 
         $professor=Professor::find($id);
         if($request->hasFile('image')){
+            
             $file=$request->file('image');
             $fileName=time().'.'.$file->getClientOriginalExtension();
             $uploaded=Storage::disk('profiles')->put($fileName,file_get_contents($file->getRealPath()));
@@ -61,6 +62,7 @@ class ProfessorDashboardController extends Controller
             $professor->filename=$fileName;
         }
         else{
+
             $professor->eid=$request->eid;
             $professor->last_name=$request->last_name;
             $professor->first_name=$request->first_name;

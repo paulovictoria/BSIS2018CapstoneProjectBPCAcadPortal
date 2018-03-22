@@ -83,7 +83,17 @@
 							<select class="subject" name="subject_id">
 								<option>Select Subject</option>
 								@foreach($subjects as $subject)
-									<option value="{{ $subject->id }}">{{ $subject->subj_description }} Year:{{ $subject->year }} Sem:{{ $subject->sem }}</option>
+									<option value="{{ $subject->id }}">
+										Course:{{'"'.$subject->course->course_name.'"' }}
+										Year:{{ '"'.$subject->year.'"' }} 
+										Sem:@if($subject->sem==1)
+										 "First Sem" 
+										@else
+										 "Second Sem" 
+										@endif
+										Subject:{{'"'.$subject->subj_description.'"' }}
+
+									</option>
 								@endforeach
 							</select>
 						 @if ($errors->has('subject_id'))

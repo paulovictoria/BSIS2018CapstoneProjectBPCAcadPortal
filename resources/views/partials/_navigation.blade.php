@@ -26,6 +26,9 @@
               <ul>
                 <li><a href="{{route('registrarIndex')}}">Registrar</a></li>
                 <li><a href="{{route('professorIndex')}}">Instructor</a></li>
+                @if(Auth::user()->campus->id==1)
+                <li><a href="{{route('admin.adminIndex')}}">Admins</a></li>
+                @endif
 <!--                <li><a  href="{{route('studentsApprovalIndex')}}">Students</a></li> -->
   
               </ul>

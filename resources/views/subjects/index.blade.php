@@ -15,7 +15,7 @@
 									</div>
 								</div>
 							@endif
-						</div>
+						</div>		
 						<a href="{{ route('subjects.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add</i></a>
 						<table class="bordered" id="subject">
 							<thead>

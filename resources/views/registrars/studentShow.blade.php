@@ -31,21 +31,15 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                 <td class="green-text">No Grade</td>         
-                                                 @elseif($record->grade==1)
+                                                <td class="grey-text">No Grade</td>
+                                                @elseif($record->grade<=3)
                                                 <td class="green-text">Passed</td>
-                                                 @elseif($record->grade==2)
-                                                <td class="light-green-text">Passed</td>
-                                                @elseif($record->grade==3)
-                                                <td class="light-green-text">Passed</td>
-                                                 @elseif($record->grade==4)
-                                                 <td class="orange-text">INC</td>
+                                                @elseif($record->grade<=4)
+                                                <td class="orange-text">INC</td>
                                                 @else
-                                                 <td class="red-text">Failed</td>
+                                                <td class="red-text">Failed</td>
                                                 @endif 
-                                                <td>{{$record->sem}}</td>
-                                               
-                                                
+                                                <td>{{$record->sem}}</td>                           
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -76,17 +70,13 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                 <td class="green-text">No Grade</td>         
-                                                 @elseif($record->grade==1)
+                                                <td class="grey-text">No Grade</td>
+                                                @elseif($record->grade<=3)
                                                 <td class="green-text">Passed</td>
-                                                 @elseif($record->grade==2)
-                                                <td class="light-green-text">Passed</td>
-                                                @elseif($record->grade==3)
-                                                <td class="light-green-text">Passed</td>
-                                                 @elseif($record->grade==4)
-                                                 <td class="orange-text">INC</td>
+                                                @elseif($record->grade<=4)
+                                                <td class="orange-text">INC</td>
                                                 @else
-                                                 <td class="red-text">Failed</td>
+                                                <td class="red-text">Failed</td>
                                                 @endif 
                                                 <td>{{$record->sem}}</td>
                                             </tr> 
@@ -119,17 +109,13 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                 <td class="green-text">No Grade</td>         
-                                                 @elseif($record->grade==1)
+                                                <td class="grey-text">No Grade</td>
+                                                @elseif($record->grade<=3)
                                                 <td class="green-text">Passed</td>
-                                                 @elseif($record->grade==2)
-                                                <td class="light-green-text">Passed</td>
-                                                @elseif($record->grade==3)
-                                                <td class="light-green-text">Passed</td>
-                                                 @elseif($record->grade==4)
-                                                 <td class="orange-text">INC</td>
+                                                @elseif($record->grade<=4)
+                                                <td class="orange-text">INC</td>
                                                 @else
-                                                 <td class="red-text">Failed</td>
+                                                <td class="red-text">Failed</td>
                                                 @endif 
                                                 <td>{{$record->sem}}</td>
                                             </tr> 
@@ -162,17 +148,13 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                 <td class="green-text">No Grade</td>         
-                                                 @elseif($record->grade==1)
+                                                <td class="grey-text">No Grade</td>
+                                                @elseif($record->grade<=3)
                                                 <td class="green-text">Passed</td>
-                                                 @elseif($record->grade==2)
-                                                <td class="light-green-text">Passed</td>
-                                                @elseif($record->grade==3)
-                                                <td class="light-green-text">Passed</td>
-                                                 @elseif($record->grade==4)
-                                                 <td class="orange-text">INC</td>
+                                                @elseif($record->grade<=4)
+                                                <td class="orange-text">INC</td>
                                                 @else
-                                                 <td class="red-text">Failed</td>
+                                                <td class="red-text">Failed</td>
                                                 @endif 
                                                 <td>{{$record->sem}}</td>
                                             </tr> 

@@ -37,7 +37,7 @@ tinymce.init({
 							{{ Form::textarea('description',null,['class'=>'form-control']) }}				
 		                    <div class="file-field input-field">
 		                       <div class="btn">
-		                           <span>Banner</span>
+		                           <span>Image</span>
 		                           <input type="file" id="banner" name="banner">
 		                       </div>
 		                       <div class="file-path-wrapper">

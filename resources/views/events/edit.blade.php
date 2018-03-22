@@ -51,7 +51,7 @@ tinymce.init({
 
 		                    <div class="file-field input-field">
 		                       <div class="btn">
-		                           <span>Banner</span>
+		                           <span>Image</span>
 		                           <input type="file" id="banner" name="banner">
 		                       </div>
 		                       <div class="file-path-wrapper">

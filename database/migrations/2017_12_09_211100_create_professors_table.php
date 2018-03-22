@@ -19,7 +19,8 @@ class CreateProfessorsTable extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->string('midle_name');
-            $table->boolean('approved');            
+            $table->boolean('approved');
+            $table->boolean('status');            
             $table->string('gender');
             $table->string('email')->unique();
             $table->string('password');

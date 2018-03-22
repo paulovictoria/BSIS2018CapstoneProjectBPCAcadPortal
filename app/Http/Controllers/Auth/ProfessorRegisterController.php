@@ -45,6 +45,7 @@ class ProfessorRegisterController extends Controller
         $professor->campus_id=$request->campus_id;
     	$professor->password=bcrypt($request['password']);
         $professor->approved = false;
+        $professor->status = false;
         $professor->filename=$fileName;
     	$professor->save();
         }

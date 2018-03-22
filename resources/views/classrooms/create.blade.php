@@ -51,7 +51,8 @@
 							    </p>
 
 							    {{ Form::label('academic_year','Academic Year:') }}
-							    {{ Form::text('academic_year',null,['class'=>'form-control']) }}
+							
+							    {{ Form::text('academic_year',null,['class'=>'form-control','id'=>'academic_year','placeholder'=>'0000-0000']) }}
 							    <br>
 							    @if ($errors->has('academic_year'))
                                 <span>
@@ -126,10 +127,14 @@
 @endsection
 @section('script')
 <script src="{{ asset('js/select2.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script type="text/javascript">
 	$('.students').select2();
 	$('.year').select2();
 	$('.class-section').select2();
 	$('.course').select2();
+	$(document).ready(function(){ 
+       $('#academic_year').mask('0000-0000');
+    });
 </script>
 @endsection

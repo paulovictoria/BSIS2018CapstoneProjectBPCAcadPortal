@@ -8,11 +8,11 @@
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <!--   <link rel="stylesheet" href="{{ asset('css/materialize.css?v=' . env('ASSET_VERSION', 1)) }}"> -->
+<!--     <link rel="stylesheet" href="{{ asset('css/materialize.css?v=' . env('ASSET_VERSION', 1)) }}"> -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="shortcut icon" href="{{asset('images/green_link.png')}}" type="image/png">
-    <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
+   <!--  <link rel="stylesheet" href="{{ asset('css/aos.css') }}"> -->
 
     <title>Bpcians Portal</title>
     <style type="text/css">
@@ -27,7 +27,7 @@
       <li><a class="waves-effect" href="{{route('home')}}">Home</a></li>
       <li><a class="waves-effect" href="{{route('about')}}">About</a></li>
       <li><a class="waves-effect" href="#!">Getting Started</a></li>
-      <li><a class="dropdown-button" href='#' data-activates='logAs'>Sign Up</a></li>
+      <li><a class="dropdown-button" href='#' data-activates='logAs'>Sign In</a></li>
       <!-- Dropdown Structure -->
       <ul id="logAs" class="dropdown-content">
         <li><a href="{{route('student.login')}}">Student</a></li>
@@ -60,8 +60,8 @@
               <span class="start-bpcap-header-text white-text hide-on-small-only">
                     The BPCians Portal
               </span>
-              <p class="flow-text white-text hide-on-small-only">“We are what we repeatedly do. Excellence is not an act, but a habit.”<span>-Arirstotle;</span></p>
-              <a href="#modalChoose" class="btn white green-text darken-4 hide-on-small-only modal-trigger">Sign Up</a>
+              <p class="flow-text white-text hide-on-small-only">“We are what we repeatedly do. Excellence is not an act, but a habit.”<span>-Aristotle;</span></p>
+              <a href="#modalChoose" class="btn white green-text darken-4 hide-on-small-only modal-trigger">Sign In</a>
               </div>
             </div>
             <div class="col s12 m6">
@@ -251,9 +251,9 @@
             <div class="col s6 m3">
               <div class="card z-depth-4">
                 <div class="card-content green darken-4">
-                  <span class="card-title center">
+                  <a href="{{route('student.login')}}" class="center-align"><span class="card-title center">
                   <img width="75" height="75" src="{{asset('images/student.png')}}"></span>
-                  <a href="{{route('student.login')}}" class="center-align"><h5 class="white-text">STUDENT</h5></a>
+                  <h5 class="white-text">STUDENT</h5></a>
                 </div>
                </div>
             </div> 
@@ -261,8 +261,8 @@
               <div class="card z-depth-4">
                 <div class="card-content green darken-4">
                   <span class="card-title center">
-                  <img width="75" height="75" src="{{asset('images/teacher.png')}}"></span>
-                  <a href="{{route('professor.login')}}" class="center-align"><h5 class="white-text">INSTRUCTOR</h5></a>                  
+                  <a href="{{route('professor.login')}}" class="center-align"><img width="75" height="75" src="{{asset('images/teacher.png')}}"></span>
+                  <h5 class="white-text">INSTRUCTOR</h5></a>                  
                 </div>
                </div>
             </div>
@@ -270,8 +270,8 @@
               <div class="card z-depth-4">
                 <div class="card-content green darken-4">
                   <span class="card-title center">
-                  <img width="75" height="75" src="{{asset('images/clerk.png')}}"></span>
-                  <a href="{{route('registrar.login')}}" class="center-align"><h5 class="white-text">REGISTRAR</h5></a>                  
+                  <a href="{{route('registrar.login')}}" class="center-align"><img width="75" height="75" src="{{asset('images/clerk.png')}}"></span>
+                  <h5 class="white-text">REGISTRAR</h5></a>                  
                 </div>
                </div>
             </div>
@@ -279,9 +279,9 @@
               <div class="card z-depth-4">
                 <div class="card-content green darken-4">
                   <span class="card-title center">
-                  <img width="75" height="75" src="{{asset('images/manager.png')}}">
+                  <a href="{{route('admin.login')}}" class="center-align"><img width="75" height="75" src="{{asset('images/manager.png')}}">
                  </span>
-                  <a href="{{route('admin.login')}}" class="center-align"><h5 class="white-text">ADMIN</h5></a>               
+                  <h5 class="white-text">ADMIN</h5></a>               
                 </div>
                </div>
             </div>

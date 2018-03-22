@@ -50,7 +50,7 @@ class ClassroomController extends Controller
 
         $this->validate($request,[
            'sem'=>'required',
-           'academic_year'=>'required|integer',
+           'academic_year'=>'required',
            'course_id'=>'required|integer',
            'year'=>'required',
            'section'=>'required' 

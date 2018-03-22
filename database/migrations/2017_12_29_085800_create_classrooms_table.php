@@ -16,7 +16,7 @@ class CreateClassroomsTable extends Migration
         Schema::create('classrooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sem');
-            $table->integer('academic_year');
+            $table->char('academic_year');
             $table->integer('course_id')->nullable()->unsigned();
             $table->integer('year'); 
             $table->string('section');             

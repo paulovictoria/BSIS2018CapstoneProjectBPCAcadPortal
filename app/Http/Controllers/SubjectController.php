@@ -111,7 +111,7 @@ class SubjectController extends Controller
         $subject->year=$request->year;
         $subject->course_id=$request->course_id;
         $subject->save();
-        Session::flash('success','New  Subject Created Successfully');
+        Session::flash('success','Subject Updated Successfully');
         return redirect()->route('subjects.index');
     }
 

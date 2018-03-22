@@ -31,7 +31,7 @@ class StudentDashboardController extends Controller
     public function profileUpdate(Request $request,$id) {
 
     	$this->validate($request,[
-    		'sid'=>'required|integer',
+    		'sid'=>'required',
     		'last_name'=>'required',
     		'first_name'=>'required',
     		'midle_name'=>'required',

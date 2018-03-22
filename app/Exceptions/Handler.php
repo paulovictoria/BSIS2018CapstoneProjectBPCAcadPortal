@@ -81,10 +81,10 @@ class Handler extends ExceptionHandler
             case 'registrar':
             $login ="registrar.login";
             break;
-
+/*
             default:
             $login = 'login';
-            break;
+            break;*/
         }
         return redirect()->guest(route($login));
     }

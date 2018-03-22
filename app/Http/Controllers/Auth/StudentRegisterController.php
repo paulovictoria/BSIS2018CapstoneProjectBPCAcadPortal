@@ -35,12 +35,16 @@ class StudentRegisterController extends Controller
             'campus_id' => 'required|integer',
             'email' => 'required|string|email|max:255|unique:students',
             'password' => 'required|string|min:6|confirmed',
-            'image'=>'required'
+            'image'=>'required',
+            'cor'=>'required',
     	]); 
         $file=$request->file('image');
-        $fileName=time().'.'.$file->getClientOriginalExtension();
+        $fileName=$request->sid.time().'.'.$file->getClientOriginalExtension();
         $uploaded=Storage::disk('profiles')->put($fileName,file_get_contents($file->getRealPath()));
-        if($uploaded){
+        $corfile=$request->file('cor');
+        $corfileName='cor'.time().'.'.$file->getClientOriginalExtension();
+        $corUploaded=Storage::disk('profiles')->put($corfileName,file_get_contents($corfile->getRealPath()));
+        if($uploaded && $corUploaded){
     	$student=new Student;
     	$student->sid=$request->sid;
         $student->course_id=$request->course_id;
@@ -53,6 +57,7 @@ class StudentRegisterController extends Controller
     	$student->password=bcrypt($request['password']);
     	$student->approved = false;
         $student->filename=$fileName;
+        $student->cor=$corfileName;
     	$student->save();
         }
 		$registrar=Registrar::where('campus_id','=',$request->campus_id)->first(); 

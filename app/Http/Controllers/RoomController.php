@@ -48,6 +48,7 @@ class RoomController extends Controller
         $room->capacity=$request->capacity;
         $room->campus_id=Auth::user()->campus_id;
         $room->save();
+        Session::flash('success','New Room Created Successfully');
         return redirect()->route('rooms.index');
     }
 
@@ -94,6 +95,7 @@ class RoomController extends Controller
         $room->capacity=$request->capacity;
         $room->campus_id=Auth::user()->campus_id;
         $room->save();
+        Session::flash('success','Room Updated Successfully');
         return redirect()->route('rooms.index');
     }
 

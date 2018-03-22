@@ -26,6 +26,7 @@ class CreateStudentsTable extends Migration
             $table->integer('course_id')->nullable()->unsigned();
             $table->integer('campus_id')->nullable()->unsigned();
             $table->string('filename');
+            $table->string('cor');
             $table->rememberToken();
             $table->timestamps();
         });

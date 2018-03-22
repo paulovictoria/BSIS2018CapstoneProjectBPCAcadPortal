@@ -31,8 +31,13 @@ Route::group(['middleware'=> ['web']],function(){
     Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+    Route::get('/adminRegister','Auth\AdminRegisterController@create')->name('admin.registration');
+    Route::put('/enableProfessor/{id}','AdminController@enableProfessor')->name('admin.enableProfessor');
+	Route::put('/disableProfessor/{id}','AdminController@disableProfessor')->name('admin.disableProfessor');
 
-
+	Route::get('/adminIndex','AdminController@adminIndex')->name('admin.adminIndex');
+	Route::get('/adminEdit/{id}','AdminController@adminEdit')->name('admin.adminEdit');
+	Route::put('/adminUpdate/{id}','AdminController@adminUpdate')->name('admin.adminUpdate');
     });
     //endAdmin
 
@@ -114,6 +119,10 @@ Route::group(['middleware'=> ['web']],function(){
     Route::post('/password/reset', 'Auth\RegistrarResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\RegistrarResetPasswordController@showResetForm')->name('registrar.password.reset'); 
 
+    //shifting of Student
+    Route::get('shiftStudent/{id}','RegistrarDashboardController@shiftStudent')->name('shiftStudent');
+    Route::put('shiftStore/{id}','RegistrarDashboardController@shiftStore')->name('shiftStore');
+
      });
 
     Route::post('logout','Auth\LoginController@logout');
@@ -175,6 +184,11 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/downloadPDF/{id}','StudentDashboardController@downloadPDF')->name('downloadPdf');
 	Route::get('/scheduledownloadPDF/{id}','StudentDashboardController@scheduledownloadPDF')->name('scheduledownloadPdf');
 	Route::get('/gradedownloadPDF/{id}','StudentDashboardController@gradedownloadPDF')->name('gradedownloadPdf');
+
+	Route::get('/studentdownloadPDF{id}','RegistrarDashboardController@studentdownloadPDF')->name('studentDownloadPDF');
+/*All of my Aja*/
+	Route::post('ajaxApproved','RegistrarDashboardController@ajaxApproved')->name('ajax.Approved');
+	Route::post('ajaxDenie','RegistrarDashboardController@ajaxDenied')->name('ajax.Denied');
 	/*AJAX*/
 
 

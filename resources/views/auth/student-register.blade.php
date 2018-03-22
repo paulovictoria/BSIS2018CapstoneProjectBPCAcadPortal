@@ -90,7 +90,7 @@
                   <label for="password-confirm">Confirm Password</label> 
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 </div> 
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                   <div class="file-field input-field">  
                       <div class="btn">
                           <span>Profile Picture</span>
@@ -100,7 +100,18 @@
                           <input class="file-path validate" type="text">
                       </div>
                   </div> 
-                </div> 
+                </div>
+                <div class="input-field col s6">
+                  <div class="file-field input-field">  
+                      <div class="btn">
+                          <span>Certificate of Registry</span>
+                          <input type="file" id="cor" name="cor">
+                      </div>
+                      <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text">
+                      </div>
+                  </div> 
+                </div>                  
                 <div class="right">
                  <button type="submit" class="btn green darken-3">Register</button>
                 </div>

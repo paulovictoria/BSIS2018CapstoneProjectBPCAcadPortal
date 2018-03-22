@@ -43,7 +43,7 @@ class AdminController extends Controller
     }
   
     public function registrarIndex() {
-        $registrars=Registrar::orderBy('id','desc')->paginate(5);
+        $registrars=Registrar::where('campus_id','=',Auth::user()->campus_id)->orderBy('id','desc')->paginate(5);
         return view('admin.registrarIndex')->withRegistrars($registrars);
         
     }
@@ -54,7 +54,7 @@ class AdminController extends Controller
     }
 
     public function professorIndex() {
-        $professors=Professor::orderBy('id','desc')->paginate(5);
+        $professors=Professor::where('approved','=',true)->get();
         return view('admin.professorIndex')->withProfessors($professors);   
     }
 
@@ -82,11 +82,11 @@ class AdminController extends Controller
     public function approved (Request $request, $id) {
          $professor=Professor::find($id);
          $professor->approved = true;
+         $professor->status = true;
          $professor->save();
          $professors=Professor::where('approved','=',0)
          ->where('campus_id','=',Auth::user()->campus_id)
          ->get();
-
          Session::flash('success','Approved Successfully');
          return redirect()->route('professorsApprovalIndex')->withProfessors($professors);
     }
@@ -95,8 +95,45 @@ class AdminController extends Controller
          $professor=Professor::find($id);
          $professor->delete();
         return redirect()->route('admin.dashboard');
-    }     
+    }    
 
+    public function enableProfessor($id) {
+        $professor=Professor::find($id);
+        $professor->status = true;
+        $professor->save();
+         $professors=Professor::where('approved','=',true)->get();
+        Session::flash('success','Enabled Successfully');
+        return redirect()->route('professorsApprovalIndex')->withProfessors($professors); 
+    } 
+    public function disableProfessor($id) {
+        $professor=Professor::find($id);
+        $professor->status = false;
+        $professor->save();
+        $professors=Professor::where('approved','=',true)->get();
+        Session::flash('success','Disabled Successfully');
+        return redirect()->route('professorsApprovalIndex')->withProfessors($professors); 
+    }
+
+    public function adminIndex() {
+        $admins=Admin::all();
+        return view('admin.adminIndex')->withAdmins($admins);
+    }
+
+    public function adminEdit($id) {
+        $admin=Admin::find($id);
+        return view('admin.editAdmin')->withAdmin($admin);
+    } 
+
+    public function adminUpdate(Request $request,$id) {
+        $admin=Admin::find($id);
+        $admin->name=$request->name;
+        $admin->email=$request->email;
+        $admin->password=bcrypt($request['newpassword']);
+        $admin->save();
+        $admins=Admin::all();
+        Session::flash('success','Admin Updated Successfully');
+        return redirect()->route('admin.adminIndex')->withAdmins($admins);
+    }
 
 
 }

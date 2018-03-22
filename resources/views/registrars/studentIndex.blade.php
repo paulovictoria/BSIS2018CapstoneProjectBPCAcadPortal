@@ -26,7 +26,8 @@
             						<td>Midle Name</td>
             						<td>email</td>
             						<td>Course</td>
-                                    <td>View</td>
+                                    <td>ACTION</td>
+                            
             					</tr>	
             				</thead>
             				<tbody>
@@ -39,7 +40,10 @@
             						<td>{{$student->midle_name}}</td>
             						<td>{{$student->email}}</td>
             						<td>{{$student->course->course_name}}</td>
-            						<td><a href="{{route('registrar.studentShow',$student->id)}}" class="btn white orange-text darken-2"><i class="material-icons">pageview</i> View</a></td>
+            						<td><a href="{{route('registrar.studentShow',$student->id)}}" class="btn white orange-text darken-2"><i class="material-icons">pageview</i></a>
+                                    <a class="btn white yellow-text text-darken-3" href="{{route('studentDownloadPDF',$student->id)}}"><i class="material-icons">cloud_download</i></a>
+                                    <a href="{{route('shiftStudent',$student->id)}}" class="white btn yellow-text text-darken-3"><i class="material-icons">subdirectory_arrow_right</i></a>
+                                </td>
             					</tr>
                                 @endif
             					@endforeach

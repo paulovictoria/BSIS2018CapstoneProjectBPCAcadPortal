@@ -39,7 +39,7 @@ tinymce.init({
 							{{ Form::text('date',null,['class'=>'datepicker']) }}
 		                    <div class="file-field input-field">
 		                       <div class="btn">
-		                           <span>Banner</span>
+		                           <span>Image</span>
 		                           <input type="file" id="banner" name="banner">
 		                       </div>
 		                       <div class="file-path-wrapper">

@@ -1,86 +1,84 @@
 @extends('student_template')
 @section('title','Dashboard')
-@section('stylesheet')
-<style type="text/css">
-	.image{
-  height: 270px;
-}
-</style>
-@endsection
 @section('content')
 <div class="col m12">				
-	<div class="row">
-					<div class="col m9 offset-m3 ">
-						
-			<div class="section"></div>
-			<div class="section"></div>
-		<div class="row">
-
-    	 <div class="col s12 m6">
-            <div class="card horizontal z-depth-5 green darken-4">
+  <div class="row">
+    <div class="col m9 offset-m3 ">
+      <div class="section"></div>
+        <div class="row">
+          <div class="col s12 m8">
+            <div class="card horizontal z-depth-5 blue-grey darken-2">
               <div class="card-image">
-                <i class="material-icons  white-text" style="font-size: 150px;">subject</i>
+                <img src="{{route('user.image',['filename'=>Auth::user()->filename ])}}" height="169px">
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class=" white-text">My</h4>
-                  <h4><a href="{{route('student.subjects',Auth::user()->course_id)}}" class=" white-text">SUBJECT</a></h4>
+                  <h5 class=" white-text">{{Auth::user()->email}}</h5>
+                  <h5><a href="#" class=" white-text">{{Auth::user()->course->course_name}}</a></h5>
                 </div>
-
-                <div class="card-action  white-text">
-        		</div>
+              <div class="card-action"></div>
+              </div>
+            </div>
+          </div>  
+    	    <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 teal">
+              <div class="card-image">
+                <i class="material-icons white-text" style="font-size: 100px;">subject</i>
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5 class=" white-text">My</h5>
+                  <h5><a href="{{route('student.subjects',Auth::user()->course_id)}}" class=" white-text">SUBJECT</a></h5>
+                </div>
+                <div class="card-action  white-text"></div>
               </div>
             </div>
           </div>
-    	 <div class="col s12 m6">
-            <div class="card horizontal z-depth-5 green darken-4">
+    	    <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 blue lighten-1">
               <div class="card-image">
-                <i class="material-icons  white-text" style="font-size: 150px;">schedule</i>
+                <i class="material-icons white-text" style="font-size: 100px;">schedule</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class=" white-text">My</h4>
-                  <h4><a href="{{route('student.schedule')}}" class=" white-text">SCHEDULE</a></h4>
+                  <h5 class=" white-text">My</h5>
+                  <h5><a href="{{route('student.schedule')}}" class=" white-text">SCHEDULE</a></h5>
                 </div>
-                <div class="card-action">
-        		</div>
+                <div class="card-action"></div>
               </div>
             </div>
           </div>
-    	 <div class="col s12 m6">
-            <div class="card horizontal z-depth-5 green darken-4">
+    	    <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 orange darken-2">
               <div class="card-image">
-                <i class="material-icons  white-text" style="font-size: 150px;">folder_open</i>
+                <i class="material-icons  white-text" style="font-size: 100px;">folder_open</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class=" white-text">My</h4>
-                  <h4><a href="{{route('student.files')}}" class=" white-text">FILES</h4>
+                  <h5 class=" white-text">My</h5>
+                  <h5><a href="{{route('student.files')}}" class=" white-text">FILES</h5>
                 </div>
-                <div class="card-action">
-        		</div>
+                <div class="card-action"></div>
               </div>
             </div>
-          </div>
-    	 <div class="col s12 m6">
-            <div class="card horizontal z-depth-5 green darken-4">
+          </div>		
+          <div class="col s12 m4">
+            <div class="card horizontal z-depth-5 red darken-1">
               <div class="card-image">
-                <i class="material-icons  white-text" style="font-size: 150px;">library_books</i>
+                <i class="material-icons white-text" style="font-size: 100px;">library_books</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h4 class=" white-text">My</h4>
-                  <h4><a href="{{route('student.grades')}}" class=" white-text">GRADES</a></h4>
+                  <h5 class=" white-text">My</h5>
+                  <h5><a href="{{route('student.grades')}}" class=" white-text">GRADES</a></h5>
                 </div>
                 <div class="card-action">
-        		</div>
+                </div>
               </div>
             </div>
-          </div>							
-																
-						</div>
-		
-					</div>		
+          </div> 
+			</div>
+		</div>		
 	</div>
 </div>
 @endsection

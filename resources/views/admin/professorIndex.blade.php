@@ -28,8 +28,18 @@
 								<td>{{$professor->email}}</td>
 								<td>  <a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>$professor->filename])}}" width="50"></a></td>
 								<td>
-									<a href="{{route('professorShow',$professor->id)}}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
-									<a href="#" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
+								<a href="{{route('professorShow',$professor->id)}}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
+								<a href="#" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
+								@if($professor->status==0)
+									<td>{!! Form::model($professor,['route'=>['admin.enableProfessor',$professor->id],'method'=>'PUT'])!!}
+									<button class="btn blue lighten-2"><span class="icon-check"></span></button>
+									{!! Form::close() !!}</td>
+									@else
+									<td>{!! Form::model($professor,['route'=>['admin.disableProfessor',$professor->id],'method'=>'PUT'])!!}
+									<button class="btn grey lighten-1"><span class="icon-cross"></span></button>
+									{!! Form::close() !!}</td>
+									@endif
+
 								</td>
 							</tr>
 							@endforeach
