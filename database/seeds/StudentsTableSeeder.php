@@ -11,7 +11,7 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('students')->insert([
+ /*       DB::table('students')->insert([
                 'sid'=>'18-0001',
                 'last_name' => 'Blasabas',
                 'first_name' => 'Rica',
@@ -23,7 +23,9 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
-        ]);
+                'cor'=>'cor.png',
+
+        ]);*/
         DB::table('students')->insert([
                 'sid'=>'18-0002',
                 'last_name' => 'Bautista',
@@ -36,6 +38,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0003',
@@ -49,6 +52,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0004',
@@ -62,6 +66,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0005',
@@ -75,6 +80,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0006',
@@ -88,6 +94,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0007',
@@ -101,6 +108,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0008',
@@ -114,6 +122,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0009',
@@ -127,6 +136,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0010',
@@ -140,6 +150,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0011',
@@ -153,6 +164,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0013',
@@ -166,6 +178,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0014',
@@ -179,6 +192,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0015',
@@ -192,6 +206,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0016',
@@ -205,6 +220,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0017',
@@ -218,6 +234,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0018-0',
@@ -231,6 +248,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0019',
@@ -244,6 +262,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0020',
@@ -257,6 +276,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);
         DB::table('students')->insert([
                 'sid'=>'18-0021',
@@ -270,6 +290,7 @@ class StudentsTableSeeder extends Seeder
                 'course_id'=>'1',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'cor'=>'cor.png',
         ]);                                                                                                                                                                             
 
 
