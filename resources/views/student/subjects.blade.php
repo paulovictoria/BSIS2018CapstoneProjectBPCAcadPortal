@@ -49,13 +49,12 @@
                                     <div class="card-content">
                                     	<span class="card-title center">FIRST SEMESTER</span>
 
-										<table class="table bordered" id="subject">
+										<table class="table bordered striped" id="subject">
 										    <thead>
 										        <tr>
 										            <td>SUBJECT CODE</td>
 										            <td>SUBJECT DESCRIPTION</td>
 										            <td>UNITS</td>
-										            <td>SEM</td>
 										        </tr>
 										    </thead>
 											<tbody>
@@ -64,8 +63,7 @@
 								                        <tr>
 								                        <td>{{$subj->subj_code}}</td>
 								                        <td>{{$subj->subj_description}}</td>
-								                        <td>{{$subj->subj_units}}</td>
-								                        <td>{{$subj->sem}}</td>			
+								                        <td>{{$subj->subj_units}}</td>			
 								                        </tr>                            
 								                    @endif          
 							                    @endforeach
@@ -78,13 +76,12 @@
                                 <div class="card">
                                     <div class="card-content">
                                     	<span class="card-title center">SECOND SEMESTER</span>
-										<table class="table bordered" id="subject">
+										<table class="table bordered striped" id="subject">
 										    <thead>
 										        <tr>
 										            <td>SUBJECT CODE</td>
 										            <td>SUBJECT DESCRIPTION</td>
 										            <td>UNITS</td>
-										            <td>SEM</td>
 										        </tr>
 										    </thead>
 											<tbody>
@@ -94,7 +91,6 @@
 							                        <td>{{$subj->subj_code}}</td>
 							                        <td>{{$subj->subj_description}}</td>
 							                        <td>{{$subj->subj_units}}</td>
-							                        <td>{{$subj->sem}}</td>
 							                        </tr>    
 							                    @endif         
 							                    @endforeach

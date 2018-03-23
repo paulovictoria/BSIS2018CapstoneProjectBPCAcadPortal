@@ -207,16 +207,16 @@ class ProfessorDashboardController extends Controller
     }
 
         public function exportAssign($id){
-        $type='csv';
-        $assign = Assign::find($id)
+         $type='csv';
+         $assign = Assign::where('id','=',$id)->first()
         ->join('assign_student','assigns.id','=','assign_student.assign_id')
         ->where('assign_student.assign_id','=',$id)
+        ->join('subjects','assigns.subject_id','=','subjects.id')
         ->join('students','assign_student.student_id','=','students.id')
-        ->select('students.last_name','students.first_name','students.midle_name')
-        ->orderBy('last_name','asc')
         ->get()
         ->toArray();
-        return \Excel::create('My_Class', function($excel) use ($assign) {
+ 
+        return \Excel::create('sample', function($excel) use ($assign) {
         $excel->sheet('sheet name', function($sheet) use ($assign) {
         $sheet->fromArray($assign);
         }); })->download($type);

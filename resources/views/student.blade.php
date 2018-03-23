@@ -12,7 +12,7 @@
                 <img src="{{route('user.image',['filename'=>Auth::user()->filename ])}}" height="169px">
               </div>
               <div class="card-stacked">
-                <div class="card-content">
+                <div class="card-content" data-tooltip="I am a tooltip">
                   <h5 class=" white-text">{{Auth::user()->email}}</h5>
                   <h5><a href="#" class=" white-text">{{Auth::user()->course->course_name}}</a></h5>
                 </div>
@@ -84,6 +84,9 @@
 @endsection
 @section('script')
 <script type="text/javascript">
+    $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
 	 $(document).ready(function(){
     $('ul.tabs').tabs();
   });

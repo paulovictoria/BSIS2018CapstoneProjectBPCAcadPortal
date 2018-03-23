@@ -49,7 +49,7 @@
                     <div class="card">
                       <div class="card-content">
                         <span class="card-title center">FIRST SEMESTER</span>
-                        <table class="table bordered" id="schedule">
+                        <table class="table bordered striped" id="schedule">
                           <thead>
                             <tr>
                               <td>DAY</td>
@@ -82,7 +82,7 @@
                       <div class="card">
                         <div class="card-content">
                           <span class="card-title center">SECOND SEMESTER</span>
-                          <table class="table bordered" id="schedule">
+                          <table class="table bordered striped" id="schedule">
                             <thead>
                               <tr>
                                 <td>DAY</td>

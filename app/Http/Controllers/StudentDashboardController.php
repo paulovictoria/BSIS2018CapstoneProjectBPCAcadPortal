@@ -90,10 +90,11 @@ class StudentDashboardController extends Controller
 	->join('assigns','assign_student.assign_id','=','assigns.id')
 	->where('assign_student.student_id','=',Auth::user()->id)
 	->join('subjects','assigns.subject_id','=','subjects.id')
-	->where('subjects.course_id','=',Auth::user()->course_id)
+	/*->where('subjects.course_id','=',Auth::user()->course_id)*/
    	->where('year',request('year'))->paginate(10)
   	->appends('year',request('year'));		
 	return view('student.grades')->withGrades($grades);
+
 	}
 
 	public function files(Request $request) {
@@ -143,7 +144,7 @@ class StudentDashboardController extends Controller
 		->join('assigns','assign_student.assign_id','=','assigns.id')
 		->where('assign_student.student_id','=',Auth::user()->id)
 		->join('subjects','assigns.subject_id','=','subjects.id')
-		->where('subjects.course_id','=',Auth::user()->course_id)
+	/*	->where('subjects.course_id','=',Auth::user()->course_id)*/
 	    ->where('year','=',$id)
 	  	->get();	
 		$pdf = PDF::loadView('student.gradePdf',['grades'=>$grades]);

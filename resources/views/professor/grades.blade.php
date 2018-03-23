@@ -14,8 +14,9 @@
 
                              <th>YEAR</th>
                              <th>SEM</th>
-                             <th>COURSE</th>
+                             <th>COURSE year/section</th>
                              <th># STUDENTS</th>
+                              <th>SUBJ CODE</th>
                              <th>ACTION</th>
                             </tr>
                            </thead> 
@@ -25,7 +26,8 @@
                              <td>{{$assign->classroom->academic_year}}</td>
                              <td>{{$assign->classroom->sem}}</td>  
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
-                             <td>Total files</td>
+                             <td>{{$assign->classroom->students->count()}}</td>
+                            <td>{{$assign->subject->subj_code}}</td>
                             <td> <a href="{{route('individual.classroom',$assign->id)}}" class="btn white blue-text lighten-1"><i class="material-icons">edit</i></a>
                             </td>
                             </tr>

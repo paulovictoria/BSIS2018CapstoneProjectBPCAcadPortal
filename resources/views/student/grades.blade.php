@@ -45,7 +45,7 @@
                                 <div class="card">
                                     <div class="card-content">
                                     	<span class="card-title center">FIRST SEMESTER</span>
-										<table class="table bordered" id="grade">
+										<table class="table bordered striped" id="grade">
 											    <thead>
 											        <tr>
 											        	<td>SUBJECT CODE</td>
@@ -82,7 +82,7 @@
                                 <div class="card">
                                     <div class="card-content">
                                     	<span class="card-title center">SECOND SEMESTER</span>
-										<table class="table bordered" id="grade">
+										<table class="table bordered striped" id="grade">
 										    <thead>
 										        <tr>
 										        	<td>SUBJECT CODE</td>

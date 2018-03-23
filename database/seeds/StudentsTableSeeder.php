@@ -11,7 +11,7 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
- /*       DB::table('students')->insert([
+        DB::table('students')->insert([
                 'sid'=>'18-0001',
                 'last_name' => 'Blasabas',
                 'first_name' => 'Rica',
@@ -25,7 +25,7 @@ class StudentsTableSeeder extends Seeder
                 'filename'=>'student.png',
                 'cor'=>'cor.png',
 
-        ]);*/
+        ]);
         DB::table('students')->insert([
                 'sid'=>'18-0002',
                 'last_name' => 'Bautista',

@@ -140,6 +140,7 @@ Route::group(['middleware'=> ['web']],function(){
 
 	//assign this for Class
 	Route::resource('classrooms','ClassroomController');
+	Route::get('byCourse/{id}','ClassroomController@byCourseCreate')->name('byCourseCreate');
 	Route::resource('assigns','AssignController');
 	Route::get('speacialAssign','AssignController@specialCreate')->name('speacialAssign.create');
 	Route::post('speacialAssignStore','AssignController@specialStore')->name('speacialAssign.store');

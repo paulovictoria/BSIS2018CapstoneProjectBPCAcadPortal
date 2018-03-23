@@ -31,7 +31,7 @@
                      <div class="card">
                         <div class="card-content">
                           <span class="card-title center">FIRST SEMESTER</span>
-                         <table class="bordered">
+                         <table class="bordered striped">
                                   <thead>
                                       <tr>
                                           <td>FILE NAME</td>
@@ -60,7 +60,7 @@
                             <div class="card">
                                 <div class="card-content">
                                   <span class="card-title center">SECOND SEMESTER</span>
-                                 <table class="bordered">
+                                 <table class="bordered striped">
                                     <thead>
                                         <tr>
                                           <td>FILE NAME</td>

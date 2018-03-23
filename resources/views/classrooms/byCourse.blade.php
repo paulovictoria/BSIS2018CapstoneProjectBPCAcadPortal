@@ -34,7 +34,8 @@
 									</div>
 								</div>
 							@endif
-								<div class="section"></div>				{!! Form::open(['route'=>'classrooms.store']) !!}
+								<div class="section"></div>		
+										{!! Form::open(['route'=>'classrooms.store']) !!}
 								<p class="center">
 							     <input name="sem" type="radio" id="test1" value="1" />
 							      <label for="test1">First Sem</label>
@@ -60,17 +61,9 @@
                          		@endif  
 
 								{{ Form::label('course_id','Course')}}
-								<select class="form-control course" name="course_id">
-									@foreach($courses as $course)
-										<option value="{{ $course->id }}">{{ $course->course_name }}</option>
-									@endforeach
-								</select>
-								<br>
-							    @if ($errors->has('course_id'))
-                                <span>
-                                     <strong class="red-text lighten-1">Course Field is Required</strong>
-                                </span>
-                         		@endif 								
+								<input type="hidden" name="course_id" value="{{$course->id}}">
+								<input type="text" name="course_name" value="{{$course->course_name}}" disabled="true">
+								<br>								
 								{{ Form::label('year','Year')}}
 								<select class="form-control year" name="year">
 									<option value="1">1</option>

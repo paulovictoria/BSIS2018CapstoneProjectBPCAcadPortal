@@ -21,8 +21,9 @@ class ClassroomController extends Controller
      */
     public function index()
     {
+        $courses=Course::all();
         $classrooms=Classroom::orderBy('id','desc')->get();
-        return view('classrooms.index')->withClassrooms($classrooms);
+        return view('classrooms.index')->withClassrooms($classrooms)->withCourses($courses);
     }
 
     /**
@@ -150,6 +151,18 @@ class ClassroomController extends Controller
         $classroom->delete();
         Session::flash('success','Deleted Successfully');
         return redirect()->route('classrooms.index');
+    }
+
+
+    public function byCourseCreate($id) {
+        $course=Course::where('id','=',$id)->first();
+        $students=Student::
+        where('campus_id','=',Auth::user()->campus_id)->
+        where('course_id','=',$id)->
+        get();
+        return view('classrooms.byCourse')
+        ->withCourse($course)
+        ->withStudents($students);
     }
    
 }

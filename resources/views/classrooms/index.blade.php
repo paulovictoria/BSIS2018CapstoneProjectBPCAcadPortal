@@ -16,7 +16,15 @@
 								</div>
 							@endif
 						</div>  
-					<a href="{{ route('classrooms.create') }}" class="btn green darken-4"><i class="material-icons">create_new_folder</i> Create</a>
+					<a href="{{ route('classrooms.create') }}" class="btn green darken-3"><i class="material-icons">create_new_folder</i> Create</a>
+					<a class="dropdown-button btn green darken-3" href="#" data-activates="courseSelect">Select Course</a>
+                              <!-- Dropdown Structure -->
+                            
+                        <ul id="courseSelect" class="dropdown-content">
+                         @foreach($courses as $course)     
+                            <li><a href="{{route('byCourseCreate',$course->id)}} ">{{$course->course_name}}</a></li> 
+                         @endforeach  
+                        </ul>   
 					<table class="table table-responsive" id="indexClassroom" width="100%">
 						<thead>
 							<tr class="green darken-3 white-text">
