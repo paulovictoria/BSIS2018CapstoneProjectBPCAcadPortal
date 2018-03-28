@@ -16,8 +16,8 @@
 								</div>
 							@endif
 						</div>
-				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4" href="{{route('rooms.create')}}"><i class="material-icons">edit</i></a>								
-								<div class="section"></div>
+				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4" href="{{route('rooms.create')}}"><i class="material-icons">add_circle</i></a>		
+				 		<div class="section"></div>						
 								<table class="table responsive-table" id="rooms">
 									<thead>
 										<tr class="green darken-3 white-text">
@@ -56,7 +56,7 @@
 <script>
   $(document).ready(function() {
     $('#rooms').DataTable();
-    
+   
     var table = $('#data-table-row-grouping').DataTable({
         "columnDefs": [
             { "visible": false, "targets": 2 }

@@ -1,41 +1,47 @@
 @extends('admin_template')
-@section('title','| Assign Classroom')
+@section('title','| Assign')
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 <style type="text/css">
-	.classroom{
-		width: 70%;
-	}
 	.professor {
-		width: 70%;
+		width: 500%;
 	}
 	.subject {
-		width: 70%;
+		width: 500%;
 	}
 	.day {
-		width: 70%;
+		width: 500%;
 	}
 	.room {
-		width: 70%;
+		width: 500%;
 	}	
 </style>
 @endsection
 @section('content')
-<div class="col s12">					
+<div class="col s12">			
 	<div class="section">
-		<div class="card z-depth-1">
+		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<h3 class="light-green-text darken-2 card-title">Assigning of Classrom</h3>
 						<div class="section">
-							@if(Session::has('alert'))
-								<div class="col s12 p">
-									<div class="red lighten-1">
-										<p class="flow-text">{{ Session::get('alert')}}</p>
+							@if(Session::has('success'))
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
 									</div>
 								</div>
 							@endif
+							@if(count($errors)>0)
+							<div class="col s12">
+								<div class="red darken-1">
+									<strong>Errors:</strong>
+									@foreach($errors->all() as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+								</div>
+							</div>
+							@endif 
 						</div>
 						{!! Form::open(['route'=>'assigns.store']) !!}
 						                       
@@ -44,23 +50,12 @@
                                      <strong class="red-text lighten-1">Already Assign the Subject to the Classroom</strong>
                                 </span>
                          @endif  
-						{{ Form::label('classroom','Classroom ')}}
-						<select class="classroom" name="classroom_id">
-								<option value="null">Select Classroom</option>
-							@foreach($classrooms as $classroom)
-								<option value="{{ $classroom->id }}" class="circle">
-								{{'Year:'.' '.$classroom->academic_year }}
-								{{'Course:'.' '.$classroom->course->course_name.' '.$classroom->year.' '.$classroom->section }}
-								{{'Sem:'.' '.$classroom->sem }}
-								{{'Assign Recorded:'.$classroom->assigns->count()}}
-								</option>
-							@endforeach
-						</select>	
-						 @if ($errors->has('classroom_id'))
-                                <span>
-                                     <strong class="red-text lighten-1">Classroom Field is Required</strong>
-                                </span>
-                          @endif   
+
+								{{ Form::label('classroom_id','Classroom')}}
+								<input type="hidden" name="classroom_id" value="{{$classroom->id}}">
+								<input type="text" name="classroom_name" value="{{$classroom->course->course_name.' '.$classroom->year.' '.$classroom->section}}" disabled="true">
+								<br>
+
 						<div class="section"></div>
 						{{ Form::label('professor_id','Instructor ')}}
 						<select class="professor" name="professor_id">
@@ -156,19 +151,19 @@
 						{{ Form::submit('Save',['class'=>'btn green darken-3']) }}			
 						</div>
 						{!! Form::close() !!}
+
+						</div>
 					</div>
 				</div>
-			</div>
 			 <div class="card-action">
 			</div>
 		</div>
 	</div>	
-</div>	
+</div>
 @endsection
 @section('script')
 <script src="{{ asset('js/select2.min.js') }}"></script>
 <script type="text/javascript">
-	$('.classroom').select2();
 	$('.professor').select2();
 	$('.subject').select2();
 	$('.room').select2();

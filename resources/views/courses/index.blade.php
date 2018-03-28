@@ -16,7 +16,8 @@
 								</div>
 							@endif
 						</div>
-					<a href="{{ route('courses.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add</i></a>
+					<a href="{{ route('courses.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add_circle</i></a>
+					<div class="section">
 					<table class="bordered">
 						<thead>
 							<tr class="green darken-3 white-text">

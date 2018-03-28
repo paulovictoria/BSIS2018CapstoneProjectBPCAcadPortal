@@ -36,8 +36,8 @@ class ProfessorLoginController extends Controller
             }     
                else{
                     Auth::guard('professor')->logout();
-                    Session::flash('alert','Wait while the Admin Validating you Account it may took an hour or a day,
-                    You may Contact your School Admin if the request is not yet approved');
+                    Session::flash('alert','Thankyou for signing up,
+                    Please wait while we validate your account or contact the school administrator');
                     return redirect()->route('professor.login');
                     /*dd('Please Wait while Registrar Validating your Account');*/
                 }            

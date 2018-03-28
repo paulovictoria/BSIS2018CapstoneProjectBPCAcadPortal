@@ -22,7 +22,8 @@ class CreateAssignsTable extends Migration
             $table->string('startTime'); 
             $table->string('endTime');
             $table->integer('room_id')->nullable()->unsigned();
-            $table->string('class_subj');            
+            $table->string('class_subj');       
+            $table->integer('campus_id')->nullable()->unsigned();      
             $table->timestamps();
         });
     }

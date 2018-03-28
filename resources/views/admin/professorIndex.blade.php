@@ -7,7 +7,15 @@
 			<div class="card-content">
 				<div class="row">
 					<div class="col s9 offset-s3">
-						<div class="section"></div>
+						<div class="section">
+							@if(Session::has('success'))
+								<div class="col s12 p">
+									<div class="yellow darken-4 white-text">
+										<p class="flow-text">{{ Session::get('success')}}</p>
+									</div>
+								</div>
+							@endif							
+						</div>
 					<table class="table responsive-table" id="professorIndex" cellspacing="0">
 						<thead>
 							<tr class="green darken-3 white-text">
@@ -15,6 +23,7 @@
 								<th>Name</th>
 								<th>Email</th>
 								<th>Image</th>
+								<th>Action</th>
 								<th>Action</th>
 							</tr>	
 						</thead>
@@ -32,11 +41,11 @@
 								<a href="#" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
 								@if($professor->status==0)
 									<td>{!! Form::model($professor,['route'=>['admin.enableProfessor',$professor->id],'method'=>'PUT'])!!}
-									<button class="btn blue lighten-2"><span class="icon-check"></span></button>
+									<button class="btn grey lighten-2"><span class="icon-check"></span></button>
 									{!! Form::close() !!}</td>
 									@else
 									<td>{!! Form::model($professor,['route'=>['admin.disableProfessor',$professor->id],'method'=>'PUT'])!!}
-									<button class="btn grey lighten-1"><span class="icon-cross"></span></button>
+									<button class="btn blue lighten-1"><span class="icon-cross"></span></button>
 									{!! Form::close() !!}</td>
 									@endif
 

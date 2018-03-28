@@ -63,6 +63,7 @@ class ClassroomController extends Controller
         $classroom->course_id=$request->course_id;
         $classroom->year=$request->year;
         $classroom->section=$request->section;
+        $classroom->campus_id=Auth::user()->campus_id;
         $classroom->save();
         $classroom->students()->sync($request->students,false);
         Session::flash('success','Success Class Created Successfully');
@@ -91,10 +92,12 @@ class ClassroomController extends Controller
     {
         $classroom=Classroom::find($id);    
         $courses = Course::all();
+
         $courses2 = array();
         foreach($courses as $course) {
             $courses2[$course->id]=$course->course_name;
         }
+
         $students=Student::all();
         $students2 = array();
         foreach($students as $student) {
@@ -121,6 +124,7 @@ class ClassroomController extends Controller
         $classroom->course_id=$request->course_id;
         $classroom->year=$request->year;
         $classroom->section=$request->section;
+        $classroom->campus_id=Auth::user()->campus_id;
         $classroom->save();
         if(isset($request->students)){
         $classroom->students()->sync($request->students);
@@ -156,10 +160,8 @@ class ClassroomController extends Controller
 
     public function byCourseCreate($id) {
         $course=Course::where('id','=',$id)->first();
-        $students=Student::
-        where('campus_id','=',Auth::user()->campus_id)->
-        where('course_id','=',$id)->
-        get();
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)
+        ->where('course_id','=',$id)->get();
         return view('classrooms.byCourse')
         ->withCourse($course)
         ->withStudents($students);

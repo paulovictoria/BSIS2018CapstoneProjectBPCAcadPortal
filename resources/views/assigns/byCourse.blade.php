@@ -1,5 +1,22 @@
 @extends('admin_template')
-@section('title','| Subjects')
+@section('title','| Assign')
+@section('stylesheets')
+<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+<style type="text/css">
+	.professor {
+		width: 500%;
+	}
+	.subject {
+		width: 500%;
+	}
+	.day {
+		width: 500%;
+	}
+	.room {
+		width: 500%;
+	}	
+</style>
+@endsection
 @section('content')
 <div class="col s12">			
 	<div class="section">
@@ -10,44 +27,59 @@
 						<div class="section">
 							@if(Session::has('success'))
 								<div class="col s12 center">
-									<div class="green darken-3">
+									<div class="yellow darken-3">
 										<p class="flow-text white-text">{{ Session::get('success')}}</p>
 									</div>
 								</div>
 							@endif
-						</div>		
-						<a href="{{ route('subjects.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add_circle</i></a>
-						<div class="section"></div>
-						<table class="bordered" id="subject">
+							@if(count($errors)>0)
+							<div class="col s12">
+								<div class="red darken-1">
+									<strong>Errors:</strong>
+									@foreach($errors->all() as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+								</div>
+							</div>
+							@endif 
+						</div>
+						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons">add</i></a>
+						<a href="{{route('speacialAssign.create')}}" class="btn green darken-3"><i class="material-icons">account_box</i></a>
+						<table class="table responsive-table" id="assigns">
 							<thead>
 								<tr class="green darken-3 white-text">
-									<td>CODE</td>
-									<td>DESCRIPTION</td>
-									<td>UNITS</td>
-									<td>SEM</td>
-									<td>YEAR</td>
-									<td>COURSE</td>
-									<td>ACTION</td>
-								</tr>	
+									<th>ACADEMIC YEAR</th>
+									<th>SEM</th>
+									<th>COURSE <span>year/section</span></th>
+									<th># ASSIGNS</th>
+									<th>ACTION</th>
+								</tr>
 							</thead>
 							<tbody>
-								@foreach($subjects as $subject)
+								@foreach($classrooms as $classroom)
 								<tr class="light-green lighten-5">
-									<td>{{$subject->subj_code}}</td>
-									<td>{{$subject->subj_description}}</td>
-									<td>{{$subject->subj_units}}</td>
-									<td>{{$subject->sem}}</td>
-								    <td>{{$subject->year}}</td>
-								    <td>{{$subject->course->course_name}}</td>
-								    <td><a href="{{route('subjects.edit',$subject->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a></td>
+									<td>{{ $classroom->academic_year }}</td>
+									@if($classroom->sem==1)
+									<td>First Semester</td>
+									@else
+									<td>Second Semester</td>
+									@endif
+									<td>{{ $classroom->course->course_name }}
+									{{ $classroom->year }}
+									{{ $classroom->section }}</td>
+									<td>{{$classroom->assigns->count()}}</td>
+									<td>
+									<a href="{{route('byCourseAssignCreate',$classroom->id)}}" class="btn white orange-text darken-2" id="buttonAssign">assign
+										</a>
+									</td>
 								</tr>
 								@endforeach
-							</tbody>
-						</table>
+							</tbody>	
+					    </table>
 						</div>
 					</div>
 				</div>
-			 <div class="card-action center">
+			 <div class="card-action">
 			</div>
 		</div>
 	</div>	
@@ -56,9 +88,17 @@
 @section('script')
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
 <script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<script type="text/javascript">
+	$('.professor').select2();
+	$('.subject').select2();
+	$('.room').select2();
+	$('.day').select2();
+</script>
 <script>
+
   $(document).ready(function() {
-    $('#subject').DataTable();
+    $('#assigns').DataTable();
     
     var table = $('#data-table-row-grouping').DataTable({
         "columnDefs": [

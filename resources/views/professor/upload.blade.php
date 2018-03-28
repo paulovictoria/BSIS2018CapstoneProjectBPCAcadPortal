@@ -16,7 +16,7 @@
                         @endif                      
                         <form method="POST" action="{{ route('professor.fileupload',$assign->id) }}" enctype="multipart/form-data">{{csrf_field() }}
                            <div class="file-field input-field">
-                              <div class="btn  light-green darken-2">
+                              <div class="btn  light-green darken-2 tooltipped " data-position="bottom" data-tooltip="Choose File">
                                 <span><i class="material-icons">attach_file</i></span>
                                   <input type="file" id="file" name="file">
                               </div>
@@ -24,7 +24,7 @@
                                 <input class="file-path validate" type="text">
                               </div>
                             </div>
-                            <button type="submit" class="btn light-green darken-2 right"><i class="material-icons">cloud_upload</i></button>
+                            <button type="submit" class="btn light-green darken-2 right tooltipped" data-position="bottom" data-tooltip="Upload File"><i class="material-icons">cloud_upload</i></button>
                         </form>  
                         <table>
                           <thead>
@@ -40,8 +40,8 @@
                                 <td><i class="material-icons"></i> {{$file->filename}}</td>
                                 <td>{{$file->created_at}}</td>
                                 <td>{!! Form::open(['route'=>['professor.deleteupload',$file->id],'method'=>'DELETE']) !!}
-                                  <a href="{{route('download.file',$file->filename)}}" class="btn btn-floating orange darken-2"><i class="material-icons">cloud_download</i></a>
-                                  <button class="btn btn-floating red lighten-1"><i class="material-icons">delete_forever</i></button>
+                                  <a href="{{route('download.file',$file->filename)}}" class="btn btn-floating orange darken-2 tooltipped" data-position="bottom" data-tooltip="Download File"><i class="material-icons">cloud_download</i></a>
+                                  <button class="btn btn-floating red lighten-1"><i class="material-icons tooltipped"  data-position="bottom" data-tooltip="Delete File">delete_forever</i></button>
                                 </td>
                                  {!! Form::close() !!}  
                               </tr>

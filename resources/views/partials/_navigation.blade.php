@@ -70,7 +70,14 @@
             <a href="{{route('assigns.index')}}" class="collapsible-header"><i class="material-icons">assignment</i>Assign</a>
           </li>
         </ul>
-      </li>      
+      </li> 
+       <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a href="{{route('adminClassroomIndex')}}" class="collapsible-header"><i class="material-icons">collections_bookmark</i>Classrooms</a>
+          </li>
+        </ul>
+      </li>             
         <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>

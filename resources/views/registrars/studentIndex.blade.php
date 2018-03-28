@@ -21,13 +21,10 @@
             				<thead>
             					<tr class="green darken-3 white-text">
             						<td>SID</td>
-            						<td>Last Name</td>
-            						<td>First Name</td>
-            						<td>Midle Name</td>
+            						<td>Name</td>
             						<td>email</td>
             						<td>Course</td>
                                     <td>ACTION</td>
-                            
             					</tr>	
             				</thead>
             				<tbody>
@@ -35,14 +32,14 @@
                                 @if($student->course_id != 0)
             					<tr class="light-green lighten-5">
             						<td>{{$student->sid}}</td>
-            						<td>{{$student->last_name}}</td>
-            						<td>{{$student->first_name}}</td>
-            						<td>{{$student->midle_name}}</td>
+            						<td>{{$student->last_name}}
+            						{{$student->first_name}}
+            						{{$student->midle_name}}</td>
             						<td>{{$student->email}}</td>
             						<td>{{$student->course->course_name}}</td>
-            						<td><a href="{{route('registrar.studentShow',$student->id)}}" class="btn white orange-text darken-2"><i class="material-icons">pageview</i></a>
-                                    <a class="btn white yellow-text text-darken-3" href="{{route('studentDownloadPDF',$student->id)}}"><i class="material-icons">cloud_download</i></a>
-                                    <a href="{{route('shiftStudent',$student->id)}}" class="white btn yellow-text text-darken-3"><i class="material-icons">subdirectory_arrow_right</i></a>
+            						<td><a href="{{route('registrar.studentShow',$student->id)}}" class="btn white green-text darken-2 tooltipped" data-position="bottom" data-tooltip="View Student Record"><i class="material-icons">pageview</i></a>
+                                    <a class="btn white yellow-text text-darken-2 tooltipped" data-position="bottom" data-tooltip="Download Student Record" href="{{route('studentDownloadPDF',$student->id)}}"><i class="material-icons">cloud_download</i></a>
+                                    <a href="{{route('shiftStudent',$student->id)}}" class="white btn yellow-text text-darken-3 tooltipped" data-position="bottom" data-tooltip="Shift Course"><i class="material-icons">track_changes</i></a>
                                 </td>
             					</tr>
                                 @endif

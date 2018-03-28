@@ -35,8 +35,8 @@ class StudentLoginController extends Controller
                 }
                 else{
                     Auth::guard('student')->logout();
-                    Session::flash('alert','Wait while the Registrar Validating you Account it may took an hour or a day,
-                    You may Contact your School Registrar if the request is not yet approved');
+                    Session::flash('alert','Thankyou for signing up,
+                    Please wait while we validate your account or contact the school registrar');
                     return redirect()->route('student.login');
                     /*dd('Please Wait while Registrar Validating your Account');*/
                 }

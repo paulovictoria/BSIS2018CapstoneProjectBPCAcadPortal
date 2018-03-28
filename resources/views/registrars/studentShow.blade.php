@@ -20,6 +20,7 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
+                                                    <td>GRADE AT</td>
                                                   
                                                 </tr>
                                             </thead>    
@@ -31,14 +32,14 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                <td class="grey-text">No Grade</td>
+                                                <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
-                                                <td class="green-text">Passed</td>
-                                                @elseif($record->grade<=4)
+                                                <td class="green-text">PASSED</td>
+                                                @elseif($record->grade<=4.75)
                                                 <td class="orange-text">INC</td>
-                                                @else
-                                                <td class="red-text">Failed</td>
-                                                @endif 
+                                                @elseif($record->grade==5)
+                                                <td class="red-text">FAILED</td>
+                                                @endif
                                                 <td>{{$record->sem}}</td>                           
                                             </tr> 
                                             @endif   
@@ -60,6 +61,7 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
+                                                    <td>GRADE AT</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>
@@ -70,13 +72,13 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                <td class="grey-text">No Grade</td>
+                                                <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
-                                                <td class="green-text">Passed</td>
-                                                @elseif($record->grade<=4)
+                                                <td class="green-text">PASSED</td>
+                                                @elseif($record->grade<=4.75)
                                                 <td class="orange-text">INC</td>
-                                                @else
-                                                <td class="red-text">Failed</td>
+                                                @elseif($record->grade==5)
+                                                <td class="red-text">FAILED</td>
                                                 @endif 
                                                 <td>{{$record->sem}}</td>
                                             </tr> 
@@ -109,14 +111,14 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                <td class="grey-text">No Grade</td>
+                                                <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
-                                                <td class="green-text">Passed</td>
-                                                @elseif($record->grade<=4)
+                                                <td class="green-text">PASSED</td>
+                                                @elseif($record->grade<=4.75)
                                                 <td class="orange-text">INC</td>
-                                                @else
-                                                <td class="red-text">Failed</td>
-                                                @endif 
+                                                @elseif($record->grade==5)
+                                                <td class="red-text">FAILED</td>
+                                                @endif
                                                 <td>{{$record->sem}}</td>
                                             </tr> 
                                             @endif   
@@ -148,14 +150,14 @@
                                                 <td>{{$record->subj_description}}</td>
                                                 <td>{{$record->grade}}</td>
                                                 @if($record->grade==0)
-                                                <td class="grey-text">No Grade</td>
+                                                <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
-                                                <td class="green-text">Passed</td>
-                                                @elseif($record->grade<=4)
+                                                <td class="green-text">PASSED</td>
+                                                @elseif($record->grade<=4.75)
                                                 <td class="orange-text">INC</td>
-                                                @else
-                                                <td class="red-text">Failed</td>
-                                                @endif 
+                                                @elseif($record->grade==5)
+                                                <td class="red-text">FAILED</td>
+                                                @endif
                                                 <td>{{$record->sem}}</td>
                                             </tr> 
                                             @endif   

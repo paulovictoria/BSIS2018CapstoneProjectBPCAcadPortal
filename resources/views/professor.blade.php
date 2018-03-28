@@ -13,7 +13,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h5 class=" white-text">{{Auth::user()->email}}</h5>
+                  <h5 class=" white-text">{{Auth::user()->last_name.' '.Auth::user()->first_name.' '.Auth::user()->midle_name}}</h5>
                   <h5><a href="#" class=" white-text">BPC Instructor</a></h5>
                 </div>
               <div class="card-action"></div>

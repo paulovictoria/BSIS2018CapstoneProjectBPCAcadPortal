@@ -36,10 +36,10 @@
 							@endif
 								<div class="section"></div>				{!! Form::open(['route'=>'classrooms.store']) !!}
 								<p class="center">
-							     <input name="sem" type="radio" id="test1" value="1" />
+							     <input name="sem" type="radio" id="test1" value="1st Semester" />
 							      <label for="test1">First Sem</label>
 
-							      <input name="sem" type="radio" id="test2" value="2" />
+							      <input name="sem" type="radio" id="test2" value="2nd Semester" />
 							      <label for="test2">Second Sem</label>
 							     <br> 
 							    @if ($errors->has('sem'))
@@ -73,10 +73,10 @@
                          		@endif 								
 								{{ Form::label('year','Year')}}
 								<select class="form-control year" name="year">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>	
+									<option value="First Year">First Year</option>
+									<option value="Second Year">Second Year</option>
+									<option value="Third Year">Third Year</option>
+									<option value="Fourth Year">Fourth Year</option>	
 								</select>
 								<br>
 								@if ($errors->has('year'))
@@ -113,7 +113,7 @@
 								<div class="section"></div>
 
 								<div class="col s12 right-align">
-							{{ Form::submit('Save',['class'=>'btn light-green darken-1']) }}			
+							{{ Form::submit('Save',['class'=>'btn green darken-3']) }}			
 								{!! Form::close() !!}</div>
 							</div>
 						</div>

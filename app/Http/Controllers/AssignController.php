@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Assign;
+use Response;
 use Validator;
 use Illuminate\Support\Facades\Input;
-use Response;
+use Illuminate\Support\Facades\Select;
 use App\Classroom;
 use App\Professor;
 use App\Subject;
 use App\Room;
 use App\Student;
 use App\Day;
+use App\Course;
 use Auth;
 use Session;
 
@@ -80,6 +82,7 @@ class AssignController extends Controller
         $assign->startTime=$request->startTime;
         $assign->endTime=$request->endTime;
         $assign->room_id=$request->room_id;
+        $assign->campus_id=Auth::user()->campus_id;
         //unique assigns
         $assign->class_subj=$request->classroom_id.'and'.$request->subject_id;
         $refer=Assign::where('class_subj','=',$assign->class_subj)->first();
@@ -182,6 +185,7 @@ class AssignController extends Controller
         $assign->startTime=$request->startTime;
         $assign->endTime=$request->endTime;
         $assign->room_id=$request->room_id;
+        $assign->campus_id=Auth::user()->campus_id;
         $assign->save();
         Session::flash('success','Updated Successfully');
         return redirect()->route('assigns.index');
@@ -225,6 +229,47 @@ class AssignController extends Controller
         
         Session::flash('success','Success');
         return redirect()->route('speacialAssign.create');
+    }
+
+    public function adminClassroomIndex() {
+        $courses=Course::all();
+        $classrooms=Classroom::all();
+        return view('admin.adminClassroomIndex')
+        ->withCourses($courses)
+        ->withClassrooms($classrooms);
+    }
+
+    public function byCourseIndex($id) {
+        $classrooms=Classroom::where('course_id','=',$id)
+        ->orderBy('id','desc')->get();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
+        $subjects=Subject::where('course_id','=',$id)->get();
+        $days=Day::all();
+        $rooms=Room::where('campus_id','=',Auth::user()->campus_id)->get();
+        return view('assigns.byCourse')
+        ->withClassrooms($classrooms)
+        ->withProfessors($professors)
+        ->withSubjects($subjects)
+        ->withRooms($rooms)
+        ->withDays($days);
+    }
+
+    public function byCourseCreate($id) {
+        $classroom=Classroom::where('id',$id)->first();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
+        $subjects=Subject::where('course_id','=',$classroom->course_id)
+        ->where('year','=',$classroom->year)
+        ->where('sem','=',$classroom->sem)
+        ->get();
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
+        $days=Day::all();
+        $rooms=Room::where('campus_id','=',Auth::user()->campus_id)->get();
+        return view('assigns.byCourseCreate')
+        ->withClassroom($classroom)
+        ->withProfessors($professors)
+        ->withSubjects($subjects)
+        ->withRooms($rooms)
+        ->withDays($days);
     }
    
 }

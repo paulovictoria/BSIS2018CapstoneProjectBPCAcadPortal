@@ -13,6 +13,7 @@
                              <th>YEAR</th>
                              <th>SEM</th>
                              <th>COURSE</th>
+                             <th>SUBJECT CODE</th>
                              <th># FILES</th>
                              <th>ACTION</th>
                             </tr>
@@ -23,8 +24,9 @@
                              <td>{{$assign->classroom->year}}</td>
                              <td>{{$assign->classroom->sem}}</td>
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
+                             <td>{{$assign->subject->subj_code}}</td>
                              <td>Total files</td>
-                            <td><a href="{{route('uploadIndex',$assign->id)}}" class="btn white yellow-text darken-2"><i class="material-icons">pageview</i></a>
+                            <td><a href="{{route('uploadIndex',$assign->id)}}" class="btn white yellow-text darken-2 tooltipped"   data-position="bottom" data-tooltip="View Files"><i class="material-icons">pageview</i></a>
                             </td>
                             </tr>
                              @endforeach 

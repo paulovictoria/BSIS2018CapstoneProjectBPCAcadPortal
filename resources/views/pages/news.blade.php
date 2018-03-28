@@ -56,24 +56,25 @@
             <div class="card">
               <div class="card-content">
           <div class="row">
-            <div class="col s12 m6">
-              <div class="section"></div>
-              <h5 class="start text-primarycolor">{!! $news->title !!}</h5>
-              <p>{!!$news->description!!}</p>
-              <div class="chip">
-                  Posted by : {{$news->campus->campus_name.' '.'Admin'}}
-              </div>  
-            </div>
             <div class="col s6 offset-s3 m6 center">
               <div class="card z-depth-3">
               <div class="card-content">
                 <div class="row">
-                    <div class="col s12 m12">
-                     <img class="responsive-img" src="{{route('socials.image',$news->filename)}}">         
+                 <div class="col s12 m12">
+                     <img class="responsive-img" src="{{route('socials.image',$news->filename)}}" height="100px">         
                  </div> 
               </div>
              </div>
             </div>            
+            </div>            
+            <div class="col s12 m6">
+              <div class="section"></div>
+              <h5 class="start text-primarycolor">{!! $news->title !!}</h5><br>
+              <p>{!!$news->description!!}</p><br>
+              <div class="chip">
+                  Posted by : {{$news->campus->campus_name.' '.'Admin'}}
+              </div>  
+              <div class="divider"></div>
             </div>
           </div>
         </div>

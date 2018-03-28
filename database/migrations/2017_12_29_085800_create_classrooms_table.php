@@ -16,10 +16,11 @@ class CreateClassroomsTable extends Migration
         Schema::create('classrooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sem');
+            $table->string('year');
             $table->char('academic_year');
             $table->integer('course_id')->nullable()->unsigned();
-            $table->integer('year'); 
-            $table->string('section');             
+            $table->string('section');   
+            $table->integer('campus_id')->nullable()->unsigned();           
             $table->timestamps();
         });
     }

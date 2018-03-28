@@ -30,9 +30,9 @@
                             <td>{{ $assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>
                             <td>{{ $assign->classroom->students->count() }}</td>
                             <td>{{ $assign->subject->subj_code }}</td>
-                            <td><a href="{{route('classroomsAssign.show',$assign->id)}}" class="btn btn-large green-text darken-2 white"><i class="material-icons">pageview</i></a>
-                             <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue-text btn-large lighten-1 white"><i class="material-icons">edit</i></a>
-                              <a href="{{route('uploadIndex',$assign->id)}}" class="btn btn-large yellow-text darken-2 white"><i class="material-icons">folder_open</i></a>
+                            <td><a href="{{route('classroomsAssign.show',$assign->id)}}" class="btn btn-large green-text darken-2 white tooltipped" data-position="bottom" data-tooltip="View Classroom"><i class="material-icons">pageview</i></a>
+                             <a href="{{route('individual.classroom',$assign->id)}}" class="btn blue-text btn-large lighten-1 white tooltipped"  data-position="bottom" data-tooltip="View Students Grade"><i class="material-icons">edit</i></a>
+                              <a href="{{route('uploadIndex',$assign->id)}}" class="btn btn-large yellow-text darken-2 white tooltipped" data-position="bottom" data-tooltip="View Files"><i class="material-icons">folder_open</i></a>
                             </td>
                             </tr>
                              @endforeach 
@@ -50,6 +50,7 @@
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
 <script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
 <script>
+
   $(document).ready(function() {
     $('#classroom').DataTable();
     

@@ -101,9 +101,9 @@ class AdminController extends Controller
         $professor=Professor::find($id);
         $professor->status = true;
         $professor->save();
-         $professors=Professor::where('approved','=',true)->get();
+        $professors=Professor::where('approved','=',true)->get();
         Session::flash('success','Enabled Successfully');
-        return redirect()->route('professorsApprovalIndex')->withProfessors($professors); 
+        return redirect()->route('professorIndex')->withProfessors($professors); 
     } 
     public function disableProfessor($id) {
         $professor=Professor::find($id);
@@ -111,7 +111,7 @@ class AdminController extends Controller
         $professor->save();
         $professors=Professor::where('approved','=',true)->get();
         Session::flash('success','Disabled Successfully');
-        return redirect()->route('professorsApprovalIndex')->withProfessors($professors); 
+        return redirect()->route('professorIndex')->withProfessors($professors); 
     }
 
     public function adminIndex() {

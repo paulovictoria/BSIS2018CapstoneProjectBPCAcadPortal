@@ -1,3 +1,9 @@
+//Tooltip
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+        
+
  //DropDown
  $( document ).ready(function(){
  $(".admin-profileSetting").dropdown();

@@ -40,7 +40,7 @@
 								<td><a href="#!user"><img  src="{{route('user.image',['filename'=>$student->filename])}}" width="100px" height="100px"></a></td>
 								<td><a href="#!user"><img src="{{route('user.image',['filename'=>$student->cor])}}" width="100px" height="100px"></a></td>
 
-                                <td href="#modalView" id="viewButton" class="btn modal-trigger white orange-text darken-2"><i class="material-icons">pageview</i>
+                                <td><a href="#modalView" id="viewButton" class="btn modal-trigger white orange-text darken-2 tooltipped" data-position="bottom" data-tooltip="View Information"><i class="material-icons">pageview</i>
                                 <input type="hidden" id="studId" value="{{$student->id}}">
                                 <input type="hidden" id="studSid" value="{{$student->sid}}">
                                 <input type="hidden" id="studlastname" value="{{$student->last_name}}">
@@ -49,15 +49,15 @@
                                 <input type="hidden" id="studMidlename" value="{{$student->midle_name}}">
                                 <input type="hidden" id="studEmail" value="{{$student->email}}">
                                 <input type="hidden" id="studProfile" value="{{$student->filename}}">
-                                <input type="hidden" id="studCor" value="{{$student->cor}}">
+                                <input type="hidden" id="studCor" value="{{$student->cor}}"></a>
                                 </td>
 
 								<td>{!! Form::model($student,['route'=>['studentsApproved',$student->id],'method'=>'PUT'])!!}
-								<button class="btn white blue-text lighten-2"><i class="material-icons">check_circle</i></button>
+								<button class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Approve Request"><i class="material-icons">check_circle</i></button>
 								{!! Form::close() !!}</td>
 
 								<td>{!! Form::open(['route'=>['studentsDenied',$student->id],'method'=>'DELETE']) !!}
-								<button class="btn white grey-text lighten-1"><i class="material-icons">close</i></button>
+								<button class="btn white grey-text lighten-1 tooltipped" data-position="bottom" data-tooltip="Deny Request"><i class="material-icons">close</i></button>
 								{!! Form::close() !!}</td>	
 							</tr>
 							@endforeach
@@ -105,8 +105,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn white blue-text text-lighten-2" id="approveButton"><i class="material-icons">check_circle</i></button>
-                <button class="btn white grey-text text-lighten-1" id="denyButton"><i class="material-icons">close</i></button>
+                <button class="btn white blue-text text-lighten-2 tooltipped"  data-position="bottom" data-tooltip="Approve Request" id="approveButton"><i class="material-icons">check_circle</i></button>
+                <button class="btn white grey-text text-lighten-1 tooltipped" data-position="bottom" data-tooltip="Deny Request" id="denyButton"><i class="material-icons">close</i></button>
             </div>
         </div></form>
         </div>
@@ -116,8 +116,8 @@
 @section('script')
 <style type="text/css">
     .modal {
-        width: 900px;
-        height: 700px;
+        width: 1000px;
+        height: 900px;
     }
 </style>
 <script>

@@ -16,8 +16,8 @@
 								</div>
 							@endif
 						</div>  
-					<a href="{{ route('classrooms.create') }}" class="btn green darken-3"><i class="material-icons">create_new_folder</i> Create</a>
-					<a class="dropdown-button btn green darken-3" href="#" data-activates="courseSelect">Select Course</a>
+					<a href="{{ route('classrooms.create') }}" class="btn green darken-3"><i class="material-icons">add_circle</i></a>
+					<a class="dropdown-button btn green darken-3" href="#" data-activates="courseSelect">Create by Course</a>
                               <!-- Dropdown Structure -->
                             
                         <ul id="courseSelect" class="dropdown-content">
@@ -30,13 +30,12 @@
 							<tr class="green darken-3 white-text">
 								<th>ACADEMIC YEAR</th>
 								<th>Sem</th>
-								<th>COURSE</th>						
+								<th>COURSE</th>	
+								<th>YEAR</th>	
+								<th>SECTION</th>						
 								<th># STUDENTS</th>
 								<th># ASSIGNS</th>
-								<th>VIEW</th>
-								<th>EDIT</th>
-								<th>DELETE</th>
-								<th>DOWNLOAD</th>
+								<th>ACTION</th>
 							</tr>	
 						</thead>
 						<tbody>
@@ -48,16 +47,14 @@
 								@else
 								<td>SECOND SEM</td>
 								@endif
-								<td>{{ $classroom->course->course_name}}{{ $classroom->year }}{{ $classroom->section }}
-								</td>
+								<td>{{ $classroom->course->course_name }}</td>
+								<td>{{ $classroom->year}}</td>
+								<td>{{ $classroom->section}}</td>
 								<td>{{ $classroom->students->count() }}</td>
 								<td>{{ $classroom->assigns->count() }}</td>
-								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a></td>
-								<td><a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a></td>
-								<td>{!! Form::open(['route' => ['classrooms.destroy', $classroom->id], 'method' => 'DELETE']) !!}
-								<button class="btn white red-text lighten-2"><i class="material-icons">delete_forever</i></button>
-								{!! Form::close() !!}</td>
-								<td><a href="#" class="btn white yellow-text darken-2"><i class="material-icons">file_download</i></a></td>
+								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn white green-text darken-2 tooltipped" data-position="bottom" data-tooltip="View Classroom"><i class="material-icons">pageview</i></a>
+								<a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit Classroom"><i class="material-icons">edit</i></a>
+								<a href="#" class="btn white yellow-text darken-2 tooltipped" data-position="bottom" data-tooltip="Download Classroom"><i class="material-icons">file_download</i></a></td>
 							</tr>
 							@endforeach
 						</tbody>

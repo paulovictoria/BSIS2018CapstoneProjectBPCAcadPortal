@@ -1,5 +1,8 @@
 @extends('professor_template')
 @section('title','My Schedule')
+@section('stylesheets')
+<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+@endsection
 @section('content')
 <div class="col m12">       
   <div class="section">
@@ -7,16 +10,43 @@
       <div class="card-content">
         <div class="row">
           <div class="col m9 offset-m3">
+              {!! Form::open(['route'=>'professor.exportProfessorSchedule']) !!}
+              <div class="row">
+                <div class="col s6">
+                {{ Form::label('sem','Sem:') }}
+                 <select class="sem" name="sem" style="width:100%">
+                    <option value="null">Sem</option>
+                    <option value="1st Semester" class="circle">First Sem</option>
+                    <option value="2nd Semester" class="circle">Second Sem</option>
+                  </select>
+                </div>
+                <div class="col s6">
+                  {{ Form::label('academic_year','Academic Year:') }}
+                  <select class="academic_year" name="academic_year" style="width:100%">
+                      <option value="null">Select Academic Year</option>
+                    @foreach($classrooms as $classroom)
+                      <option value="{{ $classroom->academic_year }}" class="circle">
+                      {{ $classroom->academic_year }}
+                      </option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="col s12">
+                  <div class="section"></div>
+                    {{ Form::submit('Download',['class'=>'btn green darken-3']) }}
+                </div>    
+                </div>    
+              {!! Form::close() !!}
                <table class="table table-responsive" id="professorSchedule" width="100%">
                  <thead>
                   <tr class="green darken-3 white-text">
                     <td>ACADEMIC YEAR</td>
                     <td>SEM</td>
-                    <td>COURSE</td>
+                    <td>COURSE <span>Year/Section</span></td>
+                    <td>SUBJECT</td>
                     <td>DAY</td>
                     <td>START</td>
                     <td>END</td>
-                    <td>SUBJECT</td>
                     <td>ROOM</td>
                   </tr>
                  </thead>
@@ -25,12 +55,12 @@
                   <tr class=" light-green lighten-5">  
                     <td>{{$assign->classroom->academic_year}}</td>
                     <td>{{$assign->classroom->sem}}</td>  
-                    <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>                      
+                    <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
+                    <td>{{$assign->room->room_code}}</td>                     
                     <td>{{$assign->day->name}}</td>
                     <td>{{$assign->startTime}}</td>
                     <td>{{$assign->endTime}}</td>
-                    <td>{{$assign->subject->subj_code}}</td>
-                    <td>{{$assign->room->room_code}}</td>            
+                    <td>{{$assign->subject->subj_code}}</td>          
                   </tr>               
                  @endforeach 
                  </tbody>
@@ -52,6 +82,13 @@
 </style>
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">
 <script type="text/javascript" src="{{ asset('js/plugins/data-tables/js/jquery.dataTables.min.js') }}" ></script>
+<script src="{{ asset('js/select2.min.js') }}"></script>
+
+<script type="text/javascript">
+  $('.sem').select2();
+  $('.academic_year').select2();
+</script>
+
 <script>
   $(document).ready(function() {
     $('#professorSchedule').DataTable();
@@ -91,3 +128,4 @@
 } );
 </script>
 @endsection
+

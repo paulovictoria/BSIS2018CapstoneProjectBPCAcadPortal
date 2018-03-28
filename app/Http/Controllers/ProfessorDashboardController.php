@@ -18,19 +18,22 @@ use App\FileUpload;
 use Session;
 use DB;
 use Auth;
+use Excel;
+use PDF;
+
 class ProfessorDashboardController extends Controller
 {
-	public function __construct() {
-		$this->middleware('auth:professor');
-	}
+    public function __construct() {
+        $this->middleware('auth:professor');
+    }
 
-	public function index() {
-		return view('professor');
-	}
+    public function index() {
+        return view('professor');
+    }
 
-	public function profile() {
-	return view('professor.profile');
-	}
+    public function profile() {
+    return view('professor.profile');
+    }
 
     public function editProfile() {
         $professor=Professor::find(Auth::user()->id);
@@ -73,11 +76,11 @@ class ProfessorDashboardController extends Controller
         return redirect()->route('professor.profile');
     }    
 
-	public function indexClassroom() {
-	$assigns=Assign::where('professor_id','=',Auth::user()->id)
-    ->get();		
-	return view('professor.classrooms')->withAssigns($assigns);
-	}
+    public function indexClassroom() {
+    $assigns=Assign::where('professor_id','=',Auth::user()->id)
+    ->get();        
+    return view('professor.classrooms')->withAssigns($assigns);
+    }
 
     public function classroomShow($id) {
     $assign=Assign::where('id','=',$id)->first();
@@ -90,8 +93,8 @@ class ProfessorDashboardController extends Controller
     return view('professor.grades')->withAssigns($assigns);
     }
 /*This is for show grading the students*/
-	public function individualClassroom($id) {
-		$assigns=Assign::where('id','=',$id)->first()
+    public function individualClassroom($id) {
+        $assigns=Assign::where('id','=',$id)->first()
         ->where('assigns.id','=',$id)
         ->join('assign_student','assigns.id','=','assign_student.assign_id')
         ->where('assign_id','=',$id)
@@ -99,52 +102,116 @@ class ProfessorDashboardController extends Controller
         ->join('subjects','assigns.subject_id','=','subjects.id')
         ->orderBy('last_name','asc')
         ->get();
-		return view('professor.individualClassroom')
-        ->withAssigns($assigns);	
-	}
-/*End grading students*/
-
-    public function addGrade(request $request) {
-    	$rules=array(
-	   	'grade'=>'required|integer',
-	   	'student_id'=>'required',
-	   	'subject_id'=>'required'
-        );
-        $validator = Validator::make (Input::all(), $rules);
-        if($validator->fails())
-            return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
-        
-        else {
-		   $grade=new Grade();
-		   $grade->grade=$request->grade;
-		   $grade->student_id=$request->student_id;
-		   $grade->subject_id=$request->subject_id;
-		   $grade->assign_id=$request->assign_id;
-		   $grade->save();
-            return response()->json($grade);
-        }
+        return view('professor.individualClassroom')
+        ->withAssigns($assigns);    
     }
 
-
     public function updateGrade(Request $request) {
-    	$rules=array(
-	   	'student_id'=>'required',
+        $rules=array(
+        'student_id'=>'required',
         'assign_id'=>'required',
         'grade'=>'required|float'
         );
 
-    /*    $validator = Validator::make (input::all(), $rules);
-        if($validator->fails())
-            return response::json(array('errors'=> $validator->getMessageBag()->toarray()));
-               
-        else {*/
            $assign=Assign::find($request->assign_id);
            $student=Student::find($request->student_id);
            $assign->students()->detach($student);
            $assign->students()->attach($student,['grade'=>$request->grade]);
            return response()->json($assign);
-       /* }*/
-     
+    }
+
+    public function exportExcelGrade($id) {
+   $assigns = Assign::where('id','=',$id)->first()
+   ->join('assign_student','assigns.id','=','assign_student.assign_id')
+   ->where('assign_student.assign_id','=',$id)
+   ->join('subjects','assigns.subject_id','=','subjects.id')
+   ->join('students','assign_student.student_id','=','students.id')
+   ->orderBy('last_name','asc')
+   ->select(DB::raw("concat(last_name, ' ',first_name, ' ', midle_name)"),'grade')
+   ->get();
+   //This is the title
+    $assignTitle=Assign::where('id','=',$id)->get();
+    foreach ($assignTitle as $assignTit) {
+         
+         if($assignTit->classroom->year=='First Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'1'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;
+         } 
+         elseif($assignTit->classroom->year=='Second Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'2'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }
+         elseif($assignTit->classroom->year=='Third Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'3'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }     
+         else {
+            $title=$assignTit->classroom->course->course_name.'_'.'4'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }    
+         
+         
+    }
+
+    // Initialize the array which will be passed into the Excel
+    // generator.
+    $assignsArray = []; 
+
+    // Define the Excel spreadsheet headers
+    $assignsArray[] = ['Name','Final Grade'];
+
+    // Convert each member of the returned collection into an array,
+    // and append it to the payments array.
+    foreach ($assigns as $assign) {
+        $assignsArray[] = $assign->toArray();
+    }
+
+    // Generate and return the spreadsheet
+    Excel::create($title, function($excel) use ($assignsArray,$title) {
+
+        // Set the spreadsheet title, creator, and description
+        $excel->setTitle($title);
+        $excel->setCreator('BPCPortal')->setCompany('Bulcan Polytechnic College');
+        $excel->setDescription('Students List');
+
+        // Build the spreadsheet, passing in the payments array
+        $excel->sheet('sheet1', function($sheet) use ($assignsArray) {
+            $sheet->fromArray($assignsArray, null, 'A1', false, false);
+        });
+
+    })->download('xlsx');
+
+    } 
+    
+
+    public function exportPdfGrade($id) {
+
+          $assigns = Assign::where('id','=',$id)->first()
+           ->join('assign_student','assigns.id','=','assign_student.assign_id')
+           ->where('assign_student.assign_id','=',$id)
+           ->join('subjects','assigns.subject_id','=','subjects.id')
+           ->join('students','assign_student.student_id','=','students.id')
+           ->orderBy('last_name','asc')
+           ->select('last_name','first_name','midle_name','grade')
+           ->get();   
+
+    $assignTitle=Assign::where('id','=',$id)->get();
+    foreach ($assignTitle as $assignTit) {
+
+         if($assignTit->classroom->year=='First Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'1'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;
+         } 
+         elseif($assignTit->classroom->year=='Second Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'2'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }
+         elseif($assignTit->classroom->year=='Third Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'3'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }     
+         else {
+            $title=$assignTit->classroom->course->course_name.'_'.'4'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }
+
+    }           
+
+        $pdf = PDF::loadView('professor.pdfGrade',['assigns'=>$assigns]);
+        return $pdf->download($title.'.pdf');
+
     }
 
     public function fileIndex() {
@@ -155,20 +222,20 @@ class ProfessorDashboardController extends Controller
 
     public function upload($id) {
          $assign=Assign::where('id','=',$id)
-		->first();
-    	 $directory = config('app.fileDestinationPath');
+        ->first();
+         $directory = config('app.fileDestinationPath');
         //$files = Storage::files($directory);
-      	$files = FileUpload::where('assign_id','=',$assign->id)
+        $files = FileUpload::where('assign_id','=',$assign->id)
         ->orderBy('updated_at','desc')
         ->get();
-    	return view('professor.upload')
-    	->withAssign($assign)
-    	->with(array('files' => $files));
+        return view('professor.upload')
+        ->withAssign($assign)
+        ->with(array('files' => $files));
     }
     public function fileUpload(Request $request,$id) {
-    		$assign=Assign::where('id','=',$id)
-			->first();
-			$file=$request->file('file');
+            $assign=Assign::where('id','=',$id)
+            ->first();
+            $file=$request->file('file');
             $allowedFileTypes = config('app.allowedFileTypes');
             $maxFileSize = config('app.maxFileSize');
             $rules = [
@@ -181,12 +248,12 @@ class ProfessorDashboardController extends Controller
             $uploaded = Storage::disk('files')->put($fileName, file_get_contents($file->getRealPath()));
 
            if($uploaded){
-           	$fileupload=new FileUpload();
-           	$fileupload->filename=$fileName;
-           	$fileupload->assign_id=$assign->id;
-           	$fileupload->save();
-        	}
-        	return redirect()->route('uploadIndex',$assign->id);
+            $fileupload=new FileUpload();
+            $fileupload->filename=$fileName;
+            $fileupload->assign_id=$assign->id;
+            $fileupload->save();
+            }
+            return redirect()->route('uploadIndex',$assign->id);
 
     }
 
@@ -199,27 +266,90 @@ class ProfessorDashboardController extends Controller
     }
 
     public function schedule() {
+        $classrooms=Classroom::all();
+
         $assigns=Assign::where('professor_id','=',Auth::user()->id)
         ->join('days','assigns.day_id','=','days.id')
         ->orderBy('day_id','asc')
         ->get();
-        return view('professor.schedule')->withAssigns($assigns);
+        return view('professor.schedule')->withAssigns($assigns)->withClassrooms($classrooms);
     }
 
-        public function exportAssign($id){
-         $type='csv';
-         $assign = Assign::where('id','=',$id)->first()
-        ->join('assign_student','assigns.id','=','assign_student.assign_id')
-        ->where('assign_student.assign_id','=',$id)
-        ->join('subjects','assigns.subject_id','=','subjects.id')
-        ->join('students','assign_student.student_id','=','students.id')
-        ->get()
-        ->toArray();
- 
-        return \Excel::create('sample', function($excel) use ($assign) {
-        $excel->sheet('sheet name', function($sheet) use ($assign) {
-        $sheet->fromArray($assign);
-        }); })->download($type);
+    public function exportProfessorSchedule(Request $request) {
+      
+
+        $assigns=Assign::where('professor_id','=',Auth::user()->id)
+        ->join('days','assigns.day_id','=','days.id')
+        ->join('rooms','rooms.id','=','assigns.room_id')
+        ->join('subjects','subjects.id','=','assigns.subject_id')
+        ->join('classrooms','classrooms.id','=','assigns.classroom_id')
+        ->where('classrooms.academic_year','=',$request->academic_year)
+        ->where('classrooms.sem','=',$request->sem)
+        ->join('courses','courses.id','=','classrooms.course_id')       
+        ->select('courses.course_name','classrooms.year','classrooms.section','rooms.room_code','days.name','assigns.startTime','assigns.endTime','subjects.subj_code')
+        ->orderBy('day_id','asc')
+        ->get(); 
+        $title=$request->academic_year.'_'.$request->sem;    
+        $pdf = PDF::loadView('professor.pdfSchedule',['assigns'=>$assigns,'title'=>$title]);
+        return $pdf->download($title.'.pdf');
+    }
+
+    public function exportAssign($id){
+
+   $assigns = Assign::where('id','=',$id)->first()
+   ->join('assign_student','assigns.id','=','assign_student.assign_id')
+   ->where('assign_student.assign_id','=',$id)
+   ->join('subjects','assigns.subject_id','=','subjects.id')
+   ->join('students','assign_student.student_id','=','students.id')
+   ->orderBy('last_name','asc')
+   ->select(DB::raw("concat(last_name, ' ',first_name, ' ', midle_name)"))
+   ->get();
+   //This is the title
+    $assignTitle=Assign::where('id','=',$id)->get();
+    foreach ($assignTitle as $assignTit) {
+
+         if($assignTit->classroom->year=='First Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'1'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;
+         } 
+         elseif($assignTit->classroom->year=='Second Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'2'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }
+         elseif($assignTit->classroom->year=='Third Year'){
+            $title=$assignTit->classroom->course->course_name.'_'.'3'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }     
+         else {
+            $title=$assignTit->classroom->course->course_name.'_'.'4'.$assignTit->classroom->section.'_'.$assignTit->subject->subj_code;            
+         }
+
+    }
+
+    // Initialize the array which will be passed into the Excel
+    // generator.
+    $assignsArray = []; 
+
+    // Define the Excel spreadsheet headers
+    $assignsArray[] = ['Name'];
+
+    // Convert each member of the returned collection into an array,
+    // and append it to the payments array.
+    foreach ($assigns as $assign) {
+        $assignsArray[] = $assign->toArray();
+    }
+
+    // Generate and return the spreadsheet
+    Excel::create($title, function($excel) use ($assignsArray,$title) {
+
+        // Set the spreadsheet title, creator, and description
+        $excel->setTitle($title);
+        $excel->setCreator('BPCPortal')->setCompany('Bulcan Polytechnic College');
+        $excel->setDescription('Students List');
+
+        // Build the spreadsheet, passing in the payments array
+        $excel->sheet('sheet1', function($sheet) use ($assignsArray) {
+            $sheet->fromArray($assignsArray, null, 'A1', false, false);
+        });
+
+    })->download('xlsx');
     } 
 
 

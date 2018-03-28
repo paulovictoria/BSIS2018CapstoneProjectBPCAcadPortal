@@ -21,6 +21,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'tams@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'status'=>'0',
                 'filename'=>'teacher.png',
         ]);            
         DB::table('professors')->insert([
@@ -33,6 +34,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'paulo@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'status'=>'0',
                 'filename'=>'teacher.png',
         ]);
         DB::table('professors')->insert([
@@ -45,6 +47,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'ed@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'status'=>'0',
                 'filename'=>'teacher.png',
         ]);
         DB::table('professors')->insert([
@@ -57,6 +60,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'rose@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'status'=>'0',
                 'filename'=>'teacher.png',
         ]);                
         DB::table('professors')->insert([
@@ -69,6 +73,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'amado@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'status'=>'0',
                 'filename'=>'teacher.png',
         ]);    
         DB::table('professors')->insert([
@@ -81,6 +86,7 @@ class ProfessorsTableSeeder extends Seeder
                 'email'=>'sheldon@sample.com',
                 'password'=> bcrypt('sample'),
                 'campus_id'=>'1',
+                'status'=>'0',
                 'filename'=>'teacher.png',
         ]);   
                  

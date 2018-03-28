@@ -16,7 +16,7 @@
 								</div>
 							@endif
 						</div>
-						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons">add</i></a>
+						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons">add_circle</i></a>
 						<a href="{{route('speacialAssign.create')}}" class="btn green darken-3"><i class="material-icons">account_box</i></a>
 						<table class="table responsive-table" id="assigns">
 							<thead>

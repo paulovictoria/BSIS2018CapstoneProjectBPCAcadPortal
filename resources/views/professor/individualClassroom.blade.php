@@ -34,7 +34,6 @@
                           
                             @foreach($assigns as $assign)
                             <tr>
-
                               <td>{{$assign->last_name}}
                               {{$assign->first_name}}
                               {{$assign->midle_name}}
@@ -43,13 +42,13 @@
                                <td class="grey-text">NO GRADE</td>
                                @elseif($assign->grade<=3)
                                <td class="green-text">PASSED</td>
-                               @elseif($assign->grade<=4)
+                               @elseif($assign->grade<=4.75)
                                <td class="orange-text">INC</td>
-                               @else
+                               @elseif($assign->grade==5)
                                <td class="red-text">FAILED</td>
                                @endif
                               
-                              <td><a class="btn white green-text modal-trigger" href="#modalGrade" id="editButton"><i class="material-icons">edit</i>
+                              <td><a class="btn white green-text modal-trigger tooltipped" href="#modalGrade" id="editButton" data-position="bottom" data-tooltip="Final Grade"><i class="material-icons">edit</i>
                               <input type="hidden" id="stud_lastname" value="{{$assign->last_name}}">
                               <input type="hidden" id="stud_firstname" value="{{$assign->first_name}}">
                               <input type="hidden" id="stud_midlename" value="{{$assign->midle_name}}">
@@ -57,7 +56,8 @@
                               <input type="hidden" id="stud_id" value="{{$assign->student_id}}">
                               <input type="hidden" id="ass_id" value="{{$assign->assign_id}}">
                               <input type="hidden" id="assgrade" value="{{$assign->grade}}">
-                              </a></td>
+                              </a>
+                            </td>
                              </tr> 
                             @endforeach
                         </tbody>  
@@ -134,7 +134,7 @@
                 </option> 
                   <option value="5.00" class="circle">
                5.00
-                </option>                                                                                       
+                </option>                                                                                                        
             </select>
            <!-- <input type="text" name="grade" id="grade">
             <label for="grade">Grade is:</label> -->
@@ -158,7 +158,6 @@
 <script>
 $('.grade').select2();
 
-
 $(document).ready(function(){
  $('#modalGrade').modal();
  });
@@ -179,7 +178,12 @@ $(document).on('click','#editButton', function(event){
     $('#first_name').text(first_name);
     $('#midle_name').text(midle_name);
 });
-
+$('#dropButton').click(function(event){
+$('#trow').attr('class','red');
+$('#editButton').hide();
+$('#dropButton').hide();
+$('#undropButton').show();
+});
 //Update Grade
 $('#updateGrade').click(function(event){
   $.ajax({

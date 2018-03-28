@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware'=> ['web']],function(){
 	//Admin
     Route::prefix('admin')->group(function() {
  	Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -38,6 +37,15 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/adminIndex','AdminController@adminIndex')->name('admin.adminIndex');
 	Route::get('/adminEdit/{id}','AdminController@adminEdit')->name('admin.adminEdit');
 	Route::put('/adminUpdate/{id}','AdminController@adminUpdate')->name('admin.adminUpdate');
+
+
+		//Course
+	Route::resource('courses','CourseController');	
+	//endCourse
+
+	//Subject
+	Route::resource('subjects','SubjectController');
+	//endSubject
     });
     //endAdmin
 
@@ -74,23 +82,31 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/register', 'Auth\ProfessorRegisterController@create')->name('professor.registration');
     Route::post('/registered','Auth\ProfessorRegisterController@register')->name('professor.register.submit');
     Route::post('/logout','Auth\ProfessorLoginController@logout')->name('professor.logout');
-    Route::get('/indexClassroomsAssign', 'ProfessorDashboardController@indexClassroom')->name('professor.indexClassroomsAssign');
-    Route::get('/classroomsAssign/show/{id}','ProfessorDashboardController@classroomShow')->name('classroomsAssign.show');
-    Route::get('/gradeIndex','ProfessorDashboardController@gradeIndex')->name('professor.gradeIndex');
-    Route::get('/individualClassroom/{id}', 'ProfessorDashboardController@individualClassroom')->name('individual.classroom');
-    
-    Route::get('/filesIndex','ProfessorDashboardController@fileIndex')->name('professor.fileIndex');
-    Route::post('/fileupload/{id}','ProfessorDashboardController@fileUpload')->name('professor.fileupload');
-    Route::get('upload/{id}','ProfessorDashboardController@upload')->name('uploadIndex');
-  	Route::delete('/deleteupload/{id}','ProfessorDashboardController@fileDelete')->name('professor.deleteupload');
-  	 Route::get('/schedule','ProfessorDashboardController@schedule')->name('professor.schedule');
- 	Route::get('editprofile','ProfessorDashboardController@editProfile')->name('professor.editProfile');  
-    Route::put('profileupdate/{id}','ProfessorDashboardController@profileupdate')->name('professor.profileUpdate');
 	//email verification
 	Route::post('/password/email', 'Auth\ProfessorForgotPasswordController@sendResetLinkEmail')->name('professor.password.email');
     Route::get('/password/reset', 'Auth\ProfessorForgotPasswordController@showLinkRequestForm')->name('professor.password.request');
     Route::post('/password/reset', 'Auth\ProfessorResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\ProfessorResetPasswordController@showResetForm')->name('professor.password.reset'); 
+
+  	Route::get('/schedule','ProfessorDashboardController@schedule')->name('professor.schedule');
+ 	Route::get('editprofile','ProfessorDashboardController@editProfile')->name('professor.editProfile');  
+    Route::put('profileupdate/{id}','ProfessorDashboardController@profileupdate')->name('professor.profileUpdate');
+    //end For Personal Use
+
+    //Classrooms Assigns
+    Route::get('/indexClassroomsAssign', 'ProfessorDashboardController@indexClassroom')->name('professor.indexClassroomsAssign');
+    Route::get('/classroomsAssign/show/{id}','ProfessorDashboardController@classroomShow')->name('classroomsAssign.show');
+ 
+    //Files 
+    Route::get('/filesIndex','ProfessorDashboardController@fileIndex')->name('professor.fileIndex');
+    Route::post('/fileupload/{id}','ProfessorDashboardController@fileUpload')->name('professor.fileupload');
+    Route::get('upload/{id}','ProfessorDashboardController@upload')->name('uploadIndex');
+  	Route::delete('/deleteupload/{id}','ProfessorDashboardController@fileDelete')->name('professor.deleteupload');
+
+    //Students Grading
+    Route::get('/gradeIndex','ProfessorDashboardController@gradeIndex')->name('professor.gradeIndex');
+    Route::get('/individualClassroom/{id}', 'ProfessorDashboardController@individualClassroom')->name('individual.classroom');
+	Route::post('updateGrade','ProfessorDashboardController@updateGrade')->name('updateGrade.Student');
 
 
 	 });
@@ -124,27 +140,23 @@ Route::group(['middleware'=> ['web']],function(){
     Route::put('shiftStore/{id}','RegistrarDashboardController@shiftStore')->name('shiftStore');
 
      });
-
-    Route::post('logout','Auth\LoginController@logout');
-	Auth::routes();
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/about','HomeController@about')->name('about');
-	//Course
-	Route::resource('courses','CourseController');	
-	//endCourse
 
-	//Subject
-	Route::resource('subjects','SubjectController');
-	//endSubject
 
 
 	//assign this for Class
 	Route::resource('classrooms','ClassroomController');
 	Route::get('byCourse/{id}','ClassroomController@byCourseCreate')->name('byCourseCreate');
 	Route::resource('assigns','AssignController');
-	Route::get('speacialAssign','AssignController@specialCreate')->name('speacialAssign.create');
-	Route::post('speacialAssignStore','AssignController@specialStore')->name('speacialAssign.store');
+	Route::get('specialAssign','AssignController@specialCreate')->name('speacialAssign.create');
+	Route::post('specialAssignStore','AssignController@specialStore')->name('speacialAssign.store');
+	Route::get('byCourseAssign/{id}','AssignController@byCourseIndex')->name('byCourseAssignIndex');
+	Route::get('byCourseCreate/{id}','AssignController@byCourseCreate')->name('byCourseAssignCreate');
+	Route::get('adminClassroomIndex','AssignController@adminClassroomIndex')->name('adminClassroomIndex');
 	Route::resource('rooms','RoomController');
+
+
 	//Socials
 	Route::resource('events','EventController');
 	Route::get('showEvent/{id}','PagesController@eventSingle')->name('event.single');
@@ -164,19 +176,17 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/home','PagesController@getIndex')->name('home');
 	Route::get('/choiceUser','PagesController@choiceUser')->name('choice.user');
 
-
-	Route::get('import-export-view', 'ExcelController@importExportView')->name('import.export.view');
-	Route::post('import-file', 'ExcelController@importFile')->name('import.file');
-	Route::get('export-file', 'SubjectController@exportFile')->name('export.file');
-	
+	//Professor export file
 	Route::get('export-file/{id}', 'ProfessorDashboardController@exportAssign')->name('professor.exportAssign');
-	/*Route::get('students','RegistrarDashboardController@studentIndex')->name('students.index');*/
-	Route::post('addGrade','ProfessorDashboardController@addGrade')->name('addGrade.Student');
-	Route::post('updateGrade','ProfessorDashboardController@updateGrade')->name('updateGrade.Student');
-	
+	Route::get('grade-excel/{id}','ProfessorDashboardController@exportExcelGrade')->name('professor.exportExcelGrade');
+	Route::get('grade-pdf/{id}','ProfessorDashboardController@exportPdfGrade')->name('professor.exportPdfGrade');
+	Route::post('professorSchedule','ProfessorDashboardController@exportProfessorSchedule')->name('professor.exportProfessorSchedule');
+
+
+
 	Route::get('/userimage/{filename}','ImageController@getUserImage')->name('user.image');
 	Route::get('/socialsimage/{filename}','ImageController@getsocialsImage')->name('socials.image');
-	/*Route::get('/socialsImage/{filename}','PagesController@getsocialsImage')->name('socials.image');*/
+
 
 	Route::get('upload', 'FilesController@upload');
 	Route::get('downloadfile/{filename}','FilesController@downloadFile')->name('download.file');
@@ -187,11 +197,9 @@ Route::group(['middleware'=> ['web']],function(){
 	Route::get('/gradedownloadPDF/{id}','StudentDashboardController@gradedownloadPDF')->name('gradedownloadPdf');
 
 	Route::get('/studentdownloadPDF{id}','RegistrarDashboardController@studentdownloadPDF')->name('studentDownloadPDF');
-/*All of my Aja*/
+	/*All of my Ajax*/
 	Route::post('ajaxApproved','RegistrarDashboardController@ajaxApproved')->name('ajax.Approved');
-	Route::post('ajaxDenie','RegistrarDashboardController@ajaxDenied')->name('ajax.Denied');
+	Route::post('ajaxDenied','RegistrarDashboardController@ajaxDenied')->name('ajax.Denied');
 	/*AJAX*/
 
-
-});
 
