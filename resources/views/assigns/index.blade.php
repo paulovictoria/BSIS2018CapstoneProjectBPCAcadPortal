@@ -16,8 +16,8 @@
 								</div>
 							@endif
 						</div>
-						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons">add_circle</i></a>
-						<a href="{{route('speacialAssign.create')}}" class="btn green darken-3"><i class="material-icons">account_box</i></a>
+						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons tooltipped"  data-position="bottom" data-tooltip="New Assign">add_circle</i></a>
+						<a href="{{route('speacialAssign.create')}}" class="btn green darken-3"><i class="material-icons tooltipped"  data-position="bottom" data-tooltip="Individual Assign">account_box</i></a>
 						<table class="table responsive-table" id="assigns">
 							<thead>
 								<tr class="green darken-3 white-text">
@@ -37,11 +37,11 @@
 									{{ $assign->classroom->year }}
 									{{ $assign->classroom->section }}</td>
 									<td>{{ $assign->professor->last_name}} {{ $assign->professor->first_name}}</td>
-									<td>{{ $assign->subject ->subj_description}}</td>
+									<td>{{ $assign->subject->subj_code}}</td>
 									<td>{{ $assign->day->name.' '.$assign->startTime.' to '.$assign->endTime}}
 									</td>
-									<td><a href="{{ route('assigns.show',$assign->id) }}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
-									 <a href="{{ route('assigns.edit',$assign->id) }}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></td>
+									<td><a href="{{ route('assigns.show',$assign->id) }}" class="btn white green-text darken-2 tooltipped" data-position="bottom" data-tooltip="View Class Assign"><i class="material-icons">pageview</i></a>
+									 <a href="{{ route('assigns.edit',$assign->id) }}" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit Assign"><i class="material-icons">edit</i></td>
 								</tr>
 								@endforeach
 							</tbody>	

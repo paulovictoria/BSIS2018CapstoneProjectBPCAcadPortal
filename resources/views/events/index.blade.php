@@ -16,7 +16,7 @@
 								</div>
 							@endif
 						</div> 	
-				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-3" href="{{route('events.create')}}"><i class="material-icons">add_a_photo</i></a>
+				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-3 tooltipped" data-position="bottom" data-tooltip="Create New Event" href="{{route('events.create')}}"><i class="material-icons">add_circle</i></a>
 				 		<table class="table responsive-table" id="events">
 						<thead>
 							<tr class="green darken-3 white-text">
@@ -46,11 +46,11 @@
 							
 								</td>
 								<td class="right">
-									<a id="editButtonEvent" class="btn white blue-text lighten-2" href="{{route('events.edit',$event->id)}}">
+									<a id="editButtonEvent" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit Event" href="{{route('events.edit',$event->id)}}">
 									<i class="material-icons">edit</i>
 									</a>
 									{!! Form::open(['route'=>['events.destroy',$event->id],'method'=>'DELETE']) !!}
-									<button class="btn white red-text lighten-2"><i class="material-icons">delete_forever</i></button>
+									<button class="btn white red-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Delete Event"><i class="material-icons">delete_forever</i></button>
 									{!! Form::close() !!}
 								</td>
 							</tr>

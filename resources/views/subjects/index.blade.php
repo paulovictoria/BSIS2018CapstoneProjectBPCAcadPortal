@@ -16,7 +16,7 @@
 								</div>
 							@endif
 						</div>		
-						<a href="{{ route('subjects.create') }}" class="btn btn-floating green darken-3 btn-large"><i class="material-icons">add_circle</i></a>
+						<a href="{{ route('subjects.create') }}" class="btn btn-floating green darken-3 btn-large tooltipped" data-position="bottom" data-tooltip="Create new Subject"><i class="material-icons">add_circle</i></a>
 						<div class="section"></div>
 						<table class="bordered" id="subject">
 							<thead>
@@ -39,7 +39,7 @@
 									<td>{{$subject->sem}}</td>
 								    <td>{{$subject->year}}</td>
 								    <td>{{$subject->course->course_name}}</td>
-								    <td><a href="{{route('subjects.edit',$subject->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a></td>
+								    <td><a href="{{route('subjects.edit',$subject->id)}}" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit Subject"><i class="material-icons">edit</i></a></td>
 								</tr>
 								@endforeach
 							</tbody>

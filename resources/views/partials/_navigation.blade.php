@@ -11,8 +11,8 @@
     </div>
   </li>
   <li class="no-padding">
-    <ul>
-      <li>
+    <ul> 
+      <li class="{{ Request::path() == 'admin/dashboard' ? 'active' : '' }}">
         <a href="{{route('admin.dashboard')}}" class="collapsible-header"><i class="material-icons">dashboard</i>Dashboard</a>
       </li>
     </ul>
@@ -24,8 +24,8 @@
             <a class="collapsible-header"><i class="material-icons">supervisor_account</i>User</a>
             <div class="collapsible-body">
               <ul>
-                <li><a href="{{route('registrarIndex')}}">Registrar</a></li>
-                <li><a href="{{route('professorIndex')}}">Instructor</a></li>
+                <li class="{{ Request::path() == 'admin/registrarIndex' ? 'active' : '' }}"><a href="{{route('registrarIndex')}}">Registrar</a></li>
+                <li class="{{ Request::path() == 'admin/professorIndex' ? 'active' : '' }}"><a href="{{route('professorIndex')}}">Instructor</a></li>
                 @if(Auth::user()->campus->id==1)
                 <li><a href="{{route('admin.adminIndex')}}">Admins</a></li>
                 @endif
@@ -42,9 +42,9 @@
             <a class="collapsible-header"><i class="material-icons">perm_media</i>Socials</a>
             <div class="collapsible-body">
               <ul>
-                <li><a href="{{route('announcements.index')}}">Announcements</a></li>
-                <li><a href="{{route('events.index')}}">Events</a></li>
-                 <li><a href="{{route('news.index')}}">News</a></li>
+                <li class="{{ Request::path() == 'announcements' ? 'active' : '' }}"><a href="{{route('announcements.index')}}">Announcements</a></li>
+                <li class="{{ Request::path() == 'events' ? 'active' : '' }}"><a href="{{route('events.index')}}">Events</a></li>
+                 <li class="{{ Request::path() == 'news' ? 'active' : '' }}"><a href="{{route('news.index')}}">News</a></li>
               </ul>
             </div>
           </li>
@@ -52,7 +52,7 @@
       </li>
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
-          <li>
+          <li class="{{ Request::path() == 'admin/courses' ? 'active' : '' }}">
             <a href="{{route('courses.index')}}" class="collapsible-header"><i class="material-icons">palette</i>Courses</a>
           </li>
         </ul>

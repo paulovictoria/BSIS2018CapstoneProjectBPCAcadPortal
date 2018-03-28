@@ -1,6 +1,5 @@
 @extends('admin_template')
 @section('title','| Announcements')
-
 @section('content')
 <div class="col s12">				
 	<div class="section">
@@ -17,7 +16,7 @@
 								</div>
 							@endif
 						</div>            		
-				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4" href="{{route('announcements.create')}}"><i class="material-icons">add_a_photo</i></a>
+				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4 tooltipped" data-position="bottom" data-tooltip="Create New Announcement" href="{{route('announcements.create')}}"><i class="material-icons">add_circle</i></a>
 				 		<table class="table responsive-table" id="announcements">
 						<thead>
 							<tr class="green darken-3 white-text">
@@ -42,11 +41,11 @@
 								<td>{{ date('M j,Y',strtotime($announcement->created_at)) }}</td>
 								<td><a href="#"><img class="circle" src="{{route('socials.image',['filename'=>$announcement->filename])}}" width="50"></a></td>
 								<td class="right">
-									<a id="editButtonEvent"  class="btn white blue-text lighten-2" href="{{route('announcements.edit',$announcement->id)}}">
+									<a id="editButtonEvent"  class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit Announcement" href="{{route('announcements.edit',$announcement->id)}}">
 									<i class="material-icons">edit</i>
 									</a>
 									{!! Form::open(['route'=>['announcements.destroy',$announcement->id],'method'=>'DELETE']) !!}
-									<button class="btn white red-text lighten-2 waves-effect waves-light"><i class="material-icons">delete_forever</i></button>
+									<button class="btn white red-text lighten-2 waves-effect waves-light tooltipped" data-position="bottom" data-tooltip="Delete Announcement"><i class="material-icons">delete_forever</i></button>
 									{!! Form::close() !!}
 									
 							

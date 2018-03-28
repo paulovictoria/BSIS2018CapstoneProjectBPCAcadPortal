@@ -40,11 +40,11 @@
 
 
 		//Course
-	Route::resource('courses','CourseController');	
+	Route::resource('/courses','CourseController');	
 	//endCourse
 
 	//Subject
-	Route::resource('subjects','SubjectController');
+	Route::resource('/subjects','SubjectController');
 	//endSubject
     });
     //endAdmin

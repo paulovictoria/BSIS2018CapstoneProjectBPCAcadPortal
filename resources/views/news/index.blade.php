@@ -16,7 +16,7 @@
 								</div>
 							@endif
 						</div>
-				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-3" href="{{route('news.create')}}"><i class="material-icons">add_a_photo</i></a>
+				 		<a id="createEvent" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-3 tooltipped"  data-position="bottom" data-tooltip="Create News" href="{{route('news.create')}}"><i class="material-icons">add_circle</i></a>
 				 		<table class="table responsive-table" id="news">
 						<thead>
 							<tr class="green darken-3 white-text">
@@ -36,11 +36,11 @@
 								<td>{{ date('M j,Y',strtotime($news->created_at)) }}</td>
 								<td><a href="#"><img class="circle" src="{{route('socials.image',['filename'=>$news->filename])}}" width="50"></a></td>
 								<td class="right">
-									<a id="editButtonEvent"  class="btn white blue-text lighten-2" href="{{route('news.edit',$news->id)}}">
+									<a id="editButtonEvent"  class="btn white blue-text lighten-2 tooltipped"  data-position="bottom" data-tooltip="Edit News" href="{{route('news.edit',$news->id)}}">
 									<i class="material-icons">edit</i>
 									</a>
 									{!! Form::open(['route'=>['news.destroy',$news->id],'method'=>'DELETE']) !!}
-									<button class="btn white red-text lighten-2"><i class="material-icons">delete_forever</i></button>
+									<button class="btn white red-text lighten-2 tooltipped"  data-position="bottom" data-tooltip="Delete News"><i class="material-icons">delete_forever</i></button>
 									{!! Form::close() !!}
 								</td>
 							</tr>

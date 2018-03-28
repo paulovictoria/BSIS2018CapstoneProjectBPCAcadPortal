@@ -16,7 +16,7 @@
 								</div>
 							@endif
 						</div>
-				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4" href="{{route('rooms.create')}}"><i class="material-icons">add_circle</i></a>		
+				 		<a id="createRoom" class="waves-effect waves-light btn btn-floating btn-large modal-trigger green darken-4 tooltipped" data-position="bottom" data-tooltip="Create New Room" href="{{route('rooms.create')}}"><i class="material-icons">add_circle</i></a>		
 				 		<div class="section"></div>						
 								<table class="table responsive-table" id="rooms">
 									<thead>
@@ -34,8 +34,8 @@
 											<td>{{ $room->room_description }}</td>
 											<td>{{ $room->capacity }}</td>
 											<td>
-												<a href="#" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
-												<a href="{{route('rooms.edit',$room->id)}}" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
+												<a href="#" class="btn white orange-text lighten-2"><i class="material-icons tooltipped" data-position="bottom" data-tooltip="View Room">pageview</i></a>
+												<a href="{{route('rooms.edit',$room->id)}}" class="btn white green-text darken-2 tooltipped"  data-position="bottom" data-tooltip="Edit Room"><i class="material-icons">edit</i></a>
 											</td>
 										</tr>	
 										@endforeach
