@@ -6,7 +6,7 @@
         <div class="card z-depth-1">
             <div class="card-content">
                 <div class="row">
-                    <div class="col m9 offset-m3">
+                    <div class="col s9 offset-s3 m9 offset-m3">
                   <div class="card">
                             <div class="card-content">
                            <p class="flow-text"><span>Course: </span>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</p>

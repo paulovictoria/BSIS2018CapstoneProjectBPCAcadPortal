@@ -67,9 +67,9 @@
 <!--                 <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
                 <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/179744/pexels-photo-179744.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
                 <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a> -->
-   <a class="carousel-item" href="#two!"><img src="{{ asset('images/IMG_20180323_162203.jpg') }}"></a>
-   <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
-   <a class="carousel-item" href="#two!"><img src="{{ asset('images/IMG_20180323_161740.jpg') }}"></a>
+   <a class="carousel-item" href="#two!"><img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/29791892_1694853690609216_1858275455340408273_n.jpg?_nc_cat=0&oh=013ca50be5c71ac64ef66b92e0647863&oe=5B752ED4" style="height:200px; width: 250px;"></a>
+   <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" style="height:200px; width: 250px;"></a>
+   <a class="carousel-item" href="#two!"><img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/29791168_1694853903942528_7322392662904721080_n.jpg?_nc_cat=0&oh=f990e934899d12450aa3ce29ca6a783a&oe=5B665A27" style="height:200px; width: 250px;"></a>
 
 
               </div>

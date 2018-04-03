@@ -22,7 +22,7 @@ class ClassroomController extends Controller
     public function index()
     {
         $courses=Course::all();
-        $classrooms=Classroom::orderBy('id','desc')->get();
+        $classrooms=Classroom::where('campus_id','=',Auth::user()->campus_id)->orderBy('id','desc')->get();
         return view('classrooms.index')->withClassrooms($classrooms)->withCourses($courses);
     }
 

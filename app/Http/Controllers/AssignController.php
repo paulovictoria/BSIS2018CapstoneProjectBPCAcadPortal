@@ -30,7 +30,7 @@ class AssignController extends Controller
      */
     public function index()
     {
-        $assigns=Assign::orderBy('id','desc')->get();
+        $assigns=Assign::where('campus_id','=',Auth::user()->campus_id)->orderBy('id','desc')->get();
         return view('assigns.index')->withAssigns($assigns);
     }
 
@@ -209,7 +209,7 @@ class AssignController extends Controller
 
     public function specialCreate() {
         $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
-        $assigns=Assign::all();
+        $assigns=Assign::where('campus_id','=',Auth::user()->campus_id)->get();
         return view('assigns.special')->withStudents($students)->withAssigns($assigns);
     }
 
@@ -233,14 +233,15 @@ class AssignController extends Controller
 
     public function adminClassroomIndex() {
         $courses=Course::all();
-        $classrooms=Classroom::all();
+        $classrooms=Classroom::where('campus_id','=',Auth::user()->campus_id)->get();
         return view('admin.adminClassroomIndex')
         ->withCourses($courses)
         ->withClassrooms($classrooms);
     }
 
     public function byCourseIndex($id) {
-        $classrooms=Classroom::where('course_id','=',$id)
+        $classrooms=Classroom::where('campus_id','=',Auth::user()->campus_id)
+        ->where('course_id','=',$id)
         ->orderBy('id','desc')->get();
         $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         $subjects=Subject::where('course_id','=',$id)->get();

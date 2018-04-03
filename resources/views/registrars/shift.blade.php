@@ -14,7 +14,7 @@
     <div class="card z-depth-1">
       <div class="card-content">
         <div class="row">
-          <div class="col l9 offset-l3">
+          <div class="col s9 offset-s3 m9 offset-m3">
             <div class="section">
               @if(Session::has('success'))
                 <div class="col s12 center">

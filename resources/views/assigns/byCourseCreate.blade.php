@@ -2,20 +2,6 @@
 @section('title','| Assign')
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
-<style type="text/css">
-	.professor {
-		width: 500%;
-	}
-	.subject {
-		width: 500%;
-	}
-	.day {
-		width: 500%;
-	}
-	.room {
-		width: 500%;
-	}	
-</style>
 @endsection
 @section('content')
 <div class="col s12">			
@@ -23,7 +9,7 @@
 		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
-					<div class="col s9 offset-s3">
+					<div class="col s9 offset-s3 m9 offset-m3">
 						<div class="section">
 							@if(Session::has('success'))
 								<div class="col s12 center">
@@ -58,7 +44,7 @@
 
 						<div class="section"></div>
 						{{ Form::label('professor_id','Instructor ')}}
-						<select class="professor" name="professor_id">
+						<select class="professor" name="professor_id" style="width:100%; ">
 									<option>Select Instructor</option>
 							@foreach($professors as $professor)
 									<option value="{{ $professor->id }}">
@@ -75,7 +61,7 @@
                           @endif 							
 						<div class="section"></div>
 						{{ Form::label('subject_id','Subject')}}
-							<select class="subject" name="subject_id">
+							<select class="subject" name="subject_id"  style="width:100%; ">
 								<option>Select Subject</option>
 								@foreach($subjects as $subject)
 									<option value="{{ $subject->id }}">
@@ -98,7 +84,7 @@
                           @endif 
 						<div class="section"></div>
 						{{ Form::label('day_id','Day') }}
-						<select class="day" name="day_id">
+						<select class="day" name="day_id" style="width:100%; ">
 								<option>Select Day</option>
 								@foreach($days as $day)
 									<option value="{{ $day->id }}">{{ $day->name }}</option>
@@ -133,7 +119,7 @@
 
 						</div>
 						{{Form::label('room','Room')}}
-						<select class="room" name="room_id">
+						<select class="room" name="room_id" style="width:100%; ">
 							<option>Select Room</option>
 							@foreach($rooms as $room)
 								<option value="{{ $room->id }}" class="circle">

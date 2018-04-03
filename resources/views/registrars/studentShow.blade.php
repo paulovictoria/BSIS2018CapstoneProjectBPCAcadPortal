@@ -6,7 +6,7 @@
         <div class="card transparent">
             <div class="card-content">
                 <div class="row">
-                    <div class="col l9 offset-l3">   
+                    <div class="col s9 offset-s3 m9 offset-m3">   
                         <div class="row">
                             <div class="col s12 m12">
                                 <div class="card">

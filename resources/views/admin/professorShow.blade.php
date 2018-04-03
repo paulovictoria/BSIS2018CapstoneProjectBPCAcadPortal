@@ -6,7 +6,7 @@
         <div class="card z-depth-1">
             <div class="card-content center">
                 <div class="row">
-                    <div class="col s9 offset-s3">
+                    <div class="col s9 offset-s3 m9 offset-m3">
                       <div class="defaultInfo">
                         <div class="row"> 
                           <div class="col s12">

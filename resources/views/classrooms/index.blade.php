@@ -30,9 +30,7 @@
 							<tr class="green darken-3 white-text">
 								<th>ACADEMIC YEAR</th>
 								<th>Sem</th>
-								<th>COURSE</th>	
-								<th>YEAR</th>	
-								<th>SECTION</th>						
+								<th>COURSE Year/Section</th>						
 								<th># STUDENTS</th>
 								<th># ASSIGNS</th>
 								<th>ACTION</th>
@@ -47,9 +45,9 @@
 								@else
 								<td>SECOND SEM</td>
 								@endif
-								<td>{{ $classroom->course->course_name }}</td>
-								<td>{{ $classroom->year}}</td>
-								<td>{{ $classroom->section}}</td>
+								<td>{{ $classroom->course->course_name.' '.' ' }}
+								{{ $classroom->year.' '}}
+								{{ $classroom->section}}</td>
 								<td>{{ $classroom->students->count() }}</td>
 								<td>{{ $classroom->assigns->count() }}</td>
 								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn white green-text darken-2 tooltipped" data-position="bottom" data-tooltip="View Classroom"><i class="material-icons">pageview</i></a>

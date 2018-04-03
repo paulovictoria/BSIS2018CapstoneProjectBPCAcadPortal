@@ -6,7 +6,7 @@
 		<div class="card z-depth-1">
 			<div class="card-content">
 				<div class="row">
-					<div class="col s9 offset-s3">                    
+					<div class="col s9 offset-s3 m9 offset-m3">                    
 						<a class="dropdown-button btn green darken-3" href="#" data-activates="courseSelect">Select Course</a>
                         <ul id="courseSelect" class="dropdown-content">
                          @foreach($courses as $course)     

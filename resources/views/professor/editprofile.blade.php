@@ -6,7 +6,7 @@
         <div class="card z-depth-1">
             <div class="card-content">
                 <div class="row">
-                    <div class="col s9 offset-s3">
+                    <div class="col s9 offset-s3 m9 offset-m3">
                         <h3 class="light-green-text darken-2 card-title">Edit Profile</h3>
                     {!! Form::model($professor,['route'=>['professor.profileUpdate',$professor->id],'method'=>'PUT','files'=>'true' ]) !!}
 

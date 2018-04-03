@@ -6,7 +6,7 @@
 		<div class="card z-depth-1">
 			<div class="card-content">
 				<div class="row">
-					<div class="col s9 offset-s3">
+					<div class="col s9 offset-s3 m9 offset-m3">
 						<div class="section"></div>
 						<div class="card-content">
 							<h5 class="sample">{{ $course->course_name}}</h5>

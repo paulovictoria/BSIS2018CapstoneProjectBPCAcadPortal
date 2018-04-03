@@ -15,21 +15,29 @@
        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <title>Bpcians Portal</title>
     <style type="text/css">
+    body{
+      height: 660px;
+      background-image:url("https://temperedglass.ee/wp-content/uploads/2016/09/Background-opera-speeddials-community-web-simple-backgrounds.jpg");
+      background-repeat: repeat-x;
+    }
 .image{
   height: 270px;
 }
+
+
+  
     </style>
   </head>
   <body>
     <main>
-<div class="section blue-grey darken-2">
+      <br><br><br><br><br><br><br><br><br><br>
+<div class="section">
   <div class="col s12 m12">
-    <div class="card z-depth-5">
-      <div class="card-content">
+
           <h5 class="center">ABOUT</h5>
        <div class="row">
         <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 blue-grey darken-2 white-text">
+            <div class="card horizontal z-depth-5  transparent">
               <div class="card-image">
                 <img class="image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/27971970_1645259625568623_1841709745374485910_n.jpg?_nc_eui2=v1%3AAeHf8nu6z5HIeSXm3WDMplC5dtRWgkRSV6C52HzTbkWRfDMFcz1cxz2B7IC1hxSbDYwKi5N3hjvHbKDnmh4Eifk-SLOZXcywk2BgBhu_b18-NQ&oh=1d2bc10ff9d7d4376e5562f2c45e6ad1&oe=5B02A70F">
               </div>
@@ -47,7 +55,7 @@
             </div>
           </div>
         <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 blue-grey darken-2 white-text">
+            <div class="card horizontal z-depth-5  transparent">
               <div class="card-image">
                 <img class="image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/21034380_1112301812247585_1200671050443925263_n.jpg?_nc_eui2=v1%3AAeEvmSMijXqRtObXenj7yYtxzRSH_gltPeS0dYZW2PtA-S-gsFx0fDKlHjTq7m_gRumiedii0cDvx4lcKYncvxt-hl36pjYRQ_FFVwUky6wDdg&oh=4250140097974cbb03e7abfa25615256&oe=5B4501A6">
               </div>
@@ -65,7 +73,7 @@
             </div>
           </div>
         <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 blue-grey darken-2 white-text">
+            <div class="card horizontal z-depth-5  transparent">
               <div class="card-image">
                 <img class="image" src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.0-9/16298680_1088513397943107_4288637216489519693_n.jpg?_nc_eui2=v1%3AAeGkH5_WdAwyu9HoFHuTBTqs8Hq-iQrjXpq6k2WdakSnY3VBHnWCg4NZ1sPV_vNOkVC3YDTiONQ1ZLYygMGZG76j5-6Gh5BOrCk7htegU99fCg&oh=fa75dbd837ff5d34f3c2d77f2ddac274&oe=5B398ED4">
               </div>
@@ -84,8 +92,7 @@
           </div>   
        </div>
     </div>    
-  </div>
-</div>  
+
 </div>  
     </main>
  <!--    <script src="{{ asset('jquery/jquery-3.2.1.min.js') }}"></script>

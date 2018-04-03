@@ -23,7 +23,7 @@
 		<div class="card z-depth-4 light-green lighten-5">
 			<div class="card-content">
 				<div class="row">
-					<div class="col s9 offset-s3">
+					<div class="col s9 offset-s3 m9 offset-m3">
 						<div class="section">
 							@if(Session::has('success'))
 								<div class="col s12 center">
@@ -43,8 +43,6 @@
 							</div>
 							@endif 
 						</div>
-						<a href="{{ route('assigns.create') }}" class="btn green darken-3"><i class="material-icons">add</i></a>
-						<a href="{{route('speacialAssign.create')}}" class="btn green darken-3"><i class="material-icons">account_box</i></a>
 						<table class="table responsive-table" id="assigns">
 							<thead>
 								<tr class="green darken-3 white-text">

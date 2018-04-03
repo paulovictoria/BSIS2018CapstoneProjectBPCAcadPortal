@@ -6,7 +6,7 @@
 
 	{!! Form::model($student,['route'=>['grades.store']]) !!}
 		<div class="row">
-			<div class="col s12 offset-s2">
+			<div class="col s12 offset-s2 m9 offset-m3">
 				<div class="card">
 				 	<div class="card-content">
 						{{ Form::text('sid',null,['class'=>'form-control']) }}

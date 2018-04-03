@@ -16,7 +16,7 @@ tinymce.init({
 		<div class="card z-depth-1">
 			<div class="card-content">
 				<div class="row">
-					<div class="col s9 offset-s3">
+					<div class="col s9 offset-s3 m9 offset-m3">
 						<div class="section">
 							@if(count($errors)>0)
 								<div class="col s12 center">
