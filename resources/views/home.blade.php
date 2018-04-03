@@ -64,9 +64,14 @@
             </div>
             <div class="col s12 m6">
               <div class="carousel" data-indicators="true"  data-aos="zoom-in">
-                <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
+<!--                 <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
                 <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/179744/pexels-photo-179744.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
-                <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
+                <a class="carousel-item" href="#two!"><img src="https://images.pexels.com/photos/256519/pexels-photo-256519.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a> -->
+   <a class="carousel-item" href="#two!"><img src="{{ asset('images/IMG_20180323_162203.jpg') }}"></a>
+   <a class="carousel-item" href="#one!"><img src="https://images.pexels.com/photos/305833/pexels-photo-305833.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"></a>
+   <a class="carousel-item" href="#two!"><img src="{{ asset('images/IMG_20180323_161740.jpg') }}"></a>
+
+
               </div>
             </div>
           </div>  

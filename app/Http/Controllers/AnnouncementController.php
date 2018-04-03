@@ -7,9 +7,12 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Announcement;
+use App\Student;
+use App\Admin;
 use Session;
 use Auth;
-
+use SmsGateway;
+use DB;
 class AnnouncementController extends Controller
 {
     /**
@@ -36,7 +39,11 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('announcements.create');
+        $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
+        ->join('professors','admins.campus_id','=','professors.campus_id')
+        ->join('students','admins.campus_id','=','students.campus_id')->get()
+        ; 
+        return view('announcements.create')->withUsers($users);
     }
 
     /**
@@ -47,7 +54,8 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+
+      $this->validate($request,[
             'title'=>'required|max:255',
             'description'=>'required',
             'date'=>'required',
@@ -64,6 +72,13 @@ class AnnouncementController extends Controller
         $announcement->filename=$fileName;
         $announcement->campus_id=Auth::user()->campus_id;
         $announcement->save();
+
+        $numbers =$request->users;
+        $message = $request->title.'!'.' '.' '.$request->description.'.'.' '.$request->date.'From BPC';
+        $sms = SmsGateway::to($numbers)
+                 ->message($message)
+                 ->send();
+
         }
      
         Session::flash('success','announcement Successfully Posted');
@@ -90,8 +105,12 @@ class AnnouncementController extends Controller
      */
     public function edit($id)
     {
+         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
+        ->join('professors','admins.campus_id','=','professors.campus_id')
+        ->join('students','admins.campus_id','=','students.campus_id')->get()
+        ; 
         $announcement=Announcement::find($id);
-        return view('announcements.edit')->withAnnouncement($announcement);
+        return view('announcements.edit')->withAnnouncement($announcement)->withUsers($users);
     }
 
     /**
@@ -119,14 +138,23 @@ class AnnouncementController extends Controller
         $announcement->date=$request->date;
         $announcement->filename=$fileName;
         $announcement->campus_id=Auth::user()->campus_id;
+
         }
         else {
         $announcement->title=$request->title;
         $announcement->description=$request->description;
         $announcement->date=$request->date;
         $announcement->campus_id=Auth::user()->campus_id;
+          $numbers =$request->$users;
         }
         $announcement->save();
+
+        $numbers =$request->users;
+        $message = $request->title.'!'.' '.' '.$request->description.'.'.' '.$request->date.'From BPC';
+        $sms = SmsGateway::to($numbers)
+                 ->message($message)
+                 ->send();
+                 
         Session::flash('success','announcement Successfully Updated');
         return redirect()->route('announcements.index');
     }

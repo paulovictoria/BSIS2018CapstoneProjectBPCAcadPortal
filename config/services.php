@@ -38,5 +38,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+        'smsgateway' => [
+        'email' => 'pauladrian12345678@yahoo.com',
+        'password' => 'paul12345678',
+        'device_id' => '85330'
+    ],
 
 ];

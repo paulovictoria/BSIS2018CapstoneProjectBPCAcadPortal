@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Session;
 use Auth;
+use App\Student;
+use App\Admin;
+use SmsGateway;
 class EventController extends Controller
 {
     /**
@@ -34,7 +37,11 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
+        ->join('professors','admins.campus_id','=','professors.campus_id')
+        ->join('students','admins.campus_id','=','students.campus_id')->get()
+        ;   
+        return view('events.create')->withUsers($users);
     }
 
     /**
@@ -68,6 +75,14 @@ class EventController extends Controller
         $event->filename=$fileName;
         $event->campus_id=Auth::user()->campus_id;
         $event->save();
+
+        $numbers =$request->users;
+        $message = $request->title.'!'.' '.' '.$request->description.'.'.' '.$request->date.' '.
+        'Start At'.$request->startTime.'End At'.$request->endTime.'will be held on'.$request->place.'From BPC';
+        $sms = SmsGateway::to($numbers)
+                 ->message($message)
+                 ->send();
+
          }
         Session::flash('success','Event Successfully Posted');
         return redirect()->route('events.index');
@@ -92,8 +107,13 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   $event=Event::find($id);
-        return view('events.edit')->withEvent($event);
+    {   
+         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
+        ->join('professors','admins.campus_id','=','professors.campus_id')
+        ->join('students','admins.campus_id','=','students.campus_id')->get()
+        ; 
+        $event=Event::find($id);
+        return view('events.edit')->withEvent($event)->withUsers($users);
     }
 
     /**
@@ -139,6 +159,13 @@ class EventController extends Controller
         }
         $event->save();
 
+        $numbers =$request->users;
+        $message = $request->title.'!'.' '.' '.$request->description.'.'.' '.$request->date.' '.
+        'Start At'.$request->startTime.'End At'.$request->endTime.'will be held on'.$request->place.'From BPC';
+        $sms = SmsGateway::to($numbers)
+                 ->message($message)
+                 ->send();
+                 
         Session::flash('success','Event Successfully Updated');
         return redirect()->route('events.index');
     }

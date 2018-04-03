@@ -28,8 +28,14 @@ tinymce.init({
 								</div>
 							@endif
 						</div> 
+
 						<h3 class="light-green-text darken-2 card-title">Create New Announcement</h3>
 						{!! Form::open(['route'=>'announcements.store' ,'files'=>'true' ]) !!}
+
+							@foreach($users as $user)
+								<input type="hidden" name="users[]" value="{{$user->mobile}}">
+							@endforeach
+							
 							{{ Form::label('title','Title')}}
 							{{ Form::text('title',null,['class'=>'form-control']) }}
 							{{ Form::label('description','Description')}}

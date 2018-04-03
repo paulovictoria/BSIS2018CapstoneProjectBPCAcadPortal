@@ -37,6 +37,7 @@ class StudentRegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'image'=>'required',
             'cor'=>'required',
+            'mobile'=>'required'
     	]); 
         $file=$request->file('image');
         $fileName=$request->sid.time().'.'.$file->getClientOriginalExtension();
@@ -53,6 +54,7 @@ class StudentRegisterController extends Controller
     	$student->midle_name=$request->midle_name;
         $student->gender=$request->gender;
         $student->campus_id=$request->campus_id;
+        $student->mobile=$request->mobile;
     	$student->email=$request->email;
     	$student->password=bcrypt($request['password']);
     	$student->approved = false;

@@ -25,7 +25,8 @@ class CreateProfessorsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('campus_id')->nullable()->unsigned();   
-            $table->string('filename');         
+            $table->string('filename'); 
+            $table->char('mobile');        
             $table->rememberToken();
             $table->timestamps();
         });

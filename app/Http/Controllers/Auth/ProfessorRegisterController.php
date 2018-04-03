@@ -29,7 +29,8 @@ class ProfessorRegisterController extends Controller
             'campus_id' => 'required|integer',
             'email' => 'required|string|email|max:255|unique:professors',
             'password' => 'required|string|min:6|confirmed',
-            'image' => 'required'
+            'image' => 'required',
+            'mobile'=>'required'
     	]);
         $file=$request->file('image');
         $fileName=time().'.'.$file->getClientOriginalExtension();
@@ -40,6 +41,7 @@ class ProfessorRegisterController extends Controller
     	$professor->last_name=$request->last_name;
     	$professor->first_name=$request->first_name;
     	$professor->midle_name=$request->midle_name;
+         $professor->mobile=$request->mobile;
     	$professor->email=$request->email;
         $professor->gender=$request->gender;
         $professor->campus_id=$request->campus_id;

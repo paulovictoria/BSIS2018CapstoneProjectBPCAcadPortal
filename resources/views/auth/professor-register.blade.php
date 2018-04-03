@@ -69,7 +69,17 @@
                       </span>
                     @endif  
                 </div>  
-                <div class="input-field col s12">
+                <div class="input-field col s6">
+                   <input id="mobile" type="text" class="form-control" name="mobile" data-mask="+63-900-000-0000" placeholder="+63-900-000-0000" />
+                  <label for="mobile">Phone Number</label>
+                    @if ($errors->has('mobile'))
+                      <span class="help-block">
+                      <strong>{{ $errors->first('mobile') }}</strong>
+                      </span>
+                    @endif  
+                </div>
+                
+                <div class="input-field col s6">
                     <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="password">
                     @if ($errors->has('password'))
@@ -78,11 +88,11 @@
                       </span>
                     @endif
                 </div> 
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                   <label for="password-confirm">Confirm Password</label> 
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 </div> 
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                   <div class="file-field input-field">  
                       <div class="btn">
                           <span>Profile Picture</span>
@@ -112,6 +122,7 @@
     });
     $(document).ready(function(){ 
        $('#eid').mask('00-0000');
+       $('#mobile').mask('+63-900-000-0000');
     });
 </script>
 @endsection

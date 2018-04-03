@@ -7,6 +7,9 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\News;
+use App\Student;
+use App\Admin;
+use SmsGateway;
 use Session;
 use Auth;
 class NewsController extends Controller
@@ -34,7 +37,11 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news.create');
+         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
+        ->join('professors','admins.campus_id','=','professors.campus_id')
+        ->join('students','admins.campus_id','=','students.campus_id')->get()
+        ;   
+        return view('news.create')->withUsers($users);
     }
 
     /**
@@ -59,7 +66,15 @@ class NewsController extends Controller
         $news->filename=$fileName;
         $news->campus_id=Auth::user()->campus_id;
         $news->save();
+
+        $numbers =$request->users;
+        $message = $request->title.'!'.' '.' '.$request->description.'.'.'From BPC';
+        $sms = SmsGateway::to($numbers)
+                 ->message($message)
+                 ->send();
+
         }
+
         Session::flash('success','News Successully Posted');
         return redirect()->route('news.index');
 
@@ -85,8 +100,12 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
+         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
+        ->join('professors','admins.campus_id','=','professors.campus_id')
+        ->join('students','admins.campus_id','=','students.campus_id')->get()
+        ; 
         $news=News::find($id);
-        return view('news.edit')->withNews($news);
+        return view('news.edit')->withNews($news)->withUsers($users);
     }
 
     /**
@@ -112,6 +131,7 @@ class NewsController extends Controller
         $news->description=$request->description;
         $news->filename=$fileName;
         $news->campus_id=Auth::user()->campus_id;
+
         }
         else {
         $news->title=$request->title;
@@ -119,8 +139,15 @@ class NewsController extends Controller
         $news->campus_id=Auth::user()->campus_id;
         }
         $news->save();
+
+        $numbers =$request->users;
+        $message = $request->title.'!'.' '.' '.$request->description.'.'.'From BPC';
+        $sms = SmsGateway::to($numbers)
+                 ->message($message)
+                 ->send();
+                 
         Session::flash('success','News Successully Updated');
-        return redirect()->route('news.show',$news->id);
+        return redirect()->route('news.index');
     }
 
     /**
