@@ -35,18 +35,65 @@ class AdminController extends Controller
         $registrars=Registrar::where('campus_id','=',Auth::user()->campus_id)->get();
         $admins=Admin::where('campus_id','=',Auth::user()->campus_id)->get();
 
-        $studentsAll=Student::all();
-        $professorsAll=Professor::all();
-        $registrarsAll=Registrar::all();
-        $adminsAll=Admin::all(); 
+        //Malolos
+        $studentsMalolos=Student::where('campus_id','=',1)->get();
+        $professorsMalolos=Professor::where('campus_id','=',1)->get();
+        $registrarsMalolos=Registrar::where('campus_id','=',1)->get();
+        $adminsMalolos=Admin::where('campus_id','=',1)->get(); 
+        $usersMalolos=$studentsMalolos->count()+$professorsMalolos->count()+$registrarsMalolos->count()+$adminsMalolos->count();
+        //Boucaue
+        $studentsBocaue=Student::where('campus_id','=',2)->get();
+        $professorsBocaue=Professor::where('campus_id','=',2)->get();
+        $registrarsBocaue=Registrar::where('campus_id','=',2)->get();
+        $adminsBocaue=Admin::where('campus_id','=',2)->get(); 
+        $usersBocaue=$studentsBocaue->count()+$professorsBocaue->count()+$registrarsBocaue->count()+$adminsBocaue->count();
+        //Obando
+        $studentsObando=Student::where('campus_id','=',3)->get();
+        $professorsObando=Professor::where('campus_id','=',3)->get();
+        $registrarsObando=Registrar::where('campus_id','=',3)->get();
+        $adminsObando=Admin::where('campus_id','=',3)->get(); 
+        $usersObando=$studentsObando->count()+$professorsObando->count()+$registrarsObando->count()+$adminsObando->count(); 
+        //Angat
+        $studentsAngat=Student::where('campus_id','=',4)->get();
+        $professorsAngat=Professor::where('campus_id','=',4)->get();
+        $registrarsAngat=Registrar::where('campus_id','=',4)->get();
+        $adminsAngat=Admin::where('campus_id','=',4)->get(); 
+        $usersAngat=$studentsAngat->count()+$professorsAngat->count()+$registrarsAngat->count()+$adminsAngat->count();
+        //Pandi
+        $studentsPandi=Student::where('campus_id','=',5)->get();
+        $professorsPandi=Professor::where('campus_id','=',5)->get();
+        $registrarsPandi=Registrar::where('campus_id','=',5)->get();
+        $adminsPandi=Admin::where('campus_id','=',5)->get(); 
+        $usersPandi=$studentsPandi->count()+$professorsPandi->count()+$registrarsPandi->count()+$adminsPandi->count();
+        //San Rafael
+        $studentsSR=Student::where('campus_id','=',6)->get();
+        $professorsSR=Professor::where('campus_id','=',6)->get();
+        $registrarsSR=Registrar::where('campus_id','=',6)->get();
+        $adminsSR=Admin::where('campus_id','=',6)->get(); 
+        $usersSR=$studentsSR->count()+$professorsSR->count()+$registrarsSR->count()+$adminsSR->count();
+        //San Jose Del Monte
+        $studentsSJDM=Student::where('campus_id','=',7)->get();
+        $professorsSJDM=Professor::where('campus_id','=',7)->get();
+        $registrarsSJDM=Registrar::where('campus_id','=',7)->get();
+        $adminsSJDM=Admin::where('campus_id','=',7)->get(); 
+        $usersSJDM=$studentsSJDM->count()+$professorsSJDM->count()+$registrarsSJDM->count()+$adminsSJDM->count();   
+        //San Miguel
+        $studentsSM=Student::where('campus_id','=',8)->get();
+        $professorsSM=Professor::where('campus_id','=',8)->get();
+        $registrarsSM=Registrar::where('campus_id','=',8)->get();
+        $adminsSM=Admin::where('campus_id','=',8)->get(); 
+        $usersSM=$studentsSM->count()+$professorsSM->count()+$registrarsSM->count()+$adminsSM->count();             
 
         $courses=Course::all();
+
+
+
 
         $chartjs = app()->chartjs
         ->name('pieChartTest')
         ->type('doughnut')
         ->size(['width' => 400, 'height' => 400])
-        ->labels(['Students','Instructors','Registrars','Administrator'])
+        ->labels(['Students','Instructors','Registrars','Administrator',])
         ->datasets([
             [   
                 'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
@@ -63,12 +110,12 @@ class AdminController extends Controller
         ->name('polarArea')
         ->type('polarArea')
         ->size(['width' => 400, 'height' => 400])
-        ->labels(['Students','Instructors','Registrars','Administrator'])
+        ->labels(['Malolos','Bocaue','Obando','Angat','Pandi','San Rafael','SJDM','San Miguel'])
         ->datasets([
             [   
-                'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
-                'hoverBackgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
-                'data' => [$studentsAll->count(),$professorsAll->count(),$registrarsAll->count(),$adminsAll->count(),]
+                'backgroundColor' => ['#088446', '#d20e1c','#616f8c','#ffb6c1','#cd9b1d','#ffe1ff','#7e084b','#12110e',],
+                'hoverBackgroundColor' => ['#088446', '#d20e1c','#616f8c','#ffb6c1','#cd9b1d','#ffe1ff','#7e084b','#12110e',],
+                'data' => [$usersMalolos,$usersBocaue,$usersObando,$usersAngat,$usersPandi,$usersSR,$usersSJDM,$usersSM,]
             ]
         ])
         ->options([
