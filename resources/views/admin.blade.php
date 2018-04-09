@@ -16,7 +16,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h5><a href="{{route('student.subjects',Auth::user()->course_id)}}" class=" white-text"><span>Courses</span></a></h5>
+                  <h5><a href="{{route('courses.index')}}" class=" white-text"><span>Courses</span></a></h5>
                 </div>
               </div>
             </div>
@@ -29,7 +29,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h5><a href="{{route('student.schedule')}}" class=" white-text"><span>Assign</span></a></h5>
+                  <h5><a href="{{route('assigns.index')}}" class=" white-text"><span>Assign</span></a></h5>
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h5><a href="{{route('student.files')}}" class=" white-text"><span>Classrooms</span></a></h5>
+                  <h5><a href="{{route('adminClassroomIndex')}}" class=" white-text"><span>Classrooms</span></a></h5>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h5><a href="{{route('student.grades')}}" class=" white-text"><span>Rooms</span></a></h5>
+                  <h5><a href="{{route('rooms.index')}}" class=" white-text"><span>Rooms</span></a></h5>
                 </div>
               </div>
             </div>        

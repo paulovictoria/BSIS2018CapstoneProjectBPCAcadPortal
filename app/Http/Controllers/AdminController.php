@@ -119,7 +119,7 @@ class AdminController extends Controller
             ]
         ])
         ->options([
-            'title'=>['display'=>true,'text'=>'All Campus Type of Users','position'=>'bottom',],
+            'title'=>['display'=>true,'text'=>'All Campus Users','position'=>'bottom',],
             'legend'=>['display'=>true,'position'=>'bottom',]
         ]);
 
