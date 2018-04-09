@@ -26,8 +26,12 @@
 														@foreach($assigns as $assign)
 													<tr>	
 													 <td>{{$assign->last_name.' '.$assign->first_name.' '.$assign->midle_name}}</td>
-													 <td>{{$assign->grade}}</td>
-														@if($assign->grade==0)
+						                              @if($assign->grade==6)
+						                              <td>No Grade</td>
+						                              @else
+						                              <td>{{$assign->grade}}</td>
+						                              @endif
+						                              @if($assign->grade==0)
 						                               <td class="grey-text">NO GRADE</td>
 						                               @elseif($assign->grade<=3)
 						                               <td class="green-text">PASSED</td>
@@ -35,6 +39,8 @@
 						                               <td class="orange-text">INC</td>
 						                               @elseif($assign->grade==5)
 						                               <td class="red-text">FAILED</td>
+						                               @elseif($assign->grade==6)
+						                               <td class="red-text">DROPPED</td>
 						                               @endif
 						                              </tr> 
 													@endforeach

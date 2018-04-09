@@ -142,7 +142,6 @@ class AnnouncementController extends Controller
         $announcement->title=$request->title;
         $announcement->description=$request->description;
         $announcement->campus_id=Auth::user()->campus_id;
-          $numbers =$request->$users;
         }
         $announcement->save();
 

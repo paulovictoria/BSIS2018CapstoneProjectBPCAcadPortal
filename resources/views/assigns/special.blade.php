@@ -21,24 +21,14 @@
 					<div class="col s9 offset-s3 m9 offset-m3">
 						<h3 class="light-green-text darken-2 card-title">Individual Assign</h3>
 						<div class="section">
-						@if(Session::has('success'))
-							<div class="col s12 p">
-								<div class="light-green darken-1">
-									<strong>Success:</strong> {{ Session::get('success')}}
+							@if(Session::has('success'))
+								<div class="col s12 center">
+									<div class="yellow darken-3">
+										<p class="flow-text white-text">{{ Session::get('success')}}</p>
+									</div>
 								</div>
-							</div>
-						@endif
-						@if(count($errors)>0)
-							<div class="col s12">
-								<div class="red darken-1">
-									<strong>Errors:</strong>
-									@foreach($errors->all() as $error)
-										<li>{{ $error }}</li>
-									@endforeach
-								</div>
-							</div>
-						@endif
-						</div>
+							@endif
+						</div>  
 						{!! Form::open(['route'=>'speacialAssign.store']) !!}
 
 						{{ Form::label('student_id','Student Name') }}
@@ -82,7 +72,7 @@
 	
 						<div class="section"></div>
 						<div class="right">
-						{{ Form::submit('Save',['class'=>'btn light-green darken-2']) }}			
+						{{ Form::submit('Save',['class'=>'btn green darken-2']) }}			
 						</div>
 						{!! Form::close() !!}
 					</div>

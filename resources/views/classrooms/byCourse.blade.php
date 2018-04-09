@@ -63,14 +63,22 @@
 								{{ Form::label('course_id','Course')}}
 								<input type="hidden" name="course_id" value="{{$course->id}}">
 								<input type="text" name="course_name" value="{{$course->course_name}}" disabled="true">
-								<br>								
+								<br>	
+
 								{{ Form::label('year','Year')}}
+								@if($course->degree!=0)
 								<select class="form-control year" name="year">
 									<option value="First Year">First Year</option>
 									<option value="Second Year">Second Year</option>
 									<option value="Third Year">Third Year</option>
 									<option value="Fourth Year">Fourth Year</option>	
 								</select>
+								@else
+								<select class="form-control year" name="year">
+									<option value="First Year">First Year</option>
+									<option value="Second Year">Second Year</option>
+								</select>
+								@endif
 								<br>
 								@if ($errors->has('year'))
                                 <span>
@@ -85,7 +93,12 @@
 									<option value="D">D</option>
 									<option value="E">E</option>	
 									<option value="F">F</option>
-									<option value="G">G</option>		
+									<option value="G">G</option>
+									<option value="H">H</option>
+									<option value="I">I</option>
+									<option value="J">J</option>
+									<option value="K">K</option>	
+									<option value="L">L</option>			
 								</select>
 								<br>	
 							    @if ($errors->has('section'))

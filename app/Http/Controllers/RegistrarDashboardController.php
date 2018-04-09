@@ -64,7 +64,7 @@ class RegistrarDashboardController extends Controller
              ]
 
          ])
-         ->options(['title'=>['display'=>true,'text'=>'Students Bar Per Course',]]);
+         ->options(['title'=>['display'=>true,'text'=>'Line of Students',]]);
 
                   return view('registrar', compact('chartjs','chartjsBar'));
 	}

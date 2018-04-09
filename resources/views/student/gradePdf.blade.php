@@ -26,20 +26,26 @@
 												<tbody>
 														@foreach($grades as $grade)
 														 @if($grade->sem=="1st Semester")
-															<tr>
-															<td>{{$grade->subj_code}}</td>
-															<td>{{$grade->subj_description}}</td>
-															<td>{{$grade->grade}}</td>
-								                            @if($grade->grade==0)
-                              								<td class="grey-text">No Grade</td>
-                              								 @elseif($grade->grade<=3)
-                              	 							<td class="green-text">Passed</td>
-                               								@elseif($grade->grade<=4)
-                               								<td class="orange-text">INC</td>
-                               								@else
-                               								<td class="red-text">Failed</td>
-                              								 @endif								
-															</tr>
+														<tr>
+														<td>{{$grade->subj_code}}</td>
+														<td>{{$grade->subj_description}}</td>
+								                              @if($grade->grade==6)
+								                              <td>No Grade</td>
+								                              @else
+								                              <td>{{$grade->grade}}</td>
+								                              @endif
+								                              @if($grade->grade==0)
+								                               <td class="grey-text">NO GRADE</td>
+								                               @elseif($grade->grade<=3)
+								                               <td class="green-text">PASSED</td>
+								                               @elseif($grade->grade<=4.75)
+								                               <td class="orange-text">INC</td>
+								                               @elseif($grade->grade==5)
+								                               <td class="red-text">FAILED</td>
+								                               @elseif($grade->grade==6)
+                               								<td class="red-text">DROPPED</td>
+								                               @endif						
+														</tr>
 														@endif  
 														@endforeach
 												</tbody>
@@ -69,16 +75,22 @@
 														<tr>
 														<td>{{$grade->subj_code}}</td>
 														<td>{{$grade->subj_description}}</td>
-														<td>{{$grade->grade}}</td>
-								                            @if($grade->grade==0)
-                              								<td class="grey-text">No Grade</td>
-                              								 @elseif($grade->grade<=3)
-                              	 							<td class="green-text">Passed</td>
-                               								@elseif($grade->grade<=4)
-                               								<td class="orange-text">INC</td>
-                               								@else
-                               								<td class="red-text">Failed</td>
-                              								 @endif								
+								                              @if($grade->grade==6)
+								                              <td>No Grade</td>
+								                              @else
+								                              <td>{{$grade->grade}}</td>
+								                              @endif
+								                              @if($grade->grade==0)
+								                               <td class="grey-text">NO GRADE</td>
+								                               @elseif($grade->grade<=3)
+								                               <td class="green-text">PASSED</td>
+								                               @elseif($grade->grade<=4.75)
+								                               <td class="orange-text">INC</td>
+								                               @elseif($grade->grade==5)
+								                               <td class="red-text">FAILED</td>
+								                               @elseif($grade->grade==6)
+                               								<td class="red-text">DROPPED</td>
+								                               @endif						
 														</tr>
 													@endif  
 													@endforeach

@@ -29,7 +29,11 @@
                                             <tr>
                                                 <td>{{$record->subj_code}}</td>
                                                 <td>{{$record->subj_description}}</td>
+                                                 @if($record->grade==6)
+                                                <td>No Grade</td>
+                                                 @else
                                                 <td>{{$record->grade}}</td>
+                                                 @endif
                                                 @if($record->grade==0)
                                                 <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
@@ -38,8 +42,10 @@
                                                 <td class="orange-text">INC</td>
                                                 @elseif($record->grade==5)
                                                 <td class="red-text">FAILED</td>
+                                                @elseif($record->grade==6)
+                                                <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>                        
+                                                <td>{{$record->sem}}</td>                 
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -69,7 +75,11 @@
                                             <tr>
                                                 <td>{{$record->subj_code}}</td>
                                                 <td>{{$record->subj_description}}</td>
+                                                 @if($record->grade==6)
+                                                <td>No Grade</td>
+                                                 @else
                                                 <td>{{$record->grade}}</td>
+                                                 @endif
                                                 @if($record->grade==0)
                                                 <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
@@ -78,8 +88,10 @@
                                                 <td class="orange-text">INC</td>
                                                 @elseif($record->grade==5)
                                                 <td class="red-text">FAILED</td>
-                                                @endif 
-                                                <td>{{$record->sem}}</td>
+                                                @elseif($record->grade==6)
+                                                <td class="red-text">DROPPED</td>
+                                                @endif
+                                                <td>{{$record->sem}}</td>                 
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -108,7 +120,11 @@
                                             <tr>
                                                 <td>{{$record->subj_code}}</td>
                                                 <td>{{$record->subj_description}}</td>
+                                                 @if($record->grade==6)
+                                                <td>No Grade</td>
+                                                 @else
                                                 <td>{{$record->grade}}</td>
+                                                 @endif
                                                 @if($record->grade==0)
                                                 <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
@@ -117,9 +133,11 @@
                                                 <td class="orange-text">INC</td>
                                                 @elseif($record->grade==5)
                                                 <td class="red-text">FAILED</td>
+                                                @elseif($record->grade==6)
+                                                <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>
-                                            </tr> 
+                                                <td>{{$record->sem}}</td>                 
+                                            </tr>  
                                             @endif   
                                             @endforeach
                                             </tbody>
@@ -147,7 +165,11 @@
                                             <tr>
                                                 <td>{{$record->subj_code}}</td>
                                                 <td>{{$record->subj_description}}</td>
+                                                 @if($record->grade==6)
+                                                <td>No Grade</td>
+                                                 @else
                                                 <td>{{$record->grade}}</td>
+                                                 @endif
                                                 @if($record->grade==0)
                                                 <td class="grey-text">NO GRADE</td>
                                                 @elseif($record->grade<=3)
@@ -156,8 +178,10 @@
                                                 <td class="orange-text">INC</td>
                                                 @elseif($record->grade==5)
                                                 <td class="red-text">FAILED</td>
+                                                @elseif($record->grade==6)
+                                                <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>
+                                                <td>{{$record->sem}}</td>                 
                                             </tr> 
                                             @endif   
                                             @endforeach

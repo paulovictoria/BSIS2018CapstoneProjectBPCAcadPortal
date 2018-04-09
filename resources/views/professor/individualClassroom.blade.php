@@ -37,7 +37,11 @@
                               <td>{{$assign->last_name}}
                               {{$assign->first_name}}
                               {{$assign->midle_name}}
+                              @if($assign->grade==6)
+                              <td>No Grade</td>
+                              @else
                               <td>{{$assign->grade}}</td>
+                              @endif
                               @if($assign->grade==0)
                                <td class="grey-text">NO GRADE</td>
                                @elseif($assign->grade<=3)
@@ -46,6 +50,8 @@
                                <td class="orange-text">INC</td>
                                @elseif($assign->grade==5)
                                <td class="red-text">FAILED</td>
+                               @elseif($assign->grade==6)
+                               <td class="red-text">DROPPED</td>
                                @endif
                               
                               <td><a class="btn white green-text modal-trigger tooltipped" href="#modalGrade" id="editButton" data-position="bottom" data-tooltip="Final Grade"><i class="material-icons">edit</i>
@@ -134,7 +140,12 @@
                 </option> 
                   <option value="5.00" class="circle">
                5.00
-                </option>                                                                                                        
+                </option>  
+                <option value="6.00" class="circle">
+                DROP
+                </option>                                                                      <option value="0.00" class="circle">
+                UNDROP
+                </option>                                               
             </select>
            <!-- <input type="text" name="grade" id="grade">
             <label for="grade">Grade is:</label> -->

@@ -112,12 +112,10 @@ class EventController extends Controller
      */
     public function edit($id)
     {   
-         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
-        ->join('professors','admins.campus_id','=','professors.campus_id')
-        ->join('students','admins.campus_id','=','students.campus_id')->get()
-        ; 
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         $event=Event::find($id);
-        return view('events.edit')->withEvent($event)->withUsers($users);
+        return view('events.edit')->withEvent($event)->withStudents($students)->withProfessors($professors);
     }
 
     /**
@@ -165,7 +163,7 @@ class EventController extends Controller
 
         $numbersStudent =$request->students;
 
-        $message = strip_tags($request->title.' ! '.' '.$request->description.' '.'Date-'.' '.$request->date.' '.' '.'Start At:'.' '.$request->startTime.'End At'.$request->endTime.' Will be hold on:'.$request->place);
+        $message = strip_tags($request->title.' ! '.' '.$request->description.' '.'Date-'.' '.$request->date.' '.' '.' Start At: '.' '.$request->startTime.' End At '.$request->endTime.' Will be held on: '.$request->place);
         
         $sms = SmsGateway::to($numbersStudent)
                  ->message($message)

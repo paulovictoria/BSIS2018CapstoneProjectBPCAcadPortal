@@ -1,13 +1,12 @@
 @extends('registrar_template')
-<?php $classroomClass = htmlspecialchars($classroom->class_code); ?>
-@section('title',"| $classroomClass ")
+@section('title','| Class')
 @section('content')
-<main>
-    <div class="section light-green"><h4 class="center-align white-text">Classroom</h4></div>
-    <br><br>
-    <div class="divider"></div> 
-	<div class="row">
-		<div class="col l10 offset-l2">		
+<div class="col s12">				
+	<div class="section">
+		<div class="card z-depth-1">
+			<div class="card-content">
+				<div class="row">
+					<div class="col s9 offset-s3">
 			<div class="card">
 				<div class="card-content">
 					<div class="card-title">
@@ -41,11 +40,13 @@
 							@endforeach
 						</tbody>
 					</table>	
-				</div>	
+					</div>
+				</div>
 			</div>
-		</div>	
+			<div class="card-action"></div>
+		</div>
 	</div>	
-</main>			
+</div>
 @endsection
 @section('script')
 <link rel="stylesheet" href="{{ asset('js/plugins/data-tables/css/jquery.dataTables.min.css') }}">

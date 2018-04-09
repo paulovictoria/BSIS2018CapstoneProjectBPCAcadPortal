@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\News;
 use App\Student;
 use App\Admin;
+use App\Professor;
 use SmsGateway;
 use Session;
 use Auth;
@@ -41,7 +42,7 @@ class NewsController extends Controller
         $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         return view('news.create')->withStudents($students)->withProfessors($professors);
     }
-    }
+    
 
     /**
      * Store a newly created resource in storage.
