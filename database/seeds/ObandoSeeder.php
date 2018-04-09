@@ -441,5 +441,87 @@ class ObandoSeeder extends Seeder
                 'campus_id'=>'3',
         ]);
 
+        //Instructors
+               DB::table('professors')->insert([
+                'eid'=>'10-0011',
+                'last_name' => 'Yolanda',
+                'first_name' => 'Susana',
+                'midle_name' => 'Sanchez',  
+                'approved'=>true,
+                'gender'=>'female',
+                'email'=>'Susana@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'3',
+                'status'=>'0',
+                'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
+        ]);
+               DB::table('professors')->insert([
+                'eid'=>'10-0012',
+                'last_name' => 'Romero',
+                'first_name' => 'Henry Sun',
+                'midle_name' => 'Cruz',  
+                'approved'=>true,
+                'gender'=>'male',
+                'email'=>'HenrySunnn@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'3',
+                'status'=>'0',
+                'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
+        ]);
+
+               DB::table('professors')->insert([
+                'eid'=>'10-0013',
+                'last_name' => 'Reyes',
+                'first_name' => 'Paulito',
+                'midle_name' => 'Salcedo',  
+                'approved'=>true,
+                'gender'=>'female',
+                'email'=>'Paulito@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'3',
+                'status'=>'0',
+                'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
+        ]);
+               DB::table('professors')->insert([
+                'eid'=>'10-0014',
+                'last_name' => 'Ollit',
+                'first_name' => 'Sheena Mae',
+                'midle_name' => 'Tadeo',  
+                'approved'=>true,
+                'gender'=>'female',
+                'email'=>'SheenaMaee@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'3',
+                'status'=>'0',
+                'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
+        ]);
+               DB::table('professors')->insert([
+                'eid'=>'10-0015',
+                'last_name' => 'John',
+                'first_name' => 'Kaneki',
+                'midle_name' => 'Galvez',  
+                'approved'=>true,
+                'gender'=>'female',
+                'email'=>'Kaneki@sample.com',
+                'password'=> bcrypt('sample'),
+                'campus_id'=>'3',
+                'status'=>'0',
+                'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
+        ]);
+
+
+
+
+
+
+
+
+
+
     }
 }

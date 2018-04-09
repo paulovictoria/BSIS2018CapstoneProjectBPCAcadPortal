@@ -29,12 +29,37 @@
     </style>
   </head>
   <body>
+    <ul id="slide-out" class="side-nav">
+      <li><a class="waves-effect" href="{{route('home')}}">HOME</a></li>
+      <li><a class="waves-effect" href="{{route('about')}}">ABOUT</a></li>
+      <li><a class="waves-effect" href="#!">GETTING STARTED</a></li>
+      <li><a class="dropdown-button" href='#' data-activates='logAs'>SIGN IN</a></li>
+      <!-- Dropdown Structure -->
+      <ul id="logAs" class="dropdown-content">
+        <li><a href="{{route('student.login')}}">Student</a></li>
+        <li><a href="{{route('professor.login')}}">Instructor</a></li>
+        <li><a href="{{route('registrar.login')}}">Registrar</a></li>
+        <li><a href="{{route('admin.login')}}">Admin</a></li>
+      </ul>
+    </ul>
+    <div class="navbar-fixed">
+      <nav class="green darken-4"> <a href="#" data-activates="slide-out" class="button-collapse show-on-med-and-down left"><i class="material-icons">menu</i></a>
+      <div class="container nav-wrapper green darken-4">
+        <a href="#" class="brand-logo" id="logo">
+        <span width="30" style="vertical-align: middle;margin-bottom:10px;margin-right:10px;"></span><span style="font-weight:400;font-size:1.5rem;"><i class="material-icons" style="margin-right:1px; ">link</i>BPC Portal</span>
+        </a> 
+        <ul class="rightnav right hide-on-med-and-down">
+          <li><a class="waves-effect" href="{{route('home')}}">HOME</a></li>
+          <li><a class="waves-effect" href="{{route('about')}}">ABOUT</a></li>
+          <li><a class="waves-effect" href="#!">GETTING STARTED</a></li>
+       </ul>
+      </div>
+      </nav>
+    </div>
     <main>
-      <br><br><br><br><br><br><br><br><br><br>
+
 <div class="section">
   <div class="col s12 m12">
-
-          <h5 class="center">ABOUT</h5>
        <div class="row">
         <div class="col s12 m4">
             <div class="card horizontal z-depth-5  transparent">

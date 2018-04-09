@@ -20,7 +20,7 @@ class StudentsHrsTableSeeder extends Seeder
                 'midle_name' => 'Innu',  
                 'approved'=>true,
                 'gender'=>'male',
-                'email'=>'Raymond@sample.com',
+                'email'=>'gjkond@sample.com',
                 'password'=> bcrypt('sample'),
                 'course_id'=>'3',
                 'campus_id'=>'1',

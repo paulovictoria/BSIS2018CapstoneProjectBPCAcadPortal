@@ -37,11 +37,11 @@ class RegistrarDashboardController extends Controller
         ->name('pieChartTest')
         ->type('doughnut')
         ->size(['width' => 400, 'height' => 200])
-        ->labels(['BSIS','BSOM','HRS','CS','CES','CCM','DTS'])
+        ->labels(['BSIS','BSOM','CS','CES','CCM','DTS','HRS',])
         ->datasets([
             [   
-                'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#eedc82','#12110e',],
-                'hoverBackgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#eedc82','#12110e',],
+                'backgroundColor' => ['#468499', '#d20e1c','#ffb6c1','#c1ffc1','#eedc82','#cb5404','#616f8c',],
+                'hoverBackgroundColor' => ['#468499', '#d20e1c','#ffb6c1','#c1ffc1','#eedc82','#cb5404','#616f8c',],
                 'data' => [$studentsBSIS->count(),$studentsBSOM->count(),$studentsCCM->count(),$studentsCES->count(),$studentsCS->count(),$studentsDTS->count(),$studentsHRS->count()]
             ]
         ])
@@ -50,15 +50,16 @@ class RegistrarDashboardController extends Controller
             'legend'=>['display'=>true,'position'=>'bottom',]
         ]);
 
- $chartjsBar = app()->chartjs
+        $chartjsBar = app()->chartjs
          ->name('barChartTest')
-         ->type('horizontalBar')
+         ->type('line')
          ->size(['width' => 400, 'height' => 200])
-         ->labels(['BSIS','BSOM','HRS','CS','CES','CCM','DTS'])
+        ->labels(['BSIS','BSOM','CS','CES','CCM','DTS','HRS',])
          ->datasets([
             [
-               
-                 'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#eedc82','#12110e',],
+         
+                'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#c1ffc1','#eedc82','#cb5404',],
+                'hoverBackgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#c1ffc1','#eedc82','#cb5404',],
                 'data' => [$studentsBSIS->count(),$studentsBSOM->count(),$studentsCCM->count(),$studentsCES->count(),$studentsCS->count(),$studentsDTS->count(),$studentsHRS->count()]
              ]
 

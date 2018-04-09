@@ -284,7 +284,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'midle_name' => 'Cruz',  
                 'approved'=>true,
                 'gender'=>'male',
-                'email'=>'Christian@sample.com',
+                'email'=>'Cweistian@sample.com',
                 'password'=> bcrypt('sample'),
                 'course_id'=>'2',
                 'campus_id'=>'1',
@@ -294,7 +294,7 @@ class StudentsBsomTableSeeder extends Seeder
 
         ]);
 
-        DB::table('students')->insert([
+/*        DB::table('students')->insert([
                 'sid'=>'18-0039',
                 'last_name' => 'Oliveros',
                 'first_name' => 'Juana',
@@ -418,7 +418,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'midle_name' => 'Teodorita',  
                 'approved'=>true,
                 'gender'=>'male',
-                'email'=>'Jose@sample.com',
+                'email'=>'Joswre@sample.com',
                 'password'=> bcrypt('sample'),
                 'course_id'=>'2',
                 'campus_id'=>'1',
@@ -426,7 +426,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
-        ]);
+        ]);*/
 
         DB::table('students')->insert([
                 'sid'=>'18-0047',

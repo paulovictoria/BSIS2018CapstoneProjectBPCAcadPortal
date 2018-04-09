@@ -11,6 +11,7 @@ use Session;
 use Auth;
 use App\Student;
 use App\Admin;
+use App\Professor;
 use SmsGateway;
 class EventController extends Controller
 {
