@@ -13,7 +13,7 @@
             <div class="card">
               <div class="card-content">
             <div class="row">
-           <div class="col s6 m12">
+           <div class="col s12 m12">
             <div class="card horizontal">
               <div class="card-image teal">
                <i class="material-icons white-text" style="font-size: 100px;">collections_bookmark</i>

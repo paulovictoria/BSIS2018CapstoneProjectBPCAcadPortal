@@ -229,7 +229,7 @@
             © 2018 BPC Portal Copyright<br>
             Developed by: BSIS<strong> Pioneer</strong>
           <div class="right"> 
-                  <a class="white-tex" data-position="bottom" href="#" target="_blank">
+                  <a class="white-tex" data-position="bottom" href="https://www.facebook.com/bulpolycol" target="_blank">
                   <img src="{{asset('images/facebook.png')}}" height="50px">
                  </a>
                   <a class="white-tex" data-position="bottom" href="#" target="_blank">
