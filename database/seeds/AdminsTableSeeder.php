@@ -62,7 +62,7 @@ class AdminsTableSeeder extends Seeder
 
        DB::table('admins')->insert([
                 'name' => 'Admin San Rafael',
-                'email' => 'adminosanrafael@yahoo.com',
+                'email' => 'adminsanrafael@yahoo.com',
                 'password' => bcrypt('sample'),  
                 'campus_id'=>'6',
         ]);         

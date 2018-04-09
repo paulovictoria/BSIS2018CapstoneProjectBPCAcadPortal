@@ -11,6 +11,7 @@ use App\Course;
 use Auth;
 use Session;
 use Illuminate\Support\Carbon;
+use SmsGateway;
 class AdminController extends Controller
 {
     public function __construct() {
@@ -31,11 +32,56 @@ class AdminController extends Controller
     {
         $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
         $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
+        $registrars=Registrar::where('campus_id','=',Auth::user()->campus_id)->get();
+        $admins=Admin::where('campus_id','=',Auth::user()->campus_id)->get();
+
+        $studentsAll=Student::all();
+        $professorsAll=Professor::all();
+        $registrarsAll=Registrar::all();
+        $adminsAll=Admin::all(); 
+
         $courses=Course::all();
+
+        $chartjs = app()->chartjs
+        ->name('pieChartTest')
+        ->type('doughnut')
+        ->size(['width' => 400, 'height' => 400])
+        ->labels(['Students','Instructors','Registrars','Administrator'])
+        ->datasets([
+            [   
+                'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
+                'hoverBackgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
+                'data' => [$students->count(),$professors->count(),$registrars->count(),$admins->count(),]
+            ]
+        ])
+        ->options([
+            'title'=>['display'=>true,'text'=>'Type of Users','position'=>'bottom',],
+            'legend'=>['display'=>true,'position'=>'bottom',]
+        ]);
+
+        $chartjspolararea = app()->chartjs
+        ->name('polarArea')
+        ->type('polarArea')
+        ->size(['width' => 400, 'height' => 400])
+        ->labels(['Students','Instructors','Registrars','Administrator'])
+        ->datasets([
+            [   
+                'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
+                'hoverBackgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1',],
+                'data' => [$studentsAll->count(),$professorsAll->count(),$registrarsAll->count(),$adminsAll->count(),]
+            ]
+        ])
+        ->options([
+            'title'=>['display'=>true,'text'=>'All Campus Type of Users','position'=>'bottom',],
+            'legend'=>['display'=>true,'position'=>'bottom',]
+        ]);
+
         return view('admin')
         ->withStudents($students)
         ->withProfessors($professors)
-        ->withCourses($courses);
+        ->withCourses($courses)
+        ->withChartjs($chartjs)
+        ->withChartjspolararea($chartjspolararea);
     }
 
     public function profile() {
@@ -54,7 +100,7 @@ class AdminController extends Controller
     }
 
     public function professorIndex() {
-        $professors=Professor::where('approved','=',true)->get();
+        $professors=Professor::where('approved','=',true)->where('campus_id','=',Auth::user()->campus_id)->get();
         return view('admin.professorIndex')->withProfessors($professors);   
     }
 
@@ -84,6 +130,11 @@ class AdminController extends Controller
          $professor->approved = true;
          $professor->status = true;
          $professor->save();
+        $number =$professor->mobile;
+        $message = 'Your Registration in BPC Portal Has been Approved. Visit your account on bpciansportal.herokuapp.com';
+        $sms = SmsGateway::to($number)
+                 ->message($message)
+                 ->send();
          $professors=Professor::where('approved','=',0)
          ->where('campus_id','=',Auth::user()->campus_id)
          ->get();
@@ -101,7 +152,7 @@ class AdminController extends Controller
         $professor=Professor::find($id);
         $professor->status = true;
         $professor->save();
-        $professors=Professor::where('approved','=',true)->get();
+        $professors=Professor::where('approved','=',true)->where('campus_id','=',Auth::user()->campus_id)->get();
         Session::flash('success','Enabled Successfully');
         return redirect()->route('professorIndex')->withProfessors($professors); 
     } 
@@ -109,7 +160,7 @@ class AdminController extends Controller
         $professor=Professor::find($id);
         $professor->status = false;
         $professor->save();
-        $professors=Professor::where('approved','=',true)->get();
+        $professors=Professor::where('approved','=',true)->where('campus_id','=',Auth::user()->campus_id)->get();
         Session::flash('success','Disabled Successfully');
         return redirect()->route('professorIndex')->withProfessors($professors); 
     }

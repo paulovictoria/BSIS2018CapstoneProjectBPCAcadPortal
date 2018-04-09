@@ -37,11 +37,9 @@ class EventController extends Controller
      */
     public function create()
     {
-         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
-        ->join('professors','admins.campus_id','=','professors.campus_id')
-        ->join('students','admins.campus_id','=','students.campus_id')->get()
-        ;   
-        return view('events.create')->withUsers($users);
+         $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
+         $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
+        return view('events.create')->withStudents($students)->withProfessors($professors);
     }
 
     /**
@@ -76,10 +74,15 @@ class EventController extends Controller
         $event->campus_id=Auth::user()->campus_id;
         $event->save();
 
-        $numbers =$request->users;
-        $message = $request->title.'!'.' '.' '.$request->description.'.'.' '.$request->date.' '.
-        'Start At'.$request->startTime.'End At'.$request->endTime.'will be held on'.$request->place.'From BPC';
-        $sms = SmsGateway::to($numbers)
+        $numbersStudent =$request->students;
+
+        $message = strip_tags($request->title.' ! '.' '.$request->description.' '.'Date-'.' '.$request->date.' '.' '.'Start At:'.' '.$request->startTime.'End At'.$request->endTime.' Will be hold on:'.$request->place);
+        
+        $sms = SmsGateway::to($numbersStudent)
+                 ->message($message)
+                 ->send();
+        $numbersProfessor =$request->professors;
+        $sms = SmsGateway::to($numbersProfessor)
                  ->message($message)
                  ->send();
 
@@ -159,10 +162,15 @@ class EventController extends Controller
         }
         $event->save();
 
-        $numbers =$request->users;
-        $message = $request->title.'!'.' '.' '.$request->description.'.'.' '.$request->date.' '.
-        'Start At'.$request->startTime.'End At'.$request->endTime.'will be held on'.$request->place.'From BPC';
-        $sms = SmsGateway::to($numbers)
+        $numbersStudent =$request->students;
+
+        $message = strip_tags($request->title.' ! '.' '.$request->description.' '.'Date-'.' '.$request->date.' '.' '.'Start At:'.' '.$request->startTime.'End At'.$request->endTime.' Will be hold on:'.$request->place);
+        
+        $sms = SmsGateway::to($numbersStudent)
+                 ->message($message)
+                 ->send();
+        $numbersProfessor =$request->professors;
+        $sms = SmsGateway::to($numbersProfessor)
                  ->message($message)
                  ->send();
                  

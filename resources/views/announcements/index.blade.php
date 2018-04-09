@@ -23,7 +23,6 @@
 								<td>NO.</td>
 								<td>TITLE</td>
 								<td>DESCRIPTION</td>
-								<td>DATE</td>
 								<td>CREATED AT</td>
 								<td>IMAGE</td>
 								<td>ACTION</td>
@@ -37,7 +36,6 @@
 								<td>{{$no++}}</td>
 								<td id="itemTitleEvent">{{$announcement->title}}</td>
 								<td id="itemDescriptionEvent">{{ substr(strip_tags($announcement->description),0,20)}} {{ strlen(strip_tags($announcement->description)) > 50 ? "..." : "" }}</td>
-								<td>{{$announcement->date}}</td>
 								<td>{{ date('M j,Y',strtotime($announcement->created_at)) }}</td>
 								<td><a href="#"><img class="circle" src="{{route('socials.image',['filename'=>$announcement->filename])}}" width="50"></a></td>
 								<td class="right">

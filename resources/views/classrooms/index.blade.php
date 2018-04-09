@@ -52,7 +52,7 @@
 								<td>{{ $classroom->assigns->count() }}</td>
 								<td><a href="{{ route('classrooms.show',$classroom->id)}}" class="btn white green-text darken-2 tooltipped" data-position="bottom" data-tooltip="View Classroom"><i class="material-icons">pageview</i></a>
 								<a href="{{ route('classrooms.edit',$classroom->id)}}" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit Classroom"><i class="material-icons">edit</i></a>
-								<a href="#" class="btn white yellow-text darken-2 tooltipped" data-position="bottom" data-tooltip="Download Classroom"><i class="material-icons">file_download</i></a></td>
+								<a href="{{route('exportExcelClassroom',$classroom->id)}}" class="btn white yellow-text darken-2 tooltipped" data-position="bottom" data-tooltip="Download Classroom"><i class="material-icons">file_download</i></a></td>
 							</tr>
 							@endforeach
 						</tbody>

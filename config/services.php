@@ -41,7 +41,7 @@ return [
         'smsgateway' => [
         'email' => 'pauladrian12345678@yahoo.com',
         'password' => 'paul12345678',
-        'device_id' => '85330'
+        'device_id' => '85776'
     ],
 
 ];

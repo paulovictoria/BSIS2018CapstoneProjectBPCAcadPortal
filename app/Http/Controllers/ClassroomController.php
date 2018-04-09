@@ -9,6 +9,8 @@ use App\Course;
 use App\Student;
 use Session;
 use Auth;
+use DB;
+use Excel;
 class ClassroomController extends Controller
 {
     public function __construct() {
@@ -165,6 +167,68 @@ class ClassroomController extends Controller
         return view('classrooms.byCourse')
         ->withCourse($course)
         ->withStudents($students);
+    }
+
+
+
+    public function exportExcelClassroom($id) {
+    $classrooms = Classroom::where('id','=',$id)->first()
+    ->join('classroom_student','classrooms.id','=','classroom_student.classroom_id')
+    ->join('students','classroom_student.student_id','=','students.id')
+    ->orderBy('last_name','asc')
+    ->select(DB::raw("concat(last_name, ' ',first_name, ' ', midle_name)"))
+    ->get();
+
+   //This is the title
+    $classroomTitle=Classroom::where('id','=',$id)->get();
+
+    foreach ($classroomTitle as $classroomTit) {
+         
+         if($classroomTit->year=='First Year'){
+            $title=$classroomTit->course->course_name.'_'.'1'.$classroomTit->section;
+         } 
+         elseif($classroomTit->year=='Second Year'){
+            $title=$classroomTit->course->course_name.'_'.'2'.$classroomTit->section;            
+         }
+         elseif($classroomTit->year=='Third Year'){
+            $title=$classroomTit->course->course_name.'_'.'3'.$classroomTit->section;            
+         }     
+         else {
+            $title=$classroomTit->course->course_name.'_'.'4'.$classroomTit->section;            
+         }    
+         
+    }
+
+
+    // Initialize the array which will be passed into the Excel
+    // generator.
+    $classroomsArray = []; 
+
+    // Define the Excel spreadsheet headers
+    $classroomsArray[] = ['Name'];
+
+    // Convert each member of the returned collection into an array,
+    // and append it to the payments array.
+    foreach ($classrooms as $classroom) {
+        $classroomsArray[] = $classroom->toArray();
+    }
+
+    // Generate and return the spreadsheet
+    Excel::create($title, function($excel) use ($classroomsArray,$title) {
+
+        // Set the spreadsheet title, creator, and description
+        $excel->setTitle($title);
+        $excel->setCreator('BPCPortal')->setCompany('Bulcan Polytechnic College');
+        $excel->setDescription('Students List');
+
+        // Build the spreadsheet, passing in the payments array
+        $excel->sheet('sheet1', function($sheet) use ($classroomsArray) {
+            $sheet->fromArray($classroomsArray, null, 'A1', false, false);
+        });
+
+    })->download('xlsx');
+
+
     }
    
 }

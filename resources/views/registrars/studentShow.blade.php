@@ -20,7 +20,6 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
-                                                    <td>GRADE AT</td>
                                                   
                                                 </tr>
                                             </thead>    
@@ -40,7 +39,7 @@
                                                 @elseif($record->grade==5)
                                                 <td class="red-text">FAILED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>                           
+                                                <td>{{$record->sem}}</td>                        
                                             </tr> 
                                             @endif   
                                             @endforeach

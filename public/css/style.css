@@ -115,3 +115,17 @@ img.responisve-img {
 @media (min-width: 1200px) {
 
 }
+
+/*Dashboard*/
+.card-image i {
+  font-size: 100px;
+}
+
+.card-stacked span {
+  color: #999;
+  font-size: 15px;
+}
+
+.announcement h5 {
+   color: #999;
+}

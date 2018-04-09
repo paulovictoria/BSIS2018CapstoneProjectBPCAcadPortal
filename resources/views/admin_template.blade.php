@@ -15,8 +15,8 @@
 
 	<body>
 		@include('partials._navigation')
-		@yield('partials._messages')
 		@yield('content')
+		@include('partials._footer')
 		@include('partials._javascript')
 		@yield('script')
 	</body>	

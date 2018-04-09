@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col s12 m4 push-m4">
             <form method="POST" action="{{ route('admin.login.submit') }}">{{ csrf_field() }}
-                <div class="card">
-                    <div class="card-content z-depth-2">
+                <div class="card z-depth-2">
+                    <div class="card-content">
                         <span class="card-title center green-text darken-4">ADMIN</span>
                         <div class="row">
                             <div class="input-field col s12{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -37,9 +37,8 @@
                             </div>                                                                   
                         </div>     
                     </div> 
-                    <div class="card-action">    
-                     <a class="link light-green-text" href="{{ route('admin.password.request') }}">Forgot Password?</a>  
-                     <a class="link light-green-text" href="{{ route('student.registration') }}">No Account?</a>       
+                    <div class="card-action center">    
+                     <a class="link light-green-text" href="{{ route('admin.password.request') }}">Forgot Password?</a>        
                     </div>    
                 </div>
             </form>  

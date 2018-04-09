@@ -14,13 +14,15 @@ use App\Assign;
 use App\Subject;
 use App\Classroom;
 use App\Student;
+use App\Announcement;
+use App\Event;
+use App\News;
 use App\FileUpload;
 use Session;
 use DB;
 use Auth;
 use Excel;
 use PDF;
-
 class ProfessorDashboardController extends Controller
 {
     public function __construct() {
@@ -28,7 +30,16 @@ class ProfessorDashboardController extends Controller
     }
 
     public function index() {
-        return view('professor');
+        $announcements=Announcement::where('campus_id','=',Auth::user()->campus_id)
+        ->orderBy('id','desc')->limit(5)->get();
+        $newses=News::where('campus_id','=',Auth::user()->campus_id)
+        ->orderBy('id','desc')->limit(5)->get();
+        $events=Event::where('campus_id','=',Auth::user()->campus_id)
+        ->orderBy('id','desc')->limit(5)->get();
+        return view('professor')
+        ->withAnnouncements($announcements)
+        ->withNewses($newses)
+        ->withEvents($events);
     }
 
     public function profile() {
@@ -43,7 +54,6 @@ class ProfessorDashboardController extends Controller
     public function profileUpdate(Request $request,$id) {
 
         $this->validate($request,[
-            'eid'=>'required',
             'last_name'=>'required',
             'first_name'=>'required',
             'midle_name'=>'required',
@@ -57,23 +67,25 @@ class ProfessorDashboardController extends Controller
             $fileName=time().'.'.$file->getClientOriginalExtension();
             $uploaded=Storage::disk('profiles')->put($fileName,file_get_contents($file->getRealPath()));
             $delete=Storage::disk('profiles')->delete($professor->filename);
-            $professor->eid=$request->eid;
             $professor->last_name=$request->last_name;
             $professor->first_name=$request->first_name;
             $professor->midle_name=$request->midle_name;
             $professor->gender=$request->gender;
             $professor->filename=$fileName;
+            $professor->mobile=$request->mobile;
         }
         else{
 
-            $professor->eid=$request->eid;
             $professor->last_name=$request->last_name;
             $professor->first_name=$request->first_name;
             $professor->midle_name=$request->midle_name;
             $professor->gender=$request->gender;
+             $professor->mobile=$request->mobile;
         } 
         $professor->save();
-        return redirect()->route('professor.profile');
+        Session::flash('success','Profile Updated Successfully');
+        $professor=Professor::find(Auth::user()->id);
+        return redirect()->route('professor.editProfile')->withProfessor($professor);
     }    
 
     public function indexClassroom() {
@@ -121,7 +133,7 @@ class ProfessorDashboardController extends Controller
     }
 
     public function exportExcelGrade($id) {
-   $assigns = Assign::where('id','=',$id)->first()
+    $assigns = Assign::where('id','=',$id)->first()
    ->join('assign_student','assigns.id','=','assign_student.assign_id')
    ->where('assign_student.assign_id','=',$id)
    ->join('subjects','assigns.subject_id','=','subjects.id')

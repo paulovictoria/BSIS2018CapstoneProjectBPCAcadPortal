@@ -25,7 +25,7 @@
                              <td>{{$assign->classroom->sem}}</td>
                              <td>{{$assign->classroom->course->course_name.' '.$assign->classroom->year.' '.$assign->classroom->section}}</td>  
                              <td>{{$assign->subject->subj_code}}</td>
-                             <td>Total files</td>
+                             <td>{{$assign->fileuploads->count()}}</td>
                             <td><a href="{{route('uploadIndex',$assign->id)}}" class="btn white yellow-text darken-2 tooltipped"   data-position="bottom" data-tooltip="View Files"><i class="material-icons">pageview</i></a>
                             </td>
                             </tr>

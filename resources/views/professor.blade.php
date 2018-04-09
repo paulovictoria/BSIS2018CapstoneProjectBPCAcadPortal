@@ -3,87 +3,113 @@
 @section('content')
 <div class="col m12">       
   <div class="row">
-    <div class="col m9 offset-m3 ">
+    <div class="col m9 offset-m3 l9 offset-l3">
       <div class="section"></div>
         <div class="row">
-          <div class="col s12 m8">
-            <div class="card horizontal z-depth-5 blue-grey darken-2">
-              <div class="card-image">
-                <img src="{{route('user.image',['filename'=>Auth::user()->filename ])}}" height="169px">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h5 class=" white-text">{{Auth::user()->last_name.' '.Auth::user()->first_name.' '.Auth::user()->midle_name}}</h5>
-                  <h5><a href="#" class=" white-text">BPC Instructor</a></h5>
-                </div>
-              <div class="card-action"></div>
-              </div>
-            </div>
-          </div>  
-          <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 teal">
-              <div class="card-image">
+          <div class="col m3 s12">
+            <div class="card horizontal">
+              <div class="card-image teal">
                 <i class="material-icons white-text" style="font-size: 100px;">collections_bookmark</i>
               </div>
               <div class="card-stacked">
                 <div class="card-content">
-                  <h5 class=" white-text">My</h5>
-                  <h5><a href="{{ route('professor.indexClassroomsAssign')}}" class="white-text">Classes</a></h5>
-                </div>
-                <div class="card-action  white-text"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 blue lighten-1">
-              <div class="card-image">
-                <i class="material-icons white-text" style="font-size: 100px;">schedule</i>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h5 class=" white-text">My</h5>
-                  <h5><a href="{{route('professor.schedule')}}" class="white-text">SCHEDULE</a></h5>
-                </div>
-                <div class="card-action"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 orange darken-2">
-              <div class="card-image">
-                <i class="material-icons  white-text" style="font-size: 100px;">folder_open</i>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h5 class=" white-text">My</h5>
-                  <h5><a href="{{route('professor.fileIndex')}}" class="white-text">FILES</h5>
-                </div>
-                <div class="card-action"></div>
-              </div>
-            </div>
-          </div>    
-          <div class="col s12 m4">
-            <div class="card horizontal z-depth-5 red darken-1">
-              <div class="card-image">
-                <i class="material-icons white-text" style="font-size: 100px;">library_books</i>
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h5 class=" white-text">My</h5>
-                  <h5><a href="{{route('professor.gradeIndex')}}" class="white-text">Grade Book</a></h5>
-                </div>
-                <div class="card-action">
+                  <h5><a href="{{ route('professor.indexClassroomsAssign')}}" class=" white-text"><span>Classes</span></a></h5>
                 </div>
               </div>
             </div>
           </div> 
-      </div>
+          <div class="col m3 s12">
+            <div class="card horizontal">
+              <div class="card-image blue">
+                <i class="material-icons white-text" >schedule</i>
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5><a href="{{route('professor.schedule')}}" class=" white-text"><span>Schedule</span></a></h5>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="col m3 s12">
+            <div class="card horizontal">
+              <div class="card-image orange darken-2">
+                <i class="material-icons  white-text" style="font-size: 100px;">folder_open</i>
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5><a href="{{route('professor.fileIndex')}}" class=" white-text"><span>Files</span></a></h5>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="col m3 s12">
+            <div class="card horizontal">
+              <div class="card-image red darken-1">
+                <i class="material-icons white-text" style="font-size: 100px;">library_books</i>
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h5><a href="{{route('professor.gradeIndex')}}" class=" white-text"><span>Record</span></a></h5>
+                </div>
+              </div>
+            </div>        
+          </div> 
+
+          <div class="col m4 s12">
+            <div class="card z-depth-2">
+              <ul class="collection with-header">
+                <li class="collection-header"><h5>Announcements</h5></li>
+                @foreach($announcements as $announcement)
+                <li class="collection-item"><div>{{$announcement->title}}<a href="{{route('announcement.single',$announcement->id)}}" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                @endforeach
+              </ul>  
+              <div class="card-action">
+                <a href="">See More</a>
+              </div>     
+            </div>
+          </div>
+
+          <div class="col m4 s12">
+            <div class="card z-depth-2">
+              <ul class="collection with-header">
+                <li class="collection-header"><h5>Events</h5></li>
+                @foreach($events as $event)
+                <li class="collection-item"><div>{{$event->title}}<a href="{{route('event.single',$event->id)}}" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                @endforeach
+              </ul>  
+              <div class="card-action">
+                <a href="">See More</a>
+              </div>     
+            </div>
+          </div>
+
+          <div class="col m4 s12">
+            <div class="card z-depth-2">
+              <ul class="collection with-header">
+                <li class="collection-header"><h5>News</h5></li>
+                @foreach($newses as $news)
+                <li class="collection-item"><div>{{$newse->title}}<a href="{{route('news.single',$news->id)}}" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                @endforeach
+              </ul>  
+              <div class="card-action">
+                <a href="">See More</a>
+              </div>     
+            </div>
+          </div>                
+
+        </div>
+ 
+                    
+
     </div>    
   </div>
 </div>
 @endsection
 @section('script')
 <script type="text/javascript">
+    $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
    $(document).ready(function(){
     $('ul.tabs').tabs();
   });

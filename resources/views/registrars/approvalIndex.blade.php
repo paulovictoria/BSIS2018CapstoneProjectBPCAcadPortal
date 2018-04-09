@@ -44,8 +44,8 @@
                                 <input type="hidden" id="studId" value="{{$student->id}}">
                                 <input type="hidden" id="studSid" value="{{$student->sid}}">
                                 <input type="hidden" id="studlastname" value="{{$student->last_name}}">
-                                <input type="hidden" id="studFirstname" value="{{$student->last_name}}">
-                                <input type="hidden" id="studlastname" value="{{$student->last_name}}">
+                                <input type="hidden" id="studFirstname" value="{{$student->first_name}}">
+                                <input type="hidden" id="studlastname" value="{{$student->midle_name}}">
                                 <input type="hidden" id="studMidlename" value="{{$student->midle_name}}">
                                 <input type="hidden" id="studEmail" value="{{$student->email}}">
                                 <input type="hidden" id="studProfile" value="{{$student->filename}}">

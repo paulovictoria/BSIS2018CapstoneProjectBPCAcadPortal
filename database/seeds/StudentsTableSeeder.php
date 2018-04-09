@@ -102,7 +102,7 @@ class StudentsTableSeeder extends Seeder
                 'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
         ]);
-        DB::table('students')->insert([
+/*        DB::table('students')->insert([
                 'sid'=>'18-0007',
                 'last_name' => 'Salamangca',
                 'first_name' => 'Linda',
@@ -311,7 +311,7 @@ class StudentsTableSeeder extends Seeder
                 'filename'=>'student.png',
                 'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
-        ]);                                                                                                                                                                             
+        ]);                                                                                       */                                                                                      
 
 
     }

@@ -4,7 +4,7 @@
   <div class="section"></div>
   <div class="row">
     <div class="col s12 m10 push-m1">
-      <div class="card z-depth-4">
+      <div class="card z-depth-4 transparent">
         <div class="card-content">
           <form class="form-horizontal" method="POST" action="{{ route('professor.register.submit') }}" enctype="multipart/form-data">{{ csrf_field() }}
             <span class="card-title green-text darken-4">INSTRUCTOR REGISTRATION</span>
@@ -60,15 +60,7 @@
                     </select>
                     <label>Select Gender</label>  
                 </div>
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="form-control" name="email">
-                  <label for="email">Email Address</label>
-                    @if ($errors->has('email'))
-                      <span class="help-block">
-                      <strong>{{ $errors->first('email') }}</strong>
-                      </span>
-                    @endif  
-                </div>  
+
                 <div class="input-field col s6">
                    <input id="mobile" type="text" class="form-control" name="mobile" data-mask="+63-900-000-0000" placeholder="+63-900-000-0000" />
                   <label for="mobile">Phone Number</label>
@@ -78,8 +70,18 @@
                       </span>
                     @endif  
                 </div>
-                
+
                 <div class="input-field col s6">
+                  <input id="email" type="email" class="form-control" name="email">
+                  <label for="email">Email Address</label>
+                    @if ($errors->has('email'))
+                      <span class="help-block">
+                      <strong>{{ $errors->first('email') }}</strong>
+                      </span>
+                    @endif  
+                </div>  
+                
+                <div class="input-field col s12">
                     <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="password">
                     @if ($errors->has('password'))
@@ -88,11 +90,11 @@
                       </span>
                     @endif
                 </div> 
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <label for="password-confirm">Confirm Password</label> 
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                 </div> 
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <div class="file-field input-field">  
                       <div class="btn">
                           <span>Profile Picture</span>

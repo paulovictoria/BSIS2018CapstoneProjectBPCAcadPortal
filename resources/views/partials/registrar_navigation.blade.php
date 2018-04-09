@@ -45,13 +45,13 @@
           </li>
           </ul>
       </li>     
-     <li class="no-padding">
+<!--      <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li>
               <a href="{{route('registrar.profile')}}" class="collapsible-header"><i class="material-icons">account_circle</i>Account</a>
             </li>
           </ul>
-        </li> 
+        </li>  -->
      <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li>

@@ -14,9 +14,9 @@
   </head>
 
   <body>
-    @include('partials._messages')
     @include('partials.professor_navigation')
     @yield('content')
+    @include('partials._footer')
     @include('partials._javascript')
     @yield('script')
   </body> 

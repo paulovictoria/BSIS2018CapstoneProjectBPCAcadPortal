@@ -17,7 +17,6 @@ class CreateAnnouncementsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->string('date');
             $table->string('filename'); 
             $table->integer('campus_id')->nullable()->unsigned();
             $table->timestamps();

@@ -23,6 +23,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -38,6 +39,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -53,6 +55,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -69,6 +72,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -85,6 +89,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -101,6 +106,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -117,6 +123,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -133,6 +140,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -149,6 +157,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -165,6 +174,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
          ]);
         DB::table('students')->insert([
@@ -179,6 +189,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -194,6 +205,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);        
@@ -210,6 +222,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -226,6 +239,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -241,6 +255,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);        
@@ -257,6 +272,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -273,6 +289,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -289,6 +306,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -304,6 +322,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -319,6 +338,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -335,6 +355,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -351,6 +372,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -367,6 +389,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -383,6 +406,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -399,6 +423,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -415,6 +440,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);
@@ -431,6 +457,7 @@ class StudentsBsomTableSeeder extends Seeder
                 'course_id'=>'2',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png',
 
         ]);

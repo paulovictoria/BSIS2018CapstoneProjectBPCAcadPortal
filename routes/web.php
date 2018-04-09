@@ -147,6 +147,8 @@
 
 	//assign this for Class
 	Route::resource('classrooms','ClassroomController');
+	Route::get('classroom-excel/{id}','ClassroomController@exportExcelClassroom')->name('exportExcelClassroom');
+
 	Route::get('byCourse/{id}','ClassroomController@byCourseCreate')->name('byCourseCreate');
 	Route::resource('assigns','AssignController');
 	Route::get('specialAssign','AssignController@specialCreate')->name('speacialAssign.create');

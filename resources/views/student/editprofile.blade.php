@@ -7,11 +7,26 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col s9 offset-s3 m9 offset-m3">
-                        <h3 class="light-green-text darken-2 card-title">Edit Profile</h3>
+                      <div class="section">
+                        @if(Session::has('success'))
+                          <div class="col s12 center">
+                            <div class="yellow darken-3">
+                              <p class="flow-text white-text">{{ Session::get('success')}}</p>
+                            </div>
+                          </div>
+                        @endif
+                        @if(count($errors)>0)
+                          <div class="col s12 center">
+                            <div class="red darken-3">
+                              @foreach($errors->all() as $error)
+                              <p class="flow-text white-text">{{ $error }}</p>
+                              @endforeach
+                            </div>
+                          </div>
+                        @endif
+                      </div>
+                        <h3 class="light-green-text darken-2 card-title">EDIT PROFILE</h3>
                     {!! Form::model($student,['route'=>['student.profileUpdate',$student->id],'method'=>'PUT','files'=>'true' ]) !!}
-
-                   {{ Form::label('sid','SID')}}
-                   {{ Form::text('sid',null,['class'=>'form-control']) }}
 
                    {{ Form::label('last_name','Last Name')}}
                    {{ Form::text('last_name',null,['class'=>'form-control']) }}
@@ -22,7 +37,10 @@
                    {{ Form::label('midle_name','midle Name')}}
                    {{ Form::text('midle_name',null,['class'=>'form-control']) }}   
 
-                <div class="input-field col s4">
+                   {{ Form::label('mobile','Moblie Number') }}
+                   {{ Form::text('mobile',null,['class'=>'form-control']) }} 
+
+                <div class="input-field col s12">
                     <select class="form-control" name="gender">
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
@@ -43,7 +61,7 @@
                   </div> 
                 </div> 
                 <div class="col s12 right-align">                                  
-                  {{Form::submit('Save Changes',['class'=>'btn light-green darken-2'])}}
+                  {{Form::submit('Save Changes',['class'=>'btn green darken-2'])}}
                 </div>  
                   {!! Form::close() !!}
                     </div>

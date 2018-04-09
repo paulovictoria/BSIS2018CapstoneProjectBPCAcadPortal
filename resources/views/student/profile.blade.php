@@ -3,7 +3,7 @@
 @section('content')
 <div class="col m12">       
   <div class="section">
-    <div class="card z-depth-1">
+    <div class="card transparent">
       <div class="card-content">
         <div class="row">
           <div class="col s9 offset-s3 m9 offset-m3">
@@ -13,7 +13,6 @@
                   <div class="frofileImages">
                     <img class="activator" src="{{route('user.image',['filename'=>Auth::user()->filename])}}" alt="user background" width="120" height="120">
                     <br>
-                    <a href="{{route('student.editProfile') }}" class="btn-floating waves-effect waves-light light-green darken-1"><i class="icon-edit"></i></a>
                   </div>
                 </div>
                 <div class="col s12">
@@ -24,6 +23,7 @@
                       <li class="">{{ Auth::user()->course->course_name}}</li>
                     </ul>  
                   </div> 
+                    <a href="{{route('student.editProfile') }}" class="btn waves-effect waves-light light-blue darken-1"> <i class="material-icons">edit</i></a>
                 </div> 
               </div>
             </div> 
@@ -34,4 +34,11 @@
     </div>
   </div>  
 </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+   $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+</script>
 @endsection

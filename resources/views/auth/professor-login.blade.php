@@ -13,8 +13,8 @@
             </div>
             <form met
             <form method="POST" action="{{ route('professor.login.submit') }}">{{ csrf_field() }}
-                <div class="card">
-                    <div class="card-content z-depth-2">
+                <div class="card z-depth-2">
+                    <div class="card-content">
                         <span class="card-title center green-text darken-4">INSTRUCTOR</span>
                         <div class="row">
                             <div class="input-field col s12{{ $errors->has('email') ? ' has-error' : '' }}">

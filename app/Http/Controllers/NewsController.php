@@ -37,11 +37,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
-        ->join('professors','admins.campus_id','=','professors.campus_id')
-        ->join('students','admins.campus_id','=','students.campus_id')->get()
-        ;   
-        return view('news.create')->withUsers($users);
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
+        return view('news.create')->withStudents($students)->withProfessors($professors);
+    }
     }
 
     /**
@@ -67,9 +66,13 @@ class NewsController extends Controller
         $news->campus_id=Auth::user()->campus_id;
         $news->save();
 
-        $numbers =$request->users;
-        $message = $request->title.'!'.' '.' '.$request->description.'.'.'From BPC';
-        $sms = SmsGateway::to($numbers)
+        $numbersStudent =$request->students;
+        $message = strip_tags($request->title.' ! '.' '.' '.' '.' '.' '.' '.$request->description.'.'.' '.' '.' '.' '.' '.' '.' '.' From BPC');
+        $sms = SmsGateway::to($numbersStudent)
+                 ->message($message)
+                 ->send();
+        $numbersProfessor =$request->professors;
+        $sms = SmsGateway::to($numbersProfessor)
                  ->message($message)
                  ->send();
 
@@ -100,12 +103,10 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-         $users=Admin::where('campus_id','=',Auth::user()->campus_id)->first()
-        ->join('professors','admins.campus_id','=','professors.campus_id')
-        ->join('students','admins.campus_id','=','students.campus_id')->get()
-        ; 
+        $students=Student::where('campus_id','=',Auth::user()->campus_id)->get();
+        $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         $news=News::find($id);
-        return view('news.edit')->withNews($news)->withUsers($users);
+        return view('news.edit')->withNews($news)->withStudents($students)->withProfessors($professors);
     }
 
     /**
@@ -140,9 +141,13 @@ class NewsController extends Controller
         }
         $news->save();
 
-        $numbers =$request->users;
-        $message = $request->title.'!'.' '.' '.$request->description.'.'.'From BPC';
-        $sms = SmsGateway::to($numbers)
+        $numbersStudent =$request->students;
+        $message = strip_tags($request->title.' ! '.' '.' '.' '.' '.' '.' '.$request->description.'.'.' '.' '.' '.' '.' '.' '.' '.' From BPC');
+        $sms = SmsGateway::to($numbersStudent)
+                 ->message($message)
+                 ->send();
+        $numbersProfessor =$request->professors;
+        $sms = SmsGateway::to($numbersProfessor)
                  ->message($message)
                  ->send();
                  

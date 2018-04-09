@@ -46,7 +46,7 @@
                 </div>
             
                 <select class="course" name="course_id">
-                <option>Select Subject</option>
+                <option>Select Course</option>
                 @foreach($courses as $course)
                 <option value="{{ $course->id }}">
                   {{$course->course_name}}

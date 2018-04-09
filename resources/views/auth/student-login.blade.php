@@ -12,7 +12,7 @@
                 @endif
             </div>
             <form method="POST" action="{{ route('student.login.submit') }}">{{ csrf_field() }}
-                <div class="card z-depth-5">
+                <div class="card z-depth-2 transparent">
                     <div class="card-content">
                         <span class="card-title center green-text darken-4">STUDENT</span>
                         <div class="row">
@@ -42,12 +42,13 @@
                             <div class="input-field col s12">
                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}><label for="remember">Remember Me</label>        
                             </div>                                                                   
-                        </div>     
+                        </div> 
+                            
                     </div> 
-                    <div class="card-action">    
+                       <div class="card-action">    
                      <a class="link light-green-text" href="{{ route('student.password.request') }}">Forgot Password?</a>  
                      <a class="link light-green-text" href="{{ route('student.registration') }}">No Account?</a>       
-                    </div>    
+                    </div> 
                 </div>
             </form>  
         </div>    

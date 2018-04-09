@@ -1,7 +1,6 @@
-<footer class="page-footer light-green darken-1">
-    <div class="footer-copyright">
-        <div class="container">
+<footer class="page-footer green darken-4">
+	<div class="col s12 right-align">
               © 2018 BPC Academic Portal. All rights reserved.
         </div>
-     </div>
+ 
 </footer>

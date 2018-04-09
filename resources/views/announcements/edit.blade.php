@@ -32,16 +32,18 @@ tinymce.init({
 						<h3 class="light-green-text darken-2 card-title">Edit Announcement</h3>	
 							{!! Form::model($announcement,['route'=>['announcements.update',$announcement->id],'method'=>'PUT','files'=>'true' ]) !!}
 
-							@foreach($users as $user)
-								<input type="hidden" name="users[]" value="{{$user->mobile}}">
+							@foreach($students as $student)
+								<input type="hidden" name="students[]" value="{{$student->mobile}}">
+							@endforeach
+							@foreach($professors as $professor)
+								<input type="hidden" name="professors[]" value="{{$professor->mobile}}">
 							@endforeach
 							
 							{{ Form::label('title','Title')}}
 							{{ Form::text('title',null,['class'=>'form-control']) }}
 							{{ Form::label('description','Description')}}
 							{{ Form::textarea('description',null,['class'=>'form-control']) }}				
-							{{ Form::label('date','Date')}}
-							{{ Form::text('date',null,['class'=>'datepicker']) }}
+
 		                    <div class="file-field input-field">
 		                       <div class="btn">
 		                           <span>Image</span>

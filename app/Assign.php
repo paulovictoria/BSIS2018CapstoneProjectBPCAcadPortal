@@ -27,7 +27,7 @@ class Assign extends Model
     }
 
     public function students() {
-        return $this->belongsToMany('App\Student')->withPivot('grade');
+        return $this->belongsToMany('App\Student')->withTimestamps()->withPivot('grade');
     }
 
     public function day() {

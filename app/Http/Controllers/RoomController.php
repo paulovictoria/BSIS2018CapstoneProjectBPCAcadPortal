@@ -15,7 +15,7 @@ class RoomController extends Controller
 
     public function index()
     {
-        $rooms=Room::orderBy('id','desc')->get();
+        $rooms=Room::where('campus_id','=',Auth::user()->campus_id)->orderBy('id','desc')->get();
         return view('rooms.index')->withRooms($rooms);
     }
 

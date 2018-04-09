@@ -4,7 +4,7 @@
   <div class="section"></div>
   <div class="row">
     <div class="col s12 m10 push-m1">
-      <div class="card z-depth-5">
+      <div class="card z-depth-5 transparent">
         <div class="card-content">
           <form class="form-horizontal" method="POST" action="{{ route('student.register.submit') }}" enctype="multipart/form-data">{{ csrf_field() }}
             <span class="card-title green-text darken-4">STUDENT REGISTRATION</span>

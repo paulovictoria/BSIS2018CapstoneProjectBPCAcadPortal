@@ -17,13 +17,55 @@ use Session;
 use PDF;
 use DB;
 use Illuminate\Support\Carbon;
+use SmsGateway;
+
 class RegistrarDashboardController extends Controller
 {
 	public function __construct() {
 		$this->middleware('auth:registrar');
 	}
 	public function index() {
-		return view('registrar');
+
+        $studentsBSIS=Student::where('course_id','=',1)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $studentsBSOM=Student::where('course_id','=',2)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $studentsCCM=Student::where('course_id','=',6)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $studentsCES=Student::where('course_id','=',5)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $studentsCS=Student::where('course_id','=',4)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $studentsDTS=Student::where('course_id','=',7)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $studentsHRS=Student::where('course_id','=',3)->where('campus_id','=',Auth::user()->campus_id)->get();
+        $chartjs = app()->chartjs
+        ->name('pieChartTest')
+        ->type('doughnut')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['BSIS','BSOM','HRS','CS','CES','CCM','DTS'])
+        ->datasets([
+            [   
+                'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#eedc82','#12110e',],
+                'hoverBackgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#eedc82','#12110e',],
+                'data' => [$studentsBSIS->count(),$studentsBSOM->count(),$studentsCCM->count(),$studentsCES->count(),$studentsCS->count(),$studentsDTS->count(),$studentsHRS->count()]
+            ]
+        ])
+        ->options([
+            'title'=>['display'=>true,'text'=>'Students Chart Per Course','position'=>'bottom',],
+            'legend'=>['display'=>true,'position'=>'bottom',]
+        ]);
+
+ $chartjsBar = app()->chartjs
+         ->name('barChartTest')
+         ->type('horizontalBar')
+         ->size(['width' => 400, 'height' => 200])
+         ->labels(['BSIS','BSOM','HRS','CS','CES','CCM','DTS'])
+         ->datasets([
+            [
+               
+                 'backgroundColor' => ['#468499', '#d20e1c','#616f8c','#ffb6c1','#eedc82','#12110e',],
+                'data' => [$studentsBSIS->count(),$studentsBSOM->count(),$studentsCCM->count(),$studentsCES->count(),$studentsCS->count(),$studentsDTS->count(),$studentsHRS->count()]
+             ]
+
+         ])
+         ->options(['title'=>['display'=>true,'text'=>'Students Bar Per Course',]]);
+
+                  return view('registrar', compact('chartjs','chartjsBar'));
 	}
 
 	public function profile() {
@@ -46,10 +88,11 @@ class RegistrarDashboardController extends Controller
         ->orderBy('subj_code','asc')
         ->orderBy('sem','asc')
         ->get();
+
         return view('registrars.studentShow')->withRecords($records);
     }
 
-    public function approvalIndex(){
+    public function approvalIndex() {
         $registrar=Registrar::find(Auth::user()->campus_id);
         $registrar->unreadNotifications()->update(['read_at' => Carbon::now()]);
         $students=Student::where('approved','=',0)
@@ -67,7 +110,13 @@ class RegistrarDashboardController extends Controller
     public function approved (Request $request, $id) {
          $student=Student::find($id);
          $student->approved = true;
-         $student->save();
+         $student->save();    
+         $number =$student->mobile;
+         $message = 'Your Registration in BPC Portal Has been Approved. Visit your account on bpciansportal.herokuapp.com';
+         $sms = SmsGateway::to($number)
+                 ->message($message)
+                 ->send();
+
          $students=Student::where('approved','=',0)
          ->where('campus_id','=',Auth::user()->campus_id)
          ->get();
@@ -75,19 +124,26 @@ class RegistrarDashboardController extends Controller
          return redirect()->route('studentsApprovalIndex')->withStudents($students);
     }
 
-    public function ajaxApproved(Request $request){
+    public function ajaxApproved(Request $request) {
+
         $student=Student::find($request->id);
         $student->approved = 1;
         $student->save();
+        $number =$student->mobile;
+        $message = 'Your Registration in BPC Portal Has been Approved. Visit your account on bpciansportal.herokuapp.com';
+        $sms = SmsGateway::to($number)
+                 ->message($message)
+                 ->send();
         $students=Student::where('approved','=',0)
          ->where('campus_id','=',Auth::user()->campus_id)
          ->get();
          Session::flash('success','Approved Successfully');
-        return redirect()->route('studentsApprovalIndex')->withStudents($students);
-        
+        return redirect()->route('studentsApprovalIndex')->withStudents($students); 
+
     }
 
      public function denied (Request $request, $id) {
+
          $student=Student::find($id);
          $student->delete();
         $students=Student::where('approved','=',0)
@@ -95,9 +151,10 @@ class RegistrarDashboardController extends Controller
          ->get();
          Session::flash('success','Denied Successfully');
         return redirect()->route('studentsApprovalIndex')->withStudents($students);
+        
     } 
 
-    public function ajaxDenied(Request $request){
+    public function ajaxDenied(Request $request) {
         $student=Student::find($request->id);
         $student->delete();
         $students=Student::where('approved','=',0)

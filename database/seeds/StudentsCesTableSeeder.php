@@ -11,99 +11,6 @@ class StudentsCesTableSeeder extends Seeder
      */
     public function run()
     {
-              
-/*                DB::table('students')->insert([
-                'sid'=>'18-0071',
-                'last_name' => 'Arero',
-                'first_name' => 'KlheaJane',
-                'midle_name' => 'Delgado',  
-                'approved'=>true,
-                'gender'=>'female',
-                'email'=>'Klheajane@sample.com',
-                'password'=> bcrypt('sample'),
-                'course_id'=>'4',
-                'campus_id'=>'1',
-                'filename'=>'student.png',
-                'cor'=>'cor.png',
-
-        ]);  
-                 DB::table('students')->insert([
-                'sid'=>'18-0072',
-                'last_name' => 'Austin',
-                'first_name' => 'Mike',
-                'midle_name' => 'Basilio',  
-                'approved'=>true,
-                'gender'=>'male',
-                'email'=>'Mike@sample.com',
-                'password'=> bcrypt('sample'),
-                'course_id'=>'4',
-                'campus_id'=>'1',
-                'filename'=>'student.png',
-                'cor'=>'cor.png', 
-		]);
-
-                 DB::table('students')->insert([
-                'sid'=>'18-0074',
-                'last_name' => 'Buhain',
-                'first_name' => 'Michael',
-                'midle_name' => 'Cruz',  
-                'approved'=>true,
-                'gender'=>'male',
-                'email'=>'Michael@sample.com',
-                'password'=> bcrypt('sample'),
-                'course_id'=>'4',
-                'campus_id'=>'1',
-                'filename'=>'student.png',
-                'cor'=>'cor.png', 
-		]);
-
-                 DB::table('students')->insert([
-                'sid'=>'18-0075',
-                'last_name' => 'Dela Cruz',
-                'first_name' => 'Michelle',
-                'midle_name' => 'Castro',  
-                'approved'=>true,
-                'gender'=>'female',
-                'email'=>'Michelle@sample.com',
-                'password'=> bcrypt('sample'),
-                'course_id'=>'4',
-                'campus_id'=>'1',
-                'filename'=>'student.png',
-                'cor'=>'cor.png', 
-		]);
-
-
-                 DB::table('students')->insert([
-                'sid'=>'18-0073',
-                'last_name' => 'Dela Pena',
-                'first_name' => 'Roxy',
-                'midle_name' => 'Gonzale',  
-                'approved'=>true,
-                'gender'=>'male',
-                'email'=>'Roxy@sample.com',
-                'password'=> bcrypt('sample'),
-                'course_id'=>'4',
-                'campus_id'=>'1',
-                'filename'=>'student.png',
-                'cor'=>'cor.png', 
-		]);
-
-
-
-                 DB::table('students')->insert([
-                'sid'=>'18-0076',
-                'last_name' => 'Sarmiento',
-                'first_name' => 'Aron',
-                'midle_name' => 'Capili',  
-                'approved'=>true,
-                'gender'=>'male',
-                'email'=>'Aron@sample.com',
-                'password'=> bcrypt('sample'),
-                'course_id'=>'4',
-                'campus_id'=>'1',
-                'filename'=>'student.png',
-                'cor'=>'cor.png', 
-		]);*/
 
                  DB::table('students')->insert([
                 'sid'=>'18-0077',
@@ -117,6 +24,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -132,6 +40,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
                  DB::table('students')->insert([
@@ -146,6 +55,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -161,6 +71,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -176,6 +87,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -191,6 +103,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -206,6 +119,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -221,6 +135,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -236,6 +151,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -251,6 +167,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -266,6 +183,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 
@@ -281,6 +199,7 @@ class StudentsCesTableSeeder extends Seeder
                 'course_id'=>'4',
                 'campus_id'=>'1',
                 'filename'=>'student.png',
+                'mobile'=>'+639069171012',
                 'cor'=>'cor.png', 
 		]);
 

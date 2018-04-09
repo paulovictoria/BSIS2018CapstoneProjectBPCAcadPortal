@@ -23,6 +23,7 @@ class ProfessorsTableSeeder extends Seeder
                 'campus_id'=>'1',
                 'status'=>'0',
                 'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
         ]);            
         DB::table('professors')->insert([
         		'eid'=>'18-0001',
@@ -36,6 +37,7 @@ class ProfessorsTableSeeder extends Seeder
                 'campus_id'=>'1',
                 'status'=>'0',
                 'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
         ]);
         DB::table('professors')->insert([
         		'eid'=>'18-0002',
@@ -49,6 +51,7 @@ class ProfessorsTableSeeder extends Seeder
                 'campus_id'=>'1',
                 'status'=>'0',
                 'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
         ]);
         DB::table('professors')->insert([
         		'eid'=>'18-0003',
@@ -62,6 +65,7 @@ class ProfessorsTableSeeder extends Seeder
                 'campus_id'=>'1',
                 'status'=>'0',
                 'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
         ]);                
         DB::table('professors')->insert([
                 'eid'=>'18-0004',
@@ -75,6 +79,7 @@ class ProfessorsTableSeeder extends Seeder
                 'campus_id'=>'1',
                 'status'=>'0',
                 'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
         ]);    
         DB::table('professors')->insert([
                 'eid'=>'18-0005',
@@ -88,6 +93,7 @@ class ProfessorsTableSeeder extends Seeder
                 'campus_id'=>'1',
                 'status'=>'0',
                 'filename'=>'teacher.png',
+                'mobile'=>'+639069171012',
         ]);   
                  
     }

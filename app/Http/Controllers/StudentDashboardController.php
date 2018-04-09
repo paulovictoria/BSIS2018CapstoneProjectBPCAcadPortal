@@ -6,8 +6,12 @@ use App\Student;
 use App\Subject;
 use App\Course;
 use App\Classroom;
+use App\Announcement;
+use App\Event;
+use App\News;
 use PDF;
 use Auth;
+use Session;
 use Illuminate\Support\Facades\Storage;
 class StudentDashboardController extends Controller
 {
@@ -16,7 +20,16 @@ class StudentDashboardController extends Controller
 	}
 
 	public function index() {
-		return view('student');
+		$announcements=Announcement::where('campus_id','=',Auth::user()->campus_id)
+		->orderBy('id','desc')->limit(5)->get();
+		$newses=News::where('campus_id','=',Auth::user()->campus_id)
+		->orderBy('id','desc')->limit(5)->get();
+		$events=Event::where('campus_id','=',Auth::user()->campus_id)
+		->orderBy('id','desc')->limit(5)->get();
+		return view('student')
+		->withAnnouncements($announcements)
+		->withNewses($newses)
+		->withEvents($events);
 	}
 
 	public function profile() {
@@ -31,7 +44,6 @@ class StudentDashboardController extends Controller
     public function profileUpdate(Request $request,$id) {
 
     	$this->validate($request,[
-    		'sid'=>'required',
     		'last_name'=>'required',
     		'first_name'=>'required',
     		'midle_name'=>'required',
@@ -43,22 +55,24 @@ class StudentDashboardController extends Controller
     		$fileName=time().'.'.$file->getClientOriginalExtension();
     		$uploaded=Storage::disk('profiles')->put($fileName,file_get_contents($file->getRealPath()));
     		$delete=Storage::disk('profiles')->delete($student->filename);
-    		$student->sid=$request->sid;
     		$student->last_name=$request->last_name;
     		$student->first_name=$request->first_name;
     		$student->midle_name=$request->midle_name;
     		$student->gender=$request->gender;
+    		$student->mobile=$request->mobile;
     		$student->filename=$fileName;
     	}
     	else{
-			$student->sid=$request->sid;
     		$student->last_name=$request->last_name;
     		$student->first_name=$request->first_name;
     		$student->midle_name=$request->midle_name;
     		$student->gender=$request->gender;
+    		$student->mobile=$request->mobile;
     	} 
     	$student->save();
-    	return redirect()->route('student.profile');
+
+    			$student=Student::find(Auth::user()->id);
+		return redirect()->route('student.editProfile')->withStudent($student);
     }
     
 	public function subjects(Request $request) {

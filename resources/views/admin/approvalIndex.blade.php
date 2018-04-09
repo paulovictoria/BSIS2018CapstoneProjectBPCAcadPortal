@@ -38,11 +38,11 @@
 								<td><a href="#!user"><img class="circle" src="{{route('user.image',['filename'=>$professor->filename])}}" width="50"></a></td>
 								
 									<td>{!! Form::model($professor,['route'=>['professorsApproved',$professor->id],'method'=>'PUT'])!!}
-									<button class="btn blue lighten-2"><span class="icon-check"></span></button>
+									<button class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Approve Request"><i class="material-icons">check_circle</i></button>
 									{!! Form::close() !!}</td>
 
-									<td>		{!! Form::open(['route'=>['professorsDenied',$professor->id],'method'=>'DELETE']) !!}
-									<button class="btn grey lighten-1"><span class="icon-cross"></span></button>
+									<td>{!! Form::open(['route'=>['professorsDenied',$professor->id],'method'=>'DELETE']) !!}
+									<button class="btn white grey-text lighten-1 tooltipped" data-position="bottom" data-tooltip="Deny Request"><i class="material-icons">close</i></button>
 									{!! Form::close() !!}</td>
 								
 							</tr>
