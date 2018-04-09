@@ -256,7 +256,7 @@ class AssignController extends Controller
     }
 
     public function byCourseCreate($id) {
-        $classroom=Classroom::where('id',$id)->first();
+        $classroom=Classroom::where('id','=',$id)->first();
         $professors=Professor::where('campus_id','=',Auth::user()->campus_id)->get();
         $subjects=Subject::where('course_id','=',$classroom->course_id)
         ->where('year','=',$classroom->year)

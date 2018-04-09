@@ -64,7 +64,7 @@
                 @endforeach
               </ul>  
               <div class="card-action">
-                <a href="">See More</a>
+                <a href="{{route('announcement.more')}}">See More</a>
               </div>     
             </div>
           </div>
@@ -78,7 +78,7 @@
                 @endforeach
               </ul>  
               <div class="card-action">
-                <a href="">See More</a>
+                <a href="{{route('event.more')}}">See More</a>
               </div>     
             </div>
           </div>
@@ -88,11 +88,11 @@
               <ul class="collection with-header">
                 <li class="collection-header"><h5>News</h5></li>
                 @foreach($newses as $news)
-                <li class="collection-item"><div>{{$newse->title}}<a href="{{route('news.single',$news->id)}}" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                <li class="collection-item"><div>{{$news->title}}<a href="{{route('news.single',$news->id)}}" class="secondary-content"><i class="material-icons">send</i></a></div></li>
                 @endforeach
               </ul>  
               <div class="card-action">
-                <a href="">See More</a>
+                <a href="{{route('news.more')}}">See More</a>
               </div>     
             </div>
           </div>                

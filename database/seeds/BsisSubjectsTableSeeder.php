@@ -43,6 +43,8 @@ class BsisSubjectsTableSeeder extends Seeder
                 'year' => 'First Year',
                 'course_id' => '1',
         ]);
+
+
  		DB::table('subjects')->insert([
         	 	'subj_code' => 'Fil 101',
                 'subj_description' => 'Komunikasyon sa Adememikong Filipino',

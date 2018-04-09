@@ -11,6 +11,8 @@ class BsomSubjectsTableSeeder extends Seeder
      */
     public function run()
     {
+
+
 		DB::table('subjects')->insert([
 		'subj_code'=>'Coml113',
 		'subj_description'=>'Introduction to Computer with Windows',
@@ -23,23 +25,25 @@ class BsomSubjectsTableSeeder extends Seeder
 		DB::table('subjects')->insert([
 		'subj_code'=>'Key115',
 		'subj_description'=>'Basic Keyboarding',
-		'subj_units'=>'5',
-		'sem'=>' 1st Semester',
+		'subj_units'=>'3',
+		'sem'=>'1st Semester',
 		'year'=>'First Year',
-		'course_id'=>'2',]); 
+		'course_id'=>'2', ]); 
 
 		DB::table('subjects')->insert([
 		'subj_code'=>'Steno115',
 		'subj_description'=>'Fundamentals of Shorthand',
-		'subj_units'=>'5',
-		'sem'=>' 1st Semester',
+		'subj_units'=>'3',
+		'sem'=>'1st Semester',
 		'year'=>'First Year',
-		'course_id'=>'2',]);
+		'course_id'=>'2', ]);
 
-		DB::table('subjects')->insert(['subj_code'=>'Eng113','subj_description'=>'Grammar and Composition','subj_units'=>'3','sem'=>' 1st Semester','year'=>'First Year','course_id'=>'2',]);
+		
+		DB::table('subjects')->insert(['subj_code'=>'Eng113','subj_description'=>'Grammar and Composition','subj_units'=>'3','sem'=>'1st Semester','year'=>'First Year','course_id'=>'2',]);
+
 		DB::table('subjects')->insert(['subj_code'=>'Fil113','subj_description'=>'Komunikasyon sa Akademikong Filipino','subj_units'=>'3','sem'=>' 1st  Semester','year'=>'First Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'Math113','subj_description'=>'Business Mathematics','subj_units'=>'3','sem'=>' 1st Semester','year'=>'First Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'PE112','subj_description'=>'Physical Fitness (w/ Arnis)','subj_units'=>'2','sem'=>' 1st Semester','year'=>'First Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'Math113','subj_description'=>'Business Mathematics','subj_units'=>'3','sem'=>'1st Semester','year'=>'First Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'PE112','subj_description'=>'Physical Fitness (w/ Arnis)','subj_units'=>'2','sem'=>'1st Semester','year'=>'First Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'NSTP113','subj_description'=>'National Service Training Program','subj_units'=>'3','sem'=>'1st Semester','year'=>'First Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'ComP123','subj_description'=>'Word Processing & Document Production','subj_units'=>'3','sem'=>'2nd Semester','year'=>'First Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'Key123','subj_description'=>'Advance Computer Keyboarding','subj_units'=>'3','sem'=>'2nd Semester','year'=>'First Year','course_id'=>'2',]);
@@ -52,14 +56,14 @@ class BsomSubjectsTableSeeder extends Seeder
 		DB::table('subjects')->insert(['subj_code'=>'PE122','subj_description'=>'Team Sports','subj_units'=>'2','sem'=>'2nd Semester','year'=>'First Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'NSTP123','subj_description'=>'National Service Training Program 2','subj_units'=>'3','sem'=>'2nd Semester','year'=>'First Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'Coms213','subj_description'=>'Spreadsheets','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'ComG213','subj_description'=>'Presentation Graphics','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'Steno213','subj_description'=>'Takigrapiyang Filipino','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'Eng213','subj_description'=>'Business Correspondence & Technical Writing','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'Ent213','subj_description'=>'Business and Entrepreneurship','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'Soc213','subj_description'=>'General Sociology with Gender and Development','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'OP213','subj_description'=>'Office Procedures and Administration','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'BAcc213','subj_description'=>'Basic Principle of Accounting','subj_units'=>'3','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
-		DB::table('subjects')->insert(['subj_code'=>'PE212','subj_description'=>'Social Dance','subj_units'=>'2','sem'=>' 1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'ComG213','subj_description'=>'Presentation Graphics','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'Steno213','subj_description'=>'Takigrapiyang Filipino','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'Eng213','subj_description'=>'Business Correspondence & Technical Writing','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'Ent213','subj_description'=>'Business and Entrepreneurship','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'Soc213','subj_description'=>'General Sociology with Gender and Development','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'OP213','subj_description'=>'Office Procedures and Administration','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'BAcc213','subj_description'=>'Basic Principle of Accounting','subj_units'=>'3','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
+		DB::table('subjects')->insert(['subj_code'=>'PE212','subj_description'=>'Social Dance','subj_units'=>'2','sem'=>'1st Semester','year'=>'Second Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'ComW223','subj_description'=>'Internet and Basic Web Design','subj_units'=>'3','sem'=>'2nd Semester','year'=>'Second Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'ComA223','subj_description'=>'Advance Software including MS Access','subj_units'=>'3','sem'=>'2nd Semester','year'=>'Second Year','course_id'=>'2',]);
 		DB::table('subjects')->insert(['subj_code'=>'Eng223','subj_description'=>'Speech and Oral Communication','subj_units'=>'3','sem'=>'2nd Semester','year'=>'Second Year','course_id'=>'2',]);

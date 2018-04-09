@@ -41,11 +41,11 @@
 								<a href="#" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
 								@if($professor->status==0)
 									<td>{!! Form::model($professor,['route'=>['admin.enableProfessor',$professor->id],'method'=>'PUT'])!!}
-									<button class="btn grey lighten-2"><span class="icon-check"></span></button>
+									<button class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Enable"><i class="material-icons">check_circle</i></button>
 									{!! Form::close() !!}</td>
 									@else
 									<td>{!! Form::model($professor,['route'=>['admin.disableProfessor',$professor->id],'method'=>'PUT'])!!}
-									<button class="btn blue lighten-1"><span class="icon-cross"></span></button>
+									<button class="btn grey lighten-1 tooltipped" data-position="bottom" data-tooltip="Disable"><i class="material-icons">close</i></button>
 									{!! Form::close() !!}</td>
 									@endif
 
