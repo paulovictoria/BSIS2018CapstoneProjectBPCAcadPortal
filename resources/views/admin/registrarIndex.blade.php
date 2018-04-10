@@ -31,7 +31,7 @@
 									</td>
 									<td>
 									<a href="{{route('registrarShow',$registrar->id)}}" class="btn white orange-text lighten-2"><i class="material-icons">pageview</i></a>
-									<a href="#" class="btn white blue-text lighten-2"><i class="material-icons">edit</i></a>
+									<a href="#" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Deny Request"><i class="material-icons">edit</i></a>
 									</td>		 
 								</tr>
 								@endforeach

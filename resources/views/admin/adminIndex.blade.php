@@ -31,7 +31,7 @@
 								<td>{{$admin->name}}</td>
 								<td>{{$admin->email}}</td>
 								<td>{{$admin->name}}</td>
-								<td><a href="{{route('admin.adminEdit',$admin->id)}}" class="btn">Edit</a></td>
+								<td><a href="{{route('admin.adminEdit',$admin->id)}}" class="btn white blue-text lighten-2 tooltipped" data-position="bottom" data-tooltip="Edit"><i class="material-icons">edit</i></a></td>
 							</tr>
 							@endforeach
 						</tbody>

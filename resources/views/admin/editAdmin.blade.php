@@ -19,7 +19,7 @@
 							{{ Form::label('password','New Password') }}
 							{{ Form::text('newpassword',null,['class'=>'form-control']) }}	
 
-							{{Form::submit('save',['class'=>'btn  green darken-4'])}}
+							{{Form::submit('save',['class'=>'btn  green darken-4 right-align'])}}
 
 							{!! Form::close() !!}
 						</div>
