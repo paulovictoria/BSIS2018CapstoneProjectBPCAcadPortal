@@ -174,6 +174,7 @@ class ClassroomController extends Controller
     public function exportExcelClassroom($id) {
     $classrooms = Classroom::where('id','=',$id)->first()
     ->join('classroom_student','classrooms.id','=','classroom_student.classroom_id')
+    ->where('classroom_id','='$id)
     ->join('students','classroom_student.student_id','=','students.id')
     ->orderBy('last_name','asc')
     ->select(DB::raw("concat(last_name, ' ',first_name, ' ', midle_name)"))
