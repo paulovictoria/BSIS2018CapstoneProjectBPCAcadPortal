@@ -127,8 +127,10 @@ class StudentDashboardController extends Controller
 	}
 
 	public function downloadPDF(Request $request,$id) {
-     	$subjects=Subject::
-		where('year','=',$id)
+     	$subjects=Student::where('id','=',Auth::user()->id)->first()
+     	->join('subjects','students.course_id','=','subjects.course_id')
+     	->where('students.id','=',Auth::user()->id)
+     	->where('year','=',$id)
   		->get();
 		$pdf = PDF::loadView('student.pdf',['subjects'=>$subjects]);
 		return $pdf->download('subject.pdf');

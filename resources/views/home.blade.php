@@ -58,7 +58,7 @@
               <span class="start-bpcap-header-text white-text hide-on-small-only">
                     The BPCians Portal
               </span>
-              <p class="flow-text white-text hide-on-small-only">“We are what we repeatedly do. Excellence is not an act, but a habit.”<span>-Aristotle;</span></p>
+              <p class="flow-text white-text hide-on-small-only">“Easy to use, reliable and provide immediate access to Academic Related Information.”<span>-JireSan</span></p>
               <a href="#modalChoose" class="btn white green-text darken-4 hide-on-small-only modal-trigger">Sign In</a>
               </div>
             </div>
