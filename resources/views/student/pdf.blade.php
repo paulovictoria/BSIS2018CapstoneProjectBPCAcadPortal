@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <style type="text/css">
 div.background {
-  background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
+
   background-repeat: no-repeat;
   background-position: center 185px;
   background-size: contain;
@@ -31,6 +31,7 @@ font-family: Verdana, sans-serif;
   </head>
   <body>
 	<div class="background">
+		<img src="https://www.bulacan.gov.ph/bpc//images/bpclogo.png" class="center" style="width: 500px">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
 		  	<h5>Bulacan Polytechnic College<br><span>city of {{Auth::user()->campus->campus_name}} Bulacan</span></h5>
