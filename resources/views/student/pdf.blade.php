@@ -4,12 +4,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <style type="text/css">
 div.background {
-  background-image: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
-  background-size: 500px 500px;
+  background-image: : url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
   background-repeat: no-repeat;
   background-position: center 185px;
- 
-
+  background-size: 500px 500px;
 }
 
 div.transbox {
@@ -29,9 +27,7 @@ font-family: Verdana, sans-serif;
 </style>
   </head>
   <body>
-  	<div style="background-image: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);  background-repeat: no-repeat;
-  background-position: center 185px;width:500px;height:500px;">
- 
+	<div class="background">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
 		  	<h5>Bulacan Polytechnic College<br><span>city of {{Auth::user()->campus->campus_name}} Bulacan</span></h5>
@@ -66,7 +62,6 @@ font-family: Verdana, sans-serif;
 			</div>
 	  	</div>
 	</div>
-	<div class="section"></div>
 	<div class="background">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
