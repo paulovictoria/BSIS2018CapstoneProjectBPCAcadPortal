@@ -86,7 +86,6 @@ class RegistrarDashboardController extends Controller
         ->where('assign_student.student_id','=',$id)
         ->join('assigns','assign_student.assign_id','=','assigns.id')
         ->join('subjects','assigns.subject_id','=','subjects.id')
-        ->join('classrooms','assigns.classroom_id','=','classrooms.id')
         ->orderBy('subj_code','asc')
         ->orderBy('sem','asc')
         ->get();
