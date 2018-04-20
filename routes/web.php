@@ -195,6 +195,7 @@
 	Route::post('/handleUpload','FilesController@handleUpload')->name('handleUpload');
 	//This is for subject pdf
 	Route::get('/downloadPDF/{id}','StudentDashboardController@downloadPDF')->name('downloadPdf');
+
 	Route::get('/scheduledownloadPDF/{id}','StudentDashboardController@scheduledownloadPDF')->name('scheduledownloadPdf');
 	Route::get('/gradedownloadPDF/{id}','StudentDashboardController@gradedownloadPDF')->name('gradedownloadPdf');
 

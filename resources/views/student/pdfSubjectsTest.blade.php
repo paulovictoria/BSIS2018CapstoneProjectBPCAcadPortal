@@ -31,10 +31,10 @@ font-family: Verdana, sans-serif;
 	<div class="background">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
-		  	<h5>Bulacan Polytechnic College<br><span>city of {{Auth::user()->campus->campus_name}} Bulacan</span></h5>
+		  	<h5><span>Bulacan Polytechnic College</span><br>city of {{Auth::user()->campus->campus_name}} Bulacan</h5>
 		  	<h6>First Semester Subjects</h6>
 		</div>
-	    	<table class="table bordered center-align black-text">
+	    	<table class="table striped bordered center-align black-text">
 			    <thead>
 			    	<tr>	
 						<th>SUBJECT CODE</th>
@@ -69,7 +69,7 @@ font-family: Verdana, sans-serif;
 		  	<h5><span>Bulacan Polytechnic College</span><br>city of {{Auth::user()->campus->campus_name}} Bulacan</h5>
 		  	<h6>First Semester Subjects</h6>
 		</div>
-	    	<table class="table bordered center-align black-text">
+	    	<table class="table striped bordered center-align black-text">
 			    <thead>
 			    	<tr>	
 						<th>SUBJECT CODE</th>
