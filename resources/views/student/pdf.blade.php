@@ -6,16 +6,10 @@
 div.background {
   background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size:     cover;  
+  background-position:center;
+  background-size:cover;  
 }
-#bg-text
-{
-    color:lightgrey;
-    font-size:50px;
-    transform:rotate(300deg);
 
-}
 div.transbox {
   margin: 10px;
   background-color: #ffffff;
@@ -34,7 +28,6 @@ font-family: Verdana, sans-serif;
   </head>
   <body>
 	<div class="background">
-		 <p id="bg-text">Background</p>
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
 		  	<h5>Bulacan Polytechnic College<br><span>city of {{Auth::user()->campus->campus_name}} Bulacan</span></h5>
@@ -69,6 +62,7 @@ font-family: Verdana, sans-serif;
 			</div>
 	  	</div>
 	</div>
+	<br><br><br><br>
 	<div class="background">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">

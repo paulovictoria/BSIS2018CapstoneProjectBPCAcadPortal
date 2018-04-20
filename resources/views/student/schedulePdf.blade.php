@@ -6,9 +6,8 @@
 div.background {
   background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
   background-repeat: no-repeat;
-  background-position: center 400px;
-  background-size: 1000px 1000px;
-
+  background-position:center;
+  background-size:cover;  
 }
 
 div.transbox {
