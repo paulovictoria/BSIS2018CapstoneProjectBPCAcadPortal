@@ -12,7 +12,7 @@ div.background {
 }
 
 div.transbox {
-  margin: 5px;
+  margin: 0;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.9;
@@ -81,7 +81,12 @@ font-family: Verdana, sans-serif;
             </div>
         </div>
     </div>
- 
+    <div class="section">
+        <div class="col s12">
+            _______________<br>
+            <p>Signature</p>
+        </div>
+    </div>
    <!--  <script src="{{ asset('jquery/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/materialize.js') }}"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
