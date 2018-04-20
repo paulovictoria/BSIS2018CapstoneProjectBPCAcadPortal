@@ -20,6 +20,7 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
+                                                    <td>YEAR</td>
                                                   
                                                 </tr>
                                             </thead>    
@@ -45,7 +46,8 @@
                                                 @elseif($record->grade==6)
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>                 
+                                                <td>{{$record->sem}}</td> 
+                                                <td>{{$record->year}}</td>                
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -66,7 +68,7 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
-                                                    <td>GRADE AT</td>
+                                                    <td>YEAR</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>
@@ -91,7 +93,8 @@
                                                 @elseif($record->grade==6)
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>                 
+                                                <td>{{$record->sem}}</td> 
+                                                <td>{{$record->year}}</td>                
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -112,6 +115,7 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
+                                                    <td>YEAR</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>
@@ -136,7 +140,8 @@
                                                 @elseif($record->grade==6)
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>                 
+                                                <td>{{$record->sem}}</td> 
+                                                <td>{{$record->year}}</td>                
                                             </tr>  
                                             @endif   
                                             @endforeach
@@ -157,6 +162,7 @@
                                                     <td>GRADE</td>
                                                     <td>EVALUATION</td>
                                                     <td>SEMESTER</td>
+                                                    <td>YEAR</td>
                                                 </tr>
                                             </thead>    
                                             <tbody>
@@ -181,7 +187,8 @@
                                                 @elseif($record->grade==6)
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
-                                                <td>{{$record->sem}}</td>                 
+                                                <td>{{$record->sem}}</td> 
+                                                <td>{{$record->year}}</td>                
                                             </tr> 
                                             @endif   
                                             @endforeach
