@@ -83,7 +83,7 @@ font-family: Verdana, sans-serif;
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
 		  	<h5><span>Bulacan Polytechnic College</span><br>city of {{Auth::user()->campus->campus_name}} Bulacan</h5>
-		  	<h6>First Semester Grades</h6>
+		  	<h6>Second Semester Grades</h6>
 		</div>
 	    	<table class="table bordered center-align black-text">
 										    <thead>

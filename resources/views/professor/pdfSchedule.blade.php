@@ -47,7 +47,7 @@ font-family: Verdana, sans-serif;
                 </thead>
                 <tbody>
                  @foreach($assigns as $assign)
-                  <tr class=" light-green lighten-5">  
+                  <tr>  
 
                     <td>{{$assign->course_name.' '.$assign->year.' '.$assign->section}}</td> 
                     <td>{{$assign->subj_code}}</td>   
