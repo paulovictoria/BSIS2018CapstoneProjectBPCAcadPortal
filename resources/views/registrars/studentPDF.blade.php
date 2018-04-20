@@ -12,7 +12,7 @@ div.background {
 }
 
 div.transbox {
-  margin: 10px;
+  margin: 5px;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.9;
@@ -76,7 +76,7 @@ font-family: Verdana, sans-serif;
             </table>
             <div class="section green darken-4 white-text">
                 <div class="tablefooter">
-
+                    <div class="col s12"></div>
                 </div>
             </div>
         </div>
