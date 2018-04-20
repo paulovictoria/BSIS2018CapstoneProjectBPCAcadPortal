@@ -5,15 +5,10 @@
 <style type="text/css">
 div.background {
   background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
-  background-repeat: no-repeat;
-  background-position: center 185px;
+  background-repeat: repeat;
 
-  background-size: 300px;
-  width: 300px;
-  height: 300px;
-  border: 2px solid;
-  text-shadow: white 0px 0px 2px;
-  font-size: 16px;
+  background-size: 500px 500px;
+
 }
 
 div.transbox {
