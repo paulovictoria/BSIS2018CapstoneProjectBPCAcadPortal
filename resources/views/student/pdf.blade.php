@@ -8,7 +8,8 @@ div.background {
   background-repeat: no-repeat;
   background-position: center;
    background-size:     cover;  
-
+ width: 20em;
+  height: 10em;
 }
 
 div.transbox {
