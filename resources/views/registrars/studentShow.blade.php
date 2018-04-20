@@ -47,7 +47,7 @@
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
                                                 <td>{{$record->sem}}</td> 
-                                                <td>{{$record->year}}</td>                
+                                                <td>{{$record->academic_year}}</td>                
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -94,7 +94,7 @@
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
                                                 <td>{{$record->sem}}</td> 
-                                                <td>{{$record->year}}</td>                
+                                                <td>{{$record->academic_year}}</td>                
                                             </tr> 
                                             @endif   
                                             @endforeach
@@ -141,7 +141,7 @@
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
                                                 <td>{{$record->sem}}</td> 
-                                                <td>{{$record->year}}</td>                
+                                                <td>{{$record->academic_year}}</td>                
                                             </tr>  
                                             @endif   
                                             @endforeach
@@ -188,7 +188,7 @@
                                                 <td class="red-text">DROPPED</td>
                                                 @endif
                                                 <td>{{$record->sem}}</td> 
-                                                <td>{{$record->year}}</td>                
+                                                <td>{{$record->academic_year}}</td>                
                                             </tr> 
                                             @endif   
                                             @endforeach
