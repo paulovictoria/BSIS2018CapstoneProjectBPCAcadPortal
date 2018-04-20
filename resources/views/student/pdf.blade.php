@@ -10,8 +10,7 @@ div.background {
   background-size: contain;
   width: 500px;
   height: 500px;
-  resize: both;
-  overflow: scroll;
+
 }
 
 div.transbox {
