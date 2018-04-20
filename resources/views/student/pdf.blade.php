@@ -7,7 +7,7 @@ div.background {
   background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
   background-repeat: no-repeat;
   background-position: center 185px;
-  background-size: 500px 500px;
+  font-size: 500px;
 
 }
 
