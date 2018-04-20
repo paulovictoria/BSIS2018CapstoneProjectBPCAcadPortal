@@ -5,9 +5,10 @@
 <style type="text/css">
 div.background {
   background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
+  background-size: 500px 500px;
   background-repeat: no-repeat;
   background-position: center 185px;
-  background-size: 800% 100px;
+ 
 
 }
 
@@ -63,6 +64,7 @@ font-family: Verdana, sans-serif;
 			</div>
 	  	</div>
 	</div>
+	<div class="section"></div>
 	<div class="background">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
