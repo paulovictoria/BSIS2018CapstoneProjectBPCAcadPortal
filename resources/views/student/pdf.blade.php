@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <style type="text/css">
 div.background {
-  background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
+  background: url('bpclogo.png');
   background-repeat: no-repeat;
   background-position: center 185px;
   background-size: 500px 500px;
