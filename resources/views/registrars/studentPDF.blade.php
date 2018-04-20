@@ -82,7 +82,7 @@ font-family: Verdana, sans-serif;
         </div>
     </div>
     <div class="section">
-        <div class="col s12">
+        <div class="col s12 right-align">
             _______________<br>
             <p>Signature</p>
         </div>
