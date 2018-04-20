@@ -31,7 +31,7 @@ font-family: Verdana, sans-serif;
   </head>
   <body>
 	<div class="background">
-		<img src="https://www.bulacan.gov.ph/bpc//images/bpclogo.png" class="center" style="width: 500px">
+		<div><img src="https://www.bulacan.gov.ph/bpc//images/bpclogo.png" class="center" style="width: 500px"></div>
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
 		  	<h5>Bulacan Polytechnic College<br><span>city of {{Auth::user()->campus->campus_name}} Bulacan</span></h5>
