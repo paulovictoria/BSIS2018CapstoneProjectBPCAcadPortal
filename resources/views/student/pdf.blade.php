@@ -29,7 +29,15 @@ font-family: Verdana, sans-serif;
 </style>
   </head>
   <body>
-	<div class="background">
+  	<div style="background-image: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);  background-repeat: no-repeat;
+  background-position: center 185px;width:500px;height:500px;">
+
+  		  background-image: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
+  background-size: 500px 500px;
+  background-repeat: no-repeat;
+  background-position: center 185px;
+ 
+	<div style="background-image:url('/pix/samples/bg1.gif');padding:5px;width:150px;height:200px;border:1px solid black;">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
 		  	<h5>Bulacan Polytechnic College<br><span>city of {{Auth::user()->campus->campus_name}} Bulacan</span></h5>
