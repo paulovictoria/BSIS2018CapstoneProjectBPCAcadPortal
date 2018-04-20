@@ -6,8 +6,9 @@
 div.background {
   background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
   background-repeat: no-repeat;
-  background-position:center;
-  background-size:cover;  
+  background-position: center 185px;
+  background-size: 500px 500px;
+
 }
 
 div.transbox {
@@ -62,46 +63,6 @@ font-family: Verdana, sans-serif;
 			</div>
 	  	</div>
 	</div>
-
-   <!--  <script src="{{ asset('jquery/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.js') }}"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-  </body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<style type="text/css">
-div.background {
-  background: url(https://www.bulacan.gov.ph/bpc//images/bpclogo.png);
-  background-repeat: no-repeat;
-  background-position:center;
-  background-size:cover;  
-}
-
-div.transbox {
-  margin: 10px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.9;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
-}
-
-div.tablefooter {
-	width: 97%;
-	margin-right: auto;
-	margin-left: auto;
-font-family: Verdana, sans-serif;
-}
-</style>
-  </head>
-  <body>
 	<div class="background">
 	  <div class="transbox">
 	  	<div class="section green darken-4 white-text center-align">
@@ -137,7 +98,6 @@ font-family: Verdana, sans-serif;
 			</div>
 	  	</div>
 	</div>
-
    <!--  <script src="{{ asset('jquery/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/materialize.js') }}"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
