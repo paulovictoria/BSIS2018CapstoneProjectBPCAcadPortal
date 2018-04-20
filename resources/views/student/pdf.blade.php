@@ -12,9 +12,9 @@ div.background {
 #bg-text
 {
     color:lightgrey;
-    font-size:120px;
+    font-size:50px;
     transform:rotate(300deg);
-    -webkit-transform:rotate(300deg);
+
 }
 div.transbox {
   margin: 10px;
